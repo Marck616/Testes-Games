@@ -163,7 +163,7 @@
 
             lines.forEach(line => {
                 Object.keys(rubricasDetalhadas).forEach(rubrica => {
-                    const regex = new RegExp(`\\b${rubrica}\\b.*?(\\d+,\\d{2})`);
+                    const regex = new RegExp(`\\b${rubrica}\\b.*?(\\d{1,3}(?:\\.\\d{3})*,\\d{2})`);
                     const match = line.match(regex);
                     if (match) {
                         const row = rubricasTable.querySelector('tbody').insertRow();
