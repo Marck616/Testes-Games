@@ -8,6 +8,6 @@ strong {
 }
 
 button {
-  background-color: #33CC33;
+  background-color: #33CC33 !important;
   color: #FFFFFF;
 }
