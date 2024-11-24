@@ -6,3 +6,8 @@ body {
 strong {
     color: #22d4fd;
 }
+
+button {
+  background-color: #33CC33;
+  color: #FFFFFF;
+}
