@@ -15,3 +15,7 @@ button {
 input[type="text"] {
     background-color: #A5FFA4;
 }
+
+input[type="number"] {
+    background-color: #A5FFA4;
+}
