@@ -8,6 +8,10 @@ strong {
 }
 
 button {
-  background-color: #33CC33 !important;
-  color: #FFFFFF;
+    background-color: #33CC33 !important;
+    color: #FFFFFF;
+}
+
+input[type="text"] {
+    background-color: #A5FFA4;
 }
