@@ -21,5 +21,11 @@ input[type="number"] {
 }
 
 #result h2 {
-  color: blue;
+  color: green;
+}
+
+}
+
+h2 {
+  color: green;
 }
