@@ -19,3 +19,7 @@ input[type="text"] {
 input[type="number"] {
     background-color: #A5FFA4 !important;
 }
+
+#result h2 {
+  color: blue;
+}
