@@ -37,6 +37,13 @@
             font-size: 0.9em;
             color: #555;
         }
+        .no-copy {
+        user-select: none; /* Impede a seleção do texto */
+        -webkit-user-select: none; /* Compatível com navegadores WebKit (Chrome, Safari) */
+        -moz-user-select: none; /* Compatível com Firefox */
+        -ms-user-select: none; /* Compatível com IE antigo */
+        }
+
     </style>
     <script>
         const dataLimite = new Date('2025-06-01');
@@ -260,6 +267,7 @@
                 const row = tabelaProventos.querySelector('tbody').insertRow();
                 const dataCell = row.insertCell(0);
                 const proventosCell = row.insertCell(1);
+                dataCell.classList.add('no-copy'); // Adiciona a classe no-copy à célula de data
                 dataCell.textContent = converterDataParaNumerico(mesAno);
                 proventosCell.textContent = totalProventos.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
             });
@@ -297,6 +305,7 @@ function gerarTabelaMensalidades7035() {
                 const row = tabelaProventos.querySelector('tbody').insertRow();
                 const dataCell = row.insertCell(0);
                 const proventosCell = row.insertCell(1);
+                dataCell.classList.add('no-copy'); // Adiciona a classe no-copy à célula de data
                 dataCell.textContent = converterDataParaNumerico(mesAno);
                 proventosCell.textContent = totalProventos.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
             });
@@ -334,6 +343,7 @@ function gerarTabelaMensalidades7038() {
                 const row = tabelaProventos.querySelector('tbody').insertRow();
                 const dataCell = row.insertCell(0);
                 const proventosCell = row.insertCell(1);
+                dataCell.classList.add('no-copy'); // Adiciona a classe no-copy à célula de data
                 dataCell.textContent = converterDataParaNumerico(mesAno);
                 proventosCell.textContent = totalProventos.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
             });
@@ -371,6 +381,7 @@ function gerarTabelaMensalidades7039() {
                 const row = tabelaProventos.querySelector('tbody').insertRow();
                 const dataCell = row.insertCell(0);
                 const proventosCell = row.insertCell(1);
+                dataCell.classList.add('no-copy'); // Adiciona a classe no-copy à célula de data
                 dataCell.textContent = converterDataParaNumerico(mesAno);
                 proventosCell.textContent = totalProventos.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
             });
@@ -408,6 +419,7 @@ function gerarTabelaMensalidades7034() {
                 const row = tabelaProventos.querySelector('tbody').insertRow();
                 const dataCell = row.insertCell(0);
                 const proventosCell = row.insertCell(1);
+                dataCell.classList.add('no-copy'); // Adiciona a classe no-copy à célula de data
                 dataCell.textContent = converterDataParaNumerico(mesAno);
                 proventosCell.textContent = totalProventos.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
             });
@@ -445,6 +457,7 @@ function gerarTabelaMensalidades7037() {
                 const row = tabelaProventos.querySelector('tbody').insertRow();
                 const dataCell = row.insertCell(0);
                 const proventosCell = row.insertCell(1);
+                dataCell.classList.add('no-copy'); // Adiciona a classe no-copy à célula de data
                 dataCell.textContent = converterDataParaNumerico(mesAno);
                 proventosCell.textContent = totalProventos.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
             });
@@ -482,6 +495,7 @@ function gerarTabelaMensalidades7040() {
                 const row = tabelaProventos.querySelector('tbody').insertRow();
                 const dataCell = row.insertCell(0);
                 const proventosCell = row.insertCell(1);
+                dataCell.classList.add('no-copy'); // Adiciona a classe no-copy à célula de data
                 dataCell.textContent = converterDataParaNumerico(mesAno);
                 proventosCell.textContent = totalProventos.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
             });
@@ -519,6 +533,7 @@ function gerarTabelaMensalidades7049() {
                 const row = tabelaProventos.querySelector('tbody').insertRow();
                 const dataCell = row.insertCell(0);
                 const proventosCell = row.insertCell(1);
+                dataCell.classList.add('no-copy'); // Adiciona a classe no-copy à célula de data
                 dataCell.textContent = converterDataParaNumerico(mesAno);
                 proventosCell.textContent = totalProventos.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
             });
@@ -556,6 +571,7 @@ function gerarTabelaMensalidades7088() {
                 const row = tabelaProventos.querySelector('tbody').insertRow();
                 const dataCell = row.insertCell(0);
                 const proventosCell = row.insertCell(1);
+                dataCell.classList.add('no-copy'); // Adiciona a classe no-copy à célula de data
                 dataCell.textContent = converterDataParaNumerico(mesAno);
                 proventosCell.textContent = totalProventos.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
             });
@@ -593,6 +609,7 @@ function gerarTabelaMensalidades7090() {
                 const row = tabelaProventos.querySelector('tbody').insertRow();
                 const dataCell = row.insertCell(0);
                 const proventosCell = row.insertCell(1);
+                dataCell.classList.add('no-copy'); // Adiciona a classe no-copy à célula de data
                 dataCell.textContent = converterDataParaNumerico(mesAno);
                 proventosCell.textContent = totalProventos.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
             });
@@ -630,6 +647,7 @@ function gerarTabelaMensalidades7089() {
                 const row = tabelaProventos.querySelector('tbody').insertRow();
                 const dataCell = row.insertCell(0);
                 const proventosCell = row.insertCell(1);
+                dataCell.classList.add('no-copy'); // Adiciona a classe no-copy à célula de data
                 dataCell.textContent = converterDataParaNumerico(mesAno);
                 proventosCell.textContent = totalProventos.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
             });
@@ -667,6 +685,7 @@ function gerarTabelaMensalidades7091() {
                 const row = tabelaProventos.querySelector('tbody').insertRow();
                 const dataCell = row.insertCell(0);
                 const proventosCell = row.insertCell(1);
+                dataCell.classList.add('no-copy'); // Adiciona a classe no-copy à célula de data
                 dataCell.textContent = converterDataParaNumerico(mesAno);
                 proventosCell.textContent = totalProventos.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
             });
@@ -704,6 +723,7 @@ function gerarTabelaMensalidades7044() {
                 const row = tabelaProventos.querySelector('tbody').insertRow();
                 const dataCell = row.insertCell(0);
                 const proventosCell = row.insertCell(1);
+                dataCell.classList.add('no-copy'); // Adiciona a classe no-copy à célula de data
                 dataCell.textContent = converterDataParaNumerico(mesAno);
                 proventosCell.textContent = totalProventos.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
             });
