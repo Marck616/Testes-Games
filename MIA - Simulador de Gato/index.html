@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mia - Jogo de Simulação de Gato</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link para o CSS -->
+    <script defer src="script.js"></script> <!-- Link para o JavaScript, carregado de forma assíncrona -->
+</head>
+<body>
+    <header id="game-header">Mia - Jogo de Simulação de Gato</header> <!-- Cabeçalho fixo com o nome do jogo -->
+
+    <div id="game-container">
+        <aside id="status-section">
+            <!-- Status do gato: saúde, fome, sede -->
+            <h2>Status</h2>
+            <div class="status-bar">
+                <label>Saúde:</label>
+                <div class="bar"><div class="progress health"></div></div>
+            </div>
+            <div class="status-bar">
+                <label>Fome:</label>
+                <div class="bar"><div class="progress hunger"></div></div>
+            </div>
+            <div class="status-bar">
+                <label>Sede:</label>
+                <div class="bar"><div class="progress thirst"></div></div>
+            </div>
+        </aside>
+
+        <!-- Notificações dinâmicas -->
+        <main id="notifications-section">
+            <h2>Notificações</h2>
+            <div id="notifications">
+                <p>
+                    Bem-vindo ao Mia - Jogo de simulação de gato! Esse jogo serve para que eu treine minhas habilidades em programação web! Muito obrigado por jogar!
+                </p>
+                <button id="start-button">Ok</button> <!-- Botão inicial -->
+            </div>
+             <!-- Botões de ações na parte inferior -->
+             <div id="actions">
+                <button id="water-bowl">Tigela de Água</button>
+                <button id="food-bowl">Tigela de Ração</button>
+                <button id="pet">Carinho</button>
+                <button id="play">Brincar</button>
+                <button id="next-day">Próximo Dia</button>
+            </div>
+        </main>
+
+        <aside id="probabilities-section">
+            <h2>Probabilidades</h2>
+            <div id="probabilities">Nenhuma probabilidade calculada ainda.</div>
+        </aside>
+    </div>
+</body>
+</html>
