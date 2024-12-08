@@ -68,7 +68,7 @@ function confirmCat() {
 
 // Função para habilitar as ações do jogo após o início
 function enableGameActions() {
-    displayNotification('Seu gato está pronto para começar a aventura!');
+    displayNotification(`Ótimo! Seu gato se chama <strong>${catName}</strong> e tem aparência <strong>${appearance.value}</strong>.`);
 }
 
 // Função para calcular o próximo dia
