@@ -1,3 +1,80 @@
+// Criação do array de variáveis e influências
+const variables = [
+    { name: 'Variável 1', value: 50, influences: Array(20).fill(0), influenceType: Array(20).fill('parallel') },
+    { name: 'Variável 2', value: 30, influences: Array(20).fill(0), influenceType: Array(20).fill('parallel') },
+    { name: 'Variável 3', value: 70, influences: Array(20).fill(0), influenceType: Array(20).fill('parallel') },
+    { name: 'Variável 4', value: 20, influences: Array(20).fill(0), influenceType: Array(20).fill('parallel') },
+    { name: 'Variável 5', value: 90, influences: Array(20).fill(0), influenceType: Array(20).fill('parallel') },
+    { name: 'Variável 6', value: 40, influences: Array(20).fill(0), influenceType: Array(20).fill('parallel') },
+    { name: 'Variável 7', value: 60, influences: Array(20).fill(0), influenceType: Array(20).fill('parallel') },
+    { name: 'Variável 8', value: 10, influences: Array(20).fill(0), influenceType: Array(20).fill('parallel') },
+    { name: 'Variável 9', value: 80, influences: Array(20).fill(0), influenceType: Array(20).fill('parallel') },
+    { name: 'Variável 10', value: 55, influences: Array(20).fill(0), influenceType: Array(20).fill('parallel') },
+    { name: 'Variável 11', value: 45, influences: Array(20).fill(0), influenceType: Array(20).fill('parallel') },
+    { name: 'Variável 12', value: 65, influences: Array(20).fill(0), influenceType: Array(20).fill('parallel') },
+    { name: 'Variável 13', value: 75, influences: Array(20).fill(0), influenceType: Array(20).fill('parallel') },
+    { name: 'Variável 14', value: 35, influences: Array(20).fill(0), influenceType: Array(20).fill('parallel') },
+    { name: 'Variável 15', value: 85, influences: Array(20).fill(0), influenceType: Array(20).fill('parallel') },
+    { name: 'Variável 16', value: 25, influences: Array(20).fill(0), influenceType: Array(20).fill('parallel') },
+    { name: 'Variável 17', value: 95, influences: Array(20).fill(0), influenceType: Array(20).fill('parallel') },
+    { name: 'Variável 18', value: 5, influences: Array(20).fill(0), influenceType: Array(20).fill('parallel') },
+    { name: 'Variável 19', value: 15, influences: Array(20).fill(0), influenceType: Array(20).fill('parallel') },
+    { name: 'Variável 20', value: 100, influences: Array(20).fill(0), influenceType: Array(20).fill('parallel') },
+];
+
+// Cria os inputs para as variáveis no painel direito
+const container = document.getElementById('variables-container');
+function createVariableInputs() {
+    variables.forEach((variable, index) => {
+        const inputContainer = document.createElement('div');
+        inputContainer.classList.add('variable-container');
+        inputContainer.innerHTML = `
+            <label for="var-${index}">${variable.name}: </label>
+            <input type="number" id="var-${index}" value="${variable.value}" min="0" max="100" step="1" onchange="updateVariable(${index}, this.value)">
+            <span>%</span>
+        `;
+        container.appendChild(inputContainer);
+    });
+}
+
+// Atualiza uma variável alterada pelo usuário
+function updateVariable(index, value) {
+    const previousValue = variables[index].value;
+    variables[index].value = Number(value);
+    updateDependentVariables(index, previousValue);
+}
+
+// Atualiza variáveis dependentes com base nas influências
+function updateDependentVariables(changedIndex, previousValue) {
+    const changeFactor = variables[changedIndex].value - previousValue;
+    variables.forEach((variable, index) => {
+        if (index !== changedIndex) {
+            const influence = variables[changedIndex].influences[index];
+            const influenceType = variables[changedIndex].influenceType[index];
+            let changeAmount = (influence / 100) * changeFactor;
+
+            if (influenceType === 'inverse') {
+                changeAmount = -changeAmount;
+            }
+
+            variables[index].value = Math.max(0, Math.min(100, variables[index].value + changeAmount));
+            document.getElementById(`var-${index}`).value = variables[index].value;
+        }
+    });
+}
+
+// Define influências entre variáveis como exemplo
+variables[0].influences[1] = 10; // Variável 1 influencia a Variável 2
+variables[2].influences[3] = 20; // Variável 3 influencia a Variável 4 de forma inversa
+variables[2].influenceType[3] = 'inverse';
+
+// Inicializa os inputs ao carregar a página
+createVariableInputs();
+
+
+
+
+
 // Seleciona as barras do estado do gato
 const healthBar = document.querySelector('.health'); // Barra de saúde
 const hungerBar = document.querySelector('.hunger'); // Barra de fome
