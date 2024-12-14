@@ -33,6 +33,6 @@ h2 {
 }
 
 .destaque_vermelho {
-    color: red;
+    color: red !important;
 }
     
