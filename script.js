@@ -1,4 +1,4 @@
-// Seleciona o botão e o menu
+// CRIANDO UM MENU MINIMIZAVEL PARA INCLUIR MATERIAIS DE APOIO E INFORMAÇÕES PARA AS RESTITUIÇÕES
 const menuToggle = document.querySelector('.menu-toggle');
 const menuList = document.querySelector('.menu-list');
 
