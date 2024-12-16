@@ -1,6 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+} /* Reseta os modelos padrãos do navegado*/
+
+.redirecionar {
+    color: red;
+} /* Usar para destacar os elementos que quando clicados abrem outras abas*/
+
 body {
+    height: 100vh; /*garante que o conteudo da pagina use 100% da altura da tela */
+    box-sizing: border-box; /* ganrante que os componentes filhos não extrapolem o limite para os componetes pai*/
     background-color: white;
-    color: #black;
+    color: black;
+    
 }
 
 strong {
