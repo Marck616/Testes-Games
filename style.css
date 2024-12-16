@@ -47,4 +47,67 @@ h2 {
 .destaque_vermelho {
     color: red !important;
 }
+
+
+/* MENU MINIMIZAVEL */
+
+/* Container do menu */
+.menu-container {
+  position: relative;
+}
+
+
+/* Botão do menu */
+.menu-toggle {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+
+/* Lista do menu (estilo inicial oculto) */
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: none; /* Escondido por padrão */
+  background-color: #333;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 200px;
+  border: 1px solid #444;
+}
+
+
+.menu-list li {
+  border-bottom: 1px solid #444;
+}
+
+.menu-list li:last-child {
+  border-bottom: none;
+}
+
+.menu-list a {
+  display: block;
+  padding: 10px 20px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.menu-list a:hover {
+  background-color: #555;
+}
+
+/* Classe para mostrar o menu */
+.menu-list.hidden {
+  display: none; /* Garantir que o menu começa oculto */
+}
+
+.menu-list.visible {
+  display: block;
+}
     
