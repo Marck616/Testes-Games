@@ -23,13 +23,14 @@ button {
     background-color: #33CC33 !important;
     color: #FFFFFF;
     border: 1px solid black; /* Adiciona uma borda no botão */
-    padding: 10px 20px;
+    padding: 10px 20px; /* tamanho do botão em relação ao conteudo */
     cursor: pointer;
     font-size: 16px;
 }
 
 input[type="text"] {
     background-color: #A5FFA4;
+    padding: 10px 20px;
 }
 
 input[type="number"] {
