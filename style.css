@@ -22,7 +22,8 @@ strong {
 button {
     background-color: #33CC33 !important;
     color: #FFFFFF;
-    border: 1px solid black;
+    border: 1px solid black; /* Adiciona uma borda no botão */
+    padding: 10px 20px;
     cursor: pointer;
     font-size: 16px;
 }
