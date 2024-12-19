@@ -30,12 +30,12 @@ button {
 
 input[type="text"] {
     background-color: #A5FFA4;
-    padding: 10px 20px;
+    padding: 10px 10px;
 }
 
 input[type="number"] {
     background-color: #A5FFA4 !important;
-    padding: 10px 20px;
+    padding: 10px 10px;
 }
 
 #result h2 {
