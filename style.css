@@ -10,7 +10,7 @@
 body {
     height: 100vh; /*garante que o conteudo da pagina use 100% da altura da tela */
     box-sizing: border-box; /* ganrante que os componentes filhos não extrapolem o limite para os componetes pai*/
-    background-color: white;
+    background-color: #f4f4f9;
     color: black;
     
 }
