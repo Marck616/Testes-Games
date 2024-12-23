@@ -45,14 +45,38 @@
             max-width: 800px;
             margin-top: 20px;
         }
+        .pdf-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+        .pdf-item:hover {
+            border-color: #28a745;
+        }
+        .pdf-item.interacted {
+            border-color: #28a745;
+        }
         iframe {
             width: 100%;
             height: 400px;
-            border: 1px solid #ccc;
-            margin-bottom: 20px;
+            border: none;
         }
-        #teclado button {
-            margin: 2px;
+        .pdf-info {
+            padding: 10px;
+            background: #f4f4f4;
+            border-right: 1px solid #ccc;
+        }
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-left: 10px;
+        }
+        .checkbox-container label {
+            margin-left: 5px;
         }
     </style>
 </head>
@@ -71,28 +95,14 @@
             <input type="number" id="mesFim" placeholder="Mês de fim (ex: 12)" min="1" max="12">
         </div>
         <button onclick="gerarPDFs()">Gerar PDFs</button>
-        <h3>Selecione o mês:</h3>
-        <div id="teclado">
-            <!-- Botões para cada mês -->
-            <button onclick="abrirMes(1)">01</button>
-            <button onclick="abrirMes(2)">02</button>
-            <button onclick="abrirMes(3)">03</button>
-            <button onclick="abrirMes(4)">04</button>
-            <button onclick="abrirMes(5)">05</button>
-            <button onclick="abrirMes(6)">06</button>
-            <button onclick="abrirMes(7)">07</button>
-            <button onclick="abrirMes(8)">08</button>
-            <button onclick="abrirMes(9)">09</button>
-            <button onclick="abrirMes(10)">10</button>
-            <button onclick="abrirMes(11)">11</button>
-            <button onclick="abrirMes(12)">12</button>
-        </div>
     </header>
     <main>
         <div class="pdf-container" id="pdfContainer"></div>
     </main>
 
     <script>
+        let pdfCounter = 0;
+
         function gerarPDFs() {
             const matricula = document.getElementById('matricula').value;
             const anoInicio = parseInt(document.getElementById('anoInicio').value);
@@ -119,25 +129,41 @@
             }
         }
 
-        function abrirMes(mes) {
-            const matricula = document.getElementById('matricula').value;
-            const ano = document.getElementById('anoInicio').value;
-
-            if (!matricula || !ano) {
-                alert("Por favor, preencha a matrícula e o ano de início.");
-                return;
-            }
-
-            const link = `https://rhbahia.ba.gov.br/auditor/contracheque/file/pdf/${ano}/${mes}/1/${matricula}`;
-            criarIframe(link);
-        }
-
         function criarIframe(link) {
+            pdfCounter++;
             const pdfContainer = document.getElementById('pdfContainer');
+            
+            const pdfItem = document.createElement('div');
+            pdfItem.className = 'pdf-item';
+            
+            const pdfInfo = document.createElement('div');
+            pdfInfo.className = 'pdf-info';
+            pdfInfo.innerText = `PDF ${pdfCounter}`;
+            
+            const checkboxContainer = document.createElement('div');
+            checkboxContainer.className = 'checkbox-container';
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.id = `checkbox-${pdfCounter}`;
+            const checkboxLabel = document.createElement('label');
+            checkboxLabel.htmlFor = `checkbox-${pdfCounter}`;
+            checkboxLabel.innerText = "Marcar como visualizado";
+
+            checkboxContainer.appendChild(checkbox);
+            checkboxContainer.appendChild(checkboxLabel);
+
             const iframe = document.createElement('iframe');
             iframe.src = link;
             iframe.title = "Visualizador de PDF";
-            pdfContainer.appendChild(iframe);
+
+            iframe.addEventListener('mouseenter', () => {
+                pdfItem.classList.add('interacted');
+            });
+
+            pdfItem.appendChild(pdfInfo);
+            pdfItem.appendChild(iframe);
+            pdfItem.appendChild(checkboxContainer);
+            pdfContainer.appendChild(pdfItem);
         }
     </script>
 </body>
