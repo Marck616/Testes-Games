@@ -32,8 +32,8 @@ button {
 input[type="text"], input[type="number"] {
     background-color: #branco; !important;
     border: 1px solid #ccc;
-    padding: 5px 10px;
     border-radius: 4px;
+    padding: 5px 10px;
 }
 
 #result h2 {
