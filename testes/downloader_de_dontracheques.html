@@ -5,78 +5,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exibição de Contracheques</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            min-height: 100vh;
-            background-color: #f4f4f9;
-        }
-        header {
-            margin: 20px;
-            text-align: center;
-        }
-        input[type="text"], input[type="number"] {
-            width: 200px;
-            padding: 10px;
-            margin: 5px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        button {
-            padding: 10px 15px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        .pdf-container {
-            display: flex;
-            flex-direction: column;
-            width: 90%;
-            max-width: 800px;
-            margin-top: 20px;
-        }
-        .pdf-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            overflow: hidden;
-            position: relative;
-        }
-        .pdf-item:hover {
-            border-color: #28a745;
-        }
-        .pdf-item.interacted {
-            border-color: #28a745;
-        }
-        iframe {
-            width: 100%;
-            height: 400px;
-            border: none;
-        }
-        .pdf-info {
-            padding: 10px;
-            background: #f4f4f4;
-            border-right: 1px solid #ccc;
-        }
-        .checkbox-container {
-            display: flex;
-            align-items: center;
-            margin-left: 10px;
-        }
-        .checkbox-container label {
-            margin-left: 5px;
-        }
+/* Estiliza o corpo da página */
+body {
+    font-family: Arial, sans-serif; /* Define a fonte padrão como Arial ou uma genérica sans-serif */
+    margin: 0; /* Remove a margem padrão do corpo */
+    padding: 0; /* Remove o preenchimento padrão do corpo */
+    display: flex; /* Usa o layout flexbox no corpo */
+    flex-direction: column; /* Organiza os elementos filhos em uma coluna */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    justify-content: flex-start; /* Alinha os itens no início verticalmente */
+    min-height: 100vh; /* Define a altura mínima como 100% da altura da janela */
+    background-color: #f4f4f9; /* Define a cor de fundo do corpo */
+}
+
+/* Estiliza o cabeçalho */
+header {
+    margin: 20px; /* Adiciona uma margem ao redor do cabeçalho */
+    text-align: center; /* Centraliza o texto dentro do cabeçalho */
+}
+
+/* Estiliza os campos de entrada do tipo texto e número */
+input[type="text"], input[type="number"] {
+    width: 200px; /* Define a largura dos campos de entrada */
+    padding: 10px; /* Adiciona preenchimento interno para conforto ao digitar */
+    margin: 5px; /* Adiciona espaçamento ao redor dos campos de entrada */
+    border: 1px solid #ccc; /* Define uma borda cinza clara */
+    border-radius: 4px; /* Arredonda levemente os cantos da borda */
+}
+
+/* Estiliza os botões */
+button {
+    padding: 10px 15px; /* Define preenchimento interno no botão */
+    background-color: #007BFF; /* Define a cor de fundo azul */
+    color: white; /* Define a cor do texto como branca */
+    border: none; /* Remove a borda padrão do botão */
+    border-radius: 4px; /* Arredonda levemente os cantos do botão */
+    cursor: pointer; /* Altera o cursor para indicar que o botão é clicável */
+}
+
+/* Define o estilo do botão ao passar o mouse */
+button:hover {
+    background-color: #0056b3; /* Muda a cor de fundo para um azul mais escuro */
+}
+
+/* Estiliza o contêiner de PDFs */
+.pdf-container {
+    display: flex; /* Usa layout flexbox */
+    flex-direction: column; /* Organiza os elementos filhos em coluna */
+    width: 90%; /* Define a largura como 90% do contêiner pai */
+    max-width: 800px; /* Define a largura máxima de 800px */
+    margin-top: 20px; /* Adiciona um espaçamento superior ao contêiner */
+}
+
+/* Estiliza cada item PDF */
+.pdf-item {
+    display: flex; /* Usa layout flexbox */
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+    margin-bottom: 20px; /* Adiciona um espaçamento inferior entre os itens */
+    border: 1px solid #ccc; /* Define uma borda cinza clara */
+    border-radius: 4px; /* Arredonda levemente os cantos da borda */
+    overflow: hidden; /* Garante que o conteúdo fique dentro da borda arredondada */
+    position: relative; /* Define a posição relativa para ajustes adicionais */
+}
+
+/* Estiliza o item PDF quando o mouse está sobre ele */
+.pdf-item:hover {
+    border-color: #28a745; /* Altera a cor da borda para verde */
+}
+
+/* Estiliza o item PDF quando interagido */
+.pdf-item.interacted {
+    border-color: #28a745; /* Altera a cor da borda para verde */
+}
+
+/* Estiliza o elemento iframe */
+iframe {
+    width: 100%; /* Define a largura como 100% do contêiner pai */
+    height: 400px; /* Define a altura do iframe */
+    border: none; /* Remove a borda padrão */
+}
+
+/* Estiliza a seção de informações do PDF */
+.pdf-info {
+    padding: 10px; /* Adiciona preenchimento interno */
+    background: #f4f4f4; /* Define um fundo cinza claro */
+    border-right: 1px solid #ccc; /* Adiciona uma borda direita para separação */
+}
+
+/* Estiliza o contêiner de checkboxes */
+.checkbox-container {
+    display: flex; /* Usa layout flexbox */
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+    margin-left: 10px; /* Adiciona um espaçamento à esquerda */
+}
+
+/* Estiliza o rótulo dentro do contêiner de checkboxes */
+.checkbox-container label {
+    margin-left: 5px; /* Adiciona um espaçamento à esquerda do texto do rótulo */
+}
     </style>
 </head>
 <body>
