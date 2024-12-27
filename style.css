@@ -1,6 +1,6 @@
 * {
-    margin: 1px;
-    padding: 1px;
+    margin: 1px; /* Remove a margem padrão do corpo */
+    padding: 1px; /* Remove o preenchimento padrão do corpo */
 } /* Reseta os modelos padrãos do navegado*/
 
 .redirecionar {
@@ -8,6 +8,7 @@
 } /* Usar para destacar os elementos que quando clicados abrem outras abas*/
 
 body {
+    font-family: Arial, sans-serif; /* Define a fonte padrão como Arial ou uma genérica sans-serif */
     height: 100vh; /*garante que o conteudo da pagina use 100% da altura da tela */
     box-sizing: border-box; /* ganrante que os componentes filhos não extrapolem o limite para os componetes pai*/
     background-color: #f4f4f9;
