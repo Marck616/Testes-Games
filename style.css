@@ -23,7 +23,6 @@ strong {
 /* Estiliza os botões */
 button {
     padding: 10px 15px; /* Define preenchimento interno no botão */
-    margin: 5px;
     background-color: #007BFF; /* Define a cor de fundo azul */
     color: white; /* Define a cor do texto como branca */
     border: none; /* Remove a borda padrão do botão */
