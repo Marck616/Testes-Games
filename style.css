@@ -28,7 +28,6 @@ button {
     padding: 10px 15px; /* Define preenchimento interno no botão */
     background-color: #007BFF; /* Define a cor de fundo azul */
     color: white; /* Define a cor do texto como branca */
-    border: none; /* Remove a borda padrão do botão */
     border-radius: 4px; /* Arredonda levemente os cantos do botão */
     cursor: pointer; /* Altera o cursor para indicar que o botão é clicável */
     display: flex; /* Organiza os botões em linha */
