@@ -46,7 +46,7 @@ button:hover {
     display: flex; /* Usa layout flexbox */
     flex-direction: column; /* Organiza os elementos filhos em coluna */
     width: 90%; /* Define a largura como 90% do contêiner pai */
-    max-width: 2000px; /* Define a largura máxima de 800px */
+    max-width: 2000px; /* Define a largura máxima de 2000px */
     margin-top: 20px; /* Adiciona um espaçamento superior ao contêiner */
 }
 
@@ -251,7 +251,7 @@ iframe {
             checkbox.id = `checkbox-${pdfCounter}`;
             const checkboxLabel = document.createElement('label');
             checkboxLabel.htmlFor = `checkbox-${pdfCounter}`;
-            checkboxLabel.innerText = "Marcar como visualizado";
+            checkboxLabel.innerText = "Visto";
 
             checkboxContainer.appendChild(checkbox);
             checkboxContainer.appendChild(checkboxLabel);
