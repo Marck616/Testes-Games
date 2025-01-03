@@ -20,6 +20,15 @@ strong {
     color: #red;
 }
 
+/* Estiliza os campos de entrada do tipo texto e número */
+input[type="text"], input[type="number"] {
+    width: 200px; /* Define a largura dos campos de entrada */
+    padding: 10px; /* Adiciona preenchimento interno para conforto ao digitar */
+    margin: 5px; /* Adiciona espaçamento ao redor dos campos de entrada */
+    border: 1px solid #ccc; /* Define uma borda cinza clara */
+    border-radius: 4px; /* Arredonda levemente os cantos da borda */
+}
+
 /* Estiliza os botões */
 button {
     border: 1px solid black; /* Adiciona uma borda no botão */
@@ -36,13 +45,6 @@ button {
         flex-wrap: wrap; /* Permite que quebrem de linha se necessário */
     }
 
-/* Estiliza as caixas de texto */
-input[type="text"], input[type="number"] {
-    background-color: #branco; !important;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 5px 10px;
-}
 
 #result h2 {
   color: green;
