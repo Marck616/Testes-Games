@@ -146,6 +146,14 @@ iframe {
         <button onclick="search()">Buscar</button>
         <p id="result"></p>
 
+        <!-- Controle de zoom para PDFs -->
+        <!-- Controle de zoom para PDFs -->
+        <h3>Controle de Zoom:</h3>
+        <input type="range" id="zoomSlider" min="100" max="2000" value="400" step="50" />
+        <label for="zoomSlider">Tamanho: <span id="zoomValue">400px</span></label>
+        <!-- Controle de zoom para PDFs -->
+        <!-- Controle de zoom para PDFs -->
+
     </header>
     <main>
         <div class="pdf-container" id="pdfContainer"></div>
@@ -153,6 +161,35 @@ iframe {
 
     <script>
 
+
+//CONTROLE DE ZOOM DOS IFRAMES DOS PDFS///
+//CONTROLE DE ZOOM DOS IFRAMES DOS PDFS///
+//CONTROLE DE ZOOM DOS IFRAMES DOS PDFS///
+
+        // Atualiza o valor do zoom quando o controle deslizante é ajustado
+        const zoomSlider = document.getElementById('zoomSlider');
+        const zoomValue = document.getElementById('zoomValue');
+
+        zoomSlider.addEventListener('input', () => {
+            zoomValue.textContent = `${zoomSlider.value}px`;
+            ajustarTamanhoPDFs(zoomSlider.value);
+        });
+
+        // Ajusta o tamanho dos PDFs exibidos
+        function ajustarTamanhoPDFs(tamanho) {
+            const iframes = document.querySelectorAll('.pdf-item iframe');
+            iframes.forEach(iframe => {
+                iframe.style.width = `${tamanho}px`;
+                iframe.style.height = `${tamanho}px`;
+            });
+        }
+
+//CONTROLE DE ZOOM DOS IFRAMES DOS PDFS///
+//CONTROLE DE ZOOM DOS IFRAMES DOS PDFS///
+//CONTROLE DE ZOOM DOS IFRAMES DOS PDFS///        
+
+
+        
         let pdfCounter = 0;
 
         function gerarPDFs() {
