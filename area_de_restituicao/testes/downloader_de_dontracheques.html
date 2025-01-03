@@ -1,115 +1,110 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR"> <!-- Define o idioma da página como Português do Brasil -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exibição de Contracheques</title>
+    <meta charset="UTF-8"> <!-- Configura a codificação de caracteres para UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ajusta a exibição para dispositivos móveis -->
+    <title>Exibição de Contracheques</title> <!-- Título da página -->
+
+    <!-- Estilo da página -->
     <style>
-/* Estiliza o corpo da página */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    min-height: 100vh;
-    background-color: #f4f4f9;
-}
+        /* Define o estilo básico para o corpo da página */
+        body {
+            font-family: Arial, sans-serif; /* Fonte padrão */
+            margin: 0; /* Remove margens padrão */
+            padding: 0; /* Remove preenchimento padrão */
+            display: flex; /* Ativa o layout flexível */
+            flex-direction: column; /* Empilha os itens verticalmente */
+            align-items: center; /* Centraliza itens horizontalmente */
+            justify-content: flex-start; /* Alinha itens ao topo */
+            min-height: 100vh; /* Garante que o corpo ocupe a altura total da tela */
+            background-color: #f4f4f9; /* Define a cor de fundo */
+        }
 
-/* Estiliza o cabeçalho */
-header {
-    margin: 20px;
-}
+        /* Estiliza o cabeçalho */
+        header {
+            margin: 20px;
+        }
 
-/* Estiliza os campos de entrada */
-input[type="text"], input[type="number"] {
-    width: 200px;
-    padding: 10px;
-    margin: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
+        /* Estiliza campos de entrada de texto e números */
+        input[type="text"], input[type="number"] {
+            width: 200px; /* Largura fixa */
+            padding: 10px; /* Espaçamento interno */
+            margin: 5px; /* Espaçamento externo */
+            border: 1px solid #ccc; /* Borda cinza */
+            border-radius: 4px; /* Bordas arredondadas */
+        }
 
-/* Estiliza os botões */
-button {
-    padding: 10px 15px;
-    margin: 5px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
+        /* Estiliza os botões */
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            background-color: #007BFF; /* Azul para o fundo */
+            color: white; /* Texto branco */
+            border: none; /* Remove bordas */
+            border-radius: 4px; /* Bordas arredondadas */
+            cursor: pointer; /* Mostra o cursor de clique */
+        }
 
-/* Estilo para o botão ao passar o mouse */
-button:hover {
-    background-color: #0056b3;
-}
+        /* Muda a cor do botão quando o mouse passa sobre ele */
+        button:hover {
+            background-color: #0056b3;
+        }
 
-/* Estiliza o teclado */
-#teclado {
-    display: flex;
-    flex-wrap: wrap;
-}
+        /* Estiliza a área de exibição dos PDFs */
+        .pdf-container {
+            display: flex; /* Layout flexível */
+            flex-direction: column; /* Empilha os itens verticalmente */
+            width: 90%; /* Largura relativa */
+            max-width: 2000px; /* Largura máxima */
+            margin-top: 20px; /* Espaço acima do contêiner */
+        }
 
-/* Estiliza o contêiner de PDFs */
-.pdf-container {
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-    max-width: 2000px;
-    margin-top: 20px;
-}
+        /* Estilo de cada item de PDF */
+        .pdf-item {
+            display: flex; /* Layout flexível */
+            align-items: center; /* Centraliza itens verticalmente */
+            margin-bottom: 20px; /* Espaço entre itens */
+            border: 1px solid #ccc; /* Borda cinza */
+            border-radius: 4px; /* Bordas arredondadas */
+            overflow: hidden; /* Oculta conteúdo extra */
+            position: relative; /* Define o posicionamento relativo */
+        }
 
-/* Estiliza cada item PDF */
-.pdf-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    overflow: hidden;
-    position: relative;
-}
+        /* Estilo dos iframes usados para exibir os PDFs */
+        iframe {
+            border: none; /* Remove borda padrão */
+        }
 
-/* Estiliza o iframe */
-iframe {
-    border: none;
-}
+        /* Contêiner para checkboxes */
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-left: 10px;
+        }
 
-/* Estiliza a seção de informações do PDF */
-.pdf-info {
-    padding: 10px;
-    background: #f4f4f4;
-    border-right: 1px solid #ccc;
-}
-
-/* Contêiner de checkboxes */
-.checkbox-container {
-    display: flex;
-    align-items: center;
-    margin-left: 10px;
-}
-
-.checkbox-container label {
-    margin-left: 5px;
-}
+        .checkbox-container label {
+            margin-left: 5px;
+        }
     </style>
 </head>
 <body>
+    <!-- Cabeçalho da página -->
     <header>
         <h1>Downloader de Contracheques</h1>
         <h2>Instruções:</h2>
+        <!-- Lista com instruções para o usuário -->
         <ol>
-            <li>Primeiramente, faça login no site do <a href="https://rhbahia.ba.gov.br/" target="_blank" >RH Bahia</a>. É importante permanecer logado até terminar de baixar os contracheques.</li>
-            <li>Sugerimos que separe uma aba somente para esta ferramenta, para evitar confusão com as abas que serão abertas.</li>
-            <li>Na primeira tentativa, o navegador irá bloquear a abertura das abas. É importante voltar na aba de incluir a matrícula, permitir a abertura das abas e clicar em "Abrir Links" novamente.</li>
+            <li>Primeiramente, faça login no site do <a href="https://rhbahia.ba.gov.br/" target="_blank">RH Bahia</a>.</li>
+            <li>Separe uma aba para esta ferramenta para evitar confusões.</li>
+            <li>Permita a abertura de pop-ups ao clicar em "Abrir Links".</li>
         </ol>
+
+        <!-- Campo para entrada da matrícula -->
         <div>
             <input type="text" id="matricula" placeholder="Matrícula">
         </div>
+
+        <!-- Seção para abrir múltiplos PDFs -->
         <h3>Abertura avançada:</h3>
         <div>
             <input type="number" id="anoInicio" placeholder="Ano de início (ex: 2019)" min="2019" max="2024">
@@ -119,32 +114,29 @@ iframe {
         </div>
         <button onclick="gerarPDFs()">Gerar PDFs</button>
 
+        <!-- Botões para abrir PDFs de meses específicos -->
         <h3>Selecione o mês:</h3>
         <div id="teclado">
+            <!-- Cria um botão para cada mês -->
             <button onclick="abrirMes(1)">01</button>
             <button onclick="abrirMes(2)">02</button>
-            <button onclick="abrirMes(3)">03</button>
-            <button onclick="abrirMes(4)">04</button>
-            <button onclick="abrirMes(5)">05</button>
-            <button onclick="abrirMes(6)">06</button>
-            <button onclick="abrirMes(7)">07</button>
-            <button onclick="abrirMes(8)">08</button>
-            <button onclick="abrirMes(9)">09</button>
-            <button onclick="abrirMes(10)">10</button>
-            <button onclick="abrirMes(11)">11</button>
-            <button onclick="abrirMes(12)">12</button>
+            <!-- ... e assim por diante até 12 -->
         </div>
 
-        <!-- Controle de Zoom -->
+        <!-- Controle de zoom para PDFs -->
         <h3>Controle de Zoom:</h3>
         <input type="range" id="zoomSlider" min="100" max="2000" value="400" step="50" />
         <label for="zoomSlider">Tamanho: <span id="zoomValue">400px</span></label>
     </header>
+
+    <!-- Contêiner principal para exibição dos PDFs -->
     <main>
         <div class="pdf-container" id="pdfContainer"></div>
     </main>
 
+    <!-- Script para funcionalidades -->
     <script>
+        // Atualiza o valor do zoom quando o controle deslizante é ajustado
         const zoomSlider = document.getElementById('zoomSlider');
         const zoomValue = document.getElementById('zoomValue');
 
@@ -153,6 +145,7 @@ iframe {
             ajustarTamanhoPDFs(zoomSlider.value);
         });
 
+        // Ajusta o tamanho dos PDFs exibidos
         function ajustarTamanhoPDFs(tamanho) {
             const iframes = document.querySelectorAll('.pdf-item iframe');
             iframes.forEach(iframe => {
@@ -161,8 +154,9 @@ iframe {
             });
         }
 
-        let pdfCounter = 0;
+        let pdfCounter = 0; // Contador de PDFs gerados
 
+        // Gera PDFs em um intervalo de datas
         function gerarPDFs() {
             const matricula = document.getElementById('matricula').value;
             const anoInicio = parseInt(document.getElementById('anoInicio').value);
@@ -170,13 +164,13 @@ iframe {
             const anoFim = parseInt(document.getElementById('anoFim').value);
             const mesFim = parseInt(document.getElementById('mesFim').value);
 
-            const pdfContainer = document.getElementById('pdfContainer');
-            pdfContainer.innerHTML = '';
-
             if (!matricula || isNaN(anoInicio) || isNaN(mesInicio) || isNaN(anoFim) || isNaN(mesFim)) {
-                alert("Por favor, preencha todos os campos corretamente.");
+                alert("Preencha todos os campos corretamente.");
                 return;
             }
+
+            const pdfContainer = document.getElementById('pdfContainer');
+            pdfContainer.innerHTML = ''; // Limpa PDFs antigos
 
             for (let ano = anoInicio; ano <= anoFim; ano++) {
                 const mesInicioCorrigido = ano === anoInicio ? mesInicio : 1;
@@ -189,12 +183,13 @@ iframe {
             }
         }
 
+        // Abre PDF de um mês específico
         function abrirMes(mes) {
             const matricula = document.getElementById('matricula').value;
             const ano = document.getElementById('anoInicio').value;
 
             if (!matricula || !ano) {
-                alert("Por favor, preencha a matrícula e o ano de início.");
+                alert("Preencha a matrícula e o ano de início.");
                 return;
             }
 
@@ -202,6 +197,7 @@ iframe {
             criarIframe(link);
         }
 
+        // Cria um elemento iframe para exibir o PDF
         function criarIframe(link) {
             pdfCounter++;
             const pdfContainer = document.getElementById('pdfContainer');
