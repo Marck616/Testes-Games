@@ -135,31 +135,12 @@ iframe {
             <button onclick="abrirMes(12)">12</button>
         </div>
 
-        <!-- Controle de Zoom -->
-        <h3>Controle de Zoom:</h3>
-        <input type="range" id="zoomSlider" min="100" max="2000" value="400" step="50" />
-        <label for="zoomSlider">Tamanho: <span id="zoomValue">400px</span></label>
     </header>
     <main>
         <div class="pdf-container" id="pdfContainer"></div>
     </main>
 
     <script>
-        const zoomSlider = document.getElementById('zoomSlider');
-        const zoomValue = document.getElementById('zoomValue');
-
-        zoomSlider.addEventListener('input', () => {
-            zoomValue.textContent = ${zoomSlider.value}px;
-            ajustarTamanhoPDFs(zoomSlider.value);
-        });
-
-        function ajustarTamanhoPDFs(tamanho) {
-            const iframes = document.querySelectorAll('.pdf-item iframe');
-            iframes.forEach(iframe => {
-                iframe.style.width = ${tamanho}px;
-                iframe.style.height = ${tamanho}px;
-            });
-        }
 
         let pdfCounter = 0;
 
