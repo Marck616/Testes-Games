@@ -35,7 +35,22 @@
   </style>
 </head>
 <body>
-  <h1>Contracheque Parser</h1>
+  <h1>Filtro de Contracheque TJBA</h1>
+  <h2>RUBRICAS:</h2>
+  <p>Inclusas ✅/ Não inclusas ❌</p>
+    <ol>
+      <li>PLANO DE SAUDE DOS SERV.PUBLICOS ESTADUA (TITULAR)✅</li>
+      <li>PLANSERV ESPECIAL✅</li>
+      <li>PLANSERV AGREGADO MENOR✅</li>
+      <li>PLANSERV AGREGADO MAIOR✅</li>
+      <li>PLANSERV DEPENDENTE✅</li>
+      <li>CONJUGE❌</li>
+      <li>PARCELAS DE RISCO❌</li>
+      <li>RETROATIVO❌</li>
+      <li>RESTITUIÇÃO❌</li>
+      <li>COPARTICIPAÇÃO❌</li>
+      
+    </ol>ol>
   <p>Insira o texto do contracheque abaixo e clique no botão para identificar os valores.</p>
   <textarea id="inputText" placeholder="Cole aqui o texto dos contracheques..."></textarea>
   <button onclick="parseContracheques()">Filtrar Valores</button>
