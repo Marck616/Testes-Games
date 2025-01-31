@@ -5,33 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contracheque Parser</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-    }
-    textarea {
-      width: 100%;
-      height: 200px;
-      margin-bottom: 20px;
-    }
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    #results {
-      margin-top: 20px;
-    }
-    .result {
-      margin: 15px 0;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    .period {
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    textarea { width: 100%; height: 200px; margin-bottom: 20px; }
+    button { padding: 10px 20px; font-size: 16px; cursor: pointer; margin: 5px; }
+    #results, #tables { margin-top: 20px; }
+    .result, .table-container { margin: 15px 0; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+    .period { font-weight: bold; margin-bottom: 10px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    .no-copy { user-select: none; } /* Impede a seleção de texto */
   </style>
 </head>
 <body>
@@ -55,14 +37,101 @@
   <p>Insira o texto do contracheque abaixo e clique no botão para identificar os valores.</p>
   <textarea id="inputText" placeholder="Cole aqui o texto dos contracheques..."></textarea>
   <button onclick="parseContracheques()">Filtrar Valores</button>
-
+  <button onclick="parseContracheques2()">Filtrar Proventos</button>
   <div id="results"></div>
+  <div id="tables"></div>
 
   <script>
+    // Primeira parte do script - Filtrar Valores
+    const descriptions = [
+      "PLANO DE SAUDE DOS SERV.PUBLICOS ESTADUA",
+      "PLANSERV CONJUGE/COMPANHEIRO (A)",
+      "PLANSERV AGREGADO MENOR",
+      "PLANSERV AGREGADO MAIOR",
+      "PLANSERV DEPENDENTE",
+      "PLANSERV ESPECIAL",
+      "CO-PARTICIPAÇÃO PLANSERV",
+      "BRUTO PLANSERV",
+    ];
+    let parsedData = [];
+
     function parseContracheques() {
       const text = document.getElementById('inputText').value;
+      const chequeRegex = /(.*?\d+\s\/\s\d+)/gs;
+      const matches = text.matchAll(chequeRegex);
 
-      // Regex para identificar contracheques separados
+      const resultsDiv = document.getElementById('results');
+      resultsDiv.innerHTML = '<h2>Resultados:</h2>';
+      parsedData = [];
+
+      for (const match of matches) {
+        const chequeText = match[1].trim();
+        const values = extractValues(chequeText);
+        const periodMatch = chequeText.match(/\b(JAN|FEV|MAR|ABR|MAI|JUN|JUL|AGO|SET|OUT|NOV|DEZ)\/\d{4}\b/);
+        const period = periodMatch ? convertPeriod(periodMatch[0]) : "Período não encontrado";
+        parsedData.push({ period, values });
+
+        const resultDiv = document.createElement('div');
+        resultDiv.className = 'result';
+        resultDiv.innerHTML = `<div class="period">Período: ${period}</div>`;
+        for (const [desc, value] of Object.entries(values)) {
+          resultDiv.innerHTML += `<div>${desc}: ${value}</div>`;
+        }
+        resultsDiv.appendChild(resultDiv);
+      }
+      generateTableButtons();
+    }
+
+    function extractValues(text) {
+      const valueRegex = /\d{1,3}(\.\d{3})*,\d{2}/g;
+      const lines = text.split('\n').map(line => line.trim());
+      const values = text.match(valueRegex) || [];
+      const results = {};
+      descriptions.forEach(desc => {
+        const index = lines.findIndex(line => line.toUpperCase() === desc);
+        results[desc] = (index !== -1 && values[index]) ? values[index] : "Não encontrado";
+      });
+      const brutoPlansverIndex = values.length - 4;
+      results["BRUTO PLANSERV"] = brutoPlansverIndex >= 0 ? values[brutoPlansverIndex] : "Não encontrado";
+      return results;
+    }
+
+    function convertPeriod(period) {
+      const months = { "JAN": "01", "FEV": "02", "MAR": "03", "ABR": "04", "MAI": "05", "JUN": "06", "JUL": "07", "AGO": "08", "SET": "09", "OUT": "10", "NOV": "11", "DEZ": "12" };
+      const [month, year] = period.split('/');
+      return `${months[month]}/${year}`;
+    }
+
+    function generateTableButtons() {
+      const tablesDiv = document.getElementById('tables');
+      tablesDiv.innerHTML = '<h2>Gerar Tabelas:</h2>';
+      descriptions.forEach(desc => {
+        const button = document.createElement('button');
+        button.textContent = `Gerar tabela ${desc}`;
+        button.onclick = () => generateTable(desc);
+        tablesDiv.appendChild(button);
+      });
+    }
+
+    function generateTable(description) {
+      const tableDiv = document.createElement('div');
+      tableDiv.className = 'table-container';
+      tableDiv.innerHTML = `<h3>${description}</h3>`;
+      const table = document.createElement('table');
+      table.innerHTML = '<tr><th>Período</th><th>Valor</th></tr>';
+      parsedData.forEach(entry => {
+        const row = document.createElement('tr');
+        // Adiciona a classe "no-copy" à célula do período
+        row.innerHTML = `<td class="no-copy">${entry.period}</td><td>${entry.values[description] || 'Não encontrado'}</td>`;
+        table.appendChild(row);
+      });
+      tableDiv.appendChild(table);
+      document.getElementById('tables').appendChild(tableDiv);
+    }
+
+    // Segunda parte do script - Filtrar Proventos
+    function parseContracheques2() {
+      const text = document.getElementById('inputText').value;
       const chequeRegex = /(.*?\d+\s\/\s\d+)/gs;
       const matches = text.matchAll(chequeRegex);
 
@@ -72,43 +141,48 @@
       let counter = 1;
       for (const match of matches) {
         const chequeText = match[1].trim();
+        const values = extractValues2(chequeText);
 
-        // Processa o texto de um único contracheque
-        const values = extractValues(chequeText);
-
-        // Extrai o período
         const periodMatch = chequeText.match(/\b(JAN|FEV|MAR|ABR|MAI|JUN|JUL|AGO|SET|OUT|NOV|DEZ)\/\d{4}\b/);
         const period = periodMatch ? periodMatch[0] : `Período não encontrado (${counter})`;
 
-        // Adiciona os resultados ao HTML
         const resultDiv = document.createElement('div');
         resultDiv.className = 'result';
-
         resultDiv.innerHTML = `<div class="period">Período: ${period}</div>`;
 
+        let total = 0;
         for (const [description, value] of Object.entries(values)) {
           resultDiv.innerHTML += `<div>${description}: ${value}</div>`;
+          if (description !== "BRUTO PLANSERV" && value !== "Não encontrado") {
+            total += parseFloat(value.replace(".", "").replace(",", "."));
+          }
         }
+
+        const formattedTotal = total.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        resultDiv.innerHTML += `<div><strong>Total das Rubricas Selecionadas: R$ ${formattedTotal}</strong></div>`;
 
         resultsDiv.appendChild(resultDiv);
         counter++;
       }
     }
 
-    function extractValues(text) {
-      // Descrições a serem buscadas
+    function extractValues2(text) {
       const descriptions = [
-        "PLANO DE SAUDE DOS SERV.PUBLICOS ESTADUA",
-        "PLANSERV ESPECIAL",
-        "PLANSERV AGREGADO MENOR",
-        "PLANSERV AGREGADO MAIOR",
-        "PLANSERV DEPENDENTE",
+        "VENCIMENTO BASICO",
+        "VANTAGEM PESSOAL EFICIENCIA LEI 7885/01",
+        "ADICIONAL TEMPO DE SERVICO",
+        "DIFERENCA AUMENTO",
+        "GRATIFIC.ESP.EFICIENCIA ACUMULADA",
+        "GRATIFIC.ESP.EFICIENCIA ACUMULADA",
+        "GRATIFICAÇÃO DE ATIVIDADE EXTERNA",
+        "VANT. PESSOAL INCENTIVO LEI 14027/18",
+        "DIF DE VENCIMEN - ENQUADRAMENTO/PROGRESSÃO",
+        "DIFERENCA DE NIVEL",
+        "DIF CRÉDITO - DIFERENÇA DE VENCIMENTOS",
+        "DIFERENCA ANUENIO"
       ];
 
-      // Regex para encontrar valores no formato "X.XXX,XX" ou "XXX,XX"
       const valueRegex = /\d{1,3}(\.\d{3})*,\d{2}/g;
-
-      // Divide as linhas e valores
       const lines = text.split('\n').map(line => line.trim());
       const values = text.match(valueRegex) || [];
 
@@ -118,7 +192,6 @@
         results[description] = (index !== -1 && values[index]) ? values[index] : "Não encontrado";
       });
 
-      // Encontra o valor "BRUTO PLANSERV" (4º valor de trás para frente)
       const brutoPlansverIndex = values.length - 4;
       results["BRUTO PLANSERV"] = brutoPlansverIndex >= 0 ? values[brutoPlansverIndex] : "Não encontrado";
 
