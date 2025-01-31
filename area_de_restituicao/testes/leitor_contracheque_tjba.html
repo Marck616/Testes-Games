@@ -38,8 +38,9 @@
   <textarea id="inputText" placeholder="Cole aqui o texto dos contracheques..."></textarea>
   <button onclick="parseContracheques()">Filtrar Valores</button>
   <button onclick="parseContracheques2()">Filtrar Proventos</button>
-  <div id="results"></div>
   <div id="tables"></div>
+  <div id="results"></div>
+
 
   <script>
     // Primeira parte do script - Filtrar Valores
@@ -113,22 +114,40 @@
       });
     }
 
-    function generateTable(description) {
-      const tableDiv = document.createElement('div');
-      tableDiv.className = 'table-container';
-      tableDiv.innerHTML = `<h3>${description}</h3>`;
-      const table = document.createElement('table');
-      table.innerHTML = '<tr><th>Período</th><th>Valor</th></tr>';
-      parsedData.forEach(entry => {
-        const row = document.createElement('tr');
-        // Adiciona a classe "no-copy" à célula do período
-        row.innerHTML = `<td class="no-copy">${entry.period}</td><td>${entry.values[description] || 'Não encontrado'}</td>`;
-        table.appendChild(row);
-      });
-      tableDiv.appendChild(table);
-      document.getElementById('tables').appendChild(tableDiv);
-    }
 
+    function generateTable(description) {
+  // Obtém o contêiner onde as tabelas serão exibidas
+  const tablesDiv = document.getElementById('tables');
+  // Limpa o conteúdo anterior do contêiner
+  tablesDiv.innerHTML = '';
+  // Cria um novo elemento <div> para conter a tabela
+  const tableDiv = document.createElement('div');
+  // Adiciona a classe 'table-container' ao <div> para estilização
+  tableDiv.className = 'table-container';
+  // Define o conteúdo HTML interno do <div>, incluindo um título (<h3>) com a descrição da tabela
+  tableDiv.innerHTML = `<h3>${description}</h3>`;
+  // Cria um novo elemento <table> para exibir os dados
+  const table = document.createElement('table');
+  // Define o cabeçalho da tabela com duas colunas: "Período" e "Valor"
+  table.innerHTML = '<tr><th>Período</th><th>Valor</th></tr>';
+  // Itera sobre os dados armazenados em `parsedData` (que contém os períodos e valores)
+  parsedData.forEach(entry => {
+    // Cria uma nova linha (<tr>) para cada entrada de dados
+    const row = document.createElement('tr');
+    // Preenche a linha com duas células (<td>):
+    // 1. A primeira célula contém o período, com a classe "no-copy" para impedir a seleção de texto
+    // 2. A segunda célula contém o valor correspondente à descrição ou "Não encontrado" se o valor não existir
+    row.innerHTML = `<td class="no-copy">${entry.period}</td><td>${entry.values[description] || 'Não encontrado'}</td>`;
+    // Adiciona a linha à tabela
+    table.appendChild(row);
+  });
+  // Adiciona a tabela ao <div> criado anteriormente
+  tableDiv.appendChild(table);
+  // Adiciona o <div> com a tabela ao elemento com ID "tables" no HTML
+  tablesDiv.appendChild(tableDiv);
+}
+
+    
     // Segunda parte do script - Filtrar Proventos
     function parseContracheques2() {
       const text = document.getElementById('inputText').value;
