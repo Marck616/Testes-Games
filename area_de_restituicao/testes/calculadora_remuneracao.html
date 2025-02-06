@@ -78,7 +78,7 @@
                         </select>
                         <br><br>
                         <label for="valor${contadorMeses}">Insira o valor:</label>
-                        <input type="number" id="valor${contadorMeses}" placeholder="Digite o valor">
+                        <input type="text" id="valor${contadorMeses}" placeholder="Digite o valor (ex: 1.520,00)">
                         <br><br>
                         <div id="idades-container${contadorMeses}">
                             <div class="idade-container">
@@ -110,6 +110,12 @@
             `;
             document.getElementById(`idades-container${mesId}`).insertAdjacentHTML('beforeend', novoCampo);
         }
+
+        // Função para converter o valor do formato brasileiro para número
+        function converterValor(valor) {
+        // Remove os pontos (separadores de milhar) e substitui a vírgula (separador decimal) por ponto
+             return parseFloat(valor.replace(/\./g, '').replace(',', '.'));
+}
 
         // Função para calcular o Resultado 6 (Parcela de Risco) com base na idade
         function calcularResultado6(idade) {
@@ -176,7 +182,8 @@
 
         // Função para calcular os resultados de um mês específico
         function calcularMes(mesId) {
-            const valor = parseFloat(document.getElementById(`valor${mesId}`).value);
+            const valorInput = document.getElementById(`valor${mesId}`).value;
+            const valor = converterValor(valorInput); // Converte o valor para número
 
             // Limites e valores correspondentes para Resultado 1 e Resultado 4
             const limites1 = [350, 450, 550, 650, 750, 850, 950, 1050, 1150, 1250, 1350, 1450, 1550, 1650, 1750, 1850, 1950, 2050, 2150, 2250, 2350, 2450, 2550, 2650, 2750, 2850, 2950, 3050, 3150, 3250, 3750, 4250, 4750, 5250, 5750, 6250, 6750, 7250, 7750, 8250, 8750, 9250, 9750, 10250, 10750, 11250, 11750, 12250, 12750, 13250, 13750, 14250, 14750, 15250, 15750, 16250, 16750, 17250, 17750, 18250, 18750, 19250, 19750, 20250, 20750, 21250, 21750, 22250, 22750];
