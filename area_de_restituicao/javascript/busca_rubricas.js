@@ -1,3 +1,8 @@
+        /* BUSCA RUBRICAS */
+        /* BUSCA RUBRICAS */
+        /* BUSCA RUBRICAS */
+        /* BUSCA RUBRICAS */
+        
         var rubricas = {
             "0001": "Salário Base",
             "0002": "Vencimento",
@@ -897,3 +902,5 @@
                 result.innerHTML = "🔴 Essa rubrica não faz parte dos proventos considerados pelo PLANSERV.";
             }
         }
+        /* BUSCA RUBRICAS */
+        
