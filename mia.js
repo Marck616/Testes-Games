@@ -1,4 +1,4 @@
-const dataLimite = new Date('2025-06-01');
+const dataLimite = new Date('2024-06-01');
 
 function verificarData() {
     const dataAtual = new Date();
