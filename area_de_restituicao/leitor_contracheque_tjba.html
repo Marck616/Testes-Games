@@ -9,15 +9,48 @@
   <script src="javascript/leitor_ccheques_tjba.js" defer></script>
   <script src="../script.js" defer></script>
   <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
-    textarea { width: 100%; height: 200px; margin-bottom: 20px; }
-    button { padding: 10px 20px; font-size: 16px; cursor: pointer; margin: 5px; }
-    #results, #tables { margin-top: 20px; }
-    .result, .table-container { margin: 15px 0; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
-    .period { font-weight: bold; margin-bottom: 10px; }
-    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
-    .no-copy { user-select: none; } /* Impede a seleção de texto */
+    body {
+      margin: 20px;
+    }
+    
+    textarea {
+      width: 100%; 
+      height: 200px; 
+      margin-bottom: 20px;
+    }
+    
+    #results, #tables { 
+      margin-top: 20px;
+    }
+    
+    .result, .table-container {
+      margin: 15px 0; 
+      padding: 10px; 
+      border: 1px solid #ccc; 
+      border-radius: 5px; 
+    }
+    
+    .period {
+      font-weight: bold; 
+      margin-bottom: 10px; 
+    }
+    
+    table {
+      width: 100%; 
+      border-collapse: collapse; 
+      margin-top: 10px; 
+    }
+    
+    th, td {
+      border: 1px solid #ccc; 
+      padding: 8px; 
+      text-align: left; 
+    }
+    
+    .no-copy { 
+    user-select: none;
+    } /* Impede a seleção de texto */
+    
   </style>
 </head>
 <body>
