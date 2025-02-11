@@ -117,6 +117,7 @@ Exemplo sem datas:
         let valoresTitularAtual = valoresTitular3;
         let limitesDependenteAtual = limitesDependente3;
         let valoresDependenteAtual = valoresDependente3;
+        let valorAgregadoJovemAtual = 75.91; // Valor inicial para a Tabela 3
 
         // Função para mudar a tabela selecionada
         function mudarTabela() {
@@ -129,6 +130,7 @@ Exemplo sem datas:
                 valoresTitularAtual = valoresTitular1;
                 limitesDependenteAtual = limitesDependente1;
                 valoresDependenteAtual = valoresDependente1;
+                valorAgregadoJovemAtual = 70.18; // Valor para a Tabela 1
                 body.className = 'tabela1';
                 titulo.textContent = 'LEI Nº 13.450 DE 26 DE OUTUBRO DE 2015 - Finaliza em 12/2021';
             } else if (tabelaSelecionada === '2') {
@@ -136,6 +138,7 @@ Exemplo sem datas:
                 valoresTitularAtual = valoresTitular2;
                 limitesDependenteAtual = limitesDependente2;
                 valoresDependenteAtual = valoresDependente2;
+                valorAgregadoJovemAtual = 72.99; // Valor para a Tabela 2
                 body.className = 'tabela2';
                 titulo.textContent = 'LEI Nº 14.405 DE 22 DE DEZEMBRO DE 2021 - Tabela de 01/2022 a 05/2023';
             } else if (tabelaSelecionada === '3') {
@@ -143,6 +146,7 @@ Exemplo sem datas:
                 valoresTitularAtual = valoresTitular3;
                 limitesDependenteAtual = limitesDependente3;
                 valoresDependenteAtual = valoresDependente3;
+                valorAgregadoJovemAtual = 75.91; // Valor para a Tabela 3
                 body.className = 'tabela3';
                 titulo.textContent = 'LEI Nº 14.570 DE 23 DE MAIO DE 2023 - Tabela de 06/2023 - ATUAL';
             }
@@ -178,9 +182,9 @@ Exemplo sem datas:
             return valoresDependenteAtual[valoresDependenteAtual.length - 1];
         }
 
-        // Função para calcular o valor do Agregado Jovem (sempre 70,18)
+        // Função para calcular o valor do Agregado Jovem (depende da tabela selecionada)
         function calcularAgregadoJovem() {
-            return 70.18;
+            return valorAgregadoJovemAtual;
         }
 
         // Função para calcular o valor do Plano Especial (sempre 65,00)
