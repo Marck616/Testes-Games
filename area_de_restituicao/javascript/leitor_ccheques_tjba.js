@@ -167,7 +167,8 @@
         "DIF DE VENCIMEN - ENQUADRAMENTO/PROGRESSÃO",
         "DIFERENCA DE NIVEL",
         "DIF CRÉDITO - DIFERENÇA DE VENCIMENTOS",
-        "DIFERENCA ANUENIO"
+        "DIFERENCA ANUENIO",
+        "ADICIONAL FUNCAO"
       ];
 
       const valueRegex = /\d{1,3}(\.\d{3})*,\d{2}/g;
