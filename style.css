@@ -1,135 +1,135 @@
+/* Reset e ajustes gerais */
 * {
-    margin: 1px; /* Remove a margem padrão do corpo */
-    padding: 1px; /* Remove o preenchimento padrão do corpo */
-} /* Reseta os modelos padrões do navegador */
-
-.redirecionar {
-    color: #FFD700; /* Amarelo dourado para destacar links */
-} 
-
-body {
-    font-family: 'Comic Sans MS', cursive, sans-serif; /* Fonte mais festiva */
-    height: 100vh; /* Garante que o conteúdo da página use 100% da altura da tela */
-    box-sizing: border-box; /* Garante que os componentes filhos não extrapolem o limite para os componentes pai */
-    background-color: #FF4500; /* Laranja vibrante */
-    color: #FFFFFF; /* Texto branco para contraste */
-    background-image: url('https://www.transparenttextures.com/patterns/confetti.png'); /* Textura de confete */
-    animation: confetti 5s infinite linear;
+    margin: 1px;
+    padding: 1px;
 }
 
-@keyframes confetti {
-    0% { background-position: 0 0; }
-    100% { background-position: 100% 100%; }
+.redirecionar {
+    color: #ff4500; /* Laranja vibrante */
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    height: 100vh;
+    box-sizing: border-box;
+    background: linear-gradient(45deg, #ff0, #ff1493, #00ced1, #32cd32, #ff4500);
+    background-size: 400% 400%;
+    animation: carnaval-bg 10s infinite linear;
+    color: #ffffff;
+    text-align: center;
+}
+
+@keyframes carnaval-bg {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 strong {
-    color: #FFD700; /* Amarelo dourado para texto forte */
+    color: #ff1493;
 }
 
-/* Estiliza os campos de entrada do tipo texto e número */
 input[type="text"], input[type="number"] {
-    width: 200px; /* Define a largura dos campos de entrada */
-    padding: 10px; /* Adiciona preenchimento interno para conforto ao digitar */
-    margin: 5px; /* Adiciona espaçamento ao redor dos campos de entrada */
-    border: 2px solid #FFD700; /* Borda dourada */
-    border-radius: 8px; /* Bordas mais arredondadas */
-    background-color: #FF6347; /* Coral */
-    color: #FFFFFF; /* Texto branco */
+    width: 200px;
+    padding: 10px;
+    margin: 5px;
+    border: 2px solid #ff1493;
+    border-radius: 10px;
+    background-color: #fffae6;
+    color: #ff4500;
+    font-weight: bold;
 }
 
-/* Estiliza os botões */
 button {
-    border: 2px solid #FFD700; /* Borda dourada */
-    border-radius: 8px; /* Bordas mais arredondadas */
-    font-size: 16px;
-    padding: 10px 15px; /* Define preenchimento interno no botão */
-    background-color: #FF6347; /* Coral */
-    color: #FFFFFF; /* Texto branco */
-    cursor: pointer; /* Altera o cursor para indicar que o botão é clicável */
-    transition: background-color 0.3s ease;
+    border: 2px solid #ffd700;
+    border-radius: 10px;
+    font-size: 18px;
+    padding: 12px 20px;
+    background: linear-gradient(45deg, #ff4500, #ffd700);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
 }
 
 button:hover {
-    background-color: #FF4500; /* Laranja vibrante ao passar o mouse */
+    transform: scale(1.1);
+    background: linear-gradient(45deg, #ffd700, #ff4500);
 }
 
 #teclado {
-    display: flex; /* Organiza os botões em linha */
-    flex-wrap: wrap; /* Permite que quebrem de linha se necessário */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
 }
 
-#result h2 {
-    color: #32CD32; /* Verde limão para resultados */
+h2, #result h2 {
+    color: #ff0;
+    text-shadow: 2px 2px 5px #ff4500;
+    animation: pisca 1s infinite alternate;
 }
 
-h2 {
-    color: #32CD32; /* Verde limão para títulos */
+h3, #values h3 {
+    color: #00ced1;
 }
 
-#values h3 {
-    color: #FFD700; /* Amarelo dourado para subtítulos */
+@keyframes pisca {
+    0% { opacity: 1; }
+    100% { opacity: 0.5; }
 }
 
 .destaque_vermelho {
-    color: #FF0000 !important; /* Vermelho para destaque */
+    color: #ff0000 !important;
+    font-weight: bold;
 }
 
 /* MENU MINIMIZÁVEL */
-
-/* Container do menu */
 .menu-container {
     position: relative;
 }
 
-/* Botão do menu */
 .menu-toggle {
-    background-color: #FF6347; /* Coral */
-    color: #FFFFFF; /* Texto branco */
-    padding: 10px 20px;
+    background: linear-gradient(45deg, #ff1493, #00ced1);
+    color: #fff;
+    padding: 12px 20px;
     border: none;
     cursor: pointer;
-    font-size: 16px;
-    border-radius: 8px; /* Bordas mais arredondadas */
+    font-size: 18px;
+    border-radius: 10px;
+    font-weight: bold;
 }
 
-/* Lista do menu (estilo inicial oculto) */
 .menu-list {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: none; /* Escondido por padrão */
-    background-color: #FF6347; /* Coral */
+    display: none;
+    background: linear-gradient(45deg, #32cd32, #ff4500);
     position: absolute;
     top: 50px;
     left: 0;
-    width: 600px; /* Define a largura de um elemento */
-    border: 2px solid #FFD700; /* Borda dourada */
-    border-radius: 8px; /* Bordas mais arredondadas */
+    width: 300px;
+    border-radius: 10px;
 }
 
 .menu-list li {
-    border-bottom: 2px solid #FFD700; /* Borda dourada */
+    border-bottom: 1px solid #fff;
 }
 
-.menu-list li:last-child {
-    border-bottom: none;
-}
-
-/* Botões internos no menu */
 .menu-list a {
     display: block;
     padding: 10px 20px;
-    color: #FFFFFF; /* Texto branco */
+    color: #fff;
     text-decoration: none;
+    font-weight: bold;
 }
 
 .menu-list a:hover {
-    background-color: #FF4500; /* Laranja vibrante ao passar o mouse */
-}
-
-/* Classe para mostrar o menu */
-.menu-list.hidden {
-    display: none; /* Garante que o menu comece oculto */
+    background: #ffd700;
+    color: #ff4500;
 }
 
 .menu-list.visible {
