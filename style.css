@@ -14,8 +14,7 @@ body {
     font-family: 'Comic Sans MS', cursive, sans-serif;
     height: 100vh;
     box-sizing: border-box;
-    /* background: linear-gradient(45deg, #ff0, #ff1493, #00ced1, #32cd32, #ff4500); */
-    background: #00ced1;
+    background: linear-gradient(45deg, #ff0, #ff1493, #00ced1, #32cd32, #ff4500);
     background-size: 400% 400%;
     animation: carnaval-bg 10s infinite linear;
     color: #ffffff;
