@@ -95,6 +95,10 @@ Exemplo sem datas:
         const limitesTitular1 = [350, 450, 550, 650, 750, 850, 950, 1050, 1150, 1250, 1350, 1450, 1550, 1650, 1750, 1850, 1950, 2050, 2150, 2250, 2350, 2450, 2550, 2650, 2750, 2850, 2950, 3050, 3150, 3250, 3750, 4250, 4750, 5250, 5750, 6250, 6750, 7250, 7750, 8250, 8750, 9250, 9750, 10250, 10750, 11250, 11750, 12250, 12750, 13250, 13750, 14250, 14750, 15250, 15750, 16250, 16750, 17250, 17750, 18250, 18750, 19250, 19750, 20250, 20750, 21250, 21750, 22250];
         const valoresTitular1 = [26.00, 36.00, 46.00, 50.70, 59.80, 68.90, 78.00, 87.10, 96.20, 105.30, 114.40, 123.50, 132.60, 141.70, 150.80, 159.90, 169.00, 178.10, 187.20, 196.30, 205.40, 214.50, 223.60, 232.70, 241.80, 250.90, 260.00, 269.10, 278.20, 287.30, 296.40, 305.50, 314.60, 323.70, 332.80, 341.90, 351.00, 360.10, 369.20, 378.30, 387.40, 396.50, 405.60, 414.70, 423.80, 432.90, 442.00, 451.10, 460.20, 469.30, 478.40, 487.50, 496.60, 505.70, 514.80, 523.90, 533.00, 542.10, 551.20, 560.30, 569.40, 578.50, 587.60, 596.70, 605.80, 614.90, 624.00, 633.10, 642.20];
 
+        //Conjuge incluida
+        const limitesConjuge1 = [350, 450, 550, 650, 750, 850, 950, 1050, 1150, 1250, 1350, 1450, 1550, 1650, 1750, 1850, 1950, 2050, 2150, 2250, 2350, 2450, 2550, 2650, 2750, 2850, 2950, 3050, 3150, 3250, 3750, 4250, 4750, 5250, 5750, 6250, 6750, 7250, 7750, 8250, 8750, 9250, 9750, 10250, 10750, 11250, 11750, 12250, 12750, 13250, 13750, 14250, 14750, 15250, 15750, 16250, 16750, 17250, 17750, 18250, 18750, 19250, 19750, 20250, 20750, 21250, 21750, 22250];
+        const valoresConjuge1 = [13.00, 18.00, 23.00, 25.35, 29.90, 34.45, 39.00, 43.55, 48.10, 52.65, 57.20, 61.75, 66.30, 70.85, 75.40, 79.95, 84.50, 89.05, 93.60, 98.15, 102.70, 107.25, 111.80, 116.35, 120.90, 125.45, 130.00, 134.55, 139.10, 143.65, 148.20, 152.75, 157.30, 161.85, 166.40, 170.95, 175.50, 180.05, 184.60, 189.15, 193.70, 198.25, 202.80, 207.35, 211.90, 216.45, 221.00, 225.55, 230.10, 234.65, 239.20, 243.75, 248.30, 252.85, 257.40, 261.95, 266.50, 271.05, 275.60, 280.15, 284.70, 289.25, 293.80, 298.35, 302.90, 307.45, 312.00, 316.55, 321.10];
+        
         const limitesDependente1 = [350, 450, 550, 650, 750, 850, 950, 1050, 1150, 1250, 1350, 1450, 1550, 1650, 1750, 1850, 1950, 2050, 2150, 2250, 2350, 2450, 2550, 2650, 2750, 2850, 2950, 3050, 3150, 3250, 3750, 4250, 4750, 5250, 5750, 6250, 6750, 7250, 7750, 8250, 8750, 9250, 9750, 10250, 10750, 11250, 11750, 12250, 12750, 13250, 13750, 14250, 14750, 15250, 15750, 16250, 16750, 17250, 17750, 18250, 18750, 19250, 19750, 20250, 20750, 21250, 21750, 22250];
         const valoresDependente1 = [5.72, 7.92, 10.12, 11.15, 13.16, 15.16, 17.16, 19.16, 21.16, 23.17, 25.17, 27.17, 29.17, 31.17, 33.18, 35.18, 37.18, 39.18, 41.18, 43.19, 45.19, 47.19, 49.19, 51.19, 53.20, 55.20, 57.20, 59.20, 61.20, 63.21, 65.21, 67.21, 69.21, 71.21, 73.22, 75.22, 77.22, 79.22, 81.22, 83.23, 85.23, 87.23, 89.23, 91.23, 93.24, 95.24, 97.24, 99.24, 101.24, 103.25, 105.25, 107.25, 109.25, 111.25, 113.26, 115.26, 117.26, 119.26, 121.26, 123.27, 125.27, 127.27, 129.27, 131.27, 133.28, 135.28, 137.28, 139.28, 141.28];
 
@@ -115,8 +119,14 @@ Exemplo sem datas:
         // Variáveis globais para armazenar a tabela selecionada
         let limitesTitularAtual = limitesTitular3;
         let valoresTitularAtual = valoresTitular3;
+        
+        //Conjuge incluida
+        let limitesConjugeAtual = limitesConjuge3;
+        let valoresConjugeAtual = valoresConjuge3;
+        
         let limitesDependenteAtual = limitesDependente3;
         let valoresDependenteAtual = valoresDependente3;
+        
         let valorAgregadoJovemAtual = 75.91; // Valor inicial para a Tabela 3
 
         // Função para mudar a tabela selecionada
@@ -128,6 +138,11 @@ Exemplo sem datas:
             if (tabelaSelecionada === '1') {
                 limitesTitularAtual = limitesTitular1;
                 valoresTitularAtual = valoresTitular1;
+
+                //Conjuge incluida
+                limitesConjugeAtual = limitesConjuge1;
+                valoresConjugeAtual = valoresConjuge1;
+                
                 limitesDependenteAtual = limitesDependente1;
                 valoresDependenteAtual = valoresDependente1;
                 valorAgregadoJovemAtual = 70.18; // Valor para a Tabela 1
@@ -167,10 +182,23 @@ Exemplo sem datas:
             return valoresTitularAtual[valoresTitularAtual.length - 1];
         }
 
-        // Função para calcular o valor do Cônjuge (metade do Titular)
+
+        //Conjuge incluida
         function calcularConjuge(valor) {
-            return calcularTitular(valor) / 2;
+            for (let i = 0; i < limitesConjugeAtual.length; i++) {
+                if (valor <= limitesConjugeAtual[i]) {
+                    return valoresConjugeAtual[i];
+                }
+            }
+            return valoresTitularAtual[valoresConjugeAtual.length - 1];
         }
+
+
+    
+        // Função para calcular o valor do Cônjuge (metade do Titular) DESATIVADA
+        // function calcularConjuge(valor) {
+        //    return calcularTitular(valor) / 2;
+        //}
 
         // Função para calcular o valor do Dependente
         function calcularDependente(valor) {
