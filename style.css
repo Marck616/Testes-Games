@@ -5,6 +5,7 @@
 
 .redirecionar {
     color: red;
+    text-decoration: underline;
 } /* Usar para destacar os elementos que quando clicados abrem outras abas*/
 
 body {
