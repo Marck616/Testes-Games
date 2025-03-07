@@ -5,7 +5,7 @@
 
 .redirecionar {
     color: red;
-    text-decoration: underline;
+    text-decoration: underline; /*sublinhado*/
 } /* Usar para destacar os elementos que quando clicados abrem outras abas*/
 
 body {
@@ -14,7 +14,7 @@ body {
     box-sizing: border-box; /* ganrante que os componentes filhos não extrapolem o limite para os componetes pai*/
     background-color: #f4f4f9;
     color: black;
-    
+    text-align: center; /*alinhar o texto horizontalmente ao centro do elemento que o contém*/
 }
 
 strong {
