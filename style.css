@@ -21,14 +21,31 @@ strong {
     color: #red;
 }
 
-/* Estiliza os campos de entrada do tipo texto e número */
 input[type="text"], input[type="number"] {
-    width: 200px; /* Define a largura dos campos de entrada */
-    padding: 10px; /* Adiciona preenchimento interno para conforto ao digitar */
-    margin: 5px; /* Adiciona espaçamento ao redor dos campos de entrada */
-    border: 1px solid #ccc; /* Define uma borda cinza clara */
-    border-radius: 4px; /* Arredonda levemente os cantos da borda */
+    width: 200px;
+    padding: 10px;
+    margin: 5px;
+    border: 2px solid #ff1493;
+    border-radius: 10px;
+    background-color: #fffae6;
+    color: #ff4500;
+    font-weight: bold;
 }
+
+/*
+   Campos de entrada de texto e número são estilizados com largura fixa, padding e margem.
+   A borda é rosa vibrante, com cantos arredondados, e o fundo é um amarelo claro (#fffae6).
+   O texto dentro dos campos é laranja e em negrito.
+*/
+
+/* Estiliza os campos de entrada do tipo texto e número 
+input[type="text"], input[type="number"] {
+    width: 200px;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+} */
 
 /* Estiliza os botões */
 button {
