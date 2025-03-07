@@ -37,14 +37,17 @@ input[type="text"], input[type="number"] {
 
 /* Estiliza os botões */
 button {
-    border: 1px solid black; /* Adiciona uma borda no botão */
-    border-radius: 4px; /* Arredonda levemente os cantos do botão */
-    font-size: 16px;
-    padding: 10px 15px; /* Define preenchimento interno no botão */
-    background-color: #007BFF; /* Define a cor de fundo azul */
-    color: white; /* Define a cor do texto como branca */
-    cursor: pointer; /* Altera o cursor para indicar que o botão é clicável */
+    border: 2px solid black;
+    border-radius: 10px;
+    font-size: 18px;
+    padding: 12px 20px;
+    background: linear-gradient(45deg, #0000ff, #6861ff);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
 }
+
 
 #teclado {
         display: flex; /* Organiza os botões em linha */
