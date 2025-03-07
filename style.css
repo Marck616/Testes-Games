@@ -50,9 +50,11 @@ button {
 
 
 #teclado {
-        display: flex; /* Organiza os botões em linha */
-        flex-wrap: wrap; /* Permite que quebrem de linha se necessário */
-    }
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
 
 
 #result h2 {
