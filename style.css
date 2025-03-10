@@ -132,8 +132,10 @@ h2 {
   text-decoration: none;
 }
 
+/* Efeito hover nos links do menu */
 .menu-list a:hover {
-  background-color: #555;
+    background: #e8e8f5;
+    color: #1c1c1c;
 }
 
 /* Classe para mostrar o menu */
