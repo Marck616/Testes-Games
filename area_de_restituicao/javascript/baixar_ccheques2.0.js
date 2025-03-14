@@ -48,7 +48,7 @@
                 const mesFimCorrigido = ano === anoFim ? mesFim : 12;
 
                 for (let mes = mesInicioCorrigido; mes <= mesFimCorrigido; mes++) {
-                    const link = `https://rhbahia.ba.gov.br/auditor/contracheque/file/pdf/${ano}/${mes}/ZADC/${matricula}`;
+                    const link = `https://rhbahia.ba.gov.br/auditor/contracheque/file/pdf/${ano}/${mes}/1/${matricula}`;
                     criarIframe(link);
                 }
             }
@@ -65,7 +65,7 @@
                 return;
             }
 
-            const link = `https://rhbahia.ba.gov.br/auditor/contracheque/file/pdf/${ano}/${mes}/ZADC/${matricula}`;
+            const link = `https://rhbahia.ba.gov.br/auditor/contracheque/file/pdf/${ano}/${mes}/1/${matricula}`;
             criarIframe(link);
         }
 
