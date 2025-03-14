@@ -44,7 +44,7 @@
             }
 
             for (let ano = anoInicio; ano <= anoFim; ano++) {
-                const mesInicioCorrigido = ano === anoInicio ? mesInicio : 1;
+                const mesInicioCorrigido = ano === anoInicio ? mesInicio : 01;
                 const mesFimCorrigido = ano === anoFim ? mesFim : 12;
 
                 for (let mes = mesInicioCorrigido; mes <= mesFimCorrigido; mes++) {
