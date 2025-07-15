@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuestMaster - A Aventura do Conhecimento</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        #game-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        #scene {
+            min-height: 200px;
+            padding: 20px;
+            background-color: #252525;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #scene-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            transition: all 0.5s ease;
+        }
+        
+        #scene-text {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        #options-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .option-btn {
+            padding: 12px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.2s;
+        }
+        
+        .option-btn:hover {
+            background-color: #444;
+            transform: translateY(-2px);
+        }
+        
+        .option-btn.correct {
+            background-color: #2e7d32;
+        }
+        
+        .option-btn.incorrect {
+            background-color: #c62828;
+        }
+        
+        #stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #252525;
+            border-radius: 8px;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #bb86fc;
+        }
+        
+        #progress-bar {
+            height: 10px;
+            background-color: #333;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        
+        #progress {
+            height: 100%;
+            background-color: #bb86fc;
+            width: 0%;
+            transition: width 0.3s;
+        }
+        
+        #inventory {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #252525;
+            border-radius: 8px;
+        }
+        
+        #inventory-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .item {
+            padding: 8px 12px;
+            background-color: #333;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .item:hover {
+            background-color: #444;
+            transform: translateY(-2px);
+        }
+        
+        .item-special {
+            background-color: #6a1b9a;
+        }
+        
+        .achievement {
+            position: fixed;
+            top: 20px;
+            right: -300px;
+            width: 280px;
+            padding: 15px;
+            background-color: #bb86fc;
+            color: #121212;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            transition: right 0.5s;
+            z-index: 100;
+        }
+        
+        .achievement.show {
+            right: 20px;
+        }
+        
+        .achievement h3 {
+            margin-top: 0;
+            color: #121212;
+        }
+        
+        #title-screen {
+            text-align: center;
+        }
+        
+        #title-screen h1 {
+            font-size: 48px;
+            color: #bb86fc;
+            margin-bottom: 10px;
+        }
+        
+        #title-screen p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        
+        #start-btn {
+            padding: 15px 30px;
+            font-size: 20px;
+            background-color: #bb86fc;
+            color: #121212;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        #start-btn:hover {
+            background-color: #9c64f4;
+            transform: scale(1.05);
+        }
+        
+        .typewriter {
+            overflow: hidden;
+            border-right: 2px solid #bb86fc;
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #bb86fc }
+        }
+        
+        #level-up {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #bb86fc;
+            color: #121212;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            z-index: 100;
+            display: none;
+        }
+        
+        #level-up h2 {
+            font-size: 36px;
+            margin-top: 0;
+        }
+        
+        #level-up p {
+            font-size: 20px;
+        }
+        
+        #continue-btn {
+            padding: 10px 20px;
+            background-color: #121212;
+            color: #bb86fc;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        
+        #item-use-dialog {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #252525;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            z-index: 100;
+            display: none;
+            max-width: 400px;
+        }
+        
+        #item-use-dialog h3 {
+            margin-top: 0;
+            color: #bb86fc;
+        }
+        
+        #item-use-dialog p {
+            margin-bottom: 20px;
+        }
+        
+        #item-use-dialog-buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .item-use-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        #item-use-confirm {
+            background-color: #2e7d32;
+            color: white;
+        }
+        
+        #item-use-cancel {
+            background-color: #c62828;
+            color: white;
+        }
+        
+        #skip-animation {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <div id="title-screen">
+            <h1>QuestMaster</h1>
+            <p class="typewriter">A Aventura do Conhecimento</p>
+            <button id="start-btn">Iniciar Jornada</button>
+        </div>
+        
+        <div id="game-content" style="display: none;">
+            <div id="stats">
+                <div class="stat">
+                    <div>Nível</div>
+                    <div class="stat-value" id="level">1</div>
+                </div>
+                <div class="stat">
+                    <div>Pontos</div>
+                    <div class="stat-value" id="points">0</div>
+                </div>
+                <div class="stat">
+                    <div>Vidas</div>
+                    <div class="stat-value" id="lives">3</div>
+                </div>
+                <div class="stat">
+                    <div>Progresso</div>
+                    <div class="stat-value" id="progress-percent">0%</div>
+                </div>
+            </div>
+            
+            <div id="progress-bar">
+                <div id="progress"></div>
+            </div>
+            
+            <div id="scene">
+                <div id="scene-image"></div>
+                <div id="scene-text"></div>
+                <div id="options-container"></div>
+                <button id="skip-animation">Pular Animação</button>
+            </div>
+            
+            <div id="inventory">
+                <h3>Inventário <span id="inventory-count">(0)</span></h3>
+                <div id="inventory-items"></div>
+            </div>
+        </div>
+        
+        <div id="level-up">
+            <h2>Nível Up!</h2>
+            <p>Você alcançou o nível <span id="new-level">2</span>!</p>
+            <p id="level-reward">Você ganhou um novo item: <strong>Pergaminho do Saber</strong></p>
+            <button id="continue-btn">Continuar</button>
+        </div>
+        
+        <div id="item-use-dialog">
+            <h3 id="item-use-title">Usar Item</h3>
+            <p id="item-use-desc">Deseja usar este item agora?</p>
+            <div id="item-use-dialog-buttons">
+                <button id="item-use-confirm" class="item-use-btn">Usar</button>
+                <button id="item-use-cancel" class="item-use-btn">Cancelar</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="achievement" id="achievement-popup">
+        <h3 id="achievement-title">Conquista Desbloqueada!</h3>
+        <p id="achievement-desc">Responda 5 perguntas corretamente</p>
+    </div>
+
+    <script>
+        // Game State
+        const gameState = {
+            level: 1,
+            points: 0,
+            lives: 3,
+            progress: 0,
+            inventory: [],
+            achievements: [],
+            currentScene: 0,
+            correctAnswers: 0,
+            wrongAnswers: 0,
+            currentTheme: null,
+            answeredQuestions: [],
+            consecutiveCorrect: 0,
+            currentQuestion: null,
+            selectedItem: null
+        };
+
+        // Themes and Scenes
+        const themes = [
+            {
+                id: 'ancient',
+                name: 'Templo Antigo',
+                description: 'Explore os segredos de uma civilização perdida',
+                color: '#8d6e63',
+                image: 'https://images.unsplash.com/photo-1531058020387-3be344556be6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+                scenes: []
+            },
+            {
+                id: 'space',
+                name: 'Expedição Espacial',
+                description: 'Viaje pelas estrelas e descubra mistérios cósmicos',
+                color: '#3949ab',
+                image: 'https://images.unsplash.com/photo-1454789548928-9efd52dc4031?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+                scenes: []
+            },
+            {
+                id: 'ocean',
+                name: 'Profundezas do Oceano',
+                description: 'Mergulhe em um mundo subaquático cheio de segredos',
+                color: '#00838f',
+                image: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+                scenes: []
+            },
+            {
+                id: 'future',
+                name: 'Cidade do Futuro',
+                description: 'Explore uma metrópole tecnológica e seus desafios',
+                color: '#6a1b9a',
+                image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+                scenes: []
+            }
+        ];
+
+        // Questions database
+        const questions = {
+            ancient: [
+                {
+                    question: "Qual civilização construiu as pirâmides de Gizé?",
+                    options: ["Astecas", "Egípcios", "Maias", "Incas"],
+                    correct: 1,
+                    fact: "As pirâmides de Gizé foram construídas há mais de 4.500 anos como tumbas para os faraós."
+                },
+                {
+                    question: "Qual era a escrita usada no antigo Egito?",
+                    options: ["Cuneiforme", "Hieróglifos", "Alfabeto fenício", "Sânscrito"],
+                    correct: 1,
+                    fact: "Os hieróglifos egípcios foram usados por mais de 3.000 anos e só foram decifrados com a descoberta da Pedra de Roseta."
+                },
+                {
+                    question: "Qual desses deuses não era egípcio?",
+                    options: ["Rá", "Osíris", "Zeus", "Anúbis"],
+                    correct: 2,
+                    fact: "Zeus era o rei dos deuses na mitologia grega, enquanto Rá, Osíris e Anúbis são deuses egípcios."
+                },
+                {
+                    question: "Qual era o principal rio da civilização egípcia antiga?",
+                    options: ["Tigre", "Eufrates", "Nilo", "Amazonas"],
+                    correct: 2,
+                    fact: "O rio Nilo era vital para o Egito antigo, proporcionando terras férteis e meios de transporte."
+                },
+                {
+                    question: "Que material era usado para escrever no antigo Egito?",
+                    options: ["Pergaminho", "Papel", "Papiro", "Argila"],
+                    correct: 2,
+                    fact: "O papiro, feito da planta Cyperus papyrus, era o material de escrita mais comum no antigo Egito."
+                }
+            ],
+            space: [
+                {
+                    question: "Qual planeta é conhecido como o 'Planeta Vermelho'?",
+                    options: ["Vênus", "Júpiter", "Marte", "Saturno"],
+                    correct: 2,
+                    fact: "Marte é chamado de Planeta Vermelho devido ao óxido de ferro (ferrugem) em sua superfície."
+                },
+                {
+                    question: "Qual é a estrela mais próxima da Terra?",
+                    options: ["Sirius", "Alpha Centauri", "Betelgeuse", "Sol"],
+                    correct: 3,
+                    fact: "O Sol é a estrela mais próxima da Terra, localizada a cerca de 150 milhões de quilômetros de distância."
+                },
+                {
+                    question: "Qual destes não é um planeta do sistema solar?",
+                    options: ["Netuno", "Urano", "Plutão", "Vênus"],
+                    correct: 2,
+                    fact: "Plutão foi reclassificado como planeta anão em 2006 pela União Astronômica Internacional."
+                },
+                {
+                    question: "O que causa as marés na Terra?",
+                    options: ["O vento", "A rotação da Terra", "A gravidade da Lua", "As correntes oceânicas"],
+                    correct: 2,
+                    fact: "As marés são causadas principalmente pela atração gravitacional da Lua e, em menor grau, do Sol."
+                },
+                {
+                    question: "Qual é o maior planeta do sistema solar?",
+                    options: ["Saturno", "Júpiter", "Netuno", "Terra"],
+                    correct: 1,
+                    fact: "Júpiter é o maior planeta do sistema solar, com massa duas vezes e meia maior que a de todos os outros planetas juntos."
+                }
+            ],
+            ocean: [
+                {
+                    question: "Qual é o maior animal do planeta?",
+                    options: ["Tubarão-baleia", "Elefante africano", "Baleia-azul", "Lula-gigante"],
+                    correct: 2,
+                    fact: "A baleia-azul é o maior animal conhecido que já existiu, podendo atingir mais de 30 metros de comprimento."
+                },
+                {
+                    question: "Qual porcentagem da Terra é coberta por oceanos?",
+                    options: ["50%", "61%", "71%", "80%"],
+                    correct: 2,
+                    fact: "Cerca de 71% da superfície da Terra é coberta por oceanos, contendo 97% da água do planeta."
+                },
+                {
+                    question: "Qual é o oceano mais profundo?",
+                    options: ["Oceano Atlântico", "Oceano Índico", "Oceano Ártico", "Oceano Pacífico"],
+                    correct: 3,
+                    fact: "O Oceano Pacífico não só é o maior, mas também o mais profundo, com a Fossa das Marianas atingindo cerca de 11.000 metros."
+                },
+                {
+                    question: "O que são recifes de coral?",
+                    options: ["Rochas subaquáticas", "Plantas marinhas", "Colônias de pequenos animais", "Formações de gelo"],
+                    correct: 2,
+                    fact: "Recifes de coral são formados por colônias de pequenos animais chamados pólipos de coral que secretam carbonato de cálcio para formar um esqueleto duro."
+                },
+                {
+                    question: "Qual destes peixes é conhecido por mudar de sexo?",
+                    options: ["Atum", "Salmão", "Peixe-palhaço", "Tubarão-branco"],
+                    correct: 2,
+                    fact: "Os peixes-palhaço nascem todos machos e podem se transformar em fêmeas quando necessário para a reprodução."
+                }
+            ],
+            future: [
+                {
+                    question: "O que significa 'IA' no contexto tecnológico?",
+                    options: ["Interface Automatizada", "Inteligência Artificial", "Integração Aplicada", "Inovação Acelerada"],
+                    correct: 1,
+                    fact: "IA significa Inteligência Artificial, que se refere a sistemas ou máquinas que imitam a inteligência humana para realizar tarefas."
+                },
+                {
+                    question: "Qual destes é um tipo de energia renovável?",
+                    options: ["Carvão", "Petróleo", "Energia eólica", "Gás natural"],
+                    correct: 2,
+                    fact: "A energia eólica é renovável, gerada pela força dos ventos, enquanto os outros são combustíveis fósseis não renováveis."
+                },
+                {
+                    question: "O que é realidade virtual?",
+                    options: ["Um mundo imaginário", "Um ambiente gerado por computador", "Um sonho lúcido", "Um filme 3D"],
+                    correct: 1,
+                    fact: "Realidade virtual (RV) é um ambiente gerado por computador que simula a presença física em um mundo real ou imaginário."
+                },
+                {
+                    question: "Qual destes é um veículo elétrico?",
+                    options: ["Tesla Model S", "Ford Mustang GT", "Chevrolet Camaro", "Dodge Challenger"],
+                    correct: 0,
+                    fact: "O Tesla Model S é um carro totalmente elétrico, enquanto os outros são modelos tradicionais com motores a combustão."
+                },
+                {
+                    question: "O que é blockchain?",
+                    options: ["Um tipo de cadeado digital", "Um banco de dados descentralizado", "Um novo material de construção", "Um sistema operacional"],
+                    correct: 1,
+                    fact: "Blockchain é um banco de dados descentralizado que registra transações de forma segura e transparente, usado principalmente em criptomoedas."
+                }
+            ]
+        };
+
+        // Items and rewards - Now with special effects
+        const items = [
+            { 
+                id: 'map', 
+                name: 'Mapa Antigo', 
+                description: 'Revela caminhos ocultos', 
+                theme: 'ancient',
+                effect: null,
+                rarity: 1
+            },
+            { 
+                id: 'artifact', 
+                name: 'Artefato Místico', 
+                description: 'Aumenta seu conhecimento', 
+                theme: 'ancient',
+                effect: null,
+                rarity: 1
+            },
+            { 
+                id: 'spacesuit', 
+                name: 'Traje Espacial', 
+                description: 'Permite explorar planetas hostis', 
+                theme: 'space',
+                effect: null,
+                rarity: 1
+            },
+            { 
+                id: 'fuel', 
+                name: 'Combustível de Nave', 
+                description: 'Permite viagens mais longas', 
+                theme: 'space',
+                effect: null,
+                rarity: 1
+            },
+            { 
+                id: 'diving', 
+                name: 'Equipamento de Mergulho', 
+                description: 'Permite explorar profundezas', 
+                theme: 'ocean',
+                effect: null,
+                rarity: 1
+            },
+            { 
+                id: 'sonar', 
+                name: 'Dispositivo Sonar', 
+                description: 'Detecta vida marinha', 
+                theme: 'ocean',
+                effect: null,
+                rarity: 1
+            },
+            { 
+                id: 'chip', 
+                name: 'Chip Neural', 
+                description: 'Aumenta sua inteligência', 
+                theme: 'future',
+                effect: null,
+                rarity: 1
+            },
+            { 
+                id: 'drone', 
+                name: 'Drone de Exploração', 
+                description: 'Coleta informações', 
+                theme: 'future',
+                effect: null,
+                rarity: 1
+            },
+            { 
+                id: 'scroll', 
+                name: 'Pergaminho do Saber', 
+                description: 'Contém conhecimento ancestral', 
+                theme: 'all',
+                effect: null,
+                rarity: 1
+            },
+            { 
+                id: 'medal', 
+                name: 'Medalha do Conhecimento', 
+                description: 'Prova de suas conquistas', 
+                theme: 'all',
+                effect: null,
+                rarity: 1
+            },
+            // Special items with effects - more rare
+            { 
+                id: 'truth_lens', 
+                name: 'Lente da Verdade', 
+                description: 'Revela a resposta correta de uma pergunta', 
+                theme: 'all',
+                effect: 'reveal_answer',
+                rarity: 3, // More rare
+                usable: true
+            },
+            { 
+                id: 'time_crystal', 
+                name: 'Cristal do Tempo', 
+                description: 'Permite pular uma pergunta difícil', 
+                theme: 'all',
+                effect: 'skip_question',
+                rarity: 4, // Even more rare
+                usable: true
+            },
+            { 
+                id: 'phoenix_feather', 
+                name: 'Pena de Fênix', 
+                description: 'Anula uma resposta errada', 
+                theme: 'all',
+                effect: 'undo_mistake',
+                rarity: 5, // Most rare
+                usable: true
+            },
+            { 
+                id: 'wisdom_orb', 
+                name: 'Orbe da Sabedoria', 
+                description: 'Dobra os pontos da próxima resposta correta', 
+                theme: 'all',
+                effect: 'double_points',
+                rarity: 4,
+                usable: true
+            }
+        ];
+
+        // Achievements
+        const achievements = [
+            { id: 'first_blood', name: 'Primeiro Sangue', description: 'Responda sua primeira pergunta', condition: (state) => state.correctAnswers >= 1 },
+            { id: 'quick_learner', name: 'Aprendiz Rápido', description: 'Responda 5 perguntas corretamente', condition: (state) => state.correctAnswers >= 5 },
+            { id: 'expert', name: 'Especialista', description: 'Responda 20 perguntas corretamente', condition: (state) => state.correctAnswers >= 20 },
+            { id: 'master', name: 'Mestre do Conhecimento', description: 'Responda 50 perguntas corretamente', condition: (state) => state.correctAnswers >= 50 },
+            { id: 'explorer', name: 'Explorador', description: 'Complete um tema', condition: (state) => state.progress % 25 === 0 && state.progress > 0 },
+            { id: 'collector', name: 'Colecionador', description: 'Obtenha 3 itens', condition: (state) => state.inventory.length >= 3 },
+            { id: 'survivor', name: 'Sobrevivente', description: 'Continue com 1 vida restante', condition: (state) => state.lives === 1 },
+            { id: 'perfectionist', name: 'Perfeccionista', description: 'Responda 10 perguntas seguidas corretamente', condition: (state) => state.consecutiveCorrect >= 10 }
+        ];
+
+        // Initialize game scenes
+        function initializeScenes() {
+            themes.forEach(theme => {
+                const themeQuestions = questions[theme.id];
+                for (let i = 0; i < 5; i++) {
+                    theme.scenes.push({
+                        id: `${theme.id}_${i}`,
+                        description: `Desafio ${i + 1} no ${theme.name}`,
+                        question: themeQuestions[i],
+                        image: theme.image
+                    });
+                }
+            });
+        }
+
+        // DOM Elements
+        const titleScreen = document.getElementById('title-screen');
+        const gameContent = document.getElementById('game-content');
+        const startBtn = document.getElementById('start-btn');
+        const sceneImage = document.getElementById('scene-image');
+        const sceneText = document.getElementById('scene-text');
+        const optionsContainer = document.getElementById('options-container');
+        const levelDisplay = document.getElementById('level');
+        const pointsDisplay = document.getElementById('points');
+        const livesDisplay = document.getElementById('lives');
+        const progressBar = document.getElementById('progress');
+        const progressPercent = document.getElementById('progress-percent');
+        const inventoryItems = document.getElementById('inventory-items');
+        const inventoryCount = document.getElementById('inventory-count');
+        const achievementPopup = document.getElementById('achievement-popup');
+        const levelUpPopup = document.getElementById('level-up');
+        const newLevelDisplay = document.getElementById('new-level');
+        const levelRewardDisplay = document.getElementById('level-reward');
+        const continueBtn = document.getElementById('continue-btn');
+        const itemUseDialog = document.getElementById('item-use-dialog');
+        const itemUseTitle = document.getElementById('item-use-title');
+        const itemUseDesc = document.getElementById('item-use-desc');
+        const itemUseConfirm = document.getElementById('item-use-confirm');
+        const itemUseCancel = document.getElementById('item-use-cancel');
+        const skipAnimationBtn = document.getElementById('skip-animation');
+
+        // Start game
+        startBtn.addEventListener('click', () => {
+            titleScreen.style.display = 'none';
+            gameContent.style.display = 'block';
+            initializeScenes();
+            startNewTheme();
+            updateStats();
+            renderInventory();
+        });
+
+        // Continue after level up
+        continueBtn.addEventListener('click', () => {
+            levelUpPopup.style.display = 'none';
+        });
+
+        // Item use dialog
+        itemUseCancel.addEventListener('click', () => {
+            itemUseDialog.style.display = 'none';
+            gameState.selectedItem = null;
+        });
+
+        itemUseConfirm.addEventListener('click', () => {
+            itemUseDialog.style.display = 'none';
+            if (gameState.selectedItem) {
+                useItem(gameState.selectedItem);
+                gameState.selectedItem = null;
+            }
+        });
+
+        // Skip animation
+        skipAnimationBtn.addEventListener('click', () => {
+            skipAnimationBtn.style.display = 'none';
+            const buttons = document.querySelectorAll('.option-btn');
+            buttons.forEach(btn => {
+                btn.disabled = false;
+                btn.classList.remove('correct', 'incorrect');
+            });
+        });
+
+        // Game functions
+        function startNewTheme() {
+            // Filter out themes that have been completed (simplified for this example)
+            const availableThemes = themes;
+            const randomTheme = availableThemes[Math.floor(Math.random() * availableThemes.length)];
+            
+            gameState.currentTheme = randomTheme;
+            gameState.currentScene = 0;
+            
+            loadScene(randomTheme.scenes[0]);
+        }
+
+        function loadScene(scene) {
+            gameState.currentQuestion = scene.question;
+            sceneImage.style.backgroundImage = `url(${scene.image})`;
+            
+            // Typewriter effect for scene text
+            const fullText = `${scene.description}\n\n${scene.question.question}`;
+            let i = 0;
+            sceneText.textContent = '';
+            skipAnimationBtn.style.display = 'block';
+            
+            function typeWriter() {
+                if (i < fullText.length) {
+                    sceneText.textContent += fullText.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 20);
+                } else {
+                    skipAnimationBtn.style.display = 'none';
+                }
+            }
+            
+            typeWriter();
+            
+            optionsContainer.innerHTML = '';
+            scene.question.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.className = 'option-btn';
+                button.textContent = option;
+                button.addEventListener('click', () => selectOption(index, scene.question.correct));
+                optionsContainer.appendChild(button);
+            });
+        }
+
+        function selectOption(selectedIndex, correctIndex) {
+            const buttons = document.querySelectorAll('.option-btn');
+            
+            // Disable all buttons
+            buttons.forEach(button => {
+                button.disabled = true;
+            });
+            
+            // Mark correct and incorrect answers
+            buttons[correctIndex].classList.add('correct');
+            if (selectedIndex !== correctIndex) {
+                buttons[selectedIndex].classList.add('incorrect');
+                gameState.lives--;
+                gameState.wrongAnswers++;
+                gameState.consecutiveCorrect = 0;
+                
+                // Check for undo mistake item
+                const hasPhoenixFeather = gameState.inventory.includes('phoenix_feather');
+                if (hasPhoenixFeather) {
+                    setTimeout(() => {
+                        askToUseItem('phoenix_feather');
+                    }, 1000);
+                    return;
+                }
+            } else {
+                const pointsEarned = 10 * gameState.level;
+                gameState.points += pointsEarned;
+                gameState.correctAnswers++;
+                gameState.consecutiveCorrect++;
+                gameState.progress += 5;
+                
+                // Add fact to scene text
+                sceneText.textContent += `\n\nResposta correta! ${gameState.currentQuestion.fact}`;
+                
+                // Check for level up
+                if (gameState.progress >= gameState.level * 25) {
+                    levelUp();
+                }
+            }
+            
+            // Check for achievements
+            checkAchievements();
+            
+            // Update stats
+            updateStats();
+            
+            // Move to next scene after delay
+            setTimeout(() => {
+                if (gameState.lives <= 0) {
+                    gameOver();
+                    return;
+                }
+                
+                nextScene();
+            }, 3000);
+        }
+
+        function nextScene() {
+            gameState.currentScene++;
+            
+            if (gameState.currentScene < gameState.currentTheme.scenes.length) {
+                loadScene(gameState.currentTheme.scenes[gameState.currentScene]);
+            } else {
+                // Theme completed
+                gameState.points += 50 * gameState.level;
+                giveRandomItem();
+                startNewTheme();
+            }
+        }
+
+        function updateStats() {
+            levelDisplay.textContent = gameState.level;
+            pointsDisplay.textContent = gameState.points;
+            livesDisplay.textContent = gameState.lives;
+            progressBar.style.width = `${gameState.progress}%`;
+            progressPercent.textContent = `${gameState.progress}%`;
+            inventoryCount.textContent = `(${gameState.inventory.length})`;
+        }
+
+        function renderInventory() {
+            inventoryItems.innerHTML = '';
+            gameState.inventory.forEach(itemId => {
+                const item = items.find(i => i.id === itemId);
+                if (item) {
+                    const itemElement = document.createElement('div');
+                    itemElement.className = `item ${item.effect ? 'item-special' : ''}`;
+                    itemElement.textContent = item.name;
+                    itemElement.title = item.description;
+                    
+                    if (item.usable) {
+                        itemElement.addEventListener('click', () => askToUseItem(item.id));
+                    }
+                    
+                    inventoryItems.appendChild(itemElement);
+                }
+            });
+        }
+
+        function giveRandomItem() {
+            // Calculate weighted random based on rarity
+            const availableItems = items.filter(item => 
+                item.theme === gameState.currentTheme.id || item.theme === 'all');
+            
+            if (availableItems.length > 0) {
+                // Create weighted array based on rarity (higher rarity = less chance)
+                const weightedItems = [];
+                availableItems.forEach(item => {
+                    const weight = 6 - item.rarity; // More rare = less weight
+                    for (let i = 0; i < weight; i++) {
+                        weightedItems.push(item);
+                    }
+                });
+                
+                const randomItem = weightedItems[Math.floor(Math.random() * weightedItems.length)];
+                gameState.inventory.push(randomItem.id);
+                renderInventory();
+                
+                if (randomItem.effect) {
+                    showAchievement(`Item especial encontrado!`, randomItem.name);
+                }
+            }
+        }
+
+        function askToUseItem(itemId) {
+            const item = items.find(i => i.id === itemId);
+            if (!item || !item.usable) return;
+            
+            gameState.selectedItem = itemId;
+            itemUseTitle.textContent = `Usar ${item.name}`;
+            itemUseDesc.textContent = item.description;
+            itemUseDialog.style.display = 'block';
+        }
+
+        function useItem(itemId) {
+            const item = items.find(i => i.id === itemId);
+            if (!item) return;
+            
+            switch(item.effect) {
+                case 'reveal_answer':
+                    revealCorrectAnswer();
+                    break;
+                case 'skip_question':
+                    skipCurrentQuestion();
+                    break;
+                case 'undo_mistake':
+                    undoLastMistake();
+                    break;
+                case 'double_points':
+                    prepareDoublePoints();
+                    break;
+                default:
+                    return;
+            }
+            
+            // Remove item from inventory
+            const itemIndex = gameState.inventory.indexOf(itemId);
+            if (itemIndex > -1) {
+                gameState.inventory.splice(itemIndex, 1);
+                renderInventory();
+            }
+        }
+
+        function revealCorrectAnswer() {
+            const buttons = document.querySelectorAll('.option-btn');
+            const correctIndex = gameState.currentQuestion.correct;
+            
+            // Highlight correct answer
+            buttons[correctIndex].classList.add('correct');
+            buttons[correctIndex].style.animation = 'pulse 1s infinite';
+            
+            // Re-enable buttons
+            buttons.forEach(button => {
+                button.disabled = false;
+            });
+        }
+
+        function skipCurrentQuestion() {
+            // Just move to next question without penalty
+            sceneText.textContent += "\n\nVocê usou o Cristal do Tempo para pular esta pergunta!";
+            setTimeout(() => {
+                nextScene();
+            }, 1500);
+        }
+
+        function undoLastMistake() {
+            // Restore life and remove incorrect marking
+            gameState.lives++;
+            gameState.wrongAnswers--;
+            
+            const buttons = document.querySelectorAll('.option-btn');
+            buttons.forEach(button => {
+                button.classList.remove('incorrect');
+                button.disabled = false;
+            });
+            
+            sceneText.textContent += "\n\nVocê usou a Pena de Fênix para corrigir seu erro!";
+            updateStats();
+        }
+
+        function prepareDoublePoints() {
+            sceneText.textContent += "\n\nO Orbe da Sabedoria está ativo! Sua próxima resposta correta valerá o dobro!";
+            
+            // Add temporary modifier for next correct answer
+            const originalSelectOption = selectOption;
+            window.selectOption = function(selectedIndex, correctIndex) {
+                if (selectedIndex === correctIndex) {
+                    gameState.points += 10 * gameState.level; // Double the points
+                }
+                window.selectOption = originalSelectOption; // Restore original function
+                originalSelectOption(selectedIndex, correctIndex);
+            };
+        }
+
+        function levelUp() {
+            gameState.level++;
+            gameState.progress = 0;
+            
+            // Give level reward (more likely to be special item at higher levels)
+            let reward;
+            if (gameState.level % 5 === 0 && Math.random() > 0.3) {
+                // Every 5 levels, higher chance for special item
+                const specialItems = items.filter(item => item.effect && item.rarity >= 3);
+                reward = specialItems[Math.floor(Math.random() * specialItems.length)];
+            } else {
+                reward = items.find(item => item.id === (gameState.level % 2 === 0 ? 'scroll' : 'medal'));
+            }
+            
+            if (reward) {
+                gameState.inventory.push(reward.id);
+                renderInventory();
+                newLevelDisplay.textContent = gameState.level;
+                levelRewardDisplay.textContent = `Você ganhou um novo item: ${reward.name}`;
+                levelUpPopup.style.display = 'block';
+                
+                if (reward.effect) {
+                    showAchievement(`Item especial conquistado!`, reward.name);
+                }
+            }
+            
+            updateStats();
+        }
+
+        function checkAchievements() {
+            achievements.forEach(achievement => {
+                if (!gameState.achievements.includes(achievement.id) && achievement.condition(gameState)) {
+                    gameState.achievements.push(achievement.id);
+                    showAchievement(achievement.name, achievement.description);
+                }
+            });
+        }
+
+        function showAchievement(title, description) {
+            const achievementTitle = document.getElementById('achievement-title');
+            const achievementDesc = document.getElementById('achievement-desc');
+            
+            achievementTitle.textContent = title;
+            achievementDesc.textContent = description;
+            
+            achievementPopup.classList.add('show');
+            
+            setTimeout(() => {
+                achievementPopup.classList.remove('show');
+            }, 3000);
+        }
+
+        function gameOver() {
+            sceneText.textContent = `Fim de Jogo!\n\nSua pontuação final: ${gameState.points}\nNível alcançado: ${gameState.level}\nPerguntas corretas: ${gameState.correctAnswers}`;
+            optionsContainer.innerHTML = '';
+            
+            const restartBtn = document.createElement('button');
+            restartBtn.className = 'option-btn';
+            restartBtn.textContent = 'Jogar Novamente';
+            restartBtn.addEventListener('click', restartGame);
+            optionsContainer.appendChild(restartBtn);
+        }
+
+        function restartGame() {
+            // Reset game state
+            gameState.level = 1;
+            gameState.points = 0;
+            gameState.lives = 3;
+            gameState.progress = 0;
+            gameState.inventory = [];
+            gameState.achievements = [];
+            gameState.currentScene = 0;
+            gameState.correctAnswers = 0;
+            gameState.wrongAnswers = 0;
+            gameState.consecutiveCorrect = 0;
+            gameState.currentTheme = null;
+            gameState.answeredQuestions = [];
+            gameState.currentQuestion = null;
+            gameState.selectedItem = null;
+            
+            // Update UI
+            updateStats();
+            renderInventory();
+            startNewTheme();
+        }
+    </script>
+</body>
+</html>
