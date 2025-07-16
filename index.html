@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Adventure</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        #game-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        #scene {
+            min-height: 200px;
+            padding: 20px;
+            background-color: #252525;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #scene-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            transition: all 0.5s ease;
+        }
+        
+        #scene-text {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        #options-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .option-btn {
+            padding: 12px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.2s;
+        }
+        
+        .option-btn:hover {
+            background-color: #444;
+            transform: translateY(-2px);
+        }
+        
+        .option-btn.correct {
+            background-color: #2e7d32;
+        }
+        
+        .option-btn.incorrect {
+            background-color: #c62828;
+        }
+        
+        #stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #252525;
+            border-radius: 8px;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #bb86fc;
+        }
+        
+        #progress-bar {
+            height: 10px;
+            background-color: #333;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        
+        #progress {
+            height: 100%;
+            background-color: #bb86fc;
+            width: 0%;
+            transition: width 0.3s;
+        }
+        
+        #inventory {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #252525;
+            border-radius: 8px;
+        }
+        
+        #inventory-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .item {
+            padding: 8px 12px;
+            background-color: #333;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .item:hover {
+            background-color: #444;
+            transform: translateY(-2px);
+        }
+        
+        .item-special {
+            background-color: #6a1b9a;
+        }
+        
+        .achievement {
+            position: fixed;
+            top: 20px;
+            right: -300px;
+            width: 280px;
+            padding: 15px;
+            background-color: #bb86fc;
+            color: #121212;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            transition: right 0.5s;
+            z-index: 100;
+        }
+        
+        .achievement.show {
+            right: 20px;
+        }
+        
+        .achievement h3 {
+            margin-top: 0;
+            color: #121212;
+        }
+        
+        #title-screen {
+            text-align: center;
+        }
+        
+        #title-screen h1 {
+            font-size: 48px;
+            color: #bb86fc;
+            margin-bottom: 10px;
+        }
+        
+        #title-screen p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        
+        #start-btn {
+            padding: 15px 30px;
+            font-size: 20px;
+            background-color: #bb86fc;
+            color: #121212;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        #start-btn:hover {
+            background-color: #9c64f4;
+            transform: scale(1.05);
+        }
+        
+        .typewriter {
+            overflow: hidden;
+            border-right: 2px solid #bb86fc;
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #bb86fc }
+        }
+        
+        #level-up {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #bb86fc;
+            color: #121212;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            z-index: 100;
+            display: none;
+        }
+        
+        #level-up h2 {
+            font-size: 36px;
+            margin-top: 0;
+        }
+        
+        #level-up p {
+            font-size: 20px;
+        }
+        
+        #continue-btn {
+            padding: 10px 20px;
+            background-color: #121212;
+            color: #bb86fc;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        
+        #item-use-dialog {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #252525;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            z-index: 100;
+            display: none;
+            max-width: 400px;
+        }
+        
+        #item-use-dialog h3 {
+            margin-top: 0;
+            color: #bb86fc;
+        }
+        
+        #item-use-dialog p {
+            margin-bottom: 20px;
+        }
+        
+        #item-use-dialog-buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .item-use-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        #item-use-confirm {
+            background-color: #2e7d32;
+            color: white;
+        }
+        
+        #item-use-cancel {
+            background-color: #c62828;
+            color: white;
+        }
+        
+        #skip-animation {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none;
+        }
+        
+        #theme-selection {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .theme-card {
+            background-color: #333;
+            border-radius: 8px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        
+        .theme-card:hover {
+            background-color: #444;
+            transform: translateY(-5px);
+        }
+        
+        .theme-card img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        
+        #back-btn {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        
+        #back-btn:hover {
+            background-color: #444;
+        }
+        
+        #completion-screen {
+            text-align: center;
+            display: none;
+        }
+        
+        #completion-screen h2 {
+            color: #bb86fc;
+            font-size: 36px;
+        }
+        
+        #completion-stats {
+            background-color: #252525;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .completion-stat {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+        
+        #completion-options {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .completion-btn {
+            padding: 10px 20px;
+            background-color: #bb86fc;
+            color: #121212;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .completion-btn:hover {
+            background-color: #9c64f4;
+        }
+        
+        #explanation {
+            background-color: #252525;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: none;
+        }
+        
+        #explanation h3 {
+            color: #bb86fc;
+            margin-top: 0;
+        }
+        
+        #explanation-btn {
+            background-color: transparent;
+            border: none;
+            color: #bb86fc;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 10px;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <!-- Tela de título -->
+        <div id="title-screen">
+            <h1>Quiz Adventure</h1>
+            <p>Teste seus conhecimentos e colete itens especiais nesta jornada de aprendizado!</p>
+            <button id="start-btn">Começar Jogo</button>
+        </div>
+        
+        <!-- Seleção de tema -->
+        <div id="theme-selection" style="display: none;">
+            <h2>Escolha seu tema de aventura:</h2>
+            <div id="themes-container"></div>
+            <button id="back-to-title" style="display: none;">Voltar ao Menu</button>
+        </div>
+        
+        <!-- Tela de jogo principal -->
+        <div id="game-screen" style="display: none;">
+            <div id="scene">
+                <div id="scene-image"></div>
+                <div id="scene-text"></div>
+                <button id="skip-animation">Pular Animação</button>
+            </div>
+            
+            <div id="progress-bar">
+                <div id="progress"></div>
+            </div>
+            
+            <div id="stats">
+                <div class="stat">
+                    <div class="stat-label">Pergunta</div>
+                    <div class="stat-value" id="current-question">0</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Acertos</div>
+                    <div class="stat-value" id="correct-answers">0</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Pontos</div>
+                    <div class="stat-value" id="score">0</div>
+                </div>
+            </div>
+            
+            <div id="options-container"></div>
+            
+            <div id="explanation">
+                <h3>Mini Conceito</h3>
+                <p id="explanation-text"></p>
+            </div>
+            
+            <button id="explanation-btn" style="display: none;">Mostrar Explicação</button>
+            
+            <div id="inventory">
+                <h3>Inventário</h3>
+                <p>Itens especiais (clique para usar):</p>
+                <div id="inventory-items"></div>
+            </div>
+            
+            <button id="back-btn">Voltar ao Menu</button>
+        </div>
+        
+        <!-- Tela de conclusão -->
+        <div id="completion-screen">
+            <h2>Parabéns!</h2>
+            <p>Você completou o tema <span id="completed-theme"></span>!</p>
+            
+            <div id="completion-stats">
+                <div class="completion-stat">
+                    <span>Perguntas respondidas:</span>
+                    <span id="completed-questions">0</span>
+                </div>
+                <div class="completion-stat">
+                    <span>Respostas corretas:</span>
+                    <span id="completed-correct">0</span>
+                </div>
+                <div class="completion-stat">
+                    <span>Porcentagem de acerto:</span>
+                    <span id="completed-percentage">0%</span>
+                </div>
+                <div class="completion-stat">
+                    <span>Pontuação total:</span>
+                    <span id="completed-score">0</span>
+                </div>
+                <div class="completion-stat">
+                    <span>Itens coletados:</span>
+                    <span id="completed-items">0</span>
+                </div>
+            </div>
+            
+            <div id="completion-options">
+                <button id="next-theme-btn" class="completion-btn">Próximo Tema</button>
+                <button id="return-menu-btn" class="completion-btn">Voltar ao Menu</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Popups -->
+    <div class="achievement" id="achievement-popup">
+        <h3>Item Obtido!</h3>
+        <p id="achievement-text"></p>
+    </div>
+    
+    <div id="level-up">
+        <h2>Nível Aumentado!</h2>
+        <p>Você ganhou um novo item especial!</p>
+        <button id="continue-btn">Continuar</button>
+    </div>
+    
+    <div id="item-use-dialog">
+        <h3>Usar Item</h3>
+        <p id="item-use-text">Tem certeza que deseja usar este item?</p>
+        <div id="item-use-dialog-buttons">
+            <button id="item-use-confirm" class="item-use-btn">Usar</button>
+            <button id="item-use-cancel" class="item-use-btn">Cancelar</button>
+        </div>
+    </div>
+    
+    <script src="questions.js"></script>
+    <script>
+        // Variáveis do jogo
+        let currentTheme = null;
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let correctAnswers = 0;
+        let inventory = [];
+        let usedQuestions = [];
+        let gameState = 'title'; // title, theme, game, completion
+        let isAnimating = false;
+        let selectedItem = null;
+        let currentExplanation = '';
+        
+        // Elementos do DOM
+        const gameContainer = document.getElementById('game-container');
+        const titleScreen = document.getElementById('title-screen');
+        const themeSelection = document.getElementById('theme-selection');
+        const themesContainer = document.getElementById('themes-container');
+        const gameScreen = document.getElementById('game-screen');
+        const completionScreen = document.getElementById('completion-screen');
+        const backToTitleBtn = document.getElementById('back-to-title');
+        const backBtn = document.getElementById('back-btn');
+        
+        const sceneImage = document.getElementById('scene-image');
+        const sceneText = document.getElementById('scene-text');
+        const optionsContainer = document.getElementById('options-container');
+        const progressBar = document.getElementById('progress');
+        const currentQuestionEl = document.getElementById('current-question');
+        const correctAnswersEl = document.getElementById('correct-answers');
+        const scoreEl = document.getElementById('score');
+        const inventoryItems = document.getElementById('inventory-items');
+        
+        const achievementPopup = document.getElementById('achievement-popup');
+        const achievementText = document.getElementById('achievement-text');
+        const levelUpPopup = document.getElementById('level-up');
+        const itemUseDialog = document.getElementById('item-use-dialog');
+        const itemUseText = document.getElementById('item-use-text');
+        const skipAnimationBtn = document.getElementById('skip-animation');
+        
+        const explanationDiv = document.getElementById('explanation');
+        const explanationText = document.getElementById('explanation-text');
+        const explanationBtn = document.getElementById('explanation-btn');
+        
+        // Event Listeners
+        document.getElementById('start-btn').addEventListener('click', showThemeSelection);
+        backToTitleBtn.addEventListener('click', showTitleScreen);
+        backBtn.addEventListener('click', showThemeSelection);
+        document.getElementById('continue-btn').addEventListener('click', () => {
+            levelUpPopup.style.display = 'none';
+        });
+        document.getElementById('item-use-confirm').addEventListener('click', useSelectedItem);
+        document.getElementById('item-use-cancel').addEventListener('click', () => {
+            itemUseDialog.style.display = 'none';
+        });
+        skipAnimationBtn.addEventListener('click', skipAnimation);
+        explanationBtn.addEventListener('click', toggleExplanation);
+        
+        // Botões da tela de conclusão
+        document.getElementById('next-theme-btn').addEventListener('click', () => {
+            completionScreen.style.display = 'none';
+            showThemeSelection();
+        });
+        
+        document.getElementById('return-menu-btn').addEventListener('click', () => {
+            completionScreen.style.display = 'none';
+            showTitleScreen();
+        });
+        
+        // Funções do jogo
+        function showTitleScreen() {
+            gameState = 'title';
+            titleScreen.style.display = 'block';
+            themeSelection.style.display = 'none';
+            gameScreen.style.display = 'none';
+            completionScreen.style.display = 'none';
+            backToTitleBtn.style.display = 'none';
+        }
+        
+        function showThemeSelection() {
+            gameState = 'theme';
+            titleScreen.style.display = 'none';
+            themeSelection.style.display = 'block';
+            gameScreen.style.display = 'none';
+            completionScreen.style.display = 'none';
+            backToTitleBtn.style.display = 'block';
+            
+            // Limpar temas existentes
+            themesContainer.innerHTML = '';
+            
+            // Adicionar temas disponíveis
+            themes.forEach(theme => {
+                const themeCard = document.createElement('div');
+                themeCard.className = 'theme-card';
+                themeCard.innerHTML = `
+                    <img src="${theme.image}" alt="${theme.name}">
+                    <h3>${theme.name}</h3>
+                    <p>${theme.description}</p>
+                `;
+                themeCard.addEventListener('click', () => startGame(theme.id));
+                themesContainer.appendChild(themeCard);
+            });
+        }
+        
+        function startGame(themeId) {
+            gameState = 'game';
+            titleScreen.style.display = 'none';
+            themeSelection.style.display = 'none';
+            gameScreen.style.display = 'block';
+            completionScreen.style.display = 'none';
+            
+            // Resetar estado do jogo para o novo tema
+            currentTheme = themeId;
+            currentQuestionIndex = 0;
+            score = 0;
+            correctAnswers = 0;
+            inventory = [];
+            usedQuestions = [];
+            
+            // Atualizar UI
+            updateStats();
+            inventoryItems.innerHTML = '';
+            explanationDiv.style.display = 'none';
+            explanationBtn.style.display = 'none';
+            
+            // Carregar primeira pergunta
+            loadQuestion();
+        }
+        
+        function loadQuestion() {
+            // Verificar se completou todas as perguntas do tema
+            const themeQuestions = questions.filter(q => q.theme === currentTheme);
+            if (usedQuestions.length >= themeQuestions.length) {
+                showCompletionScreen();
+                return;
+            }
+            
+            // Escolher uma pergunta aleatória não usada
+            let availableQuestions = themeQuestions.filter(q => !usedQuestions.includes(q.id));
+            const question = availableQuestions[Math.floor(Math.random() * availableQuestions.length)];
+            usedQuestions.push(question.id);
+            
+            // Atualizar UI
+            sceneImage.style.backgroundImage = `url('${themes.find(t => t.id === currentTheme).image}')`;
+            currentQuestionEl.textContent = `${usedQuestions.length}/${themeQuestions.length}`;
+            progressBar.style.width = `${(usedQuestions.length / themeQuestions.length) * 100}%`;
+            
+            // Exibir pergunta com efeito de digitação
+            isAnimating = true;
+            skipAnimationBtn.style.display = 'block';
+            typeWriter(sceneText, question.question, () => {
+                isAnimating = false;
+                skipAnimationBtn.style.display = 'none';
+            });
+            
+            // Limpar opções anteriores
+            optionsContainer.innerHTML = '';
+            
+            // Adicionar opções de resposta
+            question.options.forEach((option, index) => {
+                const optionBtn = document.createElement('button');
+                optionBtn.className = 'option-btn';
+                optionBtn.textContent = option;
+                optionBtn.addEventListener('click', () => checkAnswer(index, question));
+                optionsContainer.appendChild(optionBtn);
+            });
+            
+            // Salvar explicação para mostrar depois
+            currentExplanation = question.explanation;
+            explanationText.textContent = question.explanation;
+            explanationBtn.style.display = 'block';
+        }
+        
+        function checkAnswer(selectedIndex, question) {
+            if (isAnimating) return;
+            
+            // Desativar todos os botões
+            const optionButtons = document.querySelectorAll('.option-btn');
+            optionButtons.forEach(btn => {
+                btn.disabled = true;
+                btn.style.pointerEvents = 'none';
+            });
+            
+            // Marcar resposta correta/incorreta
+            const isCorrect = selectedIndex === question.correctAnswer;
+            
+            if (isCorrect) {
+                optionButtons[selectedIndex].classList.add('correct');
+                correctAnswers++;
+                score += 100;
+                
+                // Chance de ganhar item especial (20%)
+                if (Math.random() < 0.2) {
+                    addRandomItem();
+                }
+            } else {
+                optionButtons[selectedIndex].classList.add('incorrect');
+                optionButtons[question.correctAnswer].classList.add('correct');
+            }
+            
+            // Atualizar estatísticas
+            updateStats();
+            
+            // Próxima pergunta após 2 segundos
+            setTimeout(() => {
+                currentQuestionIndex++;
+                loadQuestion();
+            }, 2000);
+        }
+        
+        function updateStats() {
+            correctAnswersEl.textContent = correctAnswers;
+            scoreEl.textContent = score;
+        }
+        
+        function addRandomItem() {
+            const items = [
+                { name: "Dica Especial", type: "hint", description: "Revela a resposta correta", rarity: "rare" },
+                { name: "Anulador", type: "cancel", description: "Anula uma resposta errada", rarity: "uncommon" },
+                { name: "Pular Pergunta", type: "skip", description: "Pula a pergunta atual", rarity: "common" }
+            ];
+            
+            // Itens mais raros têm menos chance de aparecer
+            const rarityWeights = {
+                common: 0.6,
+                uncommon: 0.3,
+                rare: 0.1
+            };
+            
+            // Selecionar item baseado na raridade
+            let selectedItem;
+            const randomValue = Math.random();
+            
+            if (randomValue < rarityWeights.rare) {
+                selectedItem = items.find(item => item.rarity === "rare");
+            } else if (randomValue < rarityWeights.rare + rarityWeights.uncommon) {
+                selectedItem = items.find(item => item.rarity === "uncommon");
+            } else {
+                selectedItem = items.find(item => item.rarity === "common");
+            }
+            
+            inventory.push(selectedItem);
+            showAchievement(`Você ganhou: ${selectedItem.name}`);
+            updateInventory();
+            
+            // Verificar se o jogador atingiu um novo nível (a cada 3 itens)
+            if (inventory.length % 3 === 0) {
+                setTimeout(() => {
+                    levelUpPopup.style.display = 'block';
+                    // Adicionar um item raro quando atingir novo nível
+                    const rareItem = items.find(item => item.rarity === "rare");
+                    inventory.push(rareItem);
+                    updateInventory();
+                }, 1500);
+            }
+        }
+        
+        function updateInventory() {
+            inventoryItems.innerHTML = '';
+            inventory.forEach((item, index) => {
+                const itemElement = document.createElement('div');
+                itemElement.className = `item ${item.rarity === 'rare' ? 'item-special' : ''}`;
+                itemElement.textContent = item.name;
+                itemElement.title = item.description;
+                itemElement.addEventListener('click', () => selectItem(index));
+                inventoryItems.appendChild(itemElement);
+            });
+        }
+        
+        function selectItem(index) {
+            selectedItem = inventory[index];
+            itemUseText.textContent = `Usar ${selectedItem.name}? ${selectedItem.description}`;
+            itemUseDialog.style.display = 'block';
+        }
+        
+        function useSelectedItem() {
+            if (!selectedItem) return;
+            
+            itemUseDialog.style.display = 'none';
+            
+            // Remover item do inventário
+            const itemIndex = inventory.findIndex(item => item === selectedItem);
+            if (itemIndex !== -1) {
+                inventory.splice(itemIndex, 1);
+                updateInventory();
+            }
+            
+            // Aplicar efeito do item
+            switch (selectedItem.type) {
+                case 'hint':
+                    // Revelar resposta correta
+                    const optionButtons = document.querySelectorAll('.option-btn');
+                    const currentQuestion = questions.find(q => q.id === usedQuestions[usedQuestions.length - 1]);
+                    optionButtons[currentQuestion.correctAnswer].classList.add('correct');
+                    break;
+                    
+                case 'cancel':
+                    // Anular uma resposta errada (se aplicável)
+                    alert("Próxima resposta errada será anulada!");
+                    // Implementar lógica para anular o próximo erro
+                    break;
+                    
+                case 'skip':
+                    // Pular pergunta atual
+                    loadQuestion();
+                    break;
+            }
+            
+            selectedItem = null;
+        }
+        
+        function showAchievement(text) {
+            achievementText.textContent = text;
+            achievementPopup.classList.add('show');
+            
+            setTimeout(() => {
+                achievementPopup.classList.remove('show');
+            }, 3000);
+        }
+        
+        function showCompletionScreen() {
+            gameState = 'completion';
+            gameScreen.style.display = 'none';
+            completionScreen.style.display = 'block';
+            
+            const themeQuestions = questions.filter(q => q.theme === currentTheme);
+            const percentage = Math.round((correctAnswers / themeQuestions.length) * 100);
+            
+            // Atualizar estatísticas de conclusão
+            document.getElementById('completed-theme').textContent = themes.find(t => t.id === currentTheme).name;
+            document.getElementById('completed-questions').textContent = themeQuestions.length;
+            document.getElementById('completed-correct').textContent = correctAnswers;
+            document.getElementById('completed-percentage').textContent = `${percentage}%`;
+            document.getElementById('completed-score').textContent = score;
+            document.getElementById('completed-items').textContent = inventory.length;
+        }
+        
+        function typeWriter(element, text, callback) {
+            let i = 0;
+            element.textContent = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, 30);
+                } else if (callback) {
+                    callback();
+                }
+            }
+            
+            type();
+        }
+        
+        function skipAnimation() {
+            isAnimating = false;
+            skipAnimationBtn.style.display = 'none';
+            const currentQuestion = questions.find(q => q.id === usedQuestions[usedQuestions.length - 1]);
+            sceneText.textContent = currentQuestion.question;
+        }
+        
+        function toggleExplanation() {
+            if (explanationDiv.style.display === 'none' || !explanationDiv.style.display) {
+                explanationDiv.style.display = 'block';
+                explanationBtn.textContent = 'Ocultar Explicação';
+            } else {
+                explanationDiv.style.display = 'none';
+                explanationBtn.textContent = 'Mostrar Explicação';
+            }
+        }
+        
+        // Inicializar jogo
+        showTitleScreen();
+    </script>
+</body>
+</html>
