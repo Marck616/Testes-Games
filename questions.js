@@ -1,101 +1,100 @@
 // Banco de dados de temas
-// Banco de dados de temas
 const themes = [
     {
         id: 'music',
         name: 'Música',
         description: 'Teste seus conhecimentos sobre artistas e álbuns famosos',
-        image: 'https://source.unsplash.com/random/800x600/?music'
+        image: 'https://images.pexels.com/photos/164935/pexels-photo-164935.jpeg'
     },
     {
         id: 'literature',
         name: 'Literatura Brasileira',
         description: 'Perguntas sobre grandes obras e autores brasileiros',
-        image: 'https://source.unsplash.com/random/800x600/?books,brazil'
+        image: 'https://images.pexels.com/photos/590493/pexels-photo-590493.jpeg'
     },
     {
         id: 'architecture',
         name: 'Arquitetura Brasileira',
         description: 'Conheça os grandes nomes e obras da arquitetura nacional',
-        image: 'https://source.unsplash.com/random/800x600/?architecture,brazil'
+        image: 'https://images.pexels.com/photos/163834/pexels-photo-163834.jpeg'
     },
     {
         id: 'world',
         name: 'Gigantes do Mundo',
         description: 'Desafie-se com perguntas sobre recordes mundiais',
-        image: 'https://source.unsplash.com/random/800x600/?world,records'
+        image: 'https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg'
     },
     {
         id: 'biology',
         name: 'Doenças Biológicas',
         description: 'Teste seus conhecimentos sobre doenças e biologia',
-        image: 'https://source.unsplash.com/random/800x600/?biology,disease'
+        image: 'https://images.pexels.com/photos/2280549/pexels-photo-2280549.jpeg'
     },
     {
         id: 'mythology',
         name: 'Mitologia',
         description: 'Deuses, heróis e mitos das antigas civilizações',
-        image: 'https://source.unsplash.com/random/800x600/?mythology,gods'
+        image: 'https://images.pexels.com/photos/3366939/pexels-photo-3366939.jpeg'
     },
     {
         id: 'history',
         name: 'História',
         description: 'Perguntas sobre eventos históricos importantes',
-        image: 'https://source.unsplash.com/random/800x600/?history'
+        image: 'https://images.pexels.com/photos/235985/pexels-photo-235985.jpeg'
     },
     {
         id: 'entertainment',
         name: 'Entretenimento',
         description: 'Curiosidades sobre filmes, séries e cultura pop',
-        image: 'https://source.unsplash.com/random/800x600/?entertainment'
+        image: 'https://images.pexels.com/photos/799137/pexels-photo-799137.jpeg'
     },
     {
         id: 'sports',
         name: 'Esportes',
         description: 'Perguntas sobre diversos esportes e atletas famosos',
-        image: 'https://source.unsplash.com/random/800x600/?sports'
+        image: 'https://images.pexels.com/photos/2294361/pexels-photo-2294361.jpeg'
     },
     {
         id: 'science',
         name: 'Ciência',
         description: 'Desafios sobre descobertas e conceitos científicos',
-        image: 'https://source.unsplash.com/random/800x600/?science'
+        image: 'https://images.pexels.com/photos/356040/pexels-photo-356040.jpeg'
     },
     {
         id: 'geography',
         name: 'Geografia',
         description: 'Perguntas sobre países, cidades e fenômenos naturais',
-        image: 'https://source.unsplash.com/random/800x600/?geography'
+        image: 'https://images.pexels.com/photos/290470/pexels-photo-290470.jpeg'
     },
     {
         id: 'art',
         name: 'Arte',
         description: 'Teste seus conhecimentos sobre artistas e movimentos artísticos',
-        image: 'https://source.unsplash.com/random/800x600/?art'
+        image: 'https://images.pexels.com/photos/374918/pexels-photo-374918.jpeg'
     },
     {
         id: 'technology',
         name: 'Tecnologia',
         description: 'Perguntas sobre inovações tecnológicas e conceitos digitais',
-        image: 'https://source.unsplash.com/random/800x600/?technology'
+        image: 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg'
     },
     {
         id: 'language',
         name: 'Línguas',
         description: 'Desafios sobre idiomas e linguística',
-        image: 'https://source.unsplash.com/random/800x600/?language'
+        image: 'https://images.pexels.com/photos/159740/language-dictionary-english-words-159740.jpeg'
     },
     {
         id: 'culture',
         name: 'Cultura',
         description: 'Perguntas sobre tradições e manifestações culturais',
-        image: 'https://source.unsplash.com/random/800x600/?culture'
+        image: 'https://images.pexels.com/photos/1795556/pexels-photo-1795556.jpeg'
     },
     {
         id: 'math',
         name: 'Matemática',
         description: 'Teste seus conhecimentos matemáticos',
-        image: 'https://source.unsplash.com/random/800x600/?math'
+        image: 'https://images.pexels.com/photos/714699/pexels-photo-714699.jpeg'
     }
 ];
 
