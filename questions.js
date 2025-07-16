@@ -1827,12 +1827,4 @@ const questions = [
         correctAnswer: 1,
         explanation: 'Run significa "correr" e é um verbo. As outras palavras são substantivos ou adjetivos.'
     },
-    {
-        id: 209,
-        theme: 'language',
-        question: "Qual é o plural de child em inglês?",
-        options: ["Childs", "Childes", "Children", "Childrens"],
-        correctAnswer: 2,
-        explanation:
-}
 ];
