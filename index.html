@@ -402,6 +402,12 @@
             border-radius: 8px;
             margin-top: 20px;
             display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        #explanation.show {
+            opacity: 1;
         }
         
         #explanation h3 {
@@ -665,14 +671,32 @@
             // Carregar primeira pergunta
             loadQuestion();
         }
+
+
+
+
+
+
         
-        function loadQuestion() {
-            // Verificar se completou todas as perguntas do tema
-            const themeQuestions = questions.filter(q => q.theme === currentTheme);
-            if (usedQuestions.length >= themeQuestions.length) {
-                showCompletionScreen();
-                return;
-            }
+function loadQuestion() {
+    // Verificar se completou todas as perguntas do tema
+    const themeQuestions = questions.filter(q => q.theme === currentTheme);
+    if (usedQuestions.length >= themeQuestions.length) {
+        showCompletionScreen();
+        return;
+    }
+    
+    // Esconder explicação da pergunta anterior
+    explanationDiv.style.display = 'none';
+    explanationDiv.classList.remove('show'); // Remove classe do efeito
+    explanationBtn.style.display = 'none';
+    
+    // Resto da função permanece igual...
+
+
+
+
+    
             
             // Escolher uma pergunta aleatória não usada
             let availableQuestions = themeQuestions.filter(q => !usedQuestions.includes(q.id));
@@ -706,46 +730,52 @@
             
             // Salvar explicação para mostrar depois
             currentExplanation = question.explanation;
-            explanationText.textContent = question.explanation;
-            explanationBtn.style.display = 'block';
         }
         
-        function checkAnswer(selectedIndex, question) {
-            if (isAnimating) return;
-            
-            // Desativar todos os botões
-            const optionButtons = document.querySelectorAll('.option-btn');
-            optionButtons.forEach(btn => {
-                btn.disabled = true;
-                btn.style.pointerEvents = 'none';
-            });
-            
-            // Marcar resposta correta/incorreta
-            const isCorrect = selectedIndex === question.correctAnswer;
-            
-            if (isCorrect) {
-                optionButtons[selectedIndex].classList.add('correct');
-                correctAnswers++;
-                score += 100;
-                
-                // Chance de ganhar item especial (20%)
-                if (Math.random() < 0.2) {
-                    addRandomItem();
-                }
-            } else {
-                optionButtons[selectedIndex].classList.add('incorrect');
-                optionButtons[question.correctAnswer].classList.add('correct');
-            }
-            
-            // Atualizar estatísticas
-            updateStats();
-            
-            // Próxima pergunta após 2 segundos
-            setTimeout(() => {
-                currentQuestionIndex++;
-                loadQuestion();
-            }, 2000);
+function checkAnswer(selectedIndex, question) {
+    if (isAnimating) return;
+    
+    // Desativar todos os botões
+    const optionButtons = document.querySelectorAll('.option-btn');
+    optionButtons.forEach(btn => {
+        btn.disabled = true;
+        btn.style.pointerEvents = 'none';
+    });
+    
+    // Marcar resposta correta/incorreta
+    const isCorrect = selectedIndex === question.correctAnswer;
+    
+    if (isCorrect) {
+        optionButtons[selectedIndex].classList.add('correct');
+        correctAnswers++;
+        score += 100;
+        
+        // Chance de ganhar item especial (20%)
+        if (Math.random() < 0.2) {
+            addRandomItem();
         }
+    } else {
+        optionButtons[selectedIndex].classList.add('incorrect');
+        optionButtons[question.correctAnswer].classList.add('correct');
+    }
+    
+    // Atualizar estatísticas
+    updateStats();
+    
+// Mostrar explicação após 1 segundo
+setTimeout(() => {
+    explanationText.textContent = question.explanation;
+    explanationDiv.style.display = 'block';
+    explanationDiv.classList.add('show'); // Adiciona classe para o efeito
+    explanationBtn.style.display = 'none';
+}, 1000);
+    
+    // Próxima pergunta após 3 segundos
+    setTimeout(() => {
+        currentQuestionIndex++;
+        loadQuestion();
+    }, 3000);
+}
         
         function updateStats() {
             correctAnswersEl.textContent = correctAnswers;
