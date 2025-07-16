@@ -1827,4 +1827,284 @@ const questions = [
         correctAnswer: 1,
         explanation: 'Run significa "correr" e é um verbo. As outras palavras são substantivos ou adjetivos.'
     },
+
+
+// Inglês
+{
+    id: 221,
+    theme: 'language',
+    question: "Qual é o significado da palavra 'apple' em português?",
+    options: ["Banana", "Maçã", "Uva", "Pêssego"],
+    correctAnswer: 1,
+    explanation: "Apple é um substantivo comum em inglês e significa 'maçã', uma das primeiras palavras ensinadas no idioma."
+},
+{
+    id: 222,
+    theme: 'language',
+    question: "O que significa a palavra 'house'?",
+    options: ["Cavalo", "Casa", "Rua", "Carro"],
+    correctAnswer: 1,
+    explanation: "House é 'casa' em inglês, diferente de home, que tem sentido mais emocional ou familiar."
+},
+
+// Espanhol
+{
+    id: 223,
+    theme: 'language',
+    question: "Como se diz 'bom dia' em espanhol?",
+    options: ["Buenas noches", "Buenas tardes", "Buen día", "Buenos días"],
+    correctAnswer: 3,
+    explanation: "Buenos días é a forma padrão de cumprimentar pela manhã em espanhol, usado até o meio-dia."
+},
+{
+    id: 224,
+    theme: 'language',
+    question: "Como se diz 'cachorro' em espanhol?",
+    options: ["Gato", "Perro", "Caballo", "Vaca"],
+    correctAnswer: 1,
+    explanation: "'Perro' é 'cachorro' ou 'cão' em espanhol. Gato = gato, caballo = cavalo."
+},
+
+// Alemão
+{
+    id: 225,
+    theme: 'language',
+    question: "Qual dessas palavras significa 'obrigado' em alemão?",
+    options: ["Bitte", "Hallo", "Danke", "Guten"],
+    correctAnswer: 2,
+    explanation: "Danke é a forma básica de dizer 'obrigado' em alemão. Para mais formalidade, pode-se usar Danke schön."
+},
+{
+    id: 226,
+    theme: 'language',
+    question: "O que significa 'Wasser' em alemão?",
+    options: ["Ar", "Comida", "Água", "Leite"],
+    correctAnswer: 2,
+    explanation: "Wasser é 'água' em alemão. Muito comum em placas e cardápios."
+},
+
+// Italiano
+{
+    id: 227,
+    theme: 'language',
+    question: "O que significa a palavra italiana 'ciao'?",
+    options: ["Olá e tchau", "Obrigado", "Por favor", "Tudo bem?"],
+    correctAnswer: 0,
+    explanation: "Ciao é uma saudação informal muito usada na Itália e serve tanto para dizer 'oi' quanto 'tchau'."
+},
+{
+    id: 228,
+    theme: 'language',
+    question: "O que significa a palavra italiana 'grazie'?",
+    options: ["Por favor", "Tchau", "De nada", "Obrigado"],
+    correctAnswer: 3,
+    explanation: "Grazie é a forma básica de agradecer. 'Prego' é 'de nada'."
+},
+
+// Coreano
+{
+    id: 229,
+    theme: 'language',
+    question: "Qual destas expressões significa 'olá' em coreano?",
+    options: ["안녕 (annyeong)", "감사합니다 (gamsahamnida)", "사랑해 (saranghae)", "학교 (hakgyo)"],
+    correctAnswer: 0,
+    explanation: "안녕 (annyeong) é uma forma informal de dizer 'oi' ou 'olá' em coreano, geralmente usada entre amigos ou pessoas próximas."
+},
+{
+    id: 230,
+    theme: 'language',
+    question: "O que significa '감사합니다' (gamsahamnida)?",
+    options: ["Com licença", "Bom dia", "Obrigado", "Por favor"],
+    correctAnswer: 2,
+    explanation: "감사합니다 é uma forma educada de dizer 'obrigado'. Usado em contextos formais."
+},
+
+
+    
+{
+    id: 209,
+    theme: 'math',
+    question: "Qual o valor aproximado de π (pi)?",
+    options: ["2,14", "3,14", "4,13", "3,41"],
+    correctAnswer: 1,
+    explanation: "π (pi) é uma constante matemática que representa a razão entre a circunferência e o diâmetro de um círculo. Seu valor aproximado é 3,14."
+},
+{
+    id: 210,
+    theme: 'math',
+    question: "Qual é a metade de 1.000?",
+    options: ["100", "500", "200", "50"],
+    correctAnswer: 1,
+    explanation: "Metade de um número é o valor dividido por 2. Metade de 1.000 é 1000 ÷ 2 = 500."
+},
+{
+    id: 211,
+    theme: 'math',
+    question: "Quantos lados tem um hexágono?",
+    options: ["5", "6", "7", "8"],
+    correctAnswer: 1,
+    explanation: "O prefixo 'hexa' significa seis. Um hexágono é uma figura geométrica com 6 lados."
+},
+{
+    id: 212,
+    theme: 'math',
+    question: "Quantos segundos há em 1 minuto?",
+    options: ["60", "100", "30", "90"],
+    correctAnswer: 0,
+    explanation: "Cada minuto tem exatamente 60 segundos. Esse padrão é usado em medidas de tempo no sistema sexagesimal."
+},
+{
+    id: 213,
+    theme: 'math',
+    question: "Qual número vem antes do 0 (zero) na reta numérica?",
+    options: ["-1", "1", "2", "-2"],
+    correctAnswer: 0,
+    explanation: "Números negativos estão à esquerda do zero na reta numérica. O número imediatamente anterior ao zero é o -1."
+},
+{
+    id: 214,
+    theme: 'math',
+    question: "Um triângulo tem quantos lados?",
+    options: ["2", "3", "4", "5"],
+    correctAnswer: 1,
+    explanation: "Triângulo é uma figura geométrica com três lados e três ângulos internos."
+},
+{
+    id: 215,
+    theme: 'math',
+    question: "Se hoje é terça-feira, que dia será depois de 3 dias?",
+    options: ["Sexta-feira", "Quinta-feira", "Segunda-feira", "Domingo"],
+    correctAnswer: 0,
+    explanation: "Adicionando 3 dias à terça-feira: quarta (1), quinta (2), sexta (3)."
+},
+{
+    id: 216,
+    theme: 'math',
+    question: "Qual número multiplicado por 0 sempre dá 0?",
+    options: ["Qualquer número", "Somente o 0", "Apenas números pares", "Nenhum número"],
+    correctAnswer: 0,
+    explanation: "Qualquer número real multiplicado por zero sempre resulta em zero. É uma das propriedades da multiplicação."
+},
+{
+    id: 217,
+    theme: 'math',
+    question: "Se um bolo foi cortado em 8 pedaços iguais, qual fração representa 1 pedaço?",
+    options: ["1/4", "1/6", "1/8", "1/2"],
+    correctAnswer: 2,
+    explanation: "Quando dividimos algo em partes iguais, cada parte é uma fração do todo. 1 pedaço de 8 partes é representado por 1/8."
+},
+{
+    id: 218,
+    theme: 'math',
+    question: "Qual é o menor número primo?",
+    options: ["1", "2", "3", "5"],
+    correctAnswer: 1,
+    explanation: "Números primos têm apenas dois divisores: 1 e ele mesmo. O menor número primo é 2 — e o único que é par."
+},
+{
+    id: 219,
+    theme: 'math',
+    question: "Qual é o dobro de 12?",
+    options: ["22", "20", "24", "26"],
+    correctAnswer: 2,
+    explanation: "Dobro significa multiplicar por 2. 12 × 2 = 24."
+},
+{
+    id: 220,
+    theme: 'math',
+    question: "Quantos centímetros há em 1 metro?",
+    options: ["10", "100", "1.000", "1.500"],
+    correctAnswer: 1,
+    explanation: "O sistema métrico define que 1 metro equivale a 100 centímetros."
+},
+
+
+
+{
+    id: 231,
+    theme: 'culture',
+    question: "Qual festa espanhola envolve correr na frente de touros?",
+    options: ["La Tomatina", "San Fermín", "Feria de Abril", "Día de los Muertos"],
+    correctAnswer: 1,
+    explanation: "Corrida de touros em Pamplona, famosa mundialmente."
+},
+{
+    id: 232,
+    theme: 'culture',
+    question: "O que é 'La Tomatina'?",
+    options: ["Uma corrida de cavalos", "Um festival de batalha de tomates", "Uma festa de música tradicional", "Uma celebração religiosa"],
+    correctAnswer: 1,
+    explanation: "Evento anual na cidade de Buñol, onde as pessoas jogam tomates umas nas outras."
+},
+{
+    id: 233,
+    theme: 'culture',
+    question: "No Japão, o que simboliza a flor de cerejeira (sakura)?",
+    options: ["Riqueza", "Vida e renovação", "Força", "Sorte"],
+    correctAnswer: 1,
+    explanation: "Sakura é símbolo da efemeridade da vida e do início da primavera."
+},
+{
+    id: 234,
+    theme: 'culture',
+    question: "Em que país se celebra o Dia de los Muertos, uma festa para homenagear os mortos?",
+    options: ["México", "Brasil", "Argentina", "Peru"],
+    correctAnswer: 0,
+    explanation: "Festa cheia de altares coloridos, comidas e lembranças dos falecidos."
+},
+{
+    id: 235,
+    theme: 'culture',
+    question: "Qual desses países é famoso por sua dança folclórica flamenca?",
+    options: ["Portugal", "Espanha", "França", "Itália"],
+    correctAnswer: 1,
+    explanation: "Flamenco é uma dança vibrante originada na Andaluzia."
+},
+
+
+
+
+{
+    id: 241,
+    theme: 'science',
+    question: "Qual é a grandeza física medida em newtons?",
+    options: ["Força", "Massa", "Velocidade", "Energia"],
+    correctAnswer: 0,
+    explanation: "O newton (N) é a unidade de força no Sistema Internacional."
+},
+{
+    id: 242,
+    theme: 'science',
+    question: "Qual partícula é responsável pela corrente elétrica nos condutores?",
+    options: ["Fóton", "Próton", "Elétron", "Nêutron"],
+    correctAnswer: 2,
+    explanation: "A corrente elétrica é formada pelo fluxo de elétrons livres em materiais condutores."
+},
+
+
+
+{
+    id: 243,
+    theme: 'culture',
+    question: "Qual manifestação cultural brasileira é conhecida por seus bonecos gigantes em Olinda?",
+    options: ["Frevo", "Bumba meu boi", "Maracatu", "Carnaval"],
+    correctAnswer: 3,
+    explanation: "Os bonecos gigantes são uma tradição do Carnaval de Olinda (PE)."
+},
+{
+    id: 244,
+    theme: 'culture',
+    question: "Qual é a festa tradicional nordestina celebrada com quadrilhas, comidas típicas e fogueiras?",
+    options: ["Natal", "Carnaval", "Junina", "Cosme e Damião"],
+    correctAnswer: 2,
+    explanation: "As festas juninas celebram santos populares como São João."
+}
+
+    
+
+
+    
+
+    
+    
 ];
