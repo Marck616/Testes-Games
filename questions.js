@@ -4,97 +4,97 @@ const themes = [
         id: 'music',
         name: 'Música',
         description: 'Teste seus conhecimentos sobre artistas e álbuns famosos',
-        image: 'https://images.pexels.com/photos/164935/pexels-photo-164935.jpeg'
+        image: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
     },
     {
         id: 'literature',
         name: 'Literatura Brasileira',
         description: 'Perguntas sobre grandes obras e autores brasileiros',
-        image: 'https://images.pexels.com/photos/590493/pexels-photo-590493.jpeg'
+        image: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
     },
     {
         id: 'architecture',
         name: 'Arquitetura Brasileira',
         description: 'Conheça os grandes nomes e obras da arquitetura nacional',
-        image: 'https://images.pexels.com/photos/163834/pexels-photo-163834.jpeg'
+        image: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
     },
     {
         id: 'world',
         name: 'Gigantes do Mundo',
         description: 'Desafie-se com perguntas sobre recordes mundiais',
-        image: 'https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg'
+        image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
     },
     {
         id: 'biology',
         name: 'Doenças Biológicas',
         description: 'Teste seus conhecimentos sobre doenças e biologia',
-        image: 'https://images.pexels.com/photos/2280549/pexels-photo-2280549.jpeg'
+        image: 'https://images.unsplash.com/photo-1575505586569-646b2ca898fc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
     },
     {
         id: 'mythology',
         name: 'Mitologia',
         description: 'Deuses, heróis e mitos das antigas civilizações',
-        image: 'https://images.pexels.com/photos/3366939/pexels-photo-3366939.jpeg'
+        image: 'https://images.unsplash.com/photo-1608889825100-1da99a9dfd1a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
     },
     {
         id: 'history',
         name: 'História',
         description: 'Perguntas sobre eventos históricos importantes',
-        image: 'https://images.pexels.com/photos/235985/pexels-photo-235985.jpeg'
+        image: 'https://images.unsplash.com/photo-1505664194779-8beaceb93744?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
     },
     {
         id: 'entertainment',
         name: 'Entretenimento',
         description: 'Curiosidades sobre filmes, séries e cultura pop',
-        image: 'https://images.pexels.com/photos/799137/pexels-photo-799137.jpeg'
+        image: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
     },
     {
         id: 'sports',
         name: 'Esportes',
         description: 'Perguntas sobre diversos esportes e atletas famosos',
-        image: 'https://images.pexels.com/photos/2294361/pexels-photo-2294361.jpeg'
+        image: 'https://images.unsplash.com/photo-1547347298-4074fc3086f0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
     },
     {
         id: 'science',
         name: 'Ciência',
         description: 'Desafios sobre descobertas e conceitos científicos',
-        image: 'https://images.pexels.com/photos/356040/pexels-photo-356040.jpeg'
+        image: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
     },
     {
         id: 'geography',
         name: 'Geografia',
         description: 'Perguntas sobre países, cidades e fenômenos naturais',
-        image: 'https://images.pexels.com/photos/290470/pexels-photo-290470.jpeg'
+        image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
     },
     {
         id: 'art',
         name: 'Arte',
         description: 'Teste seus conhecimentos sobre artistas e movimentos artísticos',
-        image: 'https://images.pexels.com/photos/374918/pexels-photo-374918.jpeg'
+        image: 'https://images.unsplash.com/photo-1547891654-e66ed7ebb968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
     },
     {
         id: 'technology',
         name: 'Tecnologia',
         description: 'Perguntas sobre inovações tecnológicas e conceitos digitais',
-        image: 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg'
+        image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
     },
     {
         id: 'language',
         name: 'Línguas',
         description: 'Desafios sobre idiomas e linguística',
-        image: 'https://images.pexels.com/photos/159740/language-dictionary-english-words-159740.jpeg'
+        image: 'https://images.unsplash.com/photo-1509909756405-be0199881695?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
     },
     {
         id: 'culture',
         name: 'Cultura',
         description: 'Perguntas sobre tradições e manifestações culturais',
-        image: 'https://images.pexels.com/photos/1795556/pexels-photo-1795556.jpeg'
+        image: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
     },
     {
         id: 'math',
         name: 'Matemática',
         description: 'Teste seus conhecimentos matemáticos',
-        image: 'https://images.pexels.com/photos/714699/pexels-photo-714699.jpeg'
+        image: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
     }
 ];
 
