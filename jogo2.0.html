@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Adventure</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        #game-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        #scene {
+            min-height: 200px;
+            padding: 20px;
+            background-color: #252525;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #scene-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            transition: all 0.5s ease;
+        }
+        
+        #scene-text {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        #options-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .option-btn {
+            padding: 12px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.2s;
+        }
+        
+        .option-btn:hover {
+            background-color: #444;
+            transform: translateY(-2px);
+        }
+        
+        .option-btn.correct {
+            background-color: #2e7d32;
+        }
+        
+        .option-btn.incorrect {
+            background-color: #c62828;
+        }
+        
+        #stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #252525;
+            border-radius: 8px;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #bb86fc;
+        }
+        
+        #progress-bar {
+            height: 10px;
+            background-color: #333;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        
+        #progress {
+            height: 100%;
+            background-color: #bb86fc;
+            width: 0%;
+            transition: width 0.3s;
+        }
+        
+        #inventory {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #252525;
+            border-radius: 8px;
+        }
+        
+        #inventory-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .item {
+            padding: 8px 12px;
+            background-color: #333;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .item:hover {
+            background-color: #444;
+            transform: translateY(-2px);
+        }
+        
+        .item-special {
+            background-color: #6a1b9a;
+        }
+        
+        .achievement {
+            position: fixed;
+            top: 20px;
+            right: -300px;
+            width: 280px;
+            padding: 15px;
+            background-color: #bb86fc;
+            color: #121212;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            transition: right 0.5s;
+            z-index: 100;
+        }
+        
+        .achievement.show {
+            right: 20px;
+        }
+        
+        .achievement h3 {
+            margin-top: 0;
+            color: #121212;
+        }
+        
+        #title-screen {
+            text-align: center;
+        }
+        
+        #title-screen h1 {
+            font-size: 48px;
+            color: #bb86fc;
+            margin-bottom: 10px;
+        }
+        
+        #title-screen p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        
+        #start-btn {
+            padding: 15px 30px;
+            font-size: 20px;
+            background-color: #bb86fc;
+            color: #121212;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        #start-btn:hover {
+            background-color: #9c64f4;
+            transform: scale(1.05);
+        }
+        
+        .typewriter {
+            overflow: hidden;
+            border-right: 2px solid #bb86fc;
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #bb86fc }
+        }
+        
+        #level-up {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #bb86fc;
+            color: #121212;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            z-index: 100;
+            display: none;
+        }
+        
+        #level-up h2 {
+            font-size: 36px;
+            margin-top: 0;
+        }
+        
+        #level-up p {
+            font-size: 20px;
+        }
+        
+        #continue-btn {
+            padding: 10px 20px;
+            background-color: #121212;
+            color: #bb86fc;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        
+        #item-use-dialog {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #252525;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            z-index: 100;
+            display: none;
+            max-width: 400px;
+        }
+        
+        #item-use-dialog h3 {
+            margin-top: 0;
+            color: #bb86fc;
+        }
+        
+        #item-use-dialog p {
+            margin-bottom: 20px;
+        }
+        
+        #item-use-dialog-buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .item-use-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        #item-use-confirm {
+            background-color: #2e7d32;
+            color: white;
+        }
+        
+        #item-use-cancel {
+            background-color: #c62828;
+            color: white;
+        }
+        
+        #skip-animation {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none;
+        }
+
+        #theme-selection {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .theme-card {
+            width: 180px;
+            height: 120px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            display: flex;
+            align-items: flex-end;
+            cursor: pointer;
+            transition: all 0.3s;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .theme-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .theme-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+        }
+
+        .theme-name {
+            position: relative;
+            z-index: 1;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        #hint-container {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #333;
+            border-radius: 5px;
+            display: none;
+        }
+
+        #hint-text {
+            font-style: italic;
+            color: #bb86fc;
+        }
+
+        #use-hint-btn {
+            background-color: #bb86fc;
+            color: #121212;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-top: 5px;
+            font-size: 12px;
+        }
+
+        #use-hint-btn:disabled {
+            background-color: #555;
+            cursor: not-allowed;
+        }
+
+        #scene-effects {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #f00;
+            opacity: 0;
+        }
+
+        #streak-counter {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0,0,0,0.7);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+            display: none;
+        }
+
+        .streak-fire {
+            color: #ff5722;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <div id="title-screen">
+            <h1>Quiz Adventure</h1>
+            <p>Teste seus conhecimentos e explore mundos temáticos cheios de desafios!</p>
+            <div id="theme-selection">
+                <!-- Themes will be added by JavaScript -->
+            </div>
+            <button id="start-btn">Começar Aventura</button>
+        </div>
+
+        <div id="game-screen" style="display: none;">
+            <div id="scene">
+                <div id="scene-image"></div>
+                <div id="scene-text"></div>
+                <div id="scene-effects"></div>
+                <div id="streak-counter"></div>
+            </div>
+            
+            <div id="progress-bar">
+                <div id="progress"></div>
+            </div>
+            
+            <div id="stats">
+                <div class="stat">
+                    <div>Pontos</div>
+                    <div class="stat-value" id="points">0</div>
+                </div>
+                <div class="stat">
+                    <div>Nível</div>
+                    <div class="stat-value" id="level">1</div>
+                </div>
+                <div class="stat">
+                    <div>Acertos</div>
+                    <div class="stat-value" id="correct">0</div>
+                </div>
+                <div class="stat">
+                    <div>Erros</div>
+                    <div class="stat-value" id="wrong">0</div>
+                </div>
+            </div>
+            
+            <div id="options-container">
+                <!-- Options will be added by JavaScript -->
+            </div>
+            
+            <div id="hint-container">
+                <div id="hint-text"></div>
+                <button id="use-hint-btn" disabled>Usar Dica (3 pontos)</button>
+            </div>
+            
+            <div id="inventory">
+                <h3>Inventário</h3>
+                <div id="inventory-items">
+                    <!-- Items will be added by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="level-up">
+        <h2>Level Up!</h2>
+        <p id="level-up-text">Você alcançou o nível 2!</p>
+        <button id="continue-btn">Continuar</button>
+    </div>
+    
+    <div id="item-use-dialog">
+        <h3 id="item-use-title">Usar Item</h3>
+        <p id="item-use-description">Tem certeza que deseja usar este item?</p>
+        <div id="item-use-dialog-buttons">
+            <button class="item-use-btn" id="item-use-confirm">Usar</button>
+            <button class="item-use-btn" id="item-use-cancel">Cancelar</button>
+        </div>
+    </div>
+    
+    <div class="achievement" id="achievement-popup">
+        <h3 id="achievement-title">Conquista Desbloqueada!</h3>
+        <p id="achievement-desc">Você completou 10 perguntas corretamente!</p>
+    </div>
+    
+    <button id="skip-animation">Pular Animação</button>
+
+    <script>
+        // Game data
+        const gameData = {
+            themes: [
+                {
+                    id: "music",
+                    name: "Música",
+                    image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                    questions: [
+                        {
+                            question: "Qual o nome do álbum mais vendido de Michael Jackson?",
+                            options: ["Bad", "Thriller", "Dangerous", "Off the Wall"],
+                            answer: 1,
+                            hint: "Foi lançado em 1982 e contém hits como 'Billie Jean' e 'Beat It'"
+                        },
+                        {
+                            question: "Qual desses videoclipes de Michael Jackson ficou famoso por suas coreografias de zumbis?",
+                            options: ["Black or White", "Remember the Time", "Thriller", "Smooth Criminal"],
+                            answer: 2,
+                            hint: "O clipe foi dirigido por John Landis e tem elementos de terror"
+                        },
+                        {
+                            question: "Como era chamado o passo de dança que Michael Jackson eternizou, onde ele parece deslizar para trás?",
+                            options: ["Side Step", "Glide Slide", "Floating Step", "Moonwalk"],
+                            answer: 3,
+                            hint: "Ele apresentou esse passo pela primeira vez no especial 'Motown 25' em 1983"
+                        },
+                        {
+                            question: "Qual era o nome do rancho onde Michael Jackson vivia, com zoológico e parque de diversões próprios?",
+                            options: ["Dreamland", "Thriller Park", "Neverland", "Pop Kingdom"],
+                            answer: 2,
+                            hint: "O nome foi inspirado na Terra do Nunca de Peter Pan"
+                        },
+                        {
+                            question: "Qual destes artistas NÃO colaborou com Michael Jackson em uma música?",
+                            options: ["Paul McCartney", "Slash (Guns N' Roses)", "Freddie Mercury", "Elvis Presley"],
+                            answer: 3,
+                            hint: "Este artista já havia falecido antes de Michael Jackson começar sua carreira solo"
+                        },
+                        {
+                            question: "O que significa a sigla BTS?",
+                            options: ["Behind The Scene", "Bangtan Sonyeondan", "Beyond The Stars", "Be The Sound"],
+                            answer: 1,
+                            hint: "Significa 'escoteiros à prova de balas' em coreano"
+                        },
+                        {
+                            question: "Qual membro do BTS é o líder do grupo?",
+                            options: ["Jin", "Suga", "Jimin", "RM"],
+                            answer: 3,
+                            hint: "Ele é conhecido por sua inteligência e fluência em inglês"
+                        },
+                        {
+                            question: "Qual foi o primeiro single do BTS?",
+                            options: ["DNA", "No More Dream", "Boy With Luv", "Fire"],
+                            answer: 1,
+                            hint: "Foi lançado em 2013 e critica as pressões sociais sobre os jovens"
+                        },
+                        {
+                            question: "Qual desses álbuns do BTS ficou no topo da Billboard 200 nos EUA?",
+                            options: ["Skool Luv Affair", "Wings", "Love Yourself: Tear", "Dark & Wild"],
+                            answer: 2,
+                            hint: "Foi o primeiro álbum em coreano a alcançar o topo da Billboard 200 em 2018"
+                        },
+                        {
+                            question: "Qual desses artistas colaborou com o BTS na música 'Boy With Luv'?",
+                            options: ["Halsey", "Ariana Grande", "Billie Eilish", "Ed Sheeran"],
+                            answer: 0,
+                            hint: "É uma cantora americana que participou do clipe em 2019"
+                        }
+                    ]
+                },
+                {
+                    id: "history",
+                    name: "História",
+                    image: "https://images.unsplash.com/photo-1505664194779-8beaceb93744?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                    questions: [
+                        {
+                            question: "Qual foi o evento que marcou o início oficial da Segunda Guerra Mundial?",
+                            options: [
+                                "A invasão da Polônia pela União Soviética (1939)",
+                                "O ataque japonês a Pearl Harbor (1941)",
+                                "A invasão da França pela Alemanha (1940)",
+                                "A invasão da Polônia pela Alemanha (1º de setembro de 1939)"
+                            ],
+                            answer: 3,
+                            hint: "Isso levou França e Reino Unido a declararem guerra à Alemanha"
+                        },
+                        {
+                            question: "Qual foi o principal campo de concentração e extermínio nazista?",
+                            options: ["Dachau", "Treblinka", "Buchenwald", "Auschwitz (na Polônia ocupada)"],
+                            answer: 3,
+                            hint: "Foi o maior e mais letal, onde mais de 1 milhão de pessoas foram assassinadas"
+                        },
+                        {
+                            question: "Qual batalha foi considerada o ponto de virada na Frente Oriental?",
+                            options: [
+                                "Batalha de Berlim (1945)",
+                                "Batalha de Kursk (1943)",
+                                "Batalha de Moscou (1941)",
+                                "Batalha de Stalingrado (1942–1943)"
+                            ],
+                            answer: 3,
+                            hint: "A derrota alemã aqui marcou o início da retirada nazista na URSS"
+                        },
+                        {
+                            question: "Qual país foi invadido pela Alemanha na 'Operação Barbarossa'?",
+                            options: ["Reino Unido", "Itália", "França", "União Soviética (1941)"],
+                            answer: 3,
+                            hint: "Esta invasão em 1941 quebrou o pacto de não-agressão entre Hitler e Stalin"
+                        },
+                        {
+                            question: "Qual foi o último grande ataque ofensivo alemão na Europa Ocidental?",
+                            options: [
+                                "Batalha da Normandia",
+                                "Batalha de Dunkirk",
+                                "Batalha das Ardenas (1940)",
+                                "Batalha do Bulge (Ardenas, 1944–1945)"
+                            ],
+                            answer: 3,
+                            hint: "Foi uma tentativa frustrada da Alemanha de frear o avanço aliado no inverno de 1944-45"
+                        },
+                        {
+                            question: "Qual conferência definiu a divisão da Alemanha após a guerra?",
+                            options: [
+                                "Conferência de Teerã (1943)",
+                                "Conferência de Munique (1938)",
+                                "Conferência de Yalta (1945)",
+                                "Conferência de Potsdam (1945)"
+                            ],
+                            answer: 3,
+                            hint: "Nela, EUA, URSS e Reino Unido decidiram a divisão da Alemanha em zonas de ocupação"
+                        },
+                        {
+                            question: "Qual foi o código do projeto nuclear dos EUA que criou a bomba atômica?",
+                            options: [
+                                "Projeto Manhattan",
+                                "Projeto Uranium",
+                                "Projeto Trinity",
+                                "Projeto Manhattan (1942–1945)"
+                            ],
+                            answer: 3,
+                            hint: "Desenvolveu as bombas lançadas em Hiroshima e Nagasaki"
+                        },
+                        {
+                            question: "Qual líder soviético comandou a URSS durante a guerra?",
+                            options: ["Vladimir Lenin", "Leon Trotsky", "Nikita Khrushchev", "Josef Stalin"],
+                            answer: 3,
+                            hint: "Liderou a URSS desde os anos 1920 até sua morte em 1953"
+                        },
+                        {
+                            question: "Qual foi a única grande potência a mudar de lado durante a guerra?",
+                            options: ["França", "Japão", "Estados Unidos", "Itália (em 1943, após a queda de Mussolini)"],
+                            answer: 3,
+                            hint: "Trocou o Eixo pelos Aliados após o armistício de 1943"
+                        },
+                        {
+                            question: "Qual foi o principal objetivo do 'Dia D' (1944)?",
+                            options: [
+                                "Invadir a Alemanha diretamente",
+                                "Liberar a Itália",
+                                "Destruir Berlim",
+                                "Estabelecer uma frente de combate na França (Normandia)"
+                            ],
+                            answer: 3,
+                            hint: "Ocorreu em 6/6/1944 e iniciou a libertação da França ocupada pelos nazistas"
+                        }
+                    ]
+                },
+                {
+                    id: "science",
+                    name: "Ciência",
+                    image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                    questions: [
+                        {
+                            question: "Qual tecnologia permite que máquinas 'pensem' e aprendam com dados?",
+                            options: ["Robótica", "Impressão 3D", "Inteligência Artificial", "Algoritmo"],
+                            answer: 2,
+                            hint: "É a capacidade das máquinas de realizar tarefas que normalmente exigiriam inteligência humana"
+                        },
+                        {
+                            question: "Qual é o nome da teoria que prevê a colonização de outros planetas por humanos?",
+                            options: ["Terraformação", "Alienação", "Digitalização", "Submersão"],
+                            answer: 0,
+                            hint: "Envolve modificar a atmosfera e as condições de um planeta para torná-lo habitável"
+                        },
+                        {
+                            question: "Como se chama a edição direta de genes em organismos vivos?",
+                            options: ["Vacinação", "Clonagem", "CRISPR", "Mutação"],
+                            answer: 2,
+                            hint: "Tecnologia revolucionária que permite alterar sequências de DNA com precisão"
+                        },
+                        {
+                            question: "Qual é o nome dado à internet de alta velocidade baseada em satélites?",
+                            options: ["Skyweb", "Starlink", "Cloudnet", "Orbital"],
+                            answer: 1,
+                            hint: "Projeto da SpaceX que utiliza satélites para oferecer internet global"
+                        },
+                        {
+                            question: "Como é chamado o conceito de conectar o cérebro humano diretamente a computadores?",
+                            options: ["Biolink", "Ciberconexão", "Neuralink", "Upload"],
+                            answer: 2,
+                            hint: "Envolve implantes cerebrais para interação direta entre cérebro e máquina"
+                        },
+                        {
+                            question: "Qual agente causador da AIDS (Síndrome da Imunodeficiência Adquirida)?",
+                            options: ["Vírus Influenza", "Vírus HIV", "Bactéria Treponema pallidum", "Protozoário Plasmodium"],
+                            answer: 1,
+                            hint: "Ataca as células de defesa (linfócitos T CD4+), comprometendo o sistema imunológico"
+                        },
+                        {
+                            question: "A malária é causada por um protozoário transmitido por qual vetor?",
+                            options: ["Mosquito Aedes aegypti", "Carrapato estrela", "Mosquito Anopheles", "Mosca tsé-tsé"],
+                            answer: 2,
+                            hint: "A doença afeta principalmente o fígado e o sangue"
+                        },
+                        {
+                            question: "Qual dessas doenças é causada por uma bactéria?",
+                            options: ["Catapora", "Tétano", "Dengue", "Caxumba"],
+                            answer: 1,
+                            hint: "É causada pela bactéria Clostridium tetani, que produz uma toxina que atinge o sistema nervoso"
+                        },
+                        {
+                            question: "A hanseníase (lepra) afeta principalmente qual sistema do corpo humano?",
+                            options: ["Respiratório", "Imunológico", "Digestivo", "Nervoso"],
+                            answer: 3,
+                            hint: "Pode causar dormência, fraqueza muscular e deformações"
+                        },
+                        {
+                            question: "Qual dessas doenças é causada por fungos?",
+                            options: ["Tuberculose", "Candidíase", "Hepatite B", "Esquistossomose"],
+                            answer: 1,
+                            hint: "Pode afetar pele, boca, intestino e órgãos genitais"
+                        }
+                    ]
+                },
+                {
+                    id: "sports",
+                    name: "Esportes",
+                    image: "https://images.unsplash.com/photo-1543357486-d1e1ec7a1275?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                    questions: [
+                        {
+                            question: "Qual país sediou a Copa do Mundo de 2022?",
+                            options: ["Rússia", "Catar", "Japão", "Alemanha"],
+                            answer: 1,
+                            hint: "Foi a primeira edição disputada no Oriente Médio"
+                        },
+                        {
+                            question: "Qual jogador é conhecido como 'King James' na NBA?",
+                            options: ["Curry", "Durant", "LeBron", "Kobe"],
+                            answer: 2,
+                            hint: "É um dos maiores jogadores da história do basquete, com múltiplos títulos da NBA"
+                        },
+                        {
+                            question: "Qual piloto venceu o maior número de corridas na Fórmula 1 até 2024?",
+                            options: ["Hamilton", "Senna", "Verstappen", "Schumacher"],
+                            answer: 0,
+                            hint: "Detém o recorde de vitórias, ultrapassando Schumacher"
+                        },
+                        {
+                            question: "Qual tenista é conhecido por seus 14 títulos de Roland Garros?",
+                            options: ["Nadal", "Federer", "Djokovic", "Alcaraz"],
+                            answer: 0,
+                            hint: "É o rei do saibro e tem um recorde absoluto no torneio francês"
+                        },
+                        {
+                            question: "Qual arte marcial é de origem japonesa e é esporte olímpico?",
+                            options: ["Jiu-jitsu", "Judô", "Taekwondo", "Kung fu"],
+                            answer: 1,
+                            hint: "Foi o primeiro esporte de combate asiático a entrar nos Jogos Olímpicos, em 1964"
+                        },
+                        {
+                            question: "Qual jogador brasileiro é conhecido como 'O Rei do Futebol'?",
+                            options: ["Zico", "Pelé", "Garrincha", "Ronaldo Fenômeno"],
+                            answer: 1,
+                            hint: "Tricampeão mundial com a seleção brasileira"
+                        },
+                        {
+                            question: "Quantas Copas do Mundo a seleção brasileira já conquistou?",
+                            options: ["3", "4", "5", "6"],
+                            answer: 2,
+                            hint: "É o país com mais títulos na história da Copa"
+                        },
+                        {
+                            question: "Qual clube brasileiro é conhecido como 'O Mais Querido do Brasil'?",
+                            options: ["Flamengo", "Corinthians", "Palmeiras", "Santos"],
+                            answer: 0,
+                            hint: "Possui a maior torcida do país"
+                        },
+                        {
+                            question: "Quem é o maior artilheiro da história do Campeonato Brasileiro?",
+                            options: ["Roberto Dinamite", "Zico", "Romário", "Edmundo"],
+                            answer: 0,
+                            hint: "Marcou mais de 190 gols no Brasileirão, principalmente defendendo o Vasco"
+                        },
+                        {
+                            question: "Qual jogador brasileiro ganhou a Bola de Ouro da FIFA em 2007?",
+                            options: ["Ronaldinho Gaúcho", "Kaká", "Neymar", "Rivaldo"],
+                            answer: 1,
+                            hint: "Teve grande temporada pelo Milan e pela seleção brasileira naquele ano"
+                        }
+                    ]
+                },
+                {
+                    id: "art",
+                    name: "Arte",
+                    image: "https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+                    questions: [
+                        {
+                            question: "Quem pintou a obra 'Mona Lisa'?",
+                            options: ["Van Gogh", "Picasso", "Michelangelo", "Da Vinci"],
+                            answer: 3,
+                            hint: "Um dos maiores nomes do Renascimento, conhecido também por suas invenções"
+                        },
+                        {
+                            question: "Qual movimento artístico é associado a Salvador Dalí?",
+                            options: ["Cubismo", "Surrealismo", "Impressionismo", "Realismo"],
+                            answer: 1,
+                            hint: "Explora o inconsciente e o mundo dos sonhos"
+                        },
+                        {
+                            question: "O que é o 'Davi', escultura renascentista feita em mármore?",
+                            options: ["Rodin", "Bernini", "Donatello", "Michelangelo"],
+                            answer: 3,
+                            hint: "Uma das esculturas mais famosas do Renascimento, simbolizando a força humana"
+                        },
+                        {
+                            question: "Qual artista pintou 'Noite Estrelada'?",
+                            options: ["Monet", "Matisse", "Van Gogh", "Cézanne"],
+                            answer: 2,
+                            hint: "Pintou esta obra em 1889, marcada por cores vibrantes e movimento emocional"
+                        },
+                        {
+                            question: "Qual técnica artística usa pequenos pedaços para formar uma imagem?",
+                            options: ["Aquarela", "Mosaico", "Têmpera", "Gravura"],
+                            answer: 1,
+                            hint: "Era comum na arte romana e bizantina"
+                        },
+                        {
+                            question: "Qual o nome do arquiteto mais famoso do modernismo brasileiro, responsável por muitos prédios de Brasília?",
+                            options: ["Lúcio Costa", "Ruy Ohtake", "Oscar Niemeyer", "Paulo Mendes da Rocha"],
+                            answer: 2,
+                            hint: "Projetou obras icônicas como a Catedral de Brasília, usando curvas como marca registrada"
+                        },
+                        {
+                            question: "Quem foi o urbanista responsável pelo plano piloto de Brasília?",
+                            options: ["Roberto Burle Marx", "Affonso Eduardo Reidy", "Lelé", "Lúcio Costa"],
+                            answer: 3,
+                            hint: "Criou o projeto urbanístico com forma de avião (ou cruz)"
+                        },
+                        {
+                            question: "Qual estilo arquitetônico predominava no Brasil durante o período colonial?",
+                            options: ["Neoclássico", "Modernista", "Barroco", "Brutalista"],
+                            answer: 2,
+                            hint: "Marcou igrejas ricamente decoradas em cidades como Ouro Preto"
+                        },
+                        {
+                            question: "A famosa Igreja de São Francisco de Assis, na Pampulha (BH), foi projetada por qual arquiteto?",
+                            options: [
+                                "João Batista Vilanova Artigas",
+                                "Oscar Niemeyer",
+                                "Lina Bo Bardi",
+                                "Gregori Warchavchik"
+                            ],
+                            answer: 1,
+                            hint: "Projetada em 1943, com jardins de Burle Marx e painéis de Portinari"
+                        },
+                        {
+                            question: "Qual dessas obras foi projetada por Lina Bo Bardi?",
+                            options: [
+                                "Museu de Arte de São Paulo (MASP)",
+                                "Palácio da Alvorada",
+                                "Congresso Nacional",
+                                "Memorial da América Latina"
+                            ],
+                            answer: 0,
+                            hint: "Com seu icônico vão livre de 74 metros, é um símbolo da arquitetura moderna em SP"
+                        }
+                    ]
+                }
+            ],
+            items: [
+                {
+                    id: "reveal-answer",
+                    name: "Revelar Resposta",
+                    description: "Revela a resposta correta da pergunta atual",
+                    rarity: 0.1, // 10% chance de ganhar este item
+                    effect: function() {
+                        const currentQuestion = game.currentTheme.questions[game.currentQuestionIndex];
+                        const correctIndex = currentQuestion.answer;
+                        
+                        // Revela a resposta correta
+                        const options = document.querySelectorAll('.option-btn');
+                        options.forEach((btn, index) => {
+                            if (index === correctIndex) {
+                                btn.classList.add('correct');
+                            }
+                        });
+                        
+                        // Mostra mensagem
+                        game.showMessage("Você usou o item 'Revelar Resposta'!");
+                    }
+                },
+                {
+                    id: "skip-question",
+                    name: "Pular Pergunta",
+                    description: "Pula a pergunta atual sem penalidades",
+                    rarity: 0.15, // 15% chance
+                    effect: function() {
+                        game.nextQuestion();
+                        game.showMessage("Você usou o item 'Pular Pergunta'!");
+                    }
+                },
+                {
+                    id: "double-points",
+                    name: "Pontos Dobrados",
+                    description: "Dobra os pontos ganhos na próxima resposta correta",
+                    rarity: 0.2, // 20% chance
+                    effect: function() {
+                        game.doublePointsActive = true;
+                        game.showMessage("Pontos dobrados ativados para a próxima resposta correta!");
+                    }
+                },
+                {
+                    id: "remove-wrong",
+                    name: "Eliminar Erradas",
+                    description: "Remove duas opções incorretas da pergunta atual",
+                    rarity: 0.15, // 15% chance
+                    effect: function() {
+                        const currentQuestion = game.currentTheme.questions[game.currentQuestionIndex];
+                        const correctIndex = currentQuestion.answer;
+                        const optionsContainer = document.getElementById('options-container');
+                        const options = Array.from(optionsContainer.querySelectorAll('.option-btn'));
+                        
+                        // Filtra apenas as opções incorretas
+                        const wrongOptions = options.filter((_, index) => index !== correctIndex);
+                        
+                        // Remove duas opções incorretas aleatórias
+                        for (let i = 0; i < 2 && wrongOptions.length > 0; i++) {
+                            const randomIndex = Math.floor(Math.random() * wrongOptions.length);
+                            const optionToRemove = wrongOptions.splice(randomIndex, 1)[0];
+                            optionToRemove.style.opacity = '0.3';
+                            optionToRemove.style.pointerEvents = 'none';
+                        }
+                        
+                        game.showMessage("Você usou o item 'Eliminar Erradas'! Duas opções foram removidas.");
+                    }
+                },
+                {
+                    id: "extra-life",
+                    name: "Vida Extra",
+                    description: "Permite errar uma pergunta sem perder pontos",
+                    rarity: 0.1, // 10% chance
+                    effect: function() {
+                        game.extraLifeActive = true;
+                        game.showMessage("Vida extra ativada! Você pode errar a próxima pergunta sem perder pontos.");
+                    }
+                }
+            ]
+        };
+
+        // Game state
+        const game = {
+            currentTheme: null,
+            currentQuestionIndex: 0,
+            points: 0,
+            level: 1,
+            correctAnswers: 0,
+            wrongAnswers: 0,
+            streak: 0,
+            inventory: [],
+            doublePointsActive: false,
+            extraLifeActive: false,
+            usedHint: false,
+            
+            init: function() {
+                this.renderThemeSelection();
+                this.setupEventListeners();
+            },
+            
+            renderThemeSelection: function() {
+                const themeContainer = document.getElementById('theme-selection');
+                
+                gameData.themes.forEach(theme => {
+                    const themeCard = document.createElement('div');
+                    themeCard.className = 'theme-card';
+                    themeCard.style.backgroundImage = `url(${theme.image})`;
+                    themeCard.innerHTML = `<div class="theme-name">${theme.name}</div>`;
+                    
+                    themeCard.addEventListener('click', () => {
+                        this.selectTheme(theme);
+                    });
+                    
+                    themeContainer.appendChild(themeCard);
+                });
+            },
+            
+            selectTheme: function(theme) {
+                this.currentTheme = theme;
+                document.getElementById('start-btn').style.display = 'block';
+            },
+            
+            setupEventListeners: function() {
+                document.getElementById('start-btn').addEventListener('click', () => {
+                    this.startGame();
+                });
+                
+                document.getElementById('continue-btn').addEventListener('click', () => {
+                    document.getElementById('level-up').style.display = 'none';
+                });
+                
+                document.getElementById('use-hint-btn').addEventListener('click', () => {
+                    this.useHint();
+                });
+                
+                document.getElementById('item-use-confirm').addEventListener('click', () => {
+                    this.useSelectedItem();
+                });
+                
+                document.getElementById('item-use-cancel').addEventListener('click', () => {
+                    document.getElementById('item-use-dialog').style.display = 'none';
+                });
+                
+                document.getElementById('skip-animation').addEventListener('click', () => {
+                    this.skipAnimation();
+                });
+            },
+            
+            startGame: function() {
+                document.getElementById('title-screen').style.display = 'none';
+                document.getElementById('game-screen').style.display = 'block';
+                
+                // Shuffle questions
+                this.shuffleQuestions();
+                
+                // Load first question
+                this.loadQuestion();
+            },
+            
+            shuffleQuestions: function() {
+                // Fisher-Yates shuffle algorithm
+                for (let i = this.currentTheme.questions.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [this.currentTheme.questions[i], this.currentTheme.questions[j]] = 
+                    [this.currentTheme.questions[j], this.currentTheme.questions[i]];
+                }
+            },
+            
+            loadQuestion: function() {
+                this.usedHint = false;
+                document.getElementById('hint-container').style.display = 'none';
+                
+                if (this.currentQuestionIndex >= this.currentTheme.questions.length) {
+                    // All questions answered, shuffle and start over
+                    this.currentQuestionIndex = 0;
+                    this.shuffleQuestions();
+                }
+                
+                const currentQuestion = this.currentTheme.questions[this.currentQuestionIndex];
+                const sceneText = document.getElementById('scene-text');
+                const optionsContainer = document.getElementById('options-container');
+                
+                // Update scene image
+                document.getElementById('scene-image').style.backgroundImage = `url(${this.currentTheme.image})`;
+                
+                // Typewriter effect for question
+                sceneText.innerHTML = '';
+                this.typeWriter(sceneText, currentQuestion.question);
+                
+                // Clear options
+                optionsContainer.innerHTML = '';
+                
+                // Add options
+                currentQuestion.options.forEach((option, index) => {
+                    const optionBtn = document.createElement('button');
+                    optionBtn.className = 'option-btn';
+                    optionBtn.textContent = option;
+                    
+                    optionBtn.addEventListener('click', () => {
+                        this.checkAnswer(index);
+                    });
+                    
+                    optionsContainer.appendChild(optionBtn);
+                });
+                
+                // Update progress
+                this.updateProgress();
+                
+                // Update hint if available
+                if (currentQuestion.hint) {
+                    document.getElementById('hint-text').textContent = currentQuestion.hint;
+                    document.getElementById('hint-container').style.display = 'block';
+                    document.getElementById('use-hint-btn').disabled = this.usedHint;
+                }
+            },
+            
+            typeWriter: function(element, text) {
+                document.getElementById('skip-animation').style.display = 'block';
+                
+                let i = 0;
+                const speed = 20; // milliseconds per character
+                
+                element.innerHTML = '';
+                
+                function type() {
+                    if (i < text.length) {
+                        element.innerHTML += text.charAt(i);
+                        i++;
+                        setTimeout(type, speed);
+                    } else {
+                        document.getElementById('skip-animation').style.display = 'none';
+                    }
+                }
+                
+                type();
+            },
+            
+            skipAnimation: function() {
+                const sceneText = document.getElementById('scene-text');
+                const currentQuestion = this.currentTheme.questions[this.currentQuestionIndex];
+                
+                sceneText.innerHTML = currentQuestion.question;
+                document.getElementById('skip-animation').style.display = 'none';
+            },
+            
+            checkAnswer: function(selectedIndex) {
+                const currentQuestion = this.currentTheme.questions[this.currentQuestionIndex];
+                const options = document.querySelectorAll('.option-btn');
+                const correctIndex = currentQuestion.answer;
+                
+                // Disable all buttons to prevent multiple clicks
+                options.forEach(btn => {
+                    btn.style.pointerEvents = 'none';
+                });
+                
+                // Highlight correct and incorrect answers
+                options.forEach((btn, index) => {
+                    if (index === correctIndex) {
+                        btn.classList.add('correct');
+                    } else if (index === selectedIndex && index !== correctIndex) {
+                        btn.classList.add('incorrect');
+                    }
+                });
+                
+                // Check if answer is correct
+                if (selectedIndex === correctIndex) {
+                    this.handleCorrectAnswer();
+                } else {
+                    this.handleWrongAnswer();
+                }
+                
+                // Move to next question after a delay
+                setTimeout(() => {
+                    this.nextQuestion();
+                }, 2000);
+            },
+            
+            handleCorrectAnswer: function() {
+                this.correctAnswers++;
+                this.streak++;
+                
+                // Update streak counter
+                this.updateStreakCounter();
+                
+                // Calculate points (base 10 + streak bonus)
+                let pointsEarned = 10 + (this.streak * 2);
+                
+                // Double points if active
+                if (this.doublePointsActive) {
+                    pointsEarned *= 2;
+                    this.doublePointsActive = false;
+                }
+                
+                this.points += pointsEarned;
+                
+                // Check for level up
+                if (this.points >= this.level * 100) {
+                    this.levelUp();
+                }
+                
+                // Random chance to get an item
+                this.maybeGetItem();
+                
+                // Update UI
+                this.updateStats();
+                
+                // Show confetti effect
+                this.showConfetti();
+                
+                // Show achievement if applicable
+                this.checkAchievements();
+            },
+            
+            handleWrongAnswer: function() {
+                if (this.extraLifeActive) {
+                    this.extraLifeActive = false;
+                    this.showMessage("Você usou sua vida extra!");
+                    return;
+                }
+                
+                this.wrongAnswers++;
+                this.streak = 0;
+                this.updateStreakCounter();
+                
+                // Deduct points (minimum 0)
+                this.points = Math.max(0, this.points - 5);
+                
+                // Update UI
+                this.updateStats();
+            },
+            
+            nextQuestion: function() {
+                this.currentQuestionIndex++;
+                this.loadQuestion();
+            },
+            
+            updateStats: function() {
+                document.getElementById('points').textContent = this.points;
+                document.getElementById('level').textContent = this.level;
+                document.getElementById('correct').textContent = this.correctAnswers;
+                document.getElementById('wrong').textContent = this.wrongAnswers;
+            },
+            
+            updateProgress: function() {
+                const progress = (this.currentQuestionIndex / this.currentTheme.questions.length) * 100;
+                document.getElementById('progress').style.width = `${progress}%`;
+            },
+            
+            updateStreakCounter: function() {
+                const streakCounter = document.getElementById('streak-counter');
+                
+                if (this.streak > 1) {
+                    streakCounter.style.display = 'block';
+                    streakCounter.innerHTML = `Sequência: ${this.streak} <span class="streak-fire">🔥</span>`;
+                } else {
+                    streakCounter.style.display = 'none';
+                }
+            },
+            
+            levelUp: function() {
+                this.level++;
+                const levelUpDiv = document.getElementById('level-up');
+                document.getElementById('level-up-text').textContent = `Você alcançou o nível ${this.level}!`;
+                
+                // Get a random item as level up reward
+                const randomItem = this.getRandomItem();
+                if (randomItem) {
+                    this.addToInventory(randomItem);
+                    document.getElementById('level-up-text').textContent += `\nVocê ganhou um item: ${randomItem.name}!`;
+                }
+                
+                levelUpDiv.style.display = 'block';
+                
+                // Update stats
+                this.updateStats();
+            },
+            
+            maybeGetItem: function() {
+                // 25% chance to get an item for a correct answer
+                if (Math.random() < 0.25) {
+                    const item = this.getRandomItem();
+                    if (item) {
+                        this.addToInventory(item);
+                        this.showMessage(`Você ganhou um item: ${item.name}!`);
+                    }
+                }
+            },
+            
+            getRandomItem: function() {
+                // Filter items based on rarity
+                const availableItems = gameData.items.filter(item => Math.random() < item.rarity);
+                
+                if (availableItems.length > 0) {
+                    // Return a random item from the filtered list
+                    const randomIndex = Math.floor(Math.random() * availableItems.length);
+                    return {...availableItems[randomIndex]}; // Return a copy
+                }
+                
+                return null;
+            },
+            
+            addToInventory: function(item) {
+                this.inventory.push(item);
+                this.renderInventory();
+            },
+            
+            renderInventory: function() {
+                const inventoryContainer = document.getElementById('inventory-items');
+                inventoryContainer.innerHTML = '';
+                
+                this.inventory.forEach((item, index) => {
+                    const itemElement = document.createElement('div');
+                    itemElement.className = `item ${item.rarity < 0.2 ? 'item-special' : ''}`;
+                    itemElement.textContent = item.name;
+                    
+                    itemElement.addEventListener('click', () => {
+                        this.showItemDialog(item, index);
+                    });
+                    
+                    inventoryContainer.appendChild(itemElement);
+                });
+            },
+            
+            showItemDialog: function(item, index) {
+                document.getElementById('item-use-title').textContent = item.name;
+                document.getElementById('item-use-description').textContent = item.description;
+                document.getElementById('item-use-dialog').style.display = 'block';
+                
+                // Store the selected item index for use when confirmed
+                document.getElementById('item-use-confirm').dataset.index = index;
+            },
+            
+            useSelectedItem: function() {
+                const index = document.getElementById('item-use-confirm').dataset.index;
+                const item = this.inventory[index];
+                
+                // Apply item effect
+                item.effect();
+                
+                // Remove item from inventory
+                this.inventory.splice(index, 1);
+                this.renderInventory();
+                
+                // Close dialog
+                document.getElementById('item-use-dialog').style.display = 'none';
+            },
+            
+            useHint: function() {
+                if (this.usedHint || this.points < 3) return;
+                
+                this.usedHint = true;
+                this.points -= 3;
+                document.getElementById('use-hint-btn').disabled = true;
+                this.updateStats();
+                
+                // Show hint
+                document.getElementById('hint-text').style.opacity = '1';
+            },
+            
+            showMessage: function(message) {
+                const achievement = document.getElementById('achievement-popup');
+                document.getElementById('achievement-title').textContent = "Mensagem";
+                document.getElementById('achievement-desc').textContent = message;
+                
+                achievement.classList.add('show');
+                
+                setTimeout(() => {
+                    achievement.classList.remove('show');
+                }, 3000);
+            },
+            
+            showConfetti: function() {
+                const effectsContainer = document.getElementById('scene-effects');
+                effectsContainer.innerHTML = '';
+                
+                for (let i = 0; i < 50; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    
+                    // Random color
+                    const colors = ['#bb86fc', '#03dac6', '#ff7597', '#ff0266', '#018786'];
+                    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.backgroundColor = randomColor;
+                    
+                    // Random position
+                    confetti.style.left = `${Math.random() * 100}%`;
+                    
+                    // Random shape
+                    const shapes = ['circle', 'square', 'triangle'];
+                    const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
+                    
+                    if (randomShape === 'circle') {
+                        confetti.style.borderRadius = '50%';
+                    } else if (randomShape === 'triangle') {
+                        confetti.style.width = '0';
+                        confetti.style.height = '0';
+                        confetti.style.backgroundColor = 'transparent';
+                        confetti.style.borderLeft = '5px solid transparent';
+                        confetti.style.borderRight = '5px solid transparent';
+                        confetti.style.borderBottom = `10px solid ${randomColor}`;
+                    }
+                    
+                    // Random size
+                    const size = Math.random() * 10 + 5;
+                    confetti.style.width = `${size}px`;
+                    confetti.style.height = `${size}px`;
+                    
+                    // Animation
+                    confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                    confetti.style.opacity = '1';
+                    
+                    // Add to container
+                    effectsContainer.appendChild(confetti);
+                    
+                    // Animate
+                    const animationDuration = Math.random() * 3 + 2;
+                    confetti.style.transition = `all ${animationDuration}s ease-out`;
+                    
+                    setTimeout(() => {
+                        confetti.style.top = '100%';
+                        confetti.style.opacity = '0';
+                        confetti.style.transform = `rotate(${Math.random() * 360}deg) translate(${Math.random() * 200 - 100}px)`;
+                    }, 10);
+                    
+                    // Remove after animation
+                    setTimeout(() => {
+                        confetti.remove();
+                    }, animationDuration * 1000);
+                }
+            },
+            
+            checkAchievements: function() {
+                if (this.correctAnswers === 10) {
+                    this.showAchievement("Iniciante", "Você completou 10 perguntas corretamente!");
+                } else if (this.correctAnswers === 25) {
+                    this.showAchievement("Intermediário", "Você completou 25 perguntas corretamente!");
+                } else if (this.correctAnswers === 50) {
+                    this.showAchievement("Especialista", "Você completou 50 perguntas corretamente!");
+                } else if (this.correctAnswers === 100) {
+                    this.showAchievement("Mestre", "Você completou 100 perguntas corretamente!");
+                }
+                
+                if (this.streak === 5) {
+                    this.showAchievement("Sequência Quente", "5 respostas corretas seguidas!");
+                } else if (this.streak === 10) {
+                    this.showAchievement("Invencível", "10 respostas corretas seguidas!");
+                }
+                
+                if (this.level === 5) {
+                    this.showAchievement("Ascensão", "Nível 5 alcançado!");
+                } else if (this.level === 10) {
+                    this.showAchievement("Lenda", "Nível 10 alcançado!");
+                }
+            },
+            
+            showAchievement: function(title, description) {
+                const achievement = document.getElementById('achievement-popup');
+                document.getElementById('achievement-title').textContent = title;
+                document.getElementById('achievement-desc').textContent = description;
+                
+                achievement.classList.add('show');
+                
+                setTimeout(() => {
+                    achievement.classList.remove('show');
+                }, 3000);
+            }
+        };
+
+        // Initialize the game
+        game.init();
+    </script>
+</body>
+</html>
