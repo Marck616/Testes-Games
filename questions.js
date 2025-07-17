@@ -1,5 +1,16 @@
 // Banco de dados de temas
 const themes = [
+
+
+    {
+        id: 'gilmore',
+        name: 'Gilmore Girls N.1',
+        description: 'Teste seus conhecimentos sobre a serie Gilmore Girls. Nivel 1',
+        image: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
+    },
+
+
+    
     {
         id: 'music',
         name: 'Música',
@@ -2097,11 +2108,260 @@ const questions = [
     options: ["Natal", "Carnaval", "Junina", "Cosme e Damião"],
     correctAnswer: 2,
     explanation: "As festas juninas celebram santos populares como São João."
-}
+},
 
     
 
 
+
+
+
+//Gilmore Girls n1
+
+
+
+    {
+    id: 245,
+    theme: 'gilmore',
+    question: "Qual o nome completo da Rory?",
+    options: ["Rory Leigh Gilmore", "Lorelai Victoria Gilmore", "Lorelai Leigh Gilmore", "Aurora Leigh Gilmore"],
+    correctAnswer: 2,
+    explanation: "Rory é um apelido. O nome completo dela é Lorelai Leigh Gilmore, assim como o da mãe."
+},
+{
+    id: 246,
+    theme: 'gilmore',
+    question: "Quem é o pai de Rory?",
+    options: ["Luke Danes", "Richard Gilmore", "Christopher Hayden", "Jess Mariano"],
+    correctAnswer: 2,
+    explanation: "Christopher Hayden engravidou Lorelai quando ambos eram adolescentes."
+},
+{
+    id: 247,
+    theme: 'gilmore',
+    question: "Qual é o nome do café frequentado por Lorelai e Rory?",
+    options: ["Joe's Diner", "Luke's Diner", "Taylor's Café", "Stars Hollow Coffee"],
+    correctAnswer: 1,
+    explanation: "Luke é o dono do café e interesse amoroso de Lorelai."
+},
+{
+    id: 248,
+    theme: 'gilmore',
+    question: "Qual é a profissão de Lorelai Gilmore?",
+    options: ["Professora", "Jornalista", "Chef de cozinha", "Gerente de hotel"],
+    correctAnswer: 3,
+    explanation: "Ela começa como gerente da pousada Independence Inn e depois abre seu próprio hotel."
+},
+{
+    id: 249,
+    theme: 'gilmore',
+    question: "Qual escola preparatória Rory frequenta?",
+    options: ["Chilton", "Yale Prep", "Hartford High", "New England Academy"],
+    correctAnswer: 0,
+    explanation: "Chilton é uma escola preparatória rigorosa para onde Rory se transfere no início da série."
+},
+{
+    id: 250,
+    theme: 'gilmore',
+    question: "Em qual universidade Rory entra?",
+    options: ["Princeton", "Harvard", "Yale", "Columbia"],
+    correctAnswer: 2,
+    explanation: "Apesar do sonho de ir para Harvard, Rory escolhe Yale."
+},
+{
+    id: 251,
+    theme: 'gilmore',
+    question: "Qual o nome da melhor amiga de Lorelai?",
+    options: ["Miss Patty", "Emily", "Paris", "Sookie St. James"],
+    correctAnswer: 3,
+    explanation: "Sookie é a chef do hotel e a melhor amiga de Lorelai."
+},
+{
+    id: 252,
+    theme: 'gilmore',
+    question: "Quem é Paris Geller?",
+    options: ["Prima de Rory", "Inimiga de Lorelai", "Colega competitiva de Rory", "Professora de Rory"],
+    correctAnswer: 2,
+    explanation: "Paris começa como rival de Rory em Chilton e depois viram amigas."
+},
+{
+    id: 253,
+    theme: 'gilmore',
+    question: "Como se chama a cidade fictícia onde se passa a série?",
+    options: ["Hollow Springs", "Stars Hollow", "Gilmore Valley", "Mystic Hill"],
+    correctAnswer: 1,
+    explanation: "Stars Hollow é uma cidade pequena e charmosa em Connecticut."
+},
+{
+    id: 254,
+    theme: 'gilmore',
+    question: "Quem é o primeiro namorado sério de Rory?",
+    options: ["Jess", "Logan", "Dean", "Tristan"],
+    correctAnswer: 2,
+    explanation: "Dean é o primeiro namorado e aparece desde a primeira temporada."
+},
+{
+    id: 255,
+    theme: 'gilmore',
+    question: "Qual é o nome do avô de Rory?",
+    options: ["Edward Gilmore", "Richard Gilmore", "Thomas Hayden", "William Geller"],
+    correctAnswer: 1,
+    explanation: "Richard é o pai de Lorelai e avô muito presente na vida de Rory."
+},
+{
+    id: 256,
+    theme: 'gilmore',
+    question: "Emily Gilmore é...",
+    options: ["Mãe de Rory", "Vizinha de Lorelai", "Mãe de Lorelai", "Irmã de Sookie"],
+    correctAnswer: 2,
+    explanation: "Emily é mãe de Lorelai e representa o lado tradicional da família."
+},
+{
+    id: 257,
+    theme: 'gilmore',
+    question: "Qual é a profissão de Luke Danes?",
+    options: ["Médico", "Dono de cafeteria", "Professor", "Advogado"],
+    correctAnswer: 1,
+    explanation: "Ele é dono do Luke's Diner, ponto central da série."
+},
+{
+    id: 258,
+    theme: 'gilmore',
+    question: "Qual personagem sempre organiza os eventos da cidade?",
+    options: ["Taylor Doose", "Kirk", "Babette", "Michel"],
+    correctAnswer: 0,
+    explanation: "Taylor é o vereador e adora controlar tudo na cidade."
+},
+{
+    id: 259,
+    theme: 'gilmore',
+    question: "Quem é Kirk?",
+    options: ["Irmão de Lorelai", "Namorado de Emily", "Personagem excêntrico com vários empregos", "Professor de Rory"],
+    correctAnswer: 2,
+    explanation: "Kirk é conhecido por sempre ter um emprego novo e por suas ideias bizarras."
+},
+{
+    id: 260,
+    theme: 'gilmore',
+    question: "Qual desses é um namorado de Lorelai?",
+    options: ["Logan", "Tristan", "Christopher", "Marty"],
+    correctAnswer: 2,
+    explanation: "Christopher é o pai de Rory e um dos interesses amorosos recorrentes de Lorelai."
+},
+{
+    id: 261,
+    theme: 'gilmore',
+    question: "Quem é Logan Huntzberger?",
+    options: ["Primo de Paris", "Colega de Yale e namorado de Rory", "Vizinho em Stars Hollow", "Ex-marido de Lorelai"],
+    correctAnswer: 1,
+    explanation: "Logan é colega de Rory em Yale e um dos namorados mais importantes."
+},
+{
+    id: 262,
+    theme: 'gilmore',
+    question: "Qual é o nome da banda de Lane Kim?",
+    options: ["Starfire", "Hep Alien", "Hollow Notes", "The Hollow Beats"],
+    correctAnswer: 1,
+    explanation: "Lane, melhor amiga de Rory, toca na banda Hep Alien com Zack e Brian."
+},
+{
+    id: 263,
+    theme: 'gilmore',
+    question: "Qual é a religião da mãe de Lane?",
+    options: ["Budista", "Testemunha de Jeová", "Cristã protestante rígida", "Católica"],
+    correctAnswer: 2,
+    explanation: "A Sra. Kim é extremamente religiosa e conservadora."
+},
+{
+    id: 264,
+    theme: 'gilmore',
+    question: "Quem é Michel?",
+    options: ["Gerente do Luke's", "Porteiro do Chilton", "Recepcionista francês do hotel", "Ex-namorado de Sookie"],
+    correctAnswer: 2,
+    explanation: "Michel é sarcástico e trabalha com Lorelai nos hotéis."
+},
+{
+    id: 265,
+    theme: 'gilmore',
+    question: "Qual o nome do jornal em que Rory trabalha?",
+    options: ["Yale Daily News", "Hartford Post", "Chilton Times", "Stars Hollow Gazette"],
+    correctAnswer: 0,
+    explanation: "Em Yale, Rory se envolve bastante com o jornal da universidade."
+},
+{
+    id: 266,
+    theme: 'gilmore',
+    question: "Quem é o dono do mercado em Stars Hollow?",
+    options: ["Dean Forester", "Taylor Doose", "Jackson", "Zack"],
+    correctAnswer: 1,
+    explanation: "Dean trabalha no mercado, que é de Taylor Doose, mas Dean é gerente."
+},
+{
+    id: 267,
+    theme: 'gilmore',
+    question: "Quem é o marido de Sookie?",
+    options: ["Michel", "Jackson Belleville", "Kirk", "Luke"],
+    correctAnswer: 1,
+    explanation: "Jackson é o fornecedor de legumes e depois casa com Sookie."
+},
+{
+    id: 268,
+    theme: 'gilmore',
+    question: "Quem abandona Yale temporariamente?",
+    options: ["Paris", "Rory", "Logan", "Jess"],
+    correctAnswer: 1,
+    explanation: "Rory desiste temporariamente após ser criticada por Mitchum Huntzberger."
+},
+{
+    id: 269,
+    theme: 'gilmore',
+    question: "Quem dá a Rory o primeiro beijo?",
+    options: ["Jess", "Dean", "Tristan", "Logan"],
+    correctAnswer: 1,
+    explanation: "O primeiro beijo de Rory é com Dean, seu primeiro namorado."
+},
+{
+    id: 270,
+    theme: 'gilmore',
+    question: "Quem foge com Jess?",
+    options: ["Lane", "Rory (tentativa)", "Paris", "Sookie"],
+    correctAnswer: 1,
+    explanation: "Jess tenta convencer Rory a fugir com ele, mas ela não aceita."
+},
+{
+    id: 271,
+    theme: 'gilmore',
+    question: "Quem convida Rory para se juntar à Life and Death Brigade?",
+    options: ["Jess", "Marty", "Logan", "Finn"],
+    correctAnswer: 2,
+    explanation: "Logan apresenta Rory ao grupo secreto da elite de Yale."
+},
+{
+    id: 272,
+    theme: 'gilmore',
+    question: "Quem é Babette?",
+    options: ["Professora de Rory", "Vizinha fofoqueira de Lorelai", "Dona do mercado", "Irmã de Emily"],
+    correctAnswer: 1,
+    explanation: "Babette é uma personagem divertida e muito curiosa, vizinha de Lorelai."
+},
+{
+    id: 273,
+    theme: 'gilmore',
+    question: "Como termina a série original (não o revival)?",
+    options: ["Rory se casa", "Lorelai tem outro filho", "Rory se forma em Yale", "Emily se muda"],
+    correctAnswer: 2,
+    explanation: "A série termina com Rory se formando e recebendo uma proposta de trabalho."
+},
+{
+    id: 274,
+    theme: 'gilmore',
+    question: "Quem escreve uma carta de recomendação falsa para Rory?",
+    options: ["Lorelai", "Emily", "Paris", "Logan"],
+    correctAnswer: 3,
+    explanation: "Logan tenta ajudar Rory com influências da família, o que causa conflitos."
+}
+
+    
     
 
     
