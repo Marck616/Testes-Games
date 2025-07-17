@@ -44,8 +44,8 @@ const themes = [
     },
     {
         id: 'biology',
-        name: 'Doenças Biológicas',
-        description: 'Teste seus conhecimentos sobre doenças e biologia',
+        name: 'Biologia',
+        description: 'Teste seus conhecimentos sobre biologia',
         image: 'https://images.unsplash.com/photo-1575505586569-646b2ca898fc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
     },
     {
