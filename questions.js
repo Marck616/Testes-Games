@@ -1,6 +1,18 @@
 // Banco de dados de temas
 const themes = [
 
+
+    // Tema Santo Daime
+{
+    id: 'daime1',
+    name: 'Santo Daime (Nivel 1)',
+    description: 'Teste seus conhecimentos sobre a doutrina espiritual do Santo Daime',
+    image: 'https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
+},
+
+
+
+    
     // Tema Brasil - Curiosidades
     {
     id: 'brasil1',
