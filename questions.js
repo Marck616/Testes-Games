@@ -3568,8 +3568,387 @@ const questions = [
     options: ["Apocalipse", "Malaquias", "Judas", "Atos"],
     correctAnswer: 0,
     explanation: "Apocalipse (Revelação) encerra o cânon protestante com a visão do fim dos tempos."
-}
+},
     
+
+// Tema Santo Daime
+
+    
+
+    {
+    id: 418,
+    theme: 'daime1',
+    question: "O que é o Santo Daime?",
+    options: [
+        "Uma religião africana",
+        "Um tipo de meditação",
+        "Um ritual indígena",
+        "Uma doutrina espiritual brasileira que utiliza um chá sacramental"
+    ],
+    correctAnswer: 3,
+    explanation: "O Santo Daime é uma doutrina espiritual fundada no Brasil que utiliza o chá conhecido como Daime em seus rituais."
+},
+{
+    id: 419,
+    theme: 'daime1',
+    question: "Quem foi o fundador do Santo Daime?",
+    options: [
+        "Mestre Gabriel",
+        "Mestre Irineu",
+        "Chico Xavier",
+        "Pai Joaquim"
+    ],
+    correctAnswer: 1,
+    explanation: "Raimundo Irineu Serra, conhecido como Mestre Irineu, fundou o Santo Daime."
+},
+{
+    id: 420,
+    theme: 'daime1',
+    question: "Qual é o nome do chá utilizado nas cerimônias do Santo Daime?",
+    options: [
+        "Chá de Camomila",
+        "Ayahuasca",
+        "Erva-mate",
+        "Guaraná"
+    ],
+    correctAnswer: 1,
+    explanation: "O chá sacramental do Santo Daime é uma preparação de origem amazônica chamada Ayahuasca."
+},
+{
+    id: 421,
+    theme: 'daime1',
+    question: "O chá é preparado a partir de quais plantas?",
+    options: [
+        "Chá verde e jasmim",
+        "Cipó jagube e folha chacrona",
+        "Camomila e erva-doce",
+        "Maracujá e boldo"
+    ],
+    correctAnswer: 1,
+    explanation: "O Daime é feito com o cipó jagube (Banisteriopsis caapi) e a folha chacrona (Psychotria viridis)."
+},
+{
+    id: 422,
+    theme: 'daime1',
+    question: "Em que país surgiu o Santo Daime?",
+    options: [
+        "Peru",
+        "Bolívia",
+        "Brasil",
+        "Colômbia"
+    ],
+    correctAnswer: 2,
+    explanation: "O Santo Daime surgiu no Brasil, mais precisamente no Acre."
+},
+{
+    id: 423,
+    theme: 'daime1',
+    question: "Qual é o nome do principal livro de hinos de Mestre Irineu?",
+    options: [
+        "Livro Azul",
+        "O Cruzeiro",
+        "Hinário do Céu",
+        "Caminho da Luz"
+    ],
+    correctAnswer: 1,
+    explanation: "'O Cruzeiro' é o hinário original deixado por Mestre Irineu."
+},
+{
+    id: 424,
+    theme: 'daime1',
+    question: "Em que década o Santo Daime foi fundado?",
+    options: [
+        "1920",
+        "1930",
+        "1950",
+        "1970"
+    ],
+    correctAnswer: 1,
+    explanation: "O Santo Daime foi fundado por Mestre Irineu nos anos 1930."
+},
+{
+    id: 425,
+    theme: 'daime1',
+    question: "Qual é a principal forma de expressão nas cerimônias do Santo Daime?",
+    options: [
+        "Cânticos (hinários)",
+        "Dança africana",
+        "Pintura",
+        "Leituras bíblicas"
+    ],
+    correctAnswer: 0,
+    explanation: "Os hinos são a forma mais importante de expressão espiritual no Santo Daime."
+},
+{
+    id: 426,
+    theme: 'daime1',
+    question: "Como os participantes geralmente se posicionam nas cerimônias?",
+    options: [
+        "Sentados em roda",
+        "Em pé, livremente",
+        "Em filas ou linhas organizadas",
+        "Em círculo com as mãos dadas"
+    ],
+    correctAnswer: 2,
+    explanation: "As cerimônias seguem uma organização rigorosa, com filas separadas por gênero."
+},
+{
+    id: 427,
+    theme: 'daime1',
+    question: "Qual é o principal símbolo presente nos uniformes e altares?",
+    options: [
+        "A estrela de Davi",
+        "A cruz com a estrela de seis pontas",
+        "A cruz egípcia",
+        "A flor de lótus"
+    ],
+    correctAnswer: 1,
+    explanation: "O símbolo mais comum é a cruz com a estrela de seis pontas, símbolo da doutrina."
+},
+{
+    id: 428,
+    theme: 'daime1',
+    question: "O uso do chá no Santo Daime é considerado:",
+    options: [
+        "Recreativo",
+        "Terapêutico apenas",
+        "Religioso e sacramental",
+        "Medicinal isolado"
+    ],
+    correctAnswer: 2,
+    explanation: "O chá é um sacramento sagrado, utilizado em contexto religioso."
+},
+{
+    id: 429,
+    theme: 'daime1',
+    question: "Como é chamado o dirigente da cerimônia?",
+    options: [
+        "Pajé",
+        "Mestre",
+        "Comandante",
+        "Padre"
+    ],
+    correctAnswer: 2,
+    explanation: "O Comandante é quem orienta e dirige os trabalhos dentro do ritual."
+},
+{
+    id: 430,
+    theme: 'daime1',
+    question: "O Santo Daime reconhece a figura de:",
+    options: [
+        "Buda",
+        "Jesus Cristo",
+        "Maomé",
+        "Oxalá"
+    ],
+    correctAnswer: 1,
+    explanation: "A doutrina é cristã e Jesus é considerado mestre e guia espiritual."
+},
+{
+    id: 431,
+    theme: 'daime1',
+    question: "O que é um hinário?",
+    options: [
+        "Um livro de orações",
+        "Conjunto de músicas sagradas cantadas nas cerimônias",
+        "Um tipo de mantra",
+        "Uma lista de leituras bíblicas"
+    ],
+    correctAnswer: 1,
+    explanation: "O hinário é um conjunto de hinos espirituais recebidos e entoados nos rituais."
+},
+{
+    id: 432,
+    theme: 'daime1',
+    question: "Como os hinos são recebidos?",
+    options: [
+        "Por inspiração espiritual",
+        "Copiados de outros cultos",
+        "Traduzidos da Bíblia",
+        "Compostos por poetas"
+    ],
+    correctAnswer: 0,
+    explanation: "Os hinos são 'recebidos' por revelação, durante estados espirituais profundos."
+},
+{
+    id: 433,
+    theme: 'daime1',
+    question: "Qual o nome da cerimônia tradicional feita no dia 24 de junho?",
+    options: [
+        "Festa do Sol",
+        "São João",
+        "Aniversário do Mestre",
+        "Festival da Ayahuasca"
+    ],
+    correctAnswer: 1,
+    explanation: "O dia 24/06, dia de São João, é uma das datas mais importantes no calendário da doutrina."
+},
+{
+    id: 434,
+    theme: 'daime1',
+    question: "O que significa 'fardado' no contexto do Daime?",
+    options: [
+        "Atingiu o grau máximo",
+        "Está autorizado a distribuir o chá",
+        "Usa o uniforme ritualístico e participa da corrente",
+        "Participa dos hinos especiais"
+    ],
+    correctAnswer: 2,
+    explanation: "O fardado é o integrante que participa das cerimônias de forma oficial, com uniforme."
+},
+{
+    id: 435,
+    theme: 'daime1',
+    question: "O uso do Daime é permitido por lei no Brasil?",
+    options: [
+        "Não",
+        "Apenas com prescrição médica",
+        "Sim, para fins religiosos",
+        "Só em aldeias indígenas"
+    ],
+    correctAnswer: 2,
+    explanation: "O uso religioso da ayahuasca é autorizado legalmente no Brasil."
+},
+{
+    id: 436,
+    theme: 'daime1',
+    question: "Qual o principal objetivo espiritual do Santo Daime?",
+    options: [
+        "Milagres físicos",
+        "Cura emocional",
+        "Iluminação através da purificação e da verdade",
+        "Cura por entidades"
+    ],
+    correctAnswer: 2,
+    explanation: "A busca da verdade, da purificação e da elevação espiritual é central na doutrina."
+},
+{
+    id: 437,
+    theme: 'daime1',
+    question: "Qual destes não é um elemento central na doutrina?",
+    options: [
+        "Uniforme branco",
+        "Evangelho de Jesus",
+        "Hinários",
+        "Tarot"
+    ],
+    correctAnswer: 3,
+    explanation: "O tarot não faz parte da prática do Santo Daime."
+},
+{
+    id: 438,
+    theme: 'daime1',
+    question: "Em qual estado brasileiro nasceu o Santo Daime?",
+    options: [
+        "Amazonas",
+        "Pará",
+        "Acre",
+        "Rondônia"
+    ],
+    correctAnswer: 2,
+    explanation: "A doutrina nasceu no estado do Acre, na região amazônica."
+},
+{
+    id: 439,
+    theme: 'daime1',
+    question: "O Santo Daime tem influência de qual tradição religiosa?",
+    options: [
+        "Judaísmo",
+        "Cristianismo",
+        "Islamismo",
+        "Xintoísmo"
+    ],
+    correctAnswer: 1,
+    explanation: "O Daime se baseia fortemente no cristianismo, especialmente na figura de Jesus."
+},
+{
+    id: 440,
+    theme: 'daime1',
+    question: "Quem é Padrinho Sebastião?",
+    options: [
+        "Filho de Mestre Irineu",
+        "Fundador de uma linha do Daime pós-Irineu",
+        "Cantor espiritual",
+        "Dirigente de umbanda"
+    ],
+    correctAnswer: 1,
+    explanation: "Padrinho Sebastião é um dos principais nomes da expansão do Daime."
+},
+
+{
+    id: 442,
+    theme: 'daime1',
+    question: "Qual destas datas é importante para a doutrina?",
+    options: [
+        "1º de Maio",
+        "2 de Novembro",
+        "8 de Dezembro",
+        "25 de Abril"
+    ],
+    correctAnswer: 2,
+    explanation: "8 de Dezembro é o dia de Nossa Senhora da Conceição, uma das datas mais celebradas no Daime."
+},
+{
+    id: 443,
+    theme: 'daime1',
+    question: "O que é uma 'concentração'?",
+    options: [
+        "Um momento de dança",
+        "Um tipo de passe espiritual",
+        "Um ritual de meditação com o Daime e hinos em silêncio",
+        "Uma reunião de estudos"
+    ],
+    correctAnswer: 2,
+    explanation: "É uma cerimônia voltada à meditação, introspecção e concentração espiritual."
+},
+{
+    id: 444,
+    theme: 'daime1',
+    question: "Qual dessas práticas ocorre nas cerimônias do Santo Daime?",
+    options: [
+        "Curas mediúnicas",
+        "Leituras de cartas",
+        "Cânticos em grupo com disciplina e concentração",
+        "Incorporação de entidades"
+    ],
+    correctAnswer: 2,
+    explanation: "O canto dos hinos é feito com foco, respeito e organização, em grupo."
+},
+{
+    id: 445,
+    theme: 'daime1',
+    question: "O uso do Daime exige:",
+    options: [
+        "Formação superior",
+        "Ter mais de 18 anos (ou autorização responsável)",
+        "Ser indígena",
+        "Experiência anterior com meditação"
+    ],
+    correctAnswer: 1,
+    explanation: "Normalmente, só adultos podem tomar Daime, ou menores com autorização formal."
+},
+{
+    id: 446,
+    theme: 'daime1',
+    question: "Qual é a tradução da palavra 'Daime'?",
+    options: [
+        "Me dê",
+        "Sagrado",
+        "Conhecimento",
+        "Luz"
+    ],
+    correctAnswer: 0,
+    explanation: "'Daime' vem do português arcaico e significa 'dai-me' ou 'me dê' — presente em muitos hinos, como pedido à luz, força, amor, etc."
+}
+
+
+
+
+
+
+
+
+
     
     
 ];
