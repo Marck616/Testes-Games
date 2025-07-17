@@ -6,7 +6,7 @@ const themes = [
     id: 'brasil1',
     name: 'Brasil Curiosidades',
     description: 'Teste seus conhecimentos sobre fatos curiosos da história do Brasil',
-    image: 'https://images.unsplash.com/photo-1544989164-31f6cdf61638?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
+    image: 'https://images.unsplash.com/photo-1589998059171-988d887df646'
     },
 
 
