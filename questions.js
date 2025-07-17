@@ -2623,11 +2623,487 @@ const questions = [
     options: ["The Dharma Bums", "On the Road", "Big Sur", "Maggie Cassidy"],
     correctAnswer: 1,
     explanation: "Rory lê 'On the Road' quando está tentando redescobrir a si mesma."
+},
+
+    {
+    id: 305,
+    theme: 'brasil1',
+    question: "Qual foi o 'motim das mulheres' que aconteceu em Recife no século XIX?",
+    options: ["Revolta das Cabeleiras", "Revolta das Mulheres do Caeté", "Motim das Saias Justas", "Revolta da Carne sem Osso"],
+    correctAnswer: 3,
+    explanation: "A Revolta da Carne sem Osso (1911) foi um protesto de mulheres contra o aumento do preço da carne, que só era vendida com ossos."
+},
+{
+    id: 306,
+    theme: 'brasil1',
+    question: "Qual foi o animal que quase causou uma guerra entre Brasil e França?",
+    options: ["Uma onça pintada", "Um jabuti gigante", "Uma lagosta", "Um papagaio"],
+    correctAnswer: 2,
+    explanation: "A Guerra da Lagosta (1961-1963) foi um conflito diplomático porque navios franceses pescavam lagostas no Nordeste, alegando que 'lagostas nadam, então são peixes internacionais'."
+},
+{
+    id: 307,
+    theme: 'brasil1',
+    question: "Qual foi a origem do nome 'Brasil'?",
+    options: ["Derivado de 'brasa', por causa das queimadas indígenas", "Do nome de uma árvore chamada pau-brasil", "Uma homenagem ao navegador Pedro Álvares Cabral", "Uma corruptela de 'Terra dos Bravos' em tupi"],
+    correctAnswer: 1,
+    explanation: "O nome vem do pau-brasil, árvore cuja resina vermelha lembrava brasas (brasa em português arcaico)."
+},
+{
+    id: 308,
+    theme: 'brasil1',
+    question: "Qual foi o crime que inspirou a criação da primeira lei de proteção aos animais no Brasil?",
+    options: ["Um homem que envenenou 50 cavalos por vingança", "Um padre que maltratava burros em Minas Gerais", "Um escravo que matou um gato para comer", "Um fazendeiro que incendiou um viveiro de pássaros"],
+    correctAnswer: 0,
+    explanation: "Em 1886, o Caso dos Cavalos de Niterói (homem envenenou animais por disputa política) levou à primeira lei contra maus-tratos."
+},
+{
+    id: 309,
+    theme: 'brasil1',
+    question: "Por que o estado do Amapá quase se tornou um país independente?",
+    options: ["Revolta contra o governo federal por causa do garimpo", "Um aventureiro francês declarou a República do Cunani", "Os indígenas proclamaram autonomia", "Foi uma estratégia para evitar a cobrança de impostos"],
+    correctAnswer: 1,
+    explanation: "No século XIX, o francês Jules Gros tentou criar a República do Cunani no Amapá, com bandeira e moeda próprias!"
+},
+{
+    id: 310,
+    theme: 'brasil1',
+    question: "Qual foi o 'rei' brasileiro que governou uma ilha no Caribe?",
+    options: ["Dom Pedro I", "Zumbi dos Palmares", "Aleijadinho", "Dom Marcos (o 'Rei de Trinidad')"],
+    correctAnswer: 3,
+    explanation: "Dom Marcos de Noronha, um nobre português exilado, se autoproclamou rei da ilha de Trinidad em 1823."
+},
+{
+    id: 311,
+    theme: 'brasil1',
+    question: "Qual foi o produto usado como moeda no Brasil colonial, além do açúcar?",
+    options: ["Fumo (tabaco em rolo)", "Pimenta-do-reino", "Cacau em pó", "Couro de bode"],
+    correctAnswer: 0,
+    explanation: "O fumo em rolos era usado como moeda, especialmente na compra de escravos africanos."
+},
+{
+    id: 312,
+    theme: 'brasil1',
+    question: "Qual foi a primeira greve geral do Brasil?",
+    options: ["Greve dos Operários de São Paulo (1917)", "Revolta dos Marinheiros (1910)", "Greve das Costureiras da Bahia (1857)", "Paralisação dos Escravos de Minas (1789)"],
+    correctAnswer: 2,
+    explanation: "A Greve das Costureiras da Bahia (1857) foi a primeira registrada, por melhores salários."
+},
+{
+    id: 313,
+    theme: 'brasil1',
+    question: "Qual brasileiro foi preso por prever o fim do mundo em 1900?",
+    options: ["Padre Cícero", "Antônio Conselheiro", "José do Patrocínio", "Miguel Lucena (o 'Profeta de Minas')"],
+    correctAnswer: 3,
+    explanation: "Miguel Lucena foi preso após prever o apocalipse em Minas Gerais, causando pânico."
+},
+{
+    id: 314,
+    theme: 'brasil1',
+    question: "Qual foi o 'caso da banha humana' no Rio de Janeiro?",
+    options: ["Um esquema de venda de gordura humana para sabão", "Um homem que engordava cadáveres para vender a banha", "Uma fábrica que usava restos mortais em velas", "Uma lenda urbana sobre canibalismo"],
+    correctAnswer: 0,
+    explanation: "No século XIX, corpos de indigentes eram vendidos para fábricas de sabão, gerando o escândalo da 'banha humana'."
+},
+{
+    id: 315,
+    theme: 'brasil1',
+    question: "Qual político brasileiro teve um funeral com mais de 1 milhão de pessoas?",
+    options: ["Getúlio Vargas", "Tancredo Neves", "Carlos Lacerda", "Juscelino Kubitschek"],
+    correctAnswer: 1,
+    explanation: "O enterro de Tancredo Neves (1985) reuniu uma multidão em São Paulo."
+},
+{
+    id: 316,
+    theme: 'brasil1',
+    question: "Qual foi a única cidade brasileira invadida por piratas?",
+    options: ["Santos (SP)", "Salvador (BA)", "Belém (PA)", "São Luís (MA)"],
+    correctAnswer: 3,
+    explanation: "São Luís foi invadida por piratas franceses em 1614, antes de ser retomada por Portugal."
+},
+{
+    id: 317,
+    theme: 'brasil1',
+    question: "Qual foi o 'milagre' que Dom Pedro II testemunhou em Paris?",
+    options: ["Uma estátua da Virgem Maria que chorou", "Um raio que caiu em sua carruagem sem feri-lo", "Uma fotografia que revelou um fantasma", "Um cachorro que falou em francês"],
+    correctAnswer: 2,
+    explanation: "Dom Pedro II viu uma foto com um 'fantasma' (efeito de dupla exposição) e ficou fascinado, ajudando a popularizar a fotografia no Brasil."
+},
+{
+    id: 318,
+    theme: 'brasil1',
+    question: "Qual foi o jogo de azar que financiou a construção de um teatro famoso no Brasil?",
+    options: ["Roleta", "Bicho", "Pôquer", "Loteria"],
+    correctAnswer: 1,
+    explanation: "O Theatro Municipal do Rio foi financiado em parte pelo jogo do bicho (início do séc. XX)."
+},
+{
+    id: 319,
+    theme: 'brasil1',
+    question: "Qual foi o 'crime da mala' que chocou o Brasil nos anos 1920?",
+    options: ["Um homem que transportou um corpo em uma mala", "Um esquema de contrabando de joias em malas falsas", "Um assassinato cometido por uma mulher usando uma mala como arma", "Um bebê encontrado vivo dentro de uma mala no porto"],
+    correctAnswer: 0,
+    explanation: "O Crime da Mala (1928) envolveu um médico que matou sua amante e a colocou em uma mala."
+},
+{
+    id: 320,
+    theme: 'brasil1',
+    question: "Qual foi o único brasileiro a ganhar um Oscar no século XX?",
+    options: ["Carmen Miranda", "Sônia Braga", "Grande Otelo", "Jorge Amado"],
+    correctAnswer: 0,
+    explanation: "Carmen Miranda recebeu um Oscar honorário em 1947 por contribuições ao cinema."
+},
+{
+    id: 321,
+    theme: 'brasil1',
+    question: "Qual foi o 'falso dom Pedro II' que apareceu nos EUA?",
+    options: ["Um ator que se passou pelo imperador em shows", "Um escravo liberto que fingiu ser o imperador", "Um imigrante italiano que enganou diplomatas", "Um marinheiro que se dizia herdeiro do trono"],
+    correctAnswer: 2,
+    explanation: "Nos EUA, um impostor chamado 'Dom Pedro de Alcântara' enganou pessoas dizendo ser o imperador exilado."
+},
+{
+    id: 322,
+    theme: 'brasil1',
+    question: "Qual foi o primeiro produto brasileiro exportado para a China?",
+    options: ["Café", "Açúcar", "Pau-brasil", "Couro"],
+    correctAnswer: 2,
+    explanation: "No século XVI, pau-brasil era levado para a China para tingir sedas."
+},
+{
+    id: 323,
+    theme: 'brasil1',
+    question: "Qual presidente brasileiro foi preso por dar um tiro em alguém?",
+    options: ["Floriano Peixoto", "Deodoro da Fonseca", "Epitácio Pessoa", "Hermes da Fonseca"],
+    correctAnswer: 3,
+    explanation: "Hermes da Fonseca foi preso após atirar em um jornalista que o criticou."
+},
+{
+    id: 324,
+    theme: 'brasil1',
+    question: "Qual foi o 'rei do café' que morreu falido?",
+    options: ["Barão de Mauá", "Conde d'Eu", "Barão de Tefé", "Visconde de Guaratinguetá"],
+    correctAnswer: 0,
+    explanation: "Barão de Mauá faliu após crises econômicas, apesar de ter sido o homem mais rico do Brasil."
+},
+{
+    id: 325,
+    theme: 'brasil1',
+    question: "Qual foi o único brasileiro a duelar com um presidente dos EUA?",
+    options: ["Duque de Caxias", "José Bonifácio", "Joaquim Nabuco", "Rui Barbosa"],
+    correctAnswer: 0,
+    explanation: "Duque de Caxias desafiou Andrew Jackson (EUA), mas o duelo não aconteceu."
+},
+{
+    id: 326,
+    theme: 'brasil1',
+    question: "Qual foi o 'milagre brasileiro' que atraiu peregrinos no século XIX?",
+    options: ["Uma estátua que sangrou em Pernambuco", "Uma criança que flutuou em Minas Gerais", "Uma hóstia que virou carne em Salvador", "Um rio que secou instantaneamente no Ceará"],
+    correctAnswer: 0,
+    explanation: "O 'Milagre da Hóstia' em Santos (SP) atraiu fiéis em 1830."
+},
+{
+    id: 327,
+    theme: 'brasil1',
+    question: "Qual foi o 'ouro branco' que substituiu o açúcar no Nordeste?",
+    options: ["Algodão", "Sal", "Borracha", "Cera de carnaúba"],
+    correctAnswer: 0,
+    explanation: "No século XVIII, o algodão tornou-se o novo produto de exportação do Nordeste."
+},
+{
+    id: 328,
+    theme: 'brasil1',
+    question: "Qual foi a primeira mulher a votar no Brasil?",
+    options: ["Princesa Isabel", "Nísia Floresta", "Celina Guimarães Viana", "Chiquinha Gonzaga"],
+    correctAnswer: 2,
+    explanation: "Celina Guimarães (RN) foi a primeira, em 1927, antes do voto feminino ser oficializado."
+},
+{
+    id: 329,
+    theme: 'brasil1',
+    question: "Qual foi o único brasileiro a ser canonizado pela Igreja Católica?",
+    options: ["Padre Cícero", "Frei Galvão", "Irmã Dulce", "Dom Hélder Câmara"],
+    correctAnswer: 1,
+    explanation: "Frei Galvão (séc. XVIII) foi canonizado em 2007."
+},
+{
+    id: 330,
+    theme: 'brasil1',
+    question: "Qual foi o 'monstro do Rio' que aterrorizou a população em 1930?",
+    options: ["Um jacaré gigante", "Um tubarão que nadou no rio", "Uma suposta criatura marinha", "Um polvo em águas doces"],
+    correctAnswer: 2,
+    explanation: "O 'Monstro da Lagoa' era provavelmente um peixe-boi, mas causou pânico."
+},
+{
+    id: 331,
+    theme: 'brasil1',
+    question: "Qual foi o 'ouro negro' que financiou a Belle Époque na Amazônia?",
+    options: ["Petróleo", "Borracha", "Café", "Guaraná"],
+    correctAnswer: 1,
+    explanation: "A borracha (séc. XIX) trouxe riqueza a Manaus e Belém."
+},
+{
+    id: 332,
+    theme: 'brasil1',
+    question: "Qual foi o único imperador estrangeiro a visitar o Brasil?",
+    options: ["Napoleão Bonaparte", "Maximiliano do México", "Leopoldo da Bélgica", "Pedro II da Rússia"],
+    correctAnswer: 1,
+    explanation: "Maximiliano do México visitou o Brasil em 1865."
+},
+{
+    id: 333,
+    theme: 'brasil1',
+    question: "Qual foi o 'falso tsunami' que assustou o litoral brasileiro?",
+    options: ["Um terremoto no Chile que gerou alertas em 1960", "Uma onda gigante em Santos em 1928", "Um boato que causou pânico no Rio em 1955", "Um meteoro que caiu no mar em 1930"],
+    correctAnswer: 0,
+    explanation: "O terremoto do Chile (1960) gerou alertas de tsunami no Brasil, mas nenhuma onda grande chegou."
+},
+    
+
+{
+    id: 334,
+    theme: 'brasil1',
+    question: "Qual foi o projeto secreto da ditadura militar para desenvolver uma bomba atômica?",
+    options: ["Projeto Solimões (testes no Amazonas)", "Projeto Atlântico (submarino nuclear)", "Projeto Brasil Grande (mineração de urânio)", "Projeto Sol (reator em Resende)"],
+    correctAnswer: 0,
+    explanation: "O Projeto Solimões (1970–1990) foi um programa nuclear paralelo para criar um artefato explosivo, encerrado sob pressão internacional."
+},
+{
+    id: 335,
+    theme: 'brasil1',
+    question: "Qual foi o 'golpe da banana' no Brasil?",
+    options: ["Um esquema de corrupção na exportação de frutas nos anos 1950", "Uma lei que proibia o cultivo de bananas estrangeiras", "Uma chantagem dos EUA para controlar o mercado de frutas tropicais", "Um acordo que permitia a intervenção militar se o Brasil nacionalizasse empresas de banana"],
+    correctAnswer: 3,
+    explanation: "Em 1904, os EUA ameaçaram invadir o Brasil se o governo interferisse nas companhias americanas de banana na Amazônia."
+},
+{
+    id: 336,
+    theme: 'brasil1',
+    question: "Qual cidade brasileira foi fundada por nazistas fugitivos?",
+    options: ["Santo Ângelo (RS)", "Cândido Godói (RS) – 'Cidade dos Gêmeos'", "Holambra (SP)", "Presidente Lucena (RS)"],
+    correctAnswer: 1,
+    explanation: "Cândido Godói tem alta taxa de nascimentos de gêmeos, atribuída a experiências do médico nazista Joseph Mengele (que viveu no Brasil)."
+},
+{
+    id: 337,
+    theme: 'brasil1',
+    question: "Qual foi o 'Tesouro dos Jesuítas' escondido no Brasil?",
+    options: ["Ouro enterrado no Piauí", "Uma biblioteca de livros raros no Amazonas", "Um mapa de minas de prata no Mato Grosso", "Documentos secretos sobre a independência"],
+    correctAnswer: 0,
+    explanation: "Lendas falam de ouro jesuíta escondido no Serra da Capivara (PI) antes da expulsão da ordem (1759)."
+},
+{
+    id: 338,
+    theme: 'brasil1',
+    question: "Qual foi o 'Plano Cohen' que justificou o golpe do Estado Novo (1937)?",
+    options: ["Um suposto plano comunista forjado pelos militares", "Um esquema de corrupção no governo Vargas", "Uma conspiração judaica inventada pela imprensa", "Um ataque terrorista simulado"],
+    correctAnswer: 0,
+    explanation: "O Plano Cohen era uma farsa criada para justificar o fechamento do Congresso por Getúlio Vargas."
+},
+{
+    id: 339,
+    theme: 'brasil1',
+    question: "Qual presidente brasileiro foi acusado de envenenar o próprio irmão?",
+    options: ["Floriano Peixoto", "Epitácio Pessoa", "Rodrigues Alves", "Hermes da Fonseca"],
+    correctAnswer: 0,
+    explanation: "Rumores dizem que Floriano Peixoto envenenou o irmão Pedro Peixoto para herdar suas terras."
+},
+{
+    id: 340,
+    theme: 'brasil1',
+    question: "Qual foi o 'Avião que Sumiu no Triângulo das Bermudas' com brasileiros?",
+    options: ["Voo Air France 447", "Voo Varig 967 (1979)", "Voo TAM 402", "Voo Cruzeiro do Sul 144"],
+    correctAnswer: 1,
+    explanation: "O Voo Varig 967 (cargueiro com 6 tripulantes) desapareceu em 1979 com 154 pinturas de Salvador Dalí."
+},
+{
+    id: 341,
+    theme: 'brasil1',
+    question: "Qual foi o 'Roubo do Século' no Brasil, antes do Banco Central de Fortaleza?",
+    options: ["Assalto ao Cofre do Banco do Brasil (1965)", "Furto das Joias da Coroa (1889)", "Roubo do Trem Pagador (1960)", "Sequestro do Ouro de Cuiabá (1932)"],
+    correctAnswer: 1,
+    explanation: "Em 1889, após a Proclamação da República, as joias da coroa brasileira foram vendidas ou furtadas na Europa."
+},
+{
+    id: 342,
+    theme: 'brasil1',
+    question: "Qual foi o 'Experimento da Ilha das Flores' com alemães após a WWII?",
+    options: ["Testes com foguetes da NASA", "Criação de uma colônia de cientistas nazistas", "Estudos sobre isolamento humano", "Treinamento de guerrilha anticomunista"],
+    correctAnswer: 1,
+    explanation: "A Ilha das Flores (RJ) abrigou cientistas alemães recrutados pelos EUA e Brasil no pós-guerra."
+},
+{
+    id: 343,
+    theme: 'brasil1',
+    question: "Qual foi o 'Submarino Fantasma' avistado no litoral brasileiro em 1958?",
+    options: ["Um submarino argentino perdido", "Uma nave não identificada (OVNI aquático)", "Um teste secreto da Marinha brasileira", "Um submarino soviético em missão de espionagem"],
+    correctAnswer: 3,
+    explanation: "Relatos sugerem que era um submarino soviético monitorando instalações militares."
+},
+{
+    id: 344,
+    theme: 'brasil1',
+    question: "Qual foi o 'Grande Incêndio de Santos' que destruiu a cidade em 1850?",
+    options: ["Causado por um vulcão submarino", "Uma sabotagem de traficantes de escravos", "Um acidente em um navio carregado de café", "Uma vela em um armazém de algodão"],
+    correctAnswer: 1,
+    explanation: "O incêndio foi proposital, para destruir registros de tráfico ilegal de escravos."
+},
+{
+    id: 345,
+    theme: 'brasil1',
+    question: "Qual foi o 'Caso da Máfia dos Sanguessugas' nos anos 1990?",
+    options: ["Fraude em licitações de ambulâncias", "Tráfico de sangue contaminado", "Venda ilegal de animais exóticos", "Corrupção em doações de órgãos"],
+    correctAnswer: 0,
+    explanation: "A Máfia das Sanguessugas desviou R$ 1 bilhão em superfaturamento de ambulâncias."
+},
+{
+    id: 346,
+    theme: 'brasil1',
+    question: "Qual foi o 'Avião dos Uruguaios' que caiu no Brasil em 1962?",
+    options: ["Um voo comercial que desapareceu no Paraná", "Um acidente com uma equipe de rugby (antes do caso Andes)", "Um avião militar argentino abatido por engano", "Um voo de contrabandistas no Mato Grosso"],
+    correctAnswer: 1,
+    explanation: "Um avião uruguaio com jogadores de rugby caiu em Santa Catarina (6 anos antes do famoso acidente nos Andes)."
+},
+{
+    id: 347,
+    theme: 'brasil1',
+    question: "Qual foi o 'Tesouro dos Confederados' perdido no Brasil?",
+    options: ["Ouro enterrado em Santa Bárbara d'Oeste (SP)", "Joias escondidas no Rio de Janeiro", "Um navio afundado no litoral da Bahia", "Documentos sobre escravidão em Pernambuco"],
+    correctAnswer: 0,
+    explanation: "Imigrantes confederados (EUA) trouxeram fortunas e, segundo lendas, enterraram ouro em SP."
+},
+{
+    id: 348,
+    theme: 'brasil1',
+    question: "Qual foi o 'Experimento da Borracha Sintética' na Amazônia?",
+    options: ["Projeto secreto da Ford nos anos 1940", "Tentativa de Hitler de controlar a borracha brasileira", "Um plano da CIA para sabotar a economia da região", "Testes da Petrobras na floresta"],
+    correctAnswer: 0,
+    explanation: "A Fordlândia (1928) fracassou, mas durante a WWII, os EUA tentaram produzir borracha sintética na Amazônia."
+},
+{
+    id: 349,
+    theme: 'brasil1',
+    question: "Qual foi o 'Massacre do Hospital Geral de Recife' em 1964?",
+    options: ["Um ataque a pacientes psiquiátricos", "Uma execução de presos políticos", "Um experimento médico com radiação", "Um incêndio criminoso"],
+    correctAnswer: 1,
+    explanation: "Pacientes foram torturados e mortos sob acusação de serem 'comunistas'."
+},
+{
+    id: 350,
+    theme: 'brasil1',
+    question: "Qual foi o 'Caso da Vaca Mecânica' no Brasil?",
+    options: ["Um robô criado pela ditadura para espionagem", "Uma máquina de extrair leite financiada pela EMBRAPA", "Um projeto da NASA testado no Nordeste", "Um experimento soviético em fazendas coletivas"],
+    correctAnswer: 0,
+    explanation: "Nos anos 1970, o Exército desenvolveu um robô disfarçado de vaca para vigilância na fronteira."
+},
+{
+    id: 351,
+    theme: 'brasil1',
+    question: "Qual foi o 'Avião que Sumiu no Buraco da Guanabara'?",
+    options: ["Um DC-3 da Real Transportes Aéreos (1958)", "Um voo da Panair desaparecido em 1962", "Um caça militar durante os Jogos Pan-Americanos", "Um helicóptero da Petrobras em 1976"],
+    correctAnswer: 0,
+    explanation: "O DC-3 da Real desapareceu em 1958; teorias sugerem ação da CIA (havia um espião a bordo)."
+},
+{
+    id: 352,
+    theme: 'brasil1',
+    question: "Qual foi o 'Projeto Haarp Brasileiro' na Amazônia?",
+    options: ["SIVAM (controle do espaço aéreo)", "Projeto Calha Norte (radares militares)", "Experimentros com ionosfera em Alcântara", "Tecnologia de modificação climática"],
+    correctAnswer: 2,
+    explanation: "O Brasil fez testes de aquecimento ionosférico (similar ao HAARP dos EUA) no Maranhão."
+},
+{
+    id: 353,
+    theme: 'brasil1',
+    question: "Qual foi o 'Caso das Crianças Esquartejadas' em Recife (1920)?",
+    options: ["Um serial killer que agiu por 10 anos", "Um ritual de seita religiosa", "Um esquema de tráfico de órgãos", "Uma lenda urbana sem provas"],
+    correctAnswer: 0,
+    explanation: "Luciano do Valle matou mais de 20 crianças e vendia partes dos corpos para rituais."
+},
+{
+    id: 354,
+    theme: 'brasil1',
+    question: "Qual foi o 'Submarino Alemão' afundado no litoral brasileiro em 1943?",
+    options: ["U-199 (afundado pelo Brasil e EUA)", "U-507 (responsável pelo torpedeamento de navios brasileiros)", "U-513 (descoberto em SC em 2011)", "U-66 (usado em missões secretas)"],
+    correctAnswer: 2,
+    explanation: "O U-513 foi encontrado em Santa Catarina em 2011, com 46 corpos."
+},
+{
+    id: 355,
+    theme: 'brasil1',
+    question: "Qual foi o 'Projeto Cabana do Pai Tomás' da ditadura?",
+    options: ["Um campo de concentração para presos políticos", "Uma operação para infiltrar agentes em favelas", "Um plano de habitação popular com espionagem", "Uma base militar disfarçada de comunidade"],
+    correctAnswer: 1,
+    explanation: "A Operação Cabana do Pai Tomás infiltrou agentes em favelas do Rio nos anos 1970."
+},
+{
+    id: 356,
+    theme: 'brasil1',
+    question: "Qual foi o 'Voo da Morte' na ditadura militar?",
+    options: ["Prisões políticas em aviões da FAB", "Execuções de opositores jogados no mar", "Um acidente com exilados chilenos", "Um voo secreto para treinar torturadores"],
+    correctAnswer: 1,
+    explanation: "Corpos de presos políticos eram lançados ao mar de aviões para ocultar evidências."
+},
+{
+    id: 357,
+    theme: 'brasil1',
+    question: "Qual foi o 'Tesouro do Pirata Zulmiro' no litoral paulista?",
+    options: ["Moedas de ouro encontradas em Ubatuba", "Um navio espanhol afundado em Ilhabela", "Um mapa falsificado nos anos 1950", "Um esquema de contrabando de armas"],
+    correctAnswer: 0,
+    explanation: "Em 1960, um tesouro foi achado em Ubatuba, ligado ao pirata Zulmiro."
+},
+{
+    id: 358,
+    theme: 'brasil1',
+    question: "Qual foi o 'Caso da Loira do Banheiro' que virou lenda nacional?",
+    options: ["Uma jovem assassinada em um colégio de Minas", "Uma história inventada para assustar alunos", "Um fantasma de uma professora dos anos 1920", "Uma mulher que desapareceu em um cinema"],
+    correctAnswer: 0,
+    explanation: "Baseada em Maria Augusta de Oliveira, morta em um colégio de Ouro Preto (MG) nos anos 1940."
+},
+{
+    id: 359,
+    theme: 'brasil1',
+    question: "Qual foi o 'Projeto Manhattan Brasileiro'?",
+    options: ["Centro Tecnológico da Aeronáutica (CTA)", "Instituto de Pesquisas Energéticas e Nucleares (IPEN)", "Programa Espacial Brasileiro (1969)", "Usina de Angra dos Reis"],
+    correctAnswer: 1,
+    explanation: "O IPEN (anos 1970) teve pesquisas secretas sobre energia nuclear."
+},
+{
+    id: 360,
+    theme: 'brasil1',
+    question: "Qual foi o 'Caso do ET de Varginha'?",
+    options: ["Uma fraude criada pela imprensa", "Um acobertamento militar", "Um animal exótico confundido com alienígena", "Uma operação psicológica da ditadura"],
+    correctAnswer: 1,
+    explanation: "Documentos liberados em 2022 confirmam que o Exército investigou o caso em 1996."
+},
+{
+    id: 361,
+    theme: 'brasil1',
+    question: "Qual foi o 'Avião Fantasma' que sobrevoou São Paulo em 1986?",
+    options: ["Um Boeing 727 sequestrado", "Um jato espião dos EUA", "Um VASP que desapareceu dos radares", "Um objeto não identificado (OVNI)"],
+    correctAnswer: 3,
+    explanation: "O 'Caso VASP 169' envolveu um OVNI perseguido por caças da FAB."
+},
+{
+    id: 362,
+    theme: 'brasil1',
+    question: "Qual foi o 'Projeto Prato' da Aeronáutica?",
+    options: ["Investigação de OVNIs na Amazônia", "Desenvolvimento de asas voadoras", "Um satélite espião brasileiro", "Treinamento de pilotos para guerra nuclear"],
+    correctAnswer: 0,
+    explanation: "A FAB investigou luzes estranhas no Pará (1977–1978), com relatos de 'discos voadores'."
+},
+{
+    id: 363,
+    theme: 'brasil1',
+    question: "Qual foi o 'Submarino Brasileiro' que desapareceu em 2021?",
+    options: ["Tonelero (perdido em exercício militar)", "Riachuelo (acidente no litoral de SP)", "Tupi (afundado em águas internacionais)", "Tapajó (sabotagem em base naval)"],
+    correctAnswer: 0,
+    explanation: "O SN-10 Tonelero teve um 'desaparecimento temporário' durante testes, gerando alertas."
 }
 
-    
-    
 
+
+
+    
     
     
 ];
