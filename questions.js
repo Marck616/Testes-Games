@@ -1,22 +1,5 @@
 // Banco de dados de temas
 const themes = [
-
-
-    {
-        id: 'gilmore',
-        name: 'Gilmore Girls N.1',
-        description: 'Teste seus conhecimentos sobre a serie Gilmore Girls. Nivel 1',
-        image: 'https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
-    },
-
-
-    {
-        id: 'gilmore2',
-        name: 'Gilmore Girls N.2',
-        description: 'Teste seus conhecimentos sobre a serie Gilmore Girls. Nivel 2',
-        image: 'https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
-    },
-
     
     {
         id: 'music',
@@ -113,7 +96,26 @@ const themes = [
         name: 'Matemática',
         description: 'Teste seus conhecimentos matemáticos',
         image: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
+    },
+
+
+    {
+        id: 'gilmore',
+        name: 'Gilmore Girls N.1',
+        description: 'Teste seus conhecimentos sobre a serie Gilmore Girls. Nivel 1',
+        image: 'https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
+    },
+
+
+    {
+        id: 'gilmore2',
+        name: 'Gilmore Girls N.2',
+        description: 'Teste seus conhecimentos sobre a serie Gilmore Girls. Nivel 2',
+        image: 'https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
     }
+
+
+    
 ];
 
 // Banco de dados de perguntas
