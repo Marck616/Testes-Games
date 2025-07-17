@@ -10,7 +10,12 @@ const themes = [
     image: 'https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
 },
 
-
+{
+    id: 'daime2',
+    name: 'Santo Daime (Nivel 2)',
+    description: 'Teste seus conhecimentos sobre a doutrina do Santo Daime',
+    image: 'https://images.unsplash.com/photo-1581368135153-a506cf13b1e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
+},
 
     
     // Tema Brasil - Curiosidades
@@ -3939,10 +3944,217 @@ const questions = [
     ],
     correctAnswer: 0,
     explanation: "'Daime' vem do português arcaico e significa 'dai-me' ou 'me dê' — presente em muitos hinos, como pedido à luz, força, amor, etc."
+},
+
+
+{
+    id: 447,
+    theme: 'daime2',
+    question: "Qual o nome completo do fundador do Santo Daime?",
+    options: [
+        "Raimundo Irineu Costa",
+        "Raimundo Irineu Serra",
+        "Sebastião Irineu da Silva",
+        "Antônio Irineu de Jesus"
+    ],
+    correctAnswer: 1,
+    explanation: "Mestre Irineu nasceu como Raimundo Irineu Serra, no Maranhão."
+},
+{
+    id: 448,
+    theme: 'daime2',
+    question: "Como Mestre Irineu conheceu a ayahuasca?",
+    options: [
+        "Em um centro espírita",
+        "Com indígenas e Seringueiros",
+        "Em um sonho",
+        "Em um livro espiritual"
+    ],
+    correctAnswer: 1,
+    explanation: "Ele conheceu a ayahuasca entre indígenas na fronteira do Brasil com o Peru."
+},
+{
+    id: 449,
+    theme: 'daime2',
+    question: "Qual entidade apareceu a Mestre Irineu durante sua experiência espiritual?",
+    options: [
+        "Nossa Senhora da Conceição",
+        "Jesus Cristo",
+        "Santa Bárbara",
+        "São João Batista"
+    ],
+    correctAnswer: 0,
+    explanation: "Nossa Senhora da Conceição lhe apareceu como guia espiritual e instrutora."
+},
+{
+    id: 450,
+    theme: 'daime2',
+    question: "Como é chamada igreja desenvolvida por Padrinho Sebastião e seus seguidores?",
+    options: [
+        "Barquinha",
+        "CEFLURIS",
+        "UDV",
+        "Luz do Oriente"
+    ],
+    correctAnswer: 1,
+    explanation: "A CEFLURIS (Centro Eclético da Fluente Luz Universal Raimundo Irineu Serra) é a corrente fundada por Padrinho Sebastião."
+},
+{
+    id: 451,
+    theme: 'daime2',
+    question: "Qual o papel do fardado nas cerimônias?",
+    options: [
+        "Apenas observar",
+        "Tocar instrumentos",
+        "Seguir com disciplina e participar da corrente espiritual",
+        "Distribuir os hinos"
+    ],
+    correctAnswer: 2,
+    explanation: "O fardado integra a corrente espiritual com responsabilidade e disciplina ritualística."
+},
+{
+    id: 452,
+    theme: 'daime2',
+    question: "Qual o nome da esposa do Mestre Irineu, que também tem hinário?",
+    options: [
+        "Maria Teresa",
+        "Dona Peregrina Gomes",
+        "Clara Luz",
+        "Madre Rosa"
+    ],
+    correctAnswer: 1,
+    explanation: "Dona Peregrina é viuva de Mestre Irineu e também é considerada madrinha espiritual."
+},
+{
+    id: 453,
+    theme: 'daime2',
+    question: "Qual desses instrumentos é tradicionalmente usado nas consagrações?",
+    options: [
+        "Violão",
+        "Maracá",
+        "Tambor",
+        "Gongo"
+    ],
+    correctAnswer: 1,
+    explanation: "O maracá (chocalho) é utilizado para marcar o ritmo nos hinos."
+},
+{
+    id: 454,
+    theme: 'daime2',
+    question: "O que é uma 'cura' no Santo Daime?",
+    options: [
+        "Um ritual específico para a saúde geral",
+        "Uma dança especial",
+        "Um trabalho só com hinos",
+        "Uma prece feita em silêncio"
+    ],
+    correctAnswer: 0,
+    explanation: "A 'cura' é um ritual onde se canta buscando limpeza e equilíbrio espiritual/físico."
+},
+{
+    id: 455,
+    theme: 'daime2',
+    question: "Qual dessas pessoas NÃO deixou um hinário no Daime?",
+    options: [
+        "Mestre Irineu",
+        "Padrinho Sebastião",
+        "Dona Peregrina",
+        "Chico Xavier"
+    ],
+    correctAnswer: 3,
+    explanation: "Chico Xavier não é ligado à doutrina do Daime nem deixou hinário."
+},
+{
+    id: 456,
+    theme: 'daime2',
+    question: "O que é uma 'miração'?",
+    options: [
+        "Imagens e visões espirituais durante o efeito do Daime",
+        "Rituais de cura",
+        "Tambores cerimoniais",
+        "Cânticos indígenas"
+    ],
+    correctAnswer: 0,
+    explanation: "São visões ou revelações que surgem durante a experiência espiritual com o Daime."
+},
+{
+    id: 457,
+    theme: 'daime2',
+    question: "Quantos hinos tem, aproximadamente, o hinário conhecido como 'O Cruzeiro'?",
+    options: [
+        "56",
+        "129",
+        "98",
+        "215"
+    ],
+    correctAnswer: 1,
+    explanation: "O hinário possui cerca de 129 hinos no total."
+},
+{
+    id: 458,
+    theme: 'daime2',
+    question: "Qual é a diferença entre 'concentração' e 'bailado'?",
+    options: [
+        "Uma usa Daime e outra não",
+        "Bailado é com dança e concentração com foco interno",
+        "Concentração é religiosa e bailado é festivo",
+        "Bailado é apenas para iniciantes"
+    ],
+    correctAnswer: 1,
+    explanation: "Concentração é estática e meditativa, o bailado é com canto e movimentação em linhas."
+},
+{
+    id: 459,
+    theme: 'daime2',
+    question: "Como são organizadas as fileiras nos trabalhos rituais?",
+    options: [
+        "Em ordem alfabética",
+        "Por idade",
+        "Por cor de roupa",
+        "Separadas por gênero e hierarquia espiritual"
+    ],
+    correctAnswer: 3,
+    explanation: "As fileiras são divididas entre homens e mulheres e por nível de responsabilidade espiritual."
+},
+{
+    id: 460,
+    theme: 'daime2',
+    question: "O que significa 'firmar na corrente'?",
+    options: [
+        "Ser aceito como dirigente",
+        "Atingir estabilidade emocional",
+        "Manter disciplina e alinhamento espiritual durante os rituais",
+        "Fazer parte do conselho espiritual"
+    ],
+    correctAnswer: 2,
+    explanation: "'Firmar' é manter atenção, postura e conexão espiritual constante."
+},
+{
+    id: 461,
+    theme: 'daime2',
+    question: "Qual é o significado simbólico da 'farda branca'?",
+    options: [
+        "Pureza e responsabilidade espiritual",
+        "Inocência e fragilidade",
+        "Iniciação no Daime",
+        "Simbolismo esotérico"
+    ],
+    correctAnswer: 0,
+    explanation: "A farda branca representa comprometimento e pureza espiritual do fardado."
+},
+{
+    id: 462,
+    theme: 'daime2',
+    question: "O Daime pode ser misturado com outras plantas no ritual?",
+    options: [
+        "Sim, conforme a tradição indígena",
+        "Apenas com orientação médica",
+        "Não, é preparado exclusivamente com jagube e chacrona",
+        "Sim, para efeitos mais fortes"
+    ],
+    correctAnswer: 2,
+    explanation: "A doutrina tradicional do Santo Daime só permite jagube e chacrona na bebida."
 }
-
-
-
 
 
 
