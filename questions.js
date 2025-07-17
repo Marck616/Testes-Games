@@ -3254,7 +3254,58 @@ const questions = [
     explanation: "Carnaval é a maior festa popular brasileira, com muita música e dança."
 },
 
+// Tema Cristianismo
 
+{
+    id: 382,
+    theme: 'christianity',
+    question: "Quem construiu uma arca por fé, salvando sua família do dilúvio?",
+    options: ["Abraão", "Moisés", "Noé", "Elias"],
+    correctAnswer: 2,
+    explanation: "Noé, por fé, obedeceu a Deus e construiu uma arca antes do dilúvio, como descrito em Gênesis e citado em Hebreus 11."
+},
+{
+    id: 383,
+    theme: 'christianity',
+    question: "Quem foi lançado na fornalha ardente por não adorar uma estátua?",
+    options: ["Davi", "Daniel", "Sadraque", "Elias"],
+    correctAnswer: 2,
+    explanation: "Sadraque, junto com Mesaque e Abede-Nego, recusou-se a adorar o rei e foi lançado na fornalha (Daniel 3), mas saiu ileso pela fé."
+},
+{
+    id: 384,
+    theme: 'christianity',
+    question: "Quem saiu de sua terra por fé, sem saber para onde ia, confiando na promessa de Deus?",
+    options: ["Jacó", "José", "Abraão", "Paulo"],
+    correctAnswer: 2,
+    explanation: "Em Hebreus 11, Abraão é destacado por ter saído de sua terra obedecendo a Deus, sem saber o destino, confiando na promessa."
+},
+{
+    id: 385,
+    theme: 'christianity',
+    question: "Quem ofereceu seu filho em sacrifício, crendo que Deus podia ressuscitá-lo?",
+    options: ["Isaque", "Jacó", "Abraão", "Moisés"],
+    correctAnswer: 2,
+    explanation: "Abraão, por fé, obedeceu a Deus ao quase sacrificar Isaque, acreditando que Deus poderia restaurar a vida de seu filho (Hebreus 11:17-19)."
+},
+{
+    id: 386,
+    theme: 'christianity',
+    question: "Quem foi escondido em um cesto no rio e mais tarde libertou o povo do Egito?",
+    options: ["Elias", "Samuel", "Moisés", "Josué"],
+    correctAnswer: 2,
+    explanation: "Moisés foi salvo da morte quando bebê e mais tarde liderou o povo hebreu na saída do Egito - um exemplo clássico de fé (Hebreus 11:23-29)."
+},
+{
+    id: 387,
+    theme: 'christianity',
+    question: "Quem venceu exércitos inimigos com apenas 300 homens, confiando totalmente em Deus?",
+    options: ["Sansão", "Davi", "Gideão", "Saul"],
+    correctAnswer: 2,
+    explanation: "Gideão, mencionado em Hebreus 11, liderou apenas 300 homens e derrotou os midianitas com fé no poder de Deus (Juízes 7)."
+},
+    
+    
 
 {
     id: 388,
