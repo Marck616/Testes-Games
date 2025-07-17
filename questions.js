@@ -10,6 +10,13 @@ const themes = [
     },
 
 
+    {
+        id: 'gilmore2',
+        name: 'Gilmore Girls N.2',
+        description: 'Teste seus conhecimentos sobre a serie Gilmore Girls. Nivel 2',
+        image: 'https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
+    },
+
     
     {
         id: 'music',
@@ -2359,6 +2366,251 @@ const questions = [
     options: ["Lorelai", "Emily", "Paris", "Logan"],
     correctAnswer: 3,
     explanation: "Logan tenta ajudar Rory com influências da família, o que causa conflitos."
+},
+
+
+
+
+
+{
+    id: 275,
+    theme: 'gilmore2',
+    question: "Qual é o nome do dragão no livro infantil favorito de Rory?",
+    options: ["Stanley", "Fennel", "Puff", "Clive"],
+    correctAnswer: 3,
+    explanation: "Lorelai menciona que Rory adorava um livro infantil com um dragão chamado Clive."
+},
+{
+    id: 276,
+    theme: 'gilmore2',
+    question: "Qual a nota de Rory na prova de matemática que quase a fez sair de Chilton?",
+    options: ["C", "D", "F", "B-"],
+    correctAnswer: 1,
+    explanation: "Rory tira um 'D' em matemática e entra em pânico por não ser perfeita academicamente."
+},
+{
+    id: 277,
+    theme: 'gilmore2',
+    question: "Qual é o nome do jornal onde Rory faz um internship no verão?",
+    options: ["The New York Times", "The Stamford Daily", "The Hartford Courant", "Stamford Eagle Gazette"],
+    correctAnswer: 3,
+    explanation: "Rory estagia no jornal Stamford Eagle Gazette durante as férias."
+},
+{
+    id: 278,
+    theme: 'gilmore2',
+    question: "O que Lorelai roubou da Yale em uma visita?",
+    options: ["Um livro da biblioteca", "Uma camiseta", "Um porta-guardanapos", "Uma placa"],
+    correctAnswer: 2,
+    explanation: "Lorelai 'acidentalmente' leva um porta-guardanapos da Yale."
+},
+{
+    id: 279,
+    theme: 'gilmore2',
+    question: "Em qual episódio Rory é presa?",
+    options: ["A Messenger, Nothing More", "Jews and Chinese Food", "The Party's Over", "A House Is Not a Home"],
+    correctAnswer: 3,
+    explanation: "Rory é presa por roubo de iate com Logan nesse episódio."
+},
+{
+    id: 280,
+    theme: 'gilmore2',
+    question: "Qual é o nome completo de Lane?",
+    options: ["Lane Kim", "Elaine Kim", "Lanelle Kim", "Lana Kim"],
+    correctAnswer: 0,
+    explanation: "Embora o nome completo nunca seja explicitamente dito, Lane Kim é como ela é chamada oficialmente."
+},
+{
+    id: 281,
+    theme: 'gilmore2',
+    question: "Quem canta no casamento de Lane?",
+    options: ["Hep Alien", "Lorelai", "Gil (Sebastian Bach)", "Miss Patty e Babette"],
+    correctAnswer: 3,
+    explanation: "Miss Patty e Babette cantam durante a cerimônia, um momento clássico e engraçado."
+},
+{
+    id: 282,
+    theme: 'gilmore2',
+    question: "Quem faz a entrevista de Rory no D.A.R.?",
+    options: ["Emily Gilmore", "Mrs. Huntzberger", "Gran", "Penilyn Lott"],
+    correctAnswer: 3,
+    explanation: "Penilyn Lott, ex-namorada de Richard, aparece e conduz a entrevista."
+},
+{
+    id: 283,
+    theme: 'gilmore2',
+    question: "Quem é Trix?",
+    options: ["A avó de Rory por parte de pai", "A avó de Lorelai", "Vizinha de Stars Hollow", "Ex-funcionária da pousada"],
+    correctAnswer: 1,
+    explanation: "'Trix' é o apelido de Lorelai Gilmore Senior, mãe de Richard."
+},
+{
+    id: 284,
+    theme: 'gilmore2',
+    question: "Qual é a banda preferida de Lorelai mencionada mais de uma vez?",
+    options: ["U2", "The Bangles", "Blondie", "Fleetwood Mac"],
+    correctAnswer: 1,
+    explanation: "Lorelai é uma grande fã das Bangles, inclusive leva Rory a um show delas."
+},
+{
+    id: 285,
+    theme: 'gilmore2',
+    question: "Qual foi o presente de formatura de Richard para Rory?",
+    options: ["Um carro", "Um apartamento", "Uma bolsa de viagem", "Uma caneta de ouro"],
+    correctAnswer: 2,
+    explanation: "Ele dá a Rory uma sofisticada bolsa de viagem como presente."
+},
+{
+    id: 286,
+    theme: 'gilmore2',
+    question: "Como se chama o clube secreto da Yale que Logan frequenta?",
+    options: ["The Knights", "The Life and Death Brigade", "Skulls and Bones", "Society of Yale"],
+    correctAnswer: 1,
+    explanation: "A Life and Death Brigade é conhecida por suas atividades excêntricas."
+},
+{
+    id: 287,
+    theme: 'gilmore2',
+    question: "Em qual livro Jess escreve uma dedicatória para Rory?",
+    options: ["The Subsect", "Howl", "The Subsect - edição especial", "The Outsiders"],
+    correctAnswer: 2,
+    explanation: "Jess escreve e publica The Subsect, e dedica uma cópia a Rory."
+},
+{
+    id: 288,
+    theme: 'gilmore2',
+    question: "Qual personagem diz a frase 'I smell snow'?",
+    options: ["Rory", "Emily", "Lorelai", "Sookie"],
+    correctAnswer: 2,
+    explanation: "Lorelai sempre diz que consegue sentir o cheiro da neve."
+},
+{
+    id: 289,
+    theme: 'gilmore2',
+    question: "Quem é April Nardini?",
+    options: ["Irmã de Jess", "Filha de Luke", "Sobrinha de Lorelai", "Prima de Rory"],
+    correctAnswer: 1,
+    explanation: "April é revelada como filha de Luke já na sexta temporada."
+},
+{
+    id: 290,
+    theme: 'gilmore2',
+    question: "Qual personagem principal aparece em TODOS os episódios da série original?",
+    options: ["Rory", "Lorelai", "Emily", "Luke"],
+    correctAnswer: 0,
+    explanation: "Rory é a única a aparecer em todos os episódios das 7 temporadas originais."
+},
+{
+    id: 291,
+    theme: 'gilmore2',
+    question: "Qual o nome do cachorro de Lorelai?",
+    options: ["Spike", "Paul Anka", "Elvis", "Buddy"],
+    correctAnswer: 1,
+    explanation: "Lorelai adota um cachorro chamado Paul Anka - em homenagem ao cantor."
+},
+{
+    id: 292,
+    theme: 'gilmore2',
+    question: "Qual é o nome da loja de antiguidades de Stars Hollow?",
+    options: ["Star Collectibles", "Kim's Antiques", "Old Hollow", "Stars Hollow Curios"],
+    correctAnswer: 1,
+    explanation: "A loja da Sra. Kim se chama Kim's Antiques, onde Lane ajuda desde pequena."
+},
+{
+    id: 293,
+    theme: 'gilmore2',
+    question: "Quem é Jason Stiles?",
+    options: ["Ex-noivo de Emily", "Ex-namorado de Lorelai", "Editor de Rory", "Advogado de Richard"],
+    correctAnswer: 1,
+    explanation: "Jason, ou 'Digger', é um ex-namorado de Lorelai e sócio de Richard."
+},
+{
+    id: 294,
+    theme: 'gilmore2',
+    question: "Qual desses não foi par romântico de Rory?",
+    options: ["Dean", "Marty", "Jess", "Logan"],
+    correctAnswer: 1,
+    explanation: "Marty gostava de Rory, mas os dois nunca namoraram oficialmente."
+},
+{
+    id: 295,
+    theme: 'gilmore2',
+    question: "Quem é o noivo de Paris em Yale?",
+    options: ["Doyle McMaster", "Logan Huntzberger", "Colin", "Tristan Dugray"],
+    correctAnswer: 0,
+    explanation: "Doyle é o editor do jornal e namorado de Paris por boa parte da série."
+},
+{
+    id: 296,
+    theme: 'gilmore2',
+    question: "Qual é a origem da tradição de 'festas de pijama em sexta-feira à noite'?",
+    options: ["Para compensar o distanciamento familiar", "Foi uma imposição de Emily", "Como condição para pagar Chilton", "Como celebração do fim de semana"],
+    correctAnswer: 2,
+    explanation: "Emily exige os jantares como condição para pagar a escola de Rory."
+},
+{
+    id: 297,
+    theme: 'gilmore2',
+    question: "Qual é o nome verdadeiro de Babette?",
+    options: ["Barbara", "Babette Dell", "Elizabeth", "Beatrice"],
+    correctAnswer: 1,
+    explanation: "Babette Dell é o nome completo da vizinha de Lorelai."
+},
+{
+    id: 298,
+    theme: 'gilmore2',
+    question: "Quantos empregos Kirk já teve na série?",
+    options: ["Mais de 60", "Exatamente 40", "22", "18"],
+    correctAnswer: 0,
+    explanation: "Kirk teve mais de 60 empregos diferentes ao longo da série!"
+},
+{
+    id: 299,
+    theme: 'gilmore2',
+    question: "Qual é o nome do episódio em que Rory conhece Jess?",
+    options: ["The Ins and Outs of Inns", "Nick & Nora/Sid & Nancy", "That Damn Donna Reed", "Presenting Lorelai Gilmore"],
+    correctAnswer: 1,
+    explanation: "Jess chega à cidade em 'Nick & Nora/Sid & Nancy', seu primeiro episódio."
+},
+{
+    id: 300,
+    theme: 'gilmore2',
+    question: "Qual era o sonho de carreira de Lane antes de ser baterista?",
+    options: ["Arqueóloga", "Missionária", "Veterinária", "Médica"],
+    correctAnswer: 3,
+    explanation: "Lane esconde da mãe sua paixão pela música, fingindo querer ser médica."
+},
+{
+    id: 301,
+    theme: 'gilmore2',
+    question: "Quem canta 'Reflecting Light' na primeira dança de Luke e Lorelai?",
+    options: ["Norah Jones", "Sam Phillips", "The Killers", "Sam Phillips - 'Reflecting Light'"],
+    correctAnswer: 3,
+    explanation: "A música toca em um dos momentos mais românticos da série."
+},
+{
+    id: 302,
+    theme: 'gilmore2',
+    question: "Qual o nome do ex-noivo de Lorelai que aparece brevemente?",
+    options: ["Alex", "Max Medina", "Jason", "Charlie"],
+    correctAnswer: 1,
+    explanation: "Lorelai quase se casa com Max Medina, professor de Rory em Chilton."
+},
+{
+    id: 303,
+    theme: 'gilmore2',
+    question: "Qual era o nome do cavalo que causou o acidente de Paris?",
+    options: ["Buttercup", "Asher", "Cletus", "Maurice"],
+    correctAnswer: 2,
+    explanation: "Paris menciona o cavalo Cletus em um dos episódios mais caóticos."
+},
+{
+    id: 304,
+    theme: 'gilmore2',
+    question: "Em qual livro de Jack Kerouac Rory se inspira?",
+    options: ["The Dharma Bums", "On the Road", "Big Sur", "Maggie Cassidy"],
+    correctAnswer: 1,
+    explanation: "Rory lê 'On the Road' quando está tentando redescobrir a si mesma."
 }
 
     
