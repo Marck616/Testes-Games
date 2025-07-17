@@ -266,7 +266,7 @@ const questions = [
     {
         id: 19,
         theme: 'music',
-        question: "Qual dessas músicas fez parte do único álbum da banda?",
+        question: "Qual dessas músicas fez parte do único álbum da banda Mamonas Assassinas?",
         options: ["Vira-Vira", "Pelados em Santos", "Robocop Gay", "Todas as anteriores"],
         correctAnswer: 3,
         explanation: 'O álbum "Mamonas Assassinas" (1995) tinha vários sucessos que misturavam estilos musicais com humor escrachado. Foi um sucesso de vendas no Brasil.'
@@ -274,7 +274,7 @@ const questions = [
     {
         id: 20,
         theme: 'music',
-        question: "Qual estilo musical a banda costumava misturar influências para criar paródias?",
+        question: "Qual estilo musical a banda Mamonas Assassinas costumava misturar influências para criar paródias?",
         options: ["Só rock", "Pop romântico", "Uma mistura de vários estilos (rock, sertanejo, pagode, etc.)", "Só samba"],
         correctAnswer: 2,
         explanation: 'Os Mamonas faziam sátiras de gêneros como pagode, música portuguesa, sertanejo, heavy metal e até bolero — sempre com bom humor.'
@@ -282,7 +282,7 @@ const questions = [
     {
         id: 21,
         theme: 'music',
-        question: "Em que ano aconteceu o acidente aéreo que causou a morte dos integrantes da banda?",
+        question: "Em que ano aconteceu o acidente aéreo que causou a morte dos integrantes da banda Mamonas Assassinas?",
         options: ["1993", "1995", "1996", "1998"],
         correctAnswer: 2,
         explanation: 'No dia 2 de março de 1996, os cinco integrantes morreram em um acidente aéreo em São Paulo, no auge do sucesso. O país inteiro ficou de luto.'
