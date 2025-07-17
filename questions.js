@@ -3324,7 +3324,7 @@ const questions = [
     id: 389,
     theme: 'christianity',
     question: "Qual personagem bíblico viveu mais tempo?",
-    options: ["Adão (930 anos)", "Matusalém (969 anos)", "Noé (950 anos)", "Enoque (365 anos)"],
+    options: ["Adão", "Matusalém", "Noé", "Enoque"],
     correctAnswer: 1,
     explanation: "Matusalém (Gênesis 5:27) viveu 969 anos, o maior registro bíblico."
 },
