@@ -3252,11 +3252,260 @@ const questions = [
     options: ["Jejum e oração", "Desfiles de escolas de samba e festas de rua", "Reunião familiar em casa", "Troca de presentes"],
     correctAnswer: 1,
     explanation: "Carnaval é a maior festa popular brasileira, com muita música e dança."
+},
+
+
+
+{
+    id: 388,
+    theme: 'christianity',
+    question: "Qual o menor versículo da Bíblia?",
+    options: [
+        "'Jesus chorou.' (João 11:35)",
+        "'Não matarás.' (Êxodo 20:13)",
+        "'Ame o seu próximo.' (Levítico 19:18)",
+        "'Teme a Deus.' (Eclesiastes 12:13)"
+    ],
+    correctAnswer: 0,
+    explanation: "'Jesus chorou' (João 11:35) é o mais curto em muitas versões, mas em hebraico, Êxodo 20:13 ('Não matarás') tem menos letras."
+},
+{
+    id: 389,
+    theme: 'christianity',
+    question: "Qual personagem bíblico viveu mais tempo?",
+    options: ["Adão (930 anos)", "Matusalém (969 anos)", "Noé (950 anos)", "Enoque (365 anos)"],
+    correctAnswer: 1,
+    explanation: "Matusalém (Gênesis 5:27) viveu 969 anos, o maior registro bíblico."
+},
+{
+    id: 390,
+    theme: 'christianity',
+    question: "Qual livro da Bíblia não menciona Deus diretamente?",
+    options: ["Ester", "Cânticos", "Rute", "Lamentações"],
+    correctAnswer: 0,
+    explanation: "Ester é o único livro onde Deus não é citado nominalmente, mas Sua providência é evidente."
+},
+{
+    id: 391,
+    theme: 'christianity',
+    question: "Quem escreveu o maior número de livros da Bíblia?",
+    options: ["Moisés", "Paulo", "Davi", "Salomão"],
+    correctAnswer: 1,
+    explanation: "Paulo escreveu 13 epístolas do Novo Testamento (se incluir Hebreus, 14)."
+},
+{
+    id: 392,
+    theme: 'christianity',
+    question: "Qual foi o primeiro milagre de Jesus?",
+    options: [
+        "Cura de um leproso",
+        "Transformação de água em vinho (João 2:1-11)",
+        "Ressurreição de Lázaro",
+        "Multiplicação dos pães"
+    ],
+    correctAnswer: 1,
+    explanation: "O primeiro milagre foi nas bodas de Caná, transformando água em vinho."
+},
+{
+    id: 393,
+    theme: 'christianity',
+    question: "Qual animal falou com Balaão?",
+    options: ["Um corvo", "Uma serpente", "Uma jumenta (Números 22:28)", "Um leão"],
+    correctAnswer: 2,
+    explanation: "A jumenta de Balaão falou para alertá-lo (Números 22:28)."
+},
+{
+    id: 394,
+    theme: 'christianity',
+    question: "Quem cortou a orelha de um soldado romano?",
+    options: ["Judas", "Pedro (João 18:10)", "Tomé", "João"],
+    correctAnswer: 1,
+    explanation: "Pedro cortou a orelha de Malco, mas Jesus a curou (Lucas 22:51)."
+},
+{
+    id: 395,
+    theme: 'christianity',
+    question: "Qual discípulo era cobrador de impostos?",
+    options: ["Mateus (Mateus 9:9)", "Simão Zelote", "Judas Iscariotes", "Filipe"],
+    correctAnswer: 0,
+    explanation: "Mateus era publicano antes de seguir Jesus."
+},
+{
+    id: 396,
+    theme: 'christianity',
+    question: "Qual livro da Bíblia contém o 'Pai Nosso'?",
+    options: ["João", "Mateus (6:9-13) e Lucas (11:2-4)", "Marcos", "Atos"],
+    correctAnswer: 1,
+    explanation: "A oração aparece em Mateus e Lucas, com pequenas variações."
+},
+{
+    id: 397,
+    theme: 'christianity',
+    question: "Quem foi arrebatado ao céu sem morrer?",
+    options: ["Elias (2 Reis 2:11)", "Enoque (Gênesis 5:24)", "Moisés", "Ambós A e B"],
+    correctAnswer: 3,
+    explanation: "Enoque e Elias foram levados vivos ao céu."
+},
+{
+    id: 398,
+    theme: 'christianity',
+    question: "Qual rei teve escrita na parede por uma mão misteriosa?",
+    options: ["Nabucodonosor", "Belsazar (Daniel 5:5)", "Herodes", "Davi"],
+    correctAnswer: 1,
+    explanation: "Belsazar viu 'MENE, MENE, TEQUEL, PARSIM' na parede, prevendo sua queda."
+},
+{
+    id: 399,
+    theme: 'christianity',
+    question: "Qual profeta foi engolido por um grande peixe?",
+    options: ["Jonas (Jonas 1:17)", "Jeremias", "Amós", "Naum"],
+    correctAnswer: 0,
+    explanation: "Jonas passou 3 dias no ventre do peixe."
+},
+{
+    id: 400,
+    theme: 'christianity',
+    question: "Quem traiu Jesus por 30 moedas de prata?",
+    options: ["Judas Iscariotes (Mateus 26:15)", "Pilatos", "Caifás", "Barrabás"],
+    correctAnswer: 0,
+    explanation: "Judas recebeu 30 moedas (equivalente a 4 meses de salário)."
+},
+{
+    id: 401,
+    theme: 'christianity',
+    question: "Qual apóstolo duvidou da ressurreição de Jesus?",
+    options: ["Tomé (João 20:25)", "Pedro", "André", "Tiago"],
+    correctAnswer: 0,
+    explanation: "Tomé só creu após tocar nas feridas de Cristo ('Tomé incrédulo')."
+},
+{
+    id: 402,
+    theme: 'christianity',
+    question: "Qual era a profissão de Lucas, autor de um Evangelho?",
+    options: ["Médico (Colossenses 4:14)", "Pescador", "Carpinteiro", "Fariseu"],
+    correctAnswer: 0,
+    explanation: "Lucas era médico e escreveu também Atos dos Apóstolos."
+},
+{
+    id: 403,
+    theme: 'christianity',
+    question: "Qual personagem teve sua força na cabeleira?",
+    options: ["Sansão (Juízes 16:17)", "Absalão", "Elias", "João Batista"],
+    correctAnswer: 0,
+    explanation: "Sansão perdeu sua força quando Dalila cortou seus cabelos."
+},
+{
+    id: 404,
+    theme: 'christianity',
+    question: "Qual livro termina com uma maldição?",
+    options: ["Apocalipse", "Gálatas", "Malaquias", "Deuteronômio"],
+    correctAnswer: 2,
+    explanation: "Malaquias termina com uma advertência sobre a 'maldição da terra' (Ml 4:6)."
+},
+{
+    id: 405,
+    theme: 'christianity',
+    question: "Quem foi o primeiro mártir cristão?",
+    options: ["Estevão (Atos 7:59-60)", "Paulo", "Pedro", "Tiago"],
+    correctAnswer: 0,
+    explanation: "Estevão foi apedrejado por pregar o Evangelho."
+},
+{
+    id: 406,
+    theme: 'christianity',
+    question: "Qual apóstolo foi crucificado de cabeça para baixo?",
+    options: ["Pedro (tradição cristã)", "André", "Paulo", "Filipe"],
+    correctAnswer: 0,
+    explanation: "Pedro pediu para ser crucificado invertido, por não se achar digno de morrer como Jesus."
+},
+{
+    id: 407,
+    theme: 'christianity',
+    question: "Qual profeta enfrentou 450 sacerdotes de Baal?",
+    options: ["Elias (1 Reis 18:19-40)", "Eliseu", "Isaías", "Jeremias"],
+    correctAnswer: 0,
+    explanation: "Elias desafiou os profetas de Baal no Monte Carmelo."
+},
+{
+    id: 408,
+    theme: 'christianity',
+    question: "Qual era o nome original de Abraão?",
+    options: ["Abrão (Gênesis 17:5)", "Jacó", "Isaque", "Ló"],
+    correctAnswer: 0,
+    explanation: "Abraão ('pai de muitas nações') era antes Abrão ('pai exaltado')."
+},
+{
+    id: 409,
+    theme: 'christianity',
+    question: "Quem foi jogado na cova dos leões, mas saiu ileso?",
+    options: ["Daniel (Daniel 6:22)", "José", "Jeremias", "Ezequiel"],
+    correctAnswer: 0,
+    explanation: "Daniel foi protegido por Deus na cova dos leões."
+},
+{
+    id: 410,
+    theme: 'christianity',
+    question: "Qual discípulo era irmão de Pedro?",
+    options: ["André (Mateus 4:18)", "João", "Tiago", "Bartolomeu"],
+    correctAnswer: 0,
+    explanation: "André apresentou Pedro a Jesus."
+},
+{
+    id: 411,
+    theme: 'christianity',
+    question: "Qual rei mandou matar todos os bebês de Belém?",
+    options: ["Herodes (Mateus 2:16)", "Pilatos", "César Augusto", "Nabucodonosor"],
+    correctAnswer: 0,
+    explanation: "Herodes ordenou o 'Massacre dos Inocentes' para eliminar Jesus."
+},
+{
+    id: 412,
+    theme: 'christianity',
+    question: "Qual livro da Bíblia tem 31 capítulos?",
+    options: ["Provérbios", "Salmos", "Isaías", "Ezequiel"],
+    correctAnswer: 0,
+    explanation: "Provérbios tem 31 capítulos (um para cada dia do mês)."
+},
+{
+    id: 413,
+    theme: 'christianity',
+    question: "Quem foi a única mulher juíza de Israel?",
+    options: ["Débora (Juízes 4:4)", "Rute", "Ester", "Sara"],
+    correctAnswer: 0,
+    explanation: "Débora liderou Israel e profetizou."
+},
+{
+    id: 414,
+    theme: 'christianity',
+    question: "Qual apóstolo escreveu mais cartas no Novo Testamento?",
+    options: ["Paulo", "Pedro", "João", "Tiago"],
+    correctAnswer: 0,
+    explanation: "Paulo escreveu 13 cartas (de Romanos a Filemon)."
+},
+{
+    id: 415,
+    theme: 'christianity',
+    question: "Quem viu uma 'sarça ardente' que não se consumia?",
+    options: ["Moisés (Êxodo 3:2)", "Elias", "Abraão", "Josué"],
+    correctAnswer: 0,
+    explanation: "Moisés viu a sarça no Monte Horebe."
+},
+{
+    id: 416,
+    theme: 'christianity',
+    question: "Qual personagem teve um 'espinho na carne'?",
+    options: ["Paulo (2 Coríntios 12:7)", "Jó", "Davi", "Jeremias"],
+    correctAnswer: 0,
+    explanation: "Paulo mencionou um 'espinho' (possível doença ou perseguição)."
+},
+{
+    id: 417,
+    theme: 'christianity',
+    question: "Qual é o último livro da Bíblia Protestante?",
+    options: ["Apocalipse", "Malaquias", "Judas", "Atos"],
+    correctAnswer: 0,
+    explanation: "Apocalipse (Revelação) encerra o cânon protestante com a visão do fim dos tempos."
 }
-
-
-
-
     
     
     
