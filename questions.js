@@ -17,6 +17,14 @@ const themes = [
     image: 'https://images.unsplash.com/photo-1581368135153-a506cf13b1e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
 },
 
+
+    {
+    id: 'daime3',
+    name: 'Santo Daime (Nivel 3)',
+    description: 'Aprofunde seus conhecimentos sobre a doutrina do Santo Daime',
+    image: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
+    },
+
     
     // Tema Brasil - Curiosidades
     {
@@ -4154,6 +4162,73 @@ const questions = [
     ],
     correctAnswer: 2,
     explanation: "A doutrina tradicional do Santo Daime só permite jagube e chacrona na bebida."
+},
+
+
+    {
+    id: 463,
+    theme: 'daime3',
+    question: "Qual o nome do processo de 'transmissão espiritual' pelo qual Mestre Irineu recebeu os primeiros hinos?",
+    options: [
+        "Miração",
+        "Incorporação",
+        "Doutrinação",
+        "Aparelhagem"
+    ],
+    correctAnswer: 0,
+    explanation: "Miração (visões revelatórias durante o efeito da ayahuasca). Fonte: Labate & Pacheco (2010). O uso ritual da ayahuasca."
+},
+{
+    id: 464,
+    theme: 'daime3',
+    question: "Qual destes hinos NÃO pertence ao hinário 'O Cruzeiro' de Mestre Irineu?",
+    options: [
+        "'Salomão'",
+        "'As Estrelas'",
+        "'Cantar Ir'",
+        "'Vôo da Águia'"
+    ],
+    correctAnswer: 3,
+    explanation: "'Vôo da Águia' é do hinário Nova Jerusalém de Padrinho Sebastião. Fonte: Cemin (2006). Os hinários do Santo Daime."
+},
+{
+    id: 465,
+    theme: 'daime3',
+    question: "Qual destes símbolos NÃO aparece no estandarte oficial do Alto Santo?",
+    options: [
+        "Estrela de 5 pontas",
+        "Cruz de Caravaca",
+        "Sol",
+        "Lua"
+    ],
+    correctAnswer: 0,
+    explanation: "A estrela daimista tem 6 pontas."
+},
+{
+    id: 466,
+    theme: 'daime3',
+    question: "Qual o termo usado para a 'hierarquia espiritual invisível' no Daime?",
+    options: [
+        "Falange",
+        "Legião",
+        "Ordem",
+        "Comunhão"
+    ],
+    correctAnswer: 0,
+    explanation: "Falanges são entidades que organizam o trabalho espiritual. Fonte: Sena (2007). Doutrina do Santo Daime."
+},
+{
+    id: 467,
+    theme: 'daime3',
+    question: "Qual destes países tem uma igreja daimista reconhecida pelo Estado?",
+    options: [
+        "Estados Unidos",
+        "Holanda",
+        "Peru",
+        "Colômbia"
+    ],
+    correctAnswer: 0,
+    explanation: "Church of the Holy Light of the Queen (Oregon, EUA). Fonte: Labate (2017). The Internationalization of Santo Daime."
 }
 
 
