@@ -3098,6 +3098,153 @@ const questions = [
     options: ["Tonelero (perdido em exercício militar)", "Riachuelo (acidente no litoral de SP)", "Tupi (afundado em águas internacionais)", "Tapajó (sabotagem em base naval)"],
     correctAnswer: 0,
     explanation: "O SN-10 Tonelero teve um 'desaparecimento temporário' durante testes, gerando alertas."
+},
+
+
+    // Perguntas sobre Cultura
+{
+    id: 364,
+    theme: 'culture',
+    question: "Qual é o costume tradicional da Polônia relacionado ao domingo de Páscoa?",
+    options: ["Pintar ovos", "Queimar bonecos de palha", "Soltar lanternas no céu", "Comer frutos do mar"],
+    correctAnswer: 0,
+    explanation: "Pintar e decorar ovos é tradição pascal comum na Polônia."
+},
+{
+    id: 365,
+    theme: 'culture',
+    question: "Qual país tem a tradição de dar 'Baci Perugina', um chocolate com uma mensagem de amor?",
+    options: ["França", "Itália", "Espanha", "Suíça"],
+    correctAnswer: 1,
+    explanation: "Chocolates com mensagens românticas populares em ocasiões especiais na Itália."
+},
+{
+    id: 366,
+    theme: 'culture',
+    question: "Qual é o prato italiano feito com arroz cozido no caldo até ficar cremoso?",
+    options: ["Risotto", "Lasagna", "Pizza", "Panettone"],
+    correctAnswer: 0,
+    explanation: "Prato tradicional feito com arroz arbóreo, muito cremoso."
+},
+{
+    id: 367,
+    theme: 'culture',
+    question: "Qual é o nome do prato coreano feito com arroz fermentado e vegetais, frequentemente apimentado?",
+    options: ["Bibimbap", "Bulgogi", "Kimchi", "Tteokbokki"],
+    correctAnswer: 2,
+    explanation: "Kimchi é uma conserva fermentada de vegetais, principalmente repolho."
+},
+{
+    id: 368,
+    theme: 'culture',
+    question: "O que são 'tacos'?",
+    options: ["Uma bebida tradicional", "Tortillas recheadas com carne, queijo e outros ingredientes", "Um tipo de dança", "Um doce"],
+    correctAnswer: 1,
+    explanation: "Prato muito tradicional e popular em todo o México."
+},
+{
+    id: 369,
+    theme: 'culture',
+    question: "O que é 'sushi'?",
+    options: ["Uma sopa japonesa", "Arroz temperado com peixe cru ou outros ingredientes", "Um tipo de sobremesa", "Um chá tradicional"],
+    correctAnswer: 1,
+    explanation: "Prato japonês muito conhecido internacionalmente."
+},
+{
+    id: 370,
+    theme: 'culture',
+    question: "Qual é o prato brasileiro feito com feijão preto, carne seca, linguiça e arroz?",
+    options: ["Moqueca", "Feijoada", "Churrasco", "Vatapá"],
+    correctAnswer: 1,
+    explanation: "Prato típico, considerado a 'comida nacional' do Brasil."
+},
+{
+    id: 371,
+    theme: 'culture',
+    question: "Qual é o prato indiano feito com carne ou vegetais cozidos em molho de especiarias?",
+    options: ["Curry", "Sushi", "Paella", "Risotto"],
+    correctAnswer: 0,
+    explanation: "Prato com muitos temperos, bastante aromático e picante."
+},
+{
+    id: 372,
+    theme: 'culture',
+    question: "O que é 'gelato'?",
+    options: ["Um tipo de massa", "Sorvete italiano, mais cremoso que o comum", "Um pão tradicional", "Uma sobremesa de frutas"],
+    correctAnswer: 1,
+    explanation: "Gelato tem menos gordura e é servido em temperatura mais alta que sorvete."
+},
+{
+    id: 373,
+    theme: 'culture',
+    question: "O que é 'ramen'?",
+    options: ["Um tipo de sushi", "Sopa de macarrão japonesa com caldo e ingredientes variados", "Um prato de arroz frito", "Um doce japonês"],
+    correctAnswer: 1,
+    explanation: "Prato muito popular no Japão e em restaurantes ao redor do mundo."
+},
+{
+    id: 374,
+    theme: 'culture',
+    question: "Qual prato brasileiro é feito com peixe cozido em leite de coco e dendê?",
+    options: ["Feijoada", "Moqueca", "Churrasco", "Vatapá"],
+    correctAnswer: 1,
+    explanation: "Prato típico da Bahia, saboroso e aromático."
+},
+{
+    id: 375,
+    theme: 'culture',
+    question: "O que é 'crepe'?",
+    options: ["Uma massa fina e doce ou salgada, enrolada ou dobrada", "Uma sopa de legumes", "Um tipo de queijo", "Um vinho"],
+    correctAnswer: 0,
+    explanation: "Muito popular na região da Bretanha, na França."
+},
+{
+    id: 376,
+    theme: 'culture',
+    question: "O que é 'ceviche'?",
+    options: ["Peixe cru marinado em suco de limão e temperos", "Um tipo de pão", "Uma sopa quente", "Um prato de arroz"],
+    correctAnswer: 0,
+    explanation: "Prato típico e refrescante do Peru."
+},
+{
+    id: 377,
+    theme: 'culture',
+    question: "Qual é o nome do prato filipino que consiste em um ovo de pato fertilizado, cozido e consumido como iguaria?",
+    options: ["Adobo", "Balut", "Sinigang", "Lechon"],
+    correctAnswer: 1,
+    explanation: "Balut é um ovo fertilizado de pato, popular como petisco nas Filipinas, consumido geralmente com um toque de sal ou vinagre."
+},
+{
+    id: 378,
+    theme: 'culture',
+    question: "Em qual país é costume tirar os sapatos antes de entrar na casa?",
+    options: ["Brasil", "Japão", "Estados Unidos", "França"],
+    correctAnswer: 1,
+    explanation: "Retirar os sapatos ao entrar é sinal de respeito e higiene em muitos países asiáticos."
+},
+{
+    id: 379,
+    theme: 'culture',
+    question: "Na Índia, qual é a posição tradicional das mãos ao cumprimentar alguém, chamada de 'Namastê'?",
+    options: ["Mãos dadas", "Palmas juntas em frente ao peito", "Aperto de mão firme", "Aceno com a cabeça"],
+    correctAnswer: 1,
+    explanation: "Namastê significa 'eu saúdo o divino que há em você'."
+},
+{
+    id: 380,
+    theme: 'culture',
+    question: "Qual país é famoso por usar o kimono como vestimenta tradicional?",
+    options: ["China", "Japão", "Coreia", "Vietnã"],
+    correctAnswer: 1,
+    explanation: "Kimono é uma roupa tradicional usada em cerimônias e eventos especiais no Japão."
+},
+{
+    id: 381,
+    theme: 'culture',
+    question: "No Brasil, qual é o costume típico durante o Carnaval?",
+    options: ["Jejum e oração", "Desfiles de escolas de samba e festas de rua", "Reunião familiar em casa", "Troca de presentes"],
+    correctAnswer: 1,
+    explanation: "Carnaval é a maior festa popular brasileira, com muita música e dança."
 }
 
 
