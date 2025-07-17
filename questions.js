@@ -122,9 +122,16 @@ const themes = [
         name: 'Gilmore Girls N.2',
         description: 'Teste seus conhecimentos sobre a serie Gilmore Girls. Nivel 2',
         image: 'https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
-    }
+    },
 
 
+    
+    {
+    id: 'christianity',
+    name: 'Cristianismo',
+    description: 'Perguntas sobre personagens e histórias bíblicas',
+    image: 'https://images.unsplash.com/photo-1581368135153-a506cf13b1e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
+},
     
 ];
 
