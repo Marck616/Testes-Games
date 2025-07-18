@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Simulator: Virtual Feline Companion</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <div class="sidebar left-sidebar">
+            <div class="cat-stats">
+                <h2>Estatísticas do Gato</h2>
+                <div class="stat-bar">
+                    <label>Saúde</label>
+                    <div class="bar-container">
+                        <div class="bar health-bar"></div>
+                    </div>
+                    <span class="stat-value">100%</span>
+                </div>
+                <div class="stat-bar">
+                    <label>Fome</label>
+                    <div class="bar-container">
+                        <div class="bar hunger-bar"></div>
+                    </div>
+                    <span class="stat-value">50%</span>
+                </div>
+                <div class="stat-bar">
+                    <label>Sede</label>
+                    <div class="bar-container">
+                        <div class="bar thirst-bar"></div>
+                    </div>
+                    <span class="stat-value">50%</span>
+                </div>
+                <div class="stat-bar">
+                    <label>Energia</label>
+                    <div class="bar-container">
+                        <div class="bar energy-bar"></div>
+                    </div>
+                    <span class="stat-value">80%</span>
+                </div>
+                <div class="stat-bar">
+                    <label>Estresse</label>
+                    <div class="bar-container">
+                        <div class="bar stress-bar"></div>
+                    </div>
+                    <span class="stat-value">20%</span>
+                </div>
+                <div class="stat-bar">
+                    <label>Tédio</label>
+                    <div class="bar-container">
+                        <div class="bar boredom-bar"></div>
+                    </div>
+                    <span class="stat-value">30%</span>
+                </div>
+            </div>
+            
+            <div class="personality-traits">
+                <h2>Traços de Personalidade</h2>
+                <div class="trait">
+                    <label>Carinhoso <span class="trait-value">60%</span></label>
+                    <div class="trait-bar-container">
+                        <div class="trait-bar affectionate-bar"></div>
+                    </div>
+                    <label>Arisco</label>
+                </div>
+                <div class="trait">
+                    <label>Independente <span class="trait-value">40%</span></label>
+                    <div class="trait-bar-container">
+                        <div class="trait-bar independent-bar"></div>
+                    </div>
+                    <label>Dependente</label>
+                </div>
+                <div class="trait">
+                    <label>Medroso <span class="trait-value">30%</span></label>
+                    <div class="trait-bar-container">
+                        <div class="trait-bar brave-bar"></div>
+                    </div>
+                    <label>Aventureiro</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main-game-area">
+            <div class="room">
+                <div class="room-background">
+                    <div class="window"></div>
+                    <div class="sofa"></div>
+                    <div class="cat-bed"></div>
+                    <div class="food-bowl"></div>
+                    <div class="water-bowl"></div>
+                    <div class="scratching-post"></div>
+                </div>
+                <div class="cat" id="cat"></div>
+                <div class="cat-thought-bubble"></div>
+            </div>
+            
+            <div class="time-display">
+                <div class="day-info">
+                    <span class="day">Dia 1</span>
+                    <span class="time">08:00</span>
+                    <span class="season">Primavera</span>
+                </div>
+                <div class="weather-icon"></div>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="btn" id="pet-btn">Acariciar</button>
+                <button class="btn" id="play-btn">Brincar</button>
+                <button class="btn" id="feed-btn">Alimentar</button>
+                <button class="btn" id="water-btn">Água</button>
+                <button class="btn" id="shop-btn">Loja</button>
+                <button class="btn" id="vet-btn">Veterinário</button>
+            </div>
+        </div>
+        
+        <div class="sidebar right-sidebar">
+            <div class="player-info">
+                <h2>Informações</h2>
+                <div class="money-display">
+                    <span class="money-icon">$</span>
+                    <span class="money-amount">1000</span>
+                </div>
+                <div class="next-payment">
+                    Próximo salário em: <span class="days-left">14</span> dias
+                </div>
+            </div>
+            
+            <div class="inventory">
+                <h2>Inventário</h2>
+                <div class="inventory-items">
+                    <!-- Itens serão adicionados dinamicamente aqui -->
+                </div>
+            </div>
+            
+            <div class="event-log">
+                <h2>Registro de Eventos</h2>
+                <div class="log-messages">
+                    <div class="log-entry">Bem-vindo ao Cat Simulator!</div>
+                    <div class="log-entry">Seu novo gato chegou em casa.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal da Loja -->
+    <div class="modal" id="shop-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Loja de Itens para Gatos</h2>
+            <div class="shop-categories">
+                <button class="shop-category-btn active" data-category="food">Comida</button>
+                <button class="shop-category-btn" data-category="toys">Brinquedos</button>
+                <button class="shop-category-btn" data-category="furniture">Móveis</button>
+                <button class="shop-category-btn" data-category="health">Saúde</button>
+            </div>
+            <div class="shop-items">
+                <!-- Itens da loja serão carregados aqui -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal de Status do Gato -->
+    <div class="modal" id="cat-status-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Status do Gato</h2>
+            <div class="cat-details">
+                <div class="cat-image-preview"></div>
+                <div class="cat-info">
+                    <h3 class="cat-name">Whiskers</h3>
+                    <p class="cat-age">Idade: 3 meses</p>
+                    <p class="cat-mood">Humor: Feliz</p>
+                    <p class="cat-condition">Condição: Saudável</p>
+                </div>
+            </div>
+            <div class="cat-needs">
+                <h3>Necessidades Atuais:</h3>
+                <ul class="needs-list">
+                    <!-- Necessidades serão adicionadas dinamicamente -->
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <script src="data/items.js"></script>
+    <script src="data/events.js"></script>
+    <script src="data/personalities.js"></script>
+    <script src="data/cat-phrases.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
