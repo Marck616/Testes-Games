@@ -425,19 +425,20 @@
             text-decoration: underline;
         }
         
-        #skip-question-btn {
+        #next-question-btn {
             padding: 10px 20px;
-            background-color: #333;
-            color: white;
+            background-color: #bb86fc;
+            color: #121212;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 16px;
             margin-top: 10px;
             display: none;
         }
         
-        #skip-question-btn:hover {
-            background-color: #444;
+        #next-question-btn:hover {
+            background-color: #9c64f4;
         }
     </style>
 </head>
@@ -487,7 +488,7 @@
             
             <div id="options-container"></div>
             
-            <button id="skip-question-btn">Pular Pergunta</button>
+            <button id="next-question-btn">Próxima Questão</button>
             
             <div id="explanation">
                 <h3>Mini Conceito</h3>
@@ -574,7 +575,8 @@
         let isAnimating = false;
         let selectedItem = null;
         let currentExplanation = '';
-        const MAX_QUESTIONS_PER_GAME = 30; // Limite de 30 questões por jogo
+        const MAX_QUESTIONS_PER_GAME = 30;
+        let timeoutId = null;
         
         // Elementos do DOM
         const gameContainer = document.getElementById('game-container');
@@ -594,7 +596,6 @@
         const correctAnswersEl = document.getElementById('correct-answers');
         const scoreEl = document.getElementById('score');
         const inventoryItems = document.getElementById('inventory-items');
-        const skipQuestionBtn = document.getElementById('skip-question-btn');
         
         const achievementPopup = document.getElementById('achievement-popup');
         const achievementText = document.getElementById('achievement-text');
@@ -606,6 +607,7 @@
         const explanationDiv = document.getElementById('explanation');
         const explanationText = document.getElementById('explanation-text');
         const explanationBtn = document.getElementById('explanation-btn');
+        const nextQuestionBtn = document.getElementById('next-question-btn');
         
         // Event Listeners
         document.getElementById('start-btn').addEventListener('click', showThemeSelection);
@@ -620,7 +622,7 @@
         });
         skipAnimationBtn.addEventListener('click', skipAnimation);
         explanationBtn.addEventListener('click', toggleExplanation);
-        skipQuestionBtn.addEventListener('click', skipCurrentQuestion);
+        nextQuestionBtn.addEventListener('click', loadNextQuestion);
         
         // Botões da tela de conclusão
         document.getElementById('next-theme-btn').addEventListener('click', () => {
@@ -688,41 +690,41 @@
             inventoryItems.innerHTML = '';
             explanationDiv.style.display = 'none';
             explanationBtn.style.display = 'none';
-            skipQuestionBtn.style.display = 'block';
+            nextQuestionBtn.style.display = 'none';
             
             // Carregar primeira pergunta
             loadQuestion();
         }
         
         function loadQuestion() {
-            // Verificar se atingiu o limite de 30 questões
+            // Verificar se atingiu o limite de 30 perguntas
             if (usedQuestions.length >= MAX_QUESTIONS_PER_GAME) {
+                showCompletionScreen();
+                return;
+            }
+            
+            // Verificar se completou todas as perguntas do tema (caso tenha menos que 30)
+            const themeQuestions = questions.filter(q => q.theme === currentTheme);
+            if (usedQuestions.length >= themeQuestions.length) {
                 showCompletionScreen();
                 return;
             }
             
             // Esconder explicação da pergunta anterior
             explanationDiv.style.display = 'none';
-            explanationDiv.classList.remove('show'); // Remove classe do efeito
+            explanationDiv.classList.remove('show');
             explanationBtn.style.display = 'none';
+            nextQuestionBtn.style.display = 'none';
             
             // Escolher uma pergunta aleatória não usada
-            let themeQuestions = questions.filter(q => q.theme === currentTheme);
             let availableQuestions = themeQuestions.filter(q => !usedQuestions.includes(q.id));
-            
-            // Se não houver mais perguntas disponíveis, mostrar tela de conclusão
-            if (availableQuestions.length === 0) {
-                showCompletionScreen();
-                return;
-            }
-            
             const question = availableQuestions[Math.floor(Math.random() * availableQuestions.length)];
             usedQuestions.push(question.id);
             
             // Atualizar UI
             sceneImage.style.backgroundImage = `url('${themes.find(t => t.id === currentTheme).image}')`;
-            currentQuestionEl.textContent = `${usedQuestions.length}/${MAX_QUESTIONS_PER_GAME}`;
-            progressBar.style.width = `${(usedQuestions.length / MAX_QUESTIONS_PER_GAME) * 100}%`;
+            currentQuestionEl.textContent = `${usedQuestions.length}/${Math.min(MAX_QUESTIONS_PER_GAME, themeQuestions.length)}`;
+            progressBar.style.width = `${(usedQuestions.length / Math.min(MAX_QUESTIONS_PER_GAME, themeQuestions.length)) * 100}%`;
             
             // Exibir pergunta com efeito de digitação
             isAnimating = true;
@@ -748,16 +750,14 @@
             currentExplanation = question.explanation;
         }
         
-        function skipCurrentQuestion() {
-            if (isAnimating) return;
-            
-            // Adicionar a pergunta atual às usadas para não repetir
-            const currentQuestionId = usedQuestions[usedQuestions.length - 1];
-            if (!usedQuestions.includes(currentQuestionId)) {
-                usedQuestions.push(currentQuestionId);
+        function loadNextQuestion() {
+            // Cancelar o timeout automático se existir
+            if (timeoutId) {
+                clearTimeout(timeoutId);
+                timeoutId = null;
             }
             
-            // Carregar próxima pergunta
+            currentQuestionIndex++;
             loadQuestion();
         }
         
@@ -770,9 +770,6 @@
                 btn.disabled = true;
                 btn.style.pointerEvents = 'none';
             });
-            
-            // Desativar botão de pular questão
-            skipQuestionBtn.disabled = true;
             
             // Marcar resposta correta/incorreta
             const isCorrect = selectedIndex === question.correctAnswer;
@@ -798,16 +795,16 @@
             setTimeout(() => {
                 explanationText.textContent = question.explanation;
                 explanationDiv.style.display = 'block';
-                explanationDiv.classList.add('show'); // Adiciona classe para o efeito
+                explanationDiv.classList.add('show');
                 explanationBtn.style.display = 'none';
+                nextQuestionBtn.style.display = 'block';
             }, 1000);
             
-            // Próxima pergunta após 3 segundos
-            setTimeout(() => {
+            // Próxima pergunta após 7 segundos (se o usuário não clicar no botão)
+            timeoutId = setTimeout(() => {
                 currentQuestionIndex++;
                 loadQuestion();
-                skipQuestionBtn.disabled = false;
-            }, 3000);
+            }, 7000);
         }
         
         function updateStats() {
@@ -924,13 +921,14 @@
             gameState = 'completion';
             gameScreen.style.display = 'none';
             completionScreen.style.display = 'block';
-            skipQuestionBtn.style.display = 'none';
             
-            const percentage = Math.round((correctAnswers / usedQuestions.length) * 100);
+            const themeQuestions = questions.filter(q => q.theme === currentTheme);
+            const questionsAnswered = Math.min(usedQuestions.length, MAX_QUESTIONS_PER_GAME);
+            const percentage = Math.round((correctAnswers / questionsAnswered) * 100);
             
             // Atualizar estatísticas de conclusão
             document.getElementById('completed-theme').textContent = themes.find(t => t.id === currentTheme).name;
-            document.getElementById('completed-questions').textContent = usedQuestions.length;
+            document.getElementById('completed-questions').textContent = questionsAnswered;
             document.getElementById('completed-correct').textContent = correctAnswers;
             document.getElementById('completed-percentage').textContent = `${percentage}%`;
             document.getElementById('completed-score').textContent = score;
