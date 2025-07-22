@@ -4563,7 +4563,3 @@ const questions = [
 ];
 
 
-
-    
-];
-
