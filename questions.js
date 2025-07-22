@@ -156,7 +156,18 @@ const themes = [
     name: 'Cristianismo',
     description: 'Perguntas sobre personagens e histórias bíblicas',
     image: 'https://images.unsplash.com/photo-1581368135153-a506cf13b1e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
+},
+
+
+
+
+        {
+    id: 'religion',
+    name: 'Religiões Geral',
+    description: 'Perguntas sobre religiões do mundo',
+    image: 'https://images.unsplash.com/photo-1581368135153-a506cf13b1e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
 }
+    
 
     
 ];
@@ -4230,11 +4241,173 @@ const questions = [
     ],
     correctAnswer: 0,
     explanation: "Church of the Holy Light of the Queen (Oregon, EUA). Fonte: Labate (2017). The Internationalization of Santo Daime."
-}
+},
 
 
 
+//Religiões
 
+    {
+        id: 468,
+        theme: 'religion',
+        question: "Qual é o livro sagrado do Islamismo?",
+        options: ["Bíblia", "Torá", "Alcorão", "Vedas"],
+        correctAnswer: 2,
+        explanation: "O Alcorão é o livro sagrado do Islamismo, considerado a palavra de Deus revelada ao profeta Maomé."
+    },
+    {
+        id: 469,
+        theme: 'religion',
+        question: "Quem é considerado o fundador do Budismo?",
+        options: ["Jesus Cristo", "Sidarta Gautama", "Maomé", "Moisés"],
+        correctAnswer: 1,
+        explanation: "Sidarta Gautama, também conhecido como Buda, é o fundador do Budismo após alcançar a iluminação."
+    },
+    {
+        id: 470,
+        theme: 'religion',
+        question: "Qual destes NÃO é um dos Dez Mandamentos?",
+        options: ["Não matarás", "Não roubarás", "Amarás o dinheiro acima de tudo", "Honrarás teu pai e tua mãe"],
+        correctAnswer: 2,
+        explanation: "Esse não é um dos Dez Mandamentos; na verdade, a cobiça é condenada na Bíblia."
+    },
+    {
+        id: 471,
+        theme: 'religion',
+        question: "Qual religião tem como símbolo principal a Estrela de Davi?",
+        options: ["Cristianismo", "Judaísmo", "Hinduísmo", "Islamismo"],
+        correctAnswer: 1,
+        explanation: "A Estrela de Davi (ou Magen David) é um dos principais símbolos do Judaísmo."
+    },
+    {
+        id: 472,
+        theme: 'religion',
+        question: "O que significa o termo 'Nirvana' no Budismo?",
+        options: ["Um paraíso celestial", "Libertação do sofrimento e do ciclo de renascimentos", "Um deus supremo", "Um ritual de sacrifício"],
+        correctAnswer: 1,
+        explanation: "O Nirvana é o estado de libertação espiritual no Budismo."
+    },
+    {
+        id: 473,
+        theme: 'religion',
+        question: "Qual profeta recebeu os Dez Mandamentos no Monte Sinai?",
+        options: ["Abraão", "Noé", "Moisés", "Elias"],
+        correctAnswer: 2,
+        explanation: "Moisés recebeu as Tábuas da Lei com os Dez Mandamentos no Monte Sinai, segundo a Bíblia."
+    },
+    {
+        id: 474,
+        theme: 'religion',
+        question: "Qual cidade é considerada sagrada para judeus, cristãos e muçulmanos?",
+        options: ["Meca", "Jerusalém", "Roma", "Varanasi"],
+        correctAnswer: 1,
+        explanation: "Jerusalém é sagrada para as três religiões abraâmicas."
+    },
+    {
+        id: 475,
+        theme: 'religion',
+        question: "Qual destes NÃO é um dos quatro livros sagrados do Hinduísmo?",
+        options: ["Vedas", "Bhagavad Gita", "Upanishads", "Torá"],
+        correctAnswer: 3,
+        explanation: "A Torá é o livro sagrado do Judaísmo, não do Hinduísmo."
+    },
+    {
+        id: 476,
+        theme: 'religion',
+        question: "Qual é o nome do anjo que, segundo o Islamismo, transmitiu o Alcorão a Maomé?",
+        options: ["Gabriel", "Miguel", "Rafael", "Azrael"],
+        correctAnswer: 0,
+        explanation: "O anjo Gabriel (Jibril) é quem revelou o Alcorão a Maomé."
+    },
+    {
+        id: 477,
+        theme: 'religion',
+        question: "Qual é o principal dia sagrado da semana no Cristianismo?",
+        options: ["Sexta-feira", "Sábado", "Domingo", "Segunda-feira"],
+        correctAnswer: 2,
+        explanation: "O Domingo é o dia do Senhor, celebrando a ressurreição de Jesus."
+    },
+    {
+        id: 478,
+        theme: 'religion',
+        question: "Qual destas NÃO é uma das grandes religiões abraâmicas?",
+        options: ["Judaísmo", "Cristianismo", "Hinduísmo", "Islamismo"],
+        correctAnswer: 2,
+        explanation: "O Hinduísmo não é uma religião abraâmica (que inclui Judaísmo, Cristianismo e Islamismo)."
+    },
+    {
+        id: 479,
+        theme: 'religion',
+        question: "Qual é o nome do fundador do Sikhismo?",
+        options: ["Guru Nanak", "Guru Gobind Singh", "Mahavira", "Confúcio"],
+        correctAnswer: 0,
+        explanation: "Guru Nanak é o fundador do Sikhismo no século XV."
+    },
+    {
+        id: 480,
+        theme: 'religion',
+        question: "Qual destes é um dos Cinco Pilares do Islamismo?",
+        options: ["Batismo", "Peregrinação a Meca (Hajj)", "Confissão", "Meditação transcendental"],
+        correctAnswer: 1,
+        explanation: "O Hajj é um dos cinco pilares, obrigatório para muçulmanos que podem realizá-lo."
+    },
+    {
+        id: 481,
+        theme: 'religion',
+        question: "Qual religião acredita na reencarnação e no karma?",
+        options: ["Cristianismo", "Judaísmo", "Hinduísmo", "Zoroastrismo"],
+        correctAnswer: 2,
+        explanation: "O Hinduísmo e o Budismo acreditam em reencarnação e karma."
+    },
+    {
+        id: 482,
+        theme: 'religion',
+        question: "Qual é o significado da Páscoa no Cristianismo?",
+        options: ["Nascimento de Jesus", "Ressurreição de Jesus", "Descida do Espírito Santo", "Última Ceia"],
+        correctAnswer: 1,
+        explanation: "A Páscoa celebra a ressurreição de Cristo após a crucificação."
+    },
+    {
+        id: 483,
+        theme: 'religion',
+        question: "Qual destes NÃO é um dos evangelhos canônicos do Novo Testamento?",
+        options: ["Mateus", "Marcos", "Lucas", "Tomé"],
+        correctAnswer: 3,
+        explanation: "O Evangelho de Tomé é um texto apócrifo, não canônico."
+    },
+    {
+        id: 484,
+        theme: 'religion',
+        question: "Qual é o local mais sagrado do Islamismo?",
+        options: ["Mesquita de Al-Aqsa", "Caaba, em Meca", "Mesquita do Profeta em Medina", "Domo da Rocha"],
+        correctAnswer: 1,
+        explanation: "A Caaba é o local mais sagrado do Islamismo, para onde os muçulmanos oram."
+    },
+    {
+        id: 485,
+        theme: 'religion',
+        question: "Qual profeta é conhecido por ter construído uma arca para salvar sua família e os animais do dilúvio?",
+        options: ["Abraão", "Noé", "Jonas", "Jó"],
+        correctAnswer: 1,
+        explanation: "Noé construiu a arca segundo a Bíblia e o Alcorão."
+    },
+    {
+        id: 486,
+        theme: 'religion',
+        question: "Qual destes é um dos quatro nobres verdades do Budismo?",
+        options: ["A vida é sofrimento", "Deus é amor", "O paraíso é eterno", "A reencarnação é ilusória"],
+        correctAnswer: 0,
+        explanation: "É a primeira das Quatro Nobres Verdades no Budismo."
+    },
+    {
+        id: 487,
+        theme: 'religion',
+        question: "Qual é o principal profeta do Judaísmo?",
+        options: ["Jesus", "Maomé", "Moisés", "Abraão"],
+        correctAnswer: 2,
+        explanation: "Moisés é o principal profeta, pois recebeu a Torá no Sinai."
+    }
+];
 
 
     
