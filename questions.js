@@ -1,7 +1,15 @@
 // Banco de dados de temas
 const themes = [
 
+    
 
+
+    {
+    id: 'religion',
+    name: 'Religiões Geral',
+    description: 'Perguntas sobre religiões do mundo',
+    image: 'https://images.unsplash.com/photo-1581368135153-a506cf13b1e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
+},
     
     // Tema Brasil - Curiosidades
     {
@@ -155,16 +163,6 @@ const themes = [
     id: 'christianity',
     name: 'Cristianismo',
     description: 'Perguntas sobre personagens e histórias bíblicas',
-    image: 'https://images.unsplash.com/photo-1581368135153-a506cf13b1e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
-},
-
-
-
-
-        {
-    id: 'religion',
-    name: 'Religiões Geral',
-    description: 'Perguntas sobre religiões do mundo',
     image: 'https://images.unsplash.com/photo-1581368135153-a506cf13b1e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
 }
     
