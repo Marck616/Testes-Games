@@ -4406,10 +4406,166 @@ const questions = [
         options: ["Jesus", "Maomé", "Moisés", "Abraão"],
         correctAnswer: 2,
         explanation: "Moisés é o principal profeta, pois recebeu a Torá no Sinai."
+    },
+
+
+
+        {
+        id: 488,
+        theme: 'religion',
+        question: "Qual é o nome do rio sagrado do Hinduísmo?",
+        options: ["Nilo", "Ganges", "Jordão", "Eufrates"],
+        correctAnswer: 1,
+        explanation: "O rio Ganges é considerado sagrado no Hinduísmo, e banhar-se nele purifica os pecados."
+    },
+    {
+        id: 489,
+        theme: 'religion',
+        question: "Qual é o livro sagrado do Judaísmo?",
+        options: ["Alcorão", "Bíblia", "Torá", "Vedas"],
+        correctAnswer: 2,
+        explanation: "A Torá é o livro sagrado do Judaísmo, contendo os cinco primeiros livros da Bíblia hebraica."
+    },
+    {
+        id: 490,
+        theme: 'religion',
+        question: "Qual destes NÃO é um dos três principais ramos do Cristianismo?",
+        options: ["Catolicismo", "Protestantismo", "Ortodoxia", "Sunismo"],
+        correctAnswer: 3,
+        explanation: "O Sunismo é uma divisão do Islamismo, não do Cristianismo."
+    },
+    {
+        id: 491,
+        theme: 'religion',
+        question: "Qual é o nome do anjo que expulsou Adão e Eva do Paraíso?",
+        options: ["Gabriel", "Miguel", "Rafael", "Uriel"],
+        correctAnswer: 1,
+        explanation: "Segundo algumas tradições, o arcanjo Miguel guardava o Éden após a queda."
+    },
+    {
+        id: 492,
+        theme: 'religion',
+        question: "Qual profeta foi engolido por um grande peixe na Bíblia?",
+        options: ["Elias", "Jonas", "Jeremias", "Ezequiel"],
+        correctAnswer: 1,
+        explanation: "Jonas passou três dias no ventre de um grande peixe antes de ser liberado."
+    },
+    {
+        id: 493,
+        theme: 'religion',
+        question: "Qual é o significado do Ramadã no Islamismo?",
+        options: ["Celebração do nascimento de Maomé", "Mês de jejum e reflexão espiritual", "Peregrinação a Meca", "Festa de fim de ano"],
+        correctAnswer: 1,
+        explanation: "O Ramadã é o nono mês islâmico, quando os muçulmanos jejuam do amanhecer ao pôr do sol."
+    },
+    {
+        id: 494,
+        theme: 'religion',
+        question: "Qual destes é um dos sete sacramentos da Igreja Católica?",
+        options: ["Batismo", "Meditação", "Peregrinação", "Jejum"],
+        correctAnswer: 0,
+        explanation: "O Batismo é o primeiro sacramento, que simboliza a purificação e entrada na Igreja."
+    },
+    {
+        id: 495,
+        theme: 'religion',
+        question: "Qual religião tem como símbolo a 'Roda do Dharma'?",
+        options: ["Hinduísmo", "Budismo", "Jainismo", "Sikhismo"],
+        correctAnswer: 1,
+        explanation: "A Roda do Dharma representa os ensinamentos de Buda e o caminho para a iluminação."
+    },
+    {
+        id: 496,
+        theme: 'religion',
+        question: "Qual é o nome da primeira mulher na Bíblia?",
+        options: ["Sara", "Eva", "Maria", "Rebeca"],
+        correctAnswer: 1,
+        explanation: "Eva foi criada por Deus a partir da costela de Adão, segundo o Gênesis."
+    },
+    {
+        id: 497,
+        theme: 'religion',
+        question: "Qual é o principal deus do Hinduísmo?",
+        options: ["Vishnu", "Brahma", "Shiva", "Não há um único deus principal"],
+        correctAnswer: 3,
+        explanation: "O Hinduísmo é politeísta, com várias divindades importantes, como Brahma, Vishnu e Shiva."
+    },
+    {
+        id: 498,
+        theme: 'religion',
+        question: "Qual destes NÃO é um dos evangelistas do Novo Testamento?",
+        options: ["Mateus", "João", "Paulo", "Lucas"],
+        correctAnswer: 2,
+        explanation: "Paulo foi um apóstolo, mas não escreveu um dos quatro Evangelhos canônicos."
+    },
+    {
+        id: 499,
+        theme: 'religion',
+        question: "Qual é o local mais sagrado do Judaísmo?",
+        options: ["Sinagoga de Jerusalém", "Muro das Lamentações", "Monte Sinai", "Templo de Salomão (antigo)"],
+        correctAnswer: 1,
+        explanation: "É o último remanescente do antigo Templo de Jerusalém, local de oração e peregrinação."
+    },
+    {
+        id: 500,
+        theme: 'religion',
+        question: "Qual é o nome do fundador do Taoismo?",
+        options: ["Confúcio", "Lao-Tsé", "Buda", "Mencius"],
+        correctAnswer: 1,
+        explanation: "Lao-Tsé é tradicionalmente considerado o autor do 'Tao Te Ching' e fundador do Taoismo."
+    },
+    {
+        id: 501,
+        theme: 'religion',
+        question: "Qual destes é um dos Dez Mandamentos?",
+        options: ["Não comerás carne", "Não usarás roupas coloridas", "Não cobiçarás a mulher do próximo", "Não estudarás outras religiões"],
+        correctAnswer: 2,
+        explanation: "É o décimo mandamento na tradição cristã."
+    },
+    {
+        id: 502,
+        theme: 'religion',
+        question: "Qual profeta islâmico é conhecido por sua paciência extrema?",
+        options: ["Jó (Ayyub)", "Salomão (Sulaiman)", "José (Yusuf)", "Noé (Nuh)"],
+        correctAnswer: 0,
+        explanation: "Jó (Ayyub) é citado no Alcorão e na Bíblia por sua paciência diante do sofrimento."
+    },
+    {
+        id: 503,
+        theme: 'religion',
+        question: "Qual é o principal festival do Judaísmo?",
+        options: ["Yom Kippur", "Hanukkah", "Páscoa (Pessach)", "Purim"],
+        correctAnswer: 2,
+        explanation: "Celebra a libertação dos hebreus da escravidão no Egito."
+    },
+    {
+        id: 504,
+        theme: 'religion',
+        question: "Qual religião segue o 'Livro dos Mórmons'?",
+        options: ["Testemunhas de Jeová", "Igreja Adventista", "Igreja de Jesus Cristo dos Santos dos Últimos Dias", "Pentecostalismo"],
+        correctAnswer: 2,
+        explanation: "Os mórmons consideram o Livro de Mórmon uma escritura adicional à Bíblia."
+    },
+    {
+        id: 505,
+        theme: 'religion',
+        question: "Qual é o nome do anjo da morte no Islamismo?",
+        options: ["Malik", "Azrael", "Israfil", "Ridwan"],
+        correctAnswer: 1,
+        explanation: "Azrael é o anjo responsável por separar a alma do corpo no Islamismo."
+    },
+    {
+        id: 506,
+        theme: 'religion',
+        question: "Qual destes NÃO é um dos cinco pilares do Islamismo?",
+        options: ["Shahada (declaração de fé)", "Zakat (caridade)", "Hajj (peregrinação)", "Batismo"],
+        correctAnswer: 3,
+        explanation: "O batismo é um ritual cristão, não islâmico."
     }
 ];
 
 
-    
+
     
 ];
+
