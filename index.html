@@ -424,6 +424,21 @@
             margin-top: 10px;
             text-decoration: underline;
         }
+        
+        #skip-question-btn {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            display: none;
+        }
+        
+        #skip-question-btn:hover {
+            background-color: #444;
+        }
     </style>
 </head>
 <body>
@@ -471,19 +486,8 @@
             </div>
             
             <div id="options-container"></div>
-
-
-
-
-
             
-            <button id="skip-wait-btn" style="display: none;">Continuar</button>
-
-
-
-
-
-
+            <button id="skip-question-btn">Pular Pergunta</button>
             
             <div id="explanation">
                 <h3>Mini Conceito</h3>
@@ -570,6 +574,7 @@
         let isAnimating = false;
         let selectedItem = null;
         let currentExplanation = '';
+        const MAX_QUESTIONS_PER_GAME = 30; // Limite de 30 questões por jogo
         
         // Elementos do DOM
         const gameContainer = document.getElementById('game-container');
@@ -589,6 +594,7 @@
         const correctAnswersEl = document.getElementById('correct-answers');
         const scoreEl = document.getElementById('score');
         const inventoryItems = document.getElementById('inventory-items');
+        const skipQuestionBtn = document.getElementById('skip-question-btn');
         
         const achievementPopup = document.getElementById('achievement-popup');
         const achievementText = document.getElementById('achievement-text');
@@ -614,6 +620,7 @@
         });
         skipAnimationBtn.addEventListener('click', skipAnimation);
         explanationBtn.addEventListener('click', toggleExplanation);
+        skipQuestionBtn.addEventListener('click', skipCurrentQuestion);
         
         // Botões da tela de conclusão
         document.getElementById('next-theme-btn').addEventListener('click', () => {
@@ -681,46 +688,41 @@
             inventoryItems.innerHTML = '';
             explanationDiv.style.display = 'none';
             explanationBtn.style.display = 'none';
+            skipQuestionBtn.style.display = 'block';
             
             // Carregar primeira pergunta
             loadQuestion();
         }
-
-
-
-
-
-
         
-function loadQuestion() {
-    // Verificar se completou todas as perguntas do tema
-    const themeQuestions = questions.filter(q => q.theme === currentTheme);
-    if (usedQuestions.length >= themeQuestions.length) {
-        showCompletionScreen();
-        return;
-    }
-    
-    // Esconder explicação da pergunta anterior
-    explanationDiv.style.display = 'none';
-    explanationDiv.classList.remove('show'); // Remove classe do efeito
-    explanationBtn.style.display = 'none';
-    
-    // Resto da função permanece igual...
-
-
-
-
-    
+        function loadQuestion() {
+            // Verificar se atingiu o limite de 30 questões
+            if (usedQuestions.length >= MAX_QUESTIONS_PER_GAME) {
+                showCompletionScreen();
+                return;
+            }
+            
+            // Esconder explicação da pergunta anterior
+            explanationDiv.style.display = 'none';
+            explanationDiv.classList.remove('show'); // Remove classe do efeito
+            explanationBtn.style.display = 'none';
             
             // Escolher uma pergunta aleatória não usada
+            let themeQuestions = questions.filter(q => q.theme === currentTheme);
             let availableQuestions = themeQuestions.filter(q => !usedQuestions.includes(q.id));
+            
+            // Se não houver mais perguntas disponíveis, mostrar tela de conclusão
+            if (availableQuestions.length === 0) {
+                showCompletionScreen();
+                return;
+            }
+            
             const question = availableQuestions[Math.floor(Math.random() * availableQuestions.length)];
             usedQuestions.push(question.id);
             
             // Atualizar UI
             sceneImage.style.backgroundImage = `url('${themes.find(t => t.id === currentTheme).image}')`;
-            currentQuestionEl.textContent = `${usedQuestions.length}/${themeQuestions.length}`;
-            progressBar.style.width = `${(usedQuestions.length / themeQuestions.length) * 100}%`;
+            currentQuestionEl.textContent = `${usedQuestions.length}/${MAX_QUESTIONS_PER_GAME}`;
+            progressBar.style.width = `${(usedQuestions.length / MAX_QUESTIONS_PER_GAME) * 100}%`;
             
             // Exibir pergunta com efeito de digitação
             isAnimating = true;
@@ -746,50 +748,67 @@ function loadQuestion() {
             currentExplanation = question.explanation;
         }
         
-function checkAnswer(selectedIndex, question) {
-    if (isAnimating) return;
-    
-    // Desativar todos os botões
-    const optionButtons = document.querySelectorAll('.option-btn');
-    optionButtons.forEach(btn => {
-        btn.disabled = true;
-        btn.style.pointerEvents = 'none';
-    });
-    
-    // Marcar resposta correta/incorreta
-    const isCorrect = selectedIndex === question.correctAnswer;
-    
-    if (isCorrect) {
-        optionButtons[selectedIndex].classList.add('correct');
-        correctAnswers++;
-        score += 100;
-        
-        // Chance de ganhar item especial (20%)
-        if (Math.random() < 0.2) {
-            addRandomItem();
+        function skipCurrentQuestion() {
+            if (isAnimating) return;
+            
+            // Adicionar a pergunta atual às usadas para não repetir
+            const currentQuestionId = usedQuestions[usedQuestions.length - 1];
+            if (!usedQuestions.includes(currentQuestionId)) {
+                usedQuestions.push(currentQuestionId);
+            }
+            
+            // Carregar próxima pergunta
+            loadQuestion();
         }
-    } else {
-        optionButtons[selectedIndex].classList.add('incorrect');
-        optionButtons[question.correctAnswer].classList.add('correct');
-    }
-    
-    // Atualizar estatísticas
-    updateStats();
-    
-// Mostrar explicação após 1 segundo
-setTimeout(() => {
-    explanationText.textContent = question.explanation;
-    explanationDiv.style.display = 'block';
-    explanationDiv.classList.add('show'); // Adiciona classe para o efeito
-    explanationBtn.style.display = 'none';
-}, 1000);
-    
-    // Próxima pergunta após 3 segundos
-    setTimeout(() => {
-        currentQuestionIndex++;
-        loadQuestion();
-    }, 7000);
-}
+        
+        function checkAnswer(selectedIndex, question) {
+            if (isAnimating) return;
+            
+            // Desativar todos os botões
+            const optionButtons = document.querySelectorAll('.option-btn');
+            optionButtons.forEach(btn => {
+                btn.disabled = true;
+                btn.style.pointerEvents = 'none';
+            });
+            
+            // Desativar botão de pular questão
+            skipQuestionBtn.disabled = true;
+            
+            // Marcar resposta correta/incorreta
+            const isCorrect = selectedIndex === question.correctAnswer;
+            
+            if (isCorrect) {
+                optionButtons[selectedIndex].classList.add('correct');
+                correctAnswers++;
+                score += 100;
+                
+                // Chance de ganhar item especial (20%)
+                if (Math.random() < 0.2) {
+                    addRandomItem();
+                }
+            } else {
+                optionButtons[selectedIndex].classList.add('incorrect');
+                optionButtons[question.correctAnswer].classList.add('correct');
+            }
+            
+            // Atualizar estatísticas
+            updateStats();
+            
+            // Mostrar explicação após 1 segundo
+            setTimeout(() => {
+                explanationText.textContent = question.explanation;
+                explanationDiv.style.display = 'block';
+                explanationDiv.classList.add('show'); // Adiciona classe para o efeito
+                explanationBtn.style.display = 'none';
+            }, 1000);
+            
+            // Próxima pergunta após 3 segundos
+            setTimeout(() => {
+                currentQuestionIndex++;
+                loadQuestion();
+                skipQuestionBtn.disabled = false;
+            }, 3000);
+        }
         
         function updateStats() {
             correctAnswersEl.textContent = correctAnswers;
@@ -905,13 +924,13 @@ setTimeout(() => {
             gameState = 'completion';
             gameScreen.style.display = 'none';
             completionScreen.style.display = 'block';
+            skipQuestionBtn.style.display = 'none';
             
-            const themeQuestions = questions.filter(q => q.theme === currentTheme);
-            const percentage = Math.round((correctAnswers / themeQuestions.length) * 100);
+            const percentage = Math.round((correctAnswers / usedQuestions.length) * 100);
             
             // Atualizar estatísticas de conclusão
             document.getElementById('completed-theme').textContent = themes.find(t => t.id === currentTheme).name;
-            document.getElementById('completed-questions').textContent = themeQuestions.length;
+            document.getElementById('completed-questions').textContent = usedQuestions.length;
             document.getElementById('completed-correct').textContent = correctAnswers;
             document.getElementById('completed-percentage').textContent = `${percentage}%`;
             document.getElementById('completed-score').textContent = score;
