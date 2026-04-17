@@ -23,7 +23,7 @@ const gameState = {
 
 // Estado do gato
 const cat = {
-    name: 'Whiskers',
+    name: 'Jubilaudo',
     age: 0, // Em meses
     stats: {
         health: 100,
