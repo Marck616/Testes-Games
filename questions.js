@@ -6,7 +6,7 @@ const themes = [
     id: 'jurema1',
     name: 'Jurema Sagrada Nivel 1',
     description: 'Perguntas sobre de nivel facil sobre a Jurema Sagrada',
-    image: 'https://unsplash.com/pt-br/fotografias/arvores-na-floresta-com-raios-solares-sp-p7uuT0tw?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink'
+    image: 'https://images.unsplash.com/photo-1448375240586-882707db888b?w=800'
     },
 
 
