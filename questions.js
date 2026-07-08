@@ -4636,7 +4636,7 @@ const questions = [
         id: 515,
         theme: 'jurema1',
         question: "Qual é o nome da bebida sagrada feita por indígenas com casca da Jurema?",
-        options: ["Água Benta", "Ajucá", "Nham Juruena", "Jurema"],
+        options: ["Água Benta", "Ajucá", "Nham Juruena", "Chá de Casca"],
         correctAnswer: 1,
         explanation: "O Ajucá é a bebida sagrada feita pelos indígenas a partir da casca da Jurema, utilizada em rituais de conexão espiritual."
     },
