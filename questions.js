@@ -6,7 +6,7 @@ const themes = [
     id: 'jurema1',
     name: 'Jurema Sagrada Nivel 1',
     description: 'Perguntas sobre de nivel facil sobre a Jurema Sagrada',
-    image: 'https://abelha.org.br/wp-content/uploads/2022/04/Mimosa_tenuiflora_1-696x1043.jpg'
+    image: 'https://unsplash.com/pt-br/fotografias/arvores-na-floresta-com-raios-solares-sp-p7uuT0tw?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink'
     },
 
 
