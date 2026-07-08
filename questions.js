@@ -1,7 +1,13 @@
 // Banco de dados de temas
 const themes = [
-
     
+    //Tema Jurema Sagrada Nivel 1
+    {
+    id: 'jurema1',
+    name: 'Jurema Sagrada Nivel 1',
+    description: 'Perguntas sobre de nivel facil sobre a Jurema Sagrada',
+    image: 'https://abelha.org.br/wp-content/uploads/2022/04/Mimosa_tenuiflora_1-696x1043.jpg'
+    },
 
 
     {
@@ -9,7 +15,7 @@ const themes = [
     name: 'Religiões Geral',
     description: 'Perguntas sobre religiões do mundo',
     image: 'https://images.unsplash.com/photo-1581368135153-a506cf13b1e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
-},
+    },
     
     // Tema Brasil - Curiosidades
     {
@@ -4559,7 +4565,160 @@ const questions = [
         options: ["Shahada (declaração de fé)", "Zakat (caridade)", "Hajj (peregrinação)", "Batismo"],
         correctAnswer: 3,
         explanation: "O batismo é um ritual cristão, não islâmico."
+    },
+
+
+    {
+        id: 507,
+        theme: 'jurema1',
+        question: "Qual é o nome da planta sagrada que dá origem ao culto do Catimbó?",
+        options: ["Samambaia", "Jurema", "Arruda", "Alecrim"],
+        correctAnswer: 1,
+        explanation: "A Jurema é a planta sagrada que dá nome e origem ao culto do Catimbó, sendo utilizada em rituais de cura e conexão espiritual."
+    },
+    {
+        id: 508,
+        theme: 'jurema1',
+        question: "Em qual estado brasileiro a cidade de Alhandra, berço da Jurema, está localizada?",
+        options: ["Pernambuco", "Bahia", "Paraíba", "Ceará"],
+        correctAnswer: 2,
+        explanation: "Alhandra, na Paraíba, é considerada o berço da Jurema, sendo um dos centros históricos mais importantes para essa tradição."
+    },
+    {
+        id: 509,
+        theme: 'jurema1',
+        question: "Qual é o principal instrumento musical de origem indígena usado na Jurema?",
+        options: ["Atabaque", "Violão", "Maracá", "Piano"],
+        correctAnswer: 2,
+        explanation: "O maracá é o principal instrumento musical da Jurema, de origem indígena, usado para marcar o ritmo e chamar as entidades."
+    },
+    {
+        id: 510,
+        theme: 'jurema1',
+        question: "Como são chamados os espíritos que não morreram, mas se transformaram em elementos da natureza?",
+        options: ["Fantasmas", "Encantados", "Deuses gregos", "Anjos"],
+        correctAnswer: 1,
+        explanation: "Os Encantados são espíritos que não vivenciaram a morte física, mas se transformaram em elementos da natureza, como árvores, rios e pedras."
+    },
+    {
+        id: 511,
+        theme: 'jurema1',
+        question: "Qual objeto é usado pelos mestres da Jurema para manipular a fumaça e a 'ciência'?",
+        options: ["Espada", "Cachimbo", "Defumador", "Incensário"],
+        correctAnswer: 1,
+        explanation: "O cachimbo é usado pelos mestres da Jurema para manipular a fumaça, representando a 'ciência' e o poder de cura e transformação."
+    },
+    {
+        id: 512,
+        theme: 'jurema1',
+        question: "Qual cidade sagrada da Jurema é famosa por ter sido a morada da Mestra Maria do Acais?",
+        options: ["João Pessoa", "Acais", "Recife", "Angico"],
+        correctAnswer: 1,
+        explanation: "Acais é a cidade sagrada onde viveu a Mestra Maria do Acais, uma das figuras mais importantes da tradição juremeira."
+    },
+    {
+        id: 513,
+        theme: 'jurema1',
+        question: "Qual é a cor da Jurema mais citada como 'Rainha' nos pontos cantados?",
+        options: ["Jurema Verde", "Jurema Preta", "Jurema Amarela", "Jurema Branca"],
+        correctAnswer: 1,
+        explanation: "A Jurema Preta é frequentemente citada como 'Rainha' nos pontos cantados, sendo uma das mais reverenciadas na tradição."
+    },
+    {
+        id: 514,
+        theme: 'jurema1',
+        question: "Quem é o mestre da Jurema famoso por usar terno branco e chapéu panamá?",
+        options: ["Mestre Carlos", "Mestre Zé Pelintra", "Mestre Junqueiro", "Mestre Bernardino"],
+        correctAnswer: 1,
+        explanation: "Mestre Zé Pelintra é conhecido por usar terno branco e chapéu panamá, sendo uma figura icônica da Jurema e da Umbanda."
+    },
+    {
+        id: 515,
+        theme: 'jurema1',
+        question: "Qual é o nome da bebida sagrada feita por indígenas com casca da Jurema?",
+        options: ["Água Benta", "Ajucá", "Nham Juruena", "Jurema"],
+        correctAnswer: 1,
+        explanation: "O Ajucá é a bebida sagrada feita pelos indígenas a partir da casca da Jurema, utilizada em rituais de conexão espiritual."
+    },
+    {
+        id: 516,
+        theme: 'jurema1',
+        question: "Na tradição da Jurema, quantas cidades sagradas principais existem no Juremá?",
+        options: ["347", "6", "7", "10"],
+        correctAnswer: 2,
+        explanation: "Existem 7 cidades sagradas principais no Juremá, cada uma com suas próprias características e entidades regentes."
+    },
+    {
+        id: 517,
+        theme: 'jurema1',
+        question: "Qual é o título dado ao guardião que protege os portões da Jurema e tem origem bantu?",
+        options: ["Capitão", "Malunguinho", "Exú", "Sentinela"],
+        correctAnswer: 1,
+        explanation: "Malunguinho é o guardião dos portões da Jurema, com origem bantu, sendo responsável por proteger e orientar os caminhos espirituais."
+    },
+    {
+        id: 518,
+        theme: 'jurema1',
+        question: "Como se chama a entidade que representa os índios guerreiros na Umbanda e Jurema?",
+        options: ["Encantados", "Caiporas", "Caboclo", "Mateiro"],
+        correctAnswer: 2,
+        explanation: "O Caboclo é a entidade que representa os índios guerreiros na Umbanda e na Jurema, trazendo força, sabedoria e cura."
+    },
+    {
+        id: 519,
+        theme: 'jurema1',
+        question: "Qual é a principal função da 'Mesa Branca' nos cultos juremeiros?",
+        options: ["Consagrar Jurema até atingir o transe", "Doutrinar espíritos e trazer luz", "Dançar samba", "Incorporar os Mestres"],
+        correctAnswer: 1,
+        explanation: "A 'Mesa Branca' tem como função doutrinar espíritos e trazer luz, promovendo o equilíbrio e a evolução espiritual dos participantes."
+    },
+    {
+        id: 520,
+        theme: 'jurema1',
+        question: "Qual é o nome da cerimônia de consagração máxima para um juremeiro?",
+        options: ["Batizado", "Tombo", "Formatura", "Crismas"],
+        correctAnswer: 1,
+        explanation: "O 'Tombo' é a cerimônia de consagração máxima na Jurema, marcando a iniciação completa e o compromisso do juremeiro com a tradição."
+    },
+    {
+        id: 521,
+        theme: 'jurema1',
+        question: "O que representa a semente dentro do maracá para os juremeiros?",
+        options: ["Pedras", "Fartura e alimento espiritual", "Dinheiro", "Os Juremeiros"],
+        correctAnswer: 1,
+        explanation: "As sementes dentro do maracá simbolizam fartura e alimento espiritual, representando a conexão com a natureza e a abundância."
+    },
+    {
+        id: 522,
+        theme: 'jurema1',
+        question: "No Catimbó, o que não se deve fazer ao se retirar de um despacho para não perder o efeito?",
+        options: ["Correr", "Gritar", "Olhar para trás", "Falar alto"],
+        correctAnswer: 2,
+        explanation: "Não se deve olhar para trás ao se retirar de um despacho no Catimbó, pois isso pode dissipar a energia e anular o efeito do ritual."
+    },
+    {
+        id: 523,
+        theme: 'jurema1',
+        question: "Quem governa o 1º Reino da Jurema (Juremá)?",
+        options: ["Rei Salomão", "Tupã", "Canindé", "Malunguinho"],
+        correctAnswer: 1,
+        explanation: "Tupã é o governante do 1º Reino da Jurema (Juremá), representando a força divina e a conexão com os elementos da natureza."
     }
+
+
+
+
+
+    
 ];
+
+
+
+
+
+
+
+
+
 
 
