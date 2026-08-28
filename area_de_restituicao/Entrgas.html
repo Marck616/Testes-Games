@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#667eea">
+    <title>Otimizador de Rotas - Mobile</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder@2.4.0/dist/Control.Geocoder.css" />
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: #f5f5f5;
+            min-height: 100vh;
+            padding: 0;
+            margin: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0;
+            background: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header h1 {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+        }
+
+        .header .subtitle {
+            font-size: 0.8em;
+            opacity: 0.9;
+        }
+
+        .map-container {
+            height: 50vh;
+            position: relative;
+            z-index: 1;
+        }
+
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+
+        .content {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+        }
+
+        .input-section {
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .input-field {
+            position: relative;
+        }
+
+        .input-field input[type="text"] {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .input-field input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .suggestions-container {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+        }
+
+        .suggestions-container.active {
+            display: block;
+        }
+
+        .suggestion-item {
+            padding: 12px 15px;
+            border-bottom: 1px solid #f0f0f0;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .suggestion-item:last-child {
+            border-bottom: none;
+        }
+
+        .suggestion-item:hover,
+        .suggestion-item:active {
+            background: #f8f9fa;
+        }
+
+        .suggestion-item .name {
+            font-weight: bold;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .suggestion-item .address {
+            color: #666;
+            font-size: 12px;
+            margin-top: 2px;
+        }
+
+        .btn {
+            padding: 15px 25px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+            width: 100%;
+        }
+
+        .btn-primary:active {
+            background: #5a67d8;
+        }
+
+        .btn-success {
+            background: #48bb78;
+            color: white;
+            padding: 10px 15px;
+            font-size: 14px;
+        }
+
+        .btn-danger {
+            background: #f56565;
+            color: white;
+            padding: 10px 15px;
+            font-size: 14px;
+        }
+
+        .btn-warning {
+            background: #ed8936;
+            color: white;
+            width: 100%;
+        }
+
+        .btn-location {
+            background: #4299e1;
+            color: white;
+            padding: 10px;
+            font-size: 12px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .stat-value {
+            font-size: 20px;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .section {
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .delivery-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .delivery-item.completed {
+            background: #f0fff4;
+            border-left: 5px solid #48bb78;
+            opacity: 0.7;
+        }
+
+        .delivery-item.pending {
+            border-left: 5px solid #ed8936;
+        }
+
+        .delivery-info {
+            margin-bottom: 10px;
+        }
+
+        .delivery-name {
+            font-weight: bold;
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .delivery-address {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .delivery-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .delivery-actions .btn {
+            flex: 1;
+        }
+
+        .route-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .route-number {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        .route-distance {
+            color: #666;
+            font-size: 12px;
+            margin-left: 40px;
+            margin-top: 5px;
+        }
+
+        .total-distance {
+            margin-top: 20px;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            left: 20px;
+            padding: 15px 20px;
+            border-radius: 10px;
+            color: white;
+            font-weight: bold;
+            animation: slideDown 0.5s ease;
+            z-index: 2000;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-top: 3px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+        }
+
+        .empty-state-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .location-indicator {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        .location-indicator:active {
+            transform: scale(0.9);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚚 Otimizador de Rotas</h1>
+            <div class="subtitle">Toque para adicionar entregas</div>
+        </div>
+
+        <div class="map-container">
+            <div id="map"></div>
+            <div class="location-indicator" onclick="centerOnCurrentLocation()" title="Minha localização">
+                📍
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="input-section">
+                <button class="btn btn-location" onclick="useCurrentLocation()">
+                    📍 Usar minha localização como partida
+                </button>
+                
+                <div class="input-group">
+                    <div class="input-field">
+                        <input type="text" id="deliveryName" placeholder="Nome do cliente">
+                    </div>
+                    <div class="input-field">
+                        <input type="text" id="deliveryAddress" placeholder="Buscar endereço..." autocomplete="off">
+                        <div class="suggestions-container" id="suggestionsContainer"></div>
+                    </div>
+                    <button class="btn btn-primary" onclick="addDelivery()">
+                        ➕ Adicionar Entrega
+                    </button>
+                </div>
+            </div>
+
+            <div class="stats" id="statsContainer" style="display: none;">
+                <div class="stat-card">
+                    <div class="stat-value" id="totalDeliveries">0</div>
+                    <div class="stat-label">Total</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="completedDeliveries">0</div>
+                    <div class="stat-label">Concluídas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="pendingDeliveries">0</div>
+                    <div class="stat-label">Pendentes</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    📋 Entregas
+                </div>
+                <div id="deliveriesContainer">
+                    <div class="empty-state">
+                        <div class="empty-state-icon">📭</div>
+                        <p>Nenhuma entrega adicionada</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">
+                    🗺️ Rota Otimizada
+                </div>
+                <button class="btn btn-warning" onclick="calculateRoute()" id="calculateBtn">
+                    🔄 Calcular Rota
+                </button>
+                <div id="routeContainer" style="margin-top: 15px;">
+                    <div class="empty-state">
+                        <div class="empty-state-icon">🗺️</div>
+                        <p>Rota ainda não calculada</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder@2.4.0/dist/Control.Geocoder.js"></script>
+    
+    <script>
+        let map;
+        let markers = [];
+        let deliveries = [];
+        let routePath = [];
+        let routeLayer;
+        let currentLocation = null;
+        let searchTimeout;
+        let selectedSuggestion = null;
+
+        // Inicializa o mapa
+        function initMap() {
+            // Tenta obter localização atual
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        currentLocation = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude,
+                            name: '📍 Ponto de Partida',
+                            address: 'Minha localização atual',
+                            isStart: true
+                        };
+                        
+                        map = L.map('map').setView([currentLocation.lat, currentLocation.lng], 15);
+                        setupMap();
+                        
+                        // Adiciona marcador do ponto de partida
+                        addStartMarker();
+                        
+                        showNotification('📍 Localização atual encontrada!');
+                    },
+                    (error) => {
+                        console.error('Erro ao obter localização:', error);
+                        // Fallback para São Paulo
+                        map = L.map('map').setView([-23.5505, -46.6333], 12);
+                        setupMap();
+                        
+                        showNotification('⚠️ Não foi possível obter sua localização', 'error');
+                    },
+                    {
+                        enableHighAccuracy: true,
+                        timeout: 10000,
+                        maximumAge: 0
+                    }
+                );
+            } else {
+                map = L.map('map').setView([-23.5505, -46.6333], 12);
+                setupMap();
+                showNotification('⚠️ Geolocalização não suportada', 'error');
+            }
+        }
+
+        function setupMap() {
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+                maxZoom: 19
+            }).addTo(map);
+            
+            routeLayer = L.layerGroup().addTo(map);
+            setupAddressSearch();
+        }
+
+        function addStartMarker() {
+            if (currentLocation) {
+                const startMarker = L.marker([currentLocation.lat, currentLocation.lng], {
+                    icon: createIcon('📍', '#48bb78')
+                }).addTo(map);
+                
+                startMarker.bindPopup('📍 Ponto de Partida').openPopup();
+                markers.push(startMarker);
+            }
+        }
+
+        function createIcon(emoji, color) {
+            return L.divIcon({
+                className: 'custom-marker',
+                html: `<div style="
+                    background: ${color};
+                    color: white;
+                    width: 35px;
+                    height: 35px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 18px;
+                    border: 3px solid white;
+                    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+                ">${emoji}</div>`,
+                iconSize: [35, 35],
+                iconAnchor: [17, 17]
+            });
+        }
+
+        function createNumberedIcon(number) {
+            return L.divIcon({
+                className: 'numbered-marker',
+                html: `<div style="
+                    background: #667eea;
+                    color: white;
+                    width: 35px;
+                    height: 35px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: bold;
+                    font-size: 14px;
+                    border: 3px solid white;
+                    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+                ">${number}</div>`,
+                iconSize: [35, 35],
+                iconAnchor: [17, 17]
+            });
+        }
+
+        // Configura busca de endereços
+        function setupAddressSearch() {
+            const addressInput = document.getElementById('deliveryAddress');
+            const suggestionsContainer = document.getElementById('suggestionsContainer');
+            
+            addressInput.addEventListener('input', function() {
+                clearTimeout(searchTimeout);
+                const query = this.value.trim();
+                
+                if (query.length < 3) {
+                    suggestionsContainer.classList.remove('active');
+                    return;
+                }
+                
+                searchTimeout = setTimeout(() => {
+                    searchAddress(query);
+                }, 500);
+            });
+            
+            addressInput.addEventListener('blur', function() {
+                setTimeout(() => {
+                    suggestionsContainer.classList.remove('active');
+                }, 200);
+            });
+        }
+
+        async function searchAddress(query) {
+            const suggestionsContainer = document.getElementById('suggestionsContainer');
+            
+            try {
+                const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&limit=5&countrycodes=br&addressdetails=1`;
+                const response = await fetch(url, {
+                    headers: {
+                        'User-Agent': 'OtimizadorRotas/1.0'
+                    }
+                });
+                const data = await response.json();
+                
+                if (data && data.length > 0) {
+                    displaySuggestions(data);
+                } else {
+                    suggestionsContainer.innerHTML = '<div class="suggestion-item">Nenhum resultado encontrado</div>';
+                    suggestionsContainer.classList.add('active');
+                }
+            } catch (error) {
+                console.error('Erro na busca:', error);
+            }
+        }
+
+        function displaySuggestions(results) {
+            const suggestionsContainer = document.getElementById('suggestionsContainer');
+            
+            let html = '';
+            results.forEach((result, index) => {
+                const name = result.address.road || result.address.suburb || result.address.city || 'Endereço';
+                const fullAddress = result.display_name;
+                
+                html += `
+                    <div class="suggestion-item" onclick="selectSuggestion(${index})">
+                        <div class="name">📍 ${name}</div>
+                        <div class="address">${fullAddress}</div>
+                    </div>
+                `;
+            });
+            
+            suggestionsContainer.innerHTML = html;
+            suggestionsContainer.classList.add('active');
+            
+            // Armazena resultados para uso posterior
+            window.searchResults = results;
+        }
+
+        function selectSuggestion(index) {
+            const result = window.searchResults[index];
+            const addressInput = document.getElementById('deliveryAddress');
+            const suggestionsContainer = document.getElementById('suggestionsContainer');
+            
+            addressInput.value = result.display_name;
+            selectedSuggestion = {
+                lat: parseFloat(result.lat),
+                lng: parseFloat(result.lon),
+                formattedAddress: result.display_name
+            };
+            
+            suggestionsContainer.classList.remove('active');
+            
+            // Mostra no mapa
+            if (map) {
+                const tempMarker = L.marker([selectedSuggestion.lat, selectedSuggestion.lng])
+                    .addTo(map)
+                    .bindPopup('📍 Local selecionado')
+                    .openPopup();
+                
+                map.setView([selectedSuggestion.lat, selectedSuggestion.lng], 16);
+                
+                setTimeout(() => {
+                    tempMarker.remove();
+                }, 2000);
+            }
+        }
+
+        // Usa localização atual como ponto de partida
+        function useCurrentLocation() {
+            if (currentLocation) {
+                centerOnCurrentLocation();
+                showNotification('📍 Localização atual selecionada como partida!');
+            } else {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(
+                        (position) => {
+                            currentLocation = {
+                                lat: position.coords.latitude,
+                                lng: position.coords.longitude,
+                                name: '📍 Ponto de Partida',
+                                address: 'Minha localização atual',
+                                isStart: true
+                            };
+                            
+                            if (map) {
+                                map.setView([currentLocation.lat, currentLocation.lng], 15);
+                                addStartMarker();
+                            }
+                            
+                            showNotification('📍 Localização atual encontrada!');
+                        },
+                        (error) => {
+                            showNotification('❌ Não foi possível obter sua localização', 'error');
+                        }
+                    );
+                }
+            }
+        }
+
+        function centerOnCurrentLocation() {
+            if (currentLocation && map) {
+                map.setView([currentLocation.lat, currentLocation.lng], 15);
+                showNotification('📍 Centralizado na sua localização');
+            } else {
+                useCurrentLocation();
+            }
+        }
+
+        // Adiciona entrega
+        async function addDelivery() {
+            const nameInput = document.getElementById('deliveryName');
+            const addressInput = document.getElementById('deliveryAddress');
+            
+            const name = nameInput.value.trim();
+            const address = addressInput.value.trim();
+            
+            if (!name || !address) {
+                showNotification('⚠️ Preencha nome e endereço!', 'error');
+                return;
+            }
+            
+            let coordinates;
+            
+            if (selectedSuggestion && address === selectedSuggestion.formattedAddress) {
+                coordinates = {
+                    lat: selectedSuggestion.lat,
+                    lng: selectedSuggestion.lng,
+                    formattedAddress: selectedSuggestion.formattedAddress
+                };
+            } else {
+                // Geocodifica o endereço
+                try {
+                    coordinates = await geocodeAddress(address);
+                } catch (error) {
+                    showNotification('❌ ' + error.message, 'error');
+                    return;
+                }
+            }
+            
+            const delivery = {
+                id: Date.now(),
+                name: name,
+                address: coordinates.formattedAddress,
+                coordinates: {
+                    lat: coordinates.lat,
+                    lng: coordinates.lng
+                },
+                completed: false
+            };
+            
+            deliveries.push(delivery);
+            nameInput.value = '';
+            addressInput.value = '';
+            selectedSuggestion = null;
+            
+            updateDeliveriesList();
+            addDeliveryMarker(delivery);
+            showNotification('✅ Entrega adicionada!');
+            
+            map.setView([delivery.coordinates.lat, delivery.coordinates.lng], 16);
+        }
+
+        async function geocodeAddress(address) {
+            const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address)}&limit=1&countrycodes=br`;
+            const response = await fetch(url, {
+                headers: {
+                    'User-Agent': 'OtimizadorRotas/1.0'
+                }
+            });
+            const data = await response.json();
+            
+            if (data && data.length > 0) {
+                return {
+                    lat: parseFloat(data[0].lat),
+                    lng: parseFloat(data[0].lon),
+                    formattedAddress: data[0].display_name
+                };
+            } else {
+                throw new Error('Endereço não encontrado');
+            }
+        }
+
+        function addDeliveryMarker(delivery) {
+            const marker = L.marker([delivery.coordinates.lat, delivery.coordinates.lng], {
+                icon: createNumberedIcon(deliveries.length)
+            }).addTo(map);
+            
+            marker.bindPopup(`
+                <strong>${delivery.name}</strong><br>
+                ${delivery.address}<br>
+                <span style="color: ${delivery.completed ? '#48bb78' : '#ed8936'};">
+                    ${delivery.completed ? '✓ Concluída' : '⏳ Pendente'}
+                </span>
+            `);
+            
+            delivery.marker = marker;
+            markers.push(marker);
+        }
+
+        // Calcula distância
+        function calculateDistance(coord1, coord2) {
+            const R = 6371;
+            const dLat = (coord2.lat - coord1.lat) * Math.PI / 180;
+            const dLng = (coord2.lng - coord1.lng) * Math.PI / 180;
+            
+            const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                     Math.cos(coord1.lat * Math.PI / 180) * Math.cos(coord2.lat * Math.PI / 180) *
+                     Math.sin(dLng/2) * Math.sin(dLng/2);
+            
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+            return R * c;
+        }
+
+        // Calcula rota otimizada
+        async function calculateRoute() {
+            const pendingDeliveries = deliveries.filter(d => !d.completed);
+            
+            if (pendingDeliveries.length === 0) {
+                showNotification('⚠️ Não há entregas pendentes!', 'error');
+                return;
+            }
+            
+            if (!currentLocation) {
+                showNotification('⚠️ Localização atual não disponível!', 'error');
+                useCurrentLocation();
+                return;
+            }
+            
+            const calculateBtn = document.getElementById('calculateBtn');
+            calculateBtn.disabled = true;
+            calculateBtn.innerHTML = '🔄 Calculando...';
+            
+            try {
+                // Algoritmo do vizinho mais próximo
+                const route = [];
+                const unvisited = [...pendingDeliveries];
+                
+                let current = currentLocation;
+                let currentDelivery = null;
+                
+                while (unvisited.length > 0) {
+                    let nearestIndex = 0;
+                    let minDistance = Infinity;
+                    
+                    for (let i = 0; i < unvisited.length; i++) {
+                        const distance = calculateDistance(
+                            { lat: current.lat, lng: current.lng },
+                            unvisited[i].coordinates
+                        );
+                        if (distance < minDistance) {
+                            minDistance = distance;
+                            nearestIndex = i;
+                        }
+                    }
+                    
+                    currentDelivery = unvisited[nearestIndex];
+                    route.push(currentDelivery);
+                    current = currentDelivery.coordinates;
+                    unvisited.splice(nearestIndex, 1);
+                }
+                
+                routePath = route;
+                displayRoute(route);
+                await displayRouteOnMap(route);
+                
+                showNotification('✅ Rota calculada!');
+                
+            } catch (error) {
+                showNotification('❌ Erro: ' + error.message, 'error');
+            } finally {
+                calculateBtn.disabled = false;
+                calculateBtn.innerHTML = '🔄 Calcular Rota';
+            }
+        }
+
+        async function displayRouteOnMap(route) {
+            // Limpa rota anterior
+            if (routeLayer) {
+                routeLayer.clearLayers();
+            }
+            
+            // Remove marcadores antigos
+            markers.forEach(marker => marker.remove());
+            markers = [];
+            
+            // Adiciona marcador de partida
+            if (currentLocation) {
+                const startMarker = L.marker([currentLocation.lat, currentLocation.lng], {
+                    icon: createIcon('📍', '#48bb78')
+                }).addTo(routeLayer);
+                startMarker.bindPopup('📍 Ponto de Partida');
+                markers.push(startMarker);
+            }
+            
+            // Adiciona marcadores das entregas
+            const waypoints = [];
+            
+            // Ponto de partida
+            waypoints.push(L.latLng(currentLocation.lat, currentLocation.lng));
+            
+            route.forEach((delivery, index) => {
+                const marker = L.marker([delivery.coordinates.lat, delivery.coordinates.lng], {
+                    icon: createNumberedIcon(index + 1)
+                }).addTo(routeLayer);
+                
+                marker.bindPopup(`
+                    <strong>${index + 1}. ${delivery.name}</strong><br>
+                    ${delivery.address}
+                `);
+                
+                markers.push(marker);
+                waypoints.push(L.latLng(delivery.coordinates.lat, delivery.coordinates.lng));
+            });
+            
+            // Calcula rota real
+            try {
+                const coordinates = waypoints.map(wp => `${wp.lng},${wp.lat}`).join(';');
+                const url = `https://router.project-osrm.org/route/v1/driving/${coordinates}?overview=full&geometries=geojson`;
+                
+                const response = await fetch(url);
+                const data = await response.json();
+                
+                if (data.routes && data.routes.length > 0) {
+                    const routeGeometry = data.routes[0].geometry;
+                    
+                    L.geoJSON(routeGeometry, {
+                        style: {
+                            color: '#667eea',
+                            weight: 5,
+                            opacity: 0.8
+                        }
+                    }).addTo(routeLayer);
+                    
+                    const bounds = L.latLngBounds(waypoints);
+                    map.fitBounds(bounds, { padding: [50, 50] });
+                    
+                    const distanceKm = (data.routes[0].distance / 1000).toFixed(2);
+                    const durationMin = Math.round(data.routes[0].duration / 60);
+                    
+                    showNotification(`📏 ${distanceKm} km | ⏱️ ${durationMin} min`);
+                }
+            } catch (error) {
+                console.error('Erro ao calcular rota:', error);
+                
+                // Fallback: linha reta
+                L.polyline(waypoints, {
+                    color: '#667eea',
+                    weight: 3,
+                    opacity: 0.7,
+                    dashArray: '10, 10'
+                }).addTo(routeLayer);
+                
+                const bounds = L.latLngBounds(waypoints);
+                map.fitBounds(bounds, { padding: [50, 50] });
+            }
+        }
+
+        function displayRoute(route) {
+            const routeContainer = document.getElementById('routeContainer');
+            
+            let routeHTML = '';
+            let totalDistance = 0;
+            
+            // Ponto de partida
+            routeHTML += `
+                <div class="route-item">
+                    <span class="route-number">📍</span>
+                    <strong>Ponto de Partida</strong>
+                    <div class="route-distance">Sua localização atual</div>
+                </div>
+            `;
+            
+            route.forEach((delivery, index) => {
+                const prevCoord = index === 0 ? currentLocation : route[index - 1].coordinates;
+                const distance = calculateDistance(prevCoord, delivery.coordinates);
+                totalDistance += distance;
+                
+                routeHTML += `
+                    <div class="route-item">
+                        <span class="route-number">${index + 1}</span>
+                        <strong>${delivery.name}</strong>
+                        <div class="route-distance">
+                            📏 ${distance.toFixed(2)} km da entrega anterior
+                        </div>
+                    </div>
+                `;
+            });
+            
+            routeHTML += `
+                <div class="total-distance">
+                    <strong>📏 Distância Total: ${totalDistance.toFixed(2)} km</strong>
+                </div>
+            `;
+            
+            routeContainer.innerHTML = routeHTML;
+        }
+
+        function toggleDelivery(id) {
+            const delivery = deliveries.find(d => d.id === id);
+            if (delivery) {
+                delivery.completed = !delivery.completed;
+                updateDeliveriesList();
+                
+                showNotification(delivery.completed ? '✅ Entrega concluída!' : '↩️ Entrega reaberta!');
+                
+                if (routePath.length > 0) {
+                    calculateRoute();
+                }
+            }
+        }
+
+        function removeDelivery(id) {
+            if (confirm('Remover esta entrega?')) {
+                const delivery = deliveries.find(d => d.id === id);
+                if (delivery && delivery.marker) {
+                    delivery.marker.remove();
+                }
+                
+                deliveries = deliveries.filter(d => d.id !== id);
+                updateDeliveriesList();
+                
+                if (deliveries.length === 0) {
+                    routePath = [];
+                    if (routeLayer) {
+                        routeLayer.clearLayers();
+                    }
+                    document.getElementById('routeContainer').innerHTML = `
+                        <div class="empty-state">
+                            <div class="empty-state-icon">🗺️</div>
+                            <p>Rota ainda não calculada</p>
+                        </div>
+                    `;
+                }
+                
+                showNotification('🗑️ Entrega removida!');
+            }
+        }
+
+        function updateDeliveriesList() {
+            const container = document.getElementById('deliveriesContainer');
+            const statsContainer = document.getElementById('statsContainer');
+            
+            if (deliveries.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">📭</div>
+                        <p>Nenhuma entrega adicionada</p>
+                    </div>
+                `;
+                statsContainer.style.display = 'none';
+                return;
+            }
+            
+            statsContainer.style.display = 'grid';
+            const completedCount = deliveries.filter(d => d.completed).length;
+            const pendingCount = deliveries.length - completedCount;
+            
+            document.getElementById('totalDeliveries').textContent = deliveries.length;
+            document.getElementById('completedDeliveries').textContent = completedCount;
+            document.getElementById('pendingDeliveries').textContent = pendingCount;
+            
+            let deliveriesHTML = '';
+            deliveries.forEach(delivery => {
+                deliveriesHTML += `
+                    <div class="delivery-item ${delivery.completed ? 'completed' : 'pending'}">
+                        <div class="delivery-info">
+                            <div class="delivery-name">${delivery.completed ? '✓ ' : ''}${delivery.name}</div>
+                            <div class="delivery-address">📍 ${delivery.address}</div>
+                        </div>
+                        <div class="delivery-actions">
+                            <button class="btn btn-success" onclick="toggleDelivery(${delivery.id})">
+                                ${delivery.completed ? '↩ Reabrir' : '✓ Concluir'}
+                            </button>
+                            <button class="btn btn-danger" onclick="removeDelivery(${delivery.id})">
+                                🗑 Remover
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = deliveriesHTML;
+        }
+
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.style.backgroundColor = type === 'success' ? '#48bb78' : '#f56565';
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Inicializa quando a página carregar
+        window.addEventListener('load', initMap);
+    </script>
+</body>
+</html>
