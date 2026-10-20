@@ -1,5 +1,16 @@
 // Banco de dados de temas
 const themes = [
+
+
+    //Tema Concurso Nivel 1
+    {
+    id: 'concurso1',
+    name: 'Preparatorio para Concurso Nivel 1',
+    description: '100 Questões de Concurso',
+    image: 'https://images.unsplash.com/photo-1589998059171-988d887df646'
+    },
+
+
     
     //Tema Jurema Sagrada Nivel 1
     {
@@ -4703,10 +4714,809 @@ const questions = [
         options: ["Rei Salomão", "Tupã", "Canindé", "Malunguinho"],
         correctAnswer: 1,
         explanation: "Tupã é o governante do 1º Reino da Jurema (Juremá), representando a força divina e a conexão com os elementos da natureza."
+    },
+
+
+    {
+        id: 524,
+        theme: 'concurso1',
+        question: "Conforme a Lei nº 14.133/2021, a modalidade concorrência será empregada, como regra, para contratações de obras e serviços de engenharia de valor:",
+        options: ["Acima de R$ 50 mil", "Acima de R$ 100 mil", "Acima de R$ 200 mil", "Acima de R$ 1 milhão"],
+        correctAnswer: 2,
+        explanation: "A concorrência é a modalidade aplicável, como regra, às contratações de obras e serviços de engenharia de valor superior a R$ 200 mil, conforme a Lei nº 14.133/2021."
+    },
+    {
+        id: 525,
+        theme: 'concurso1',
+        question: "O pregão, na Nova Lei de Licitações, é modalidade:",
+        options: ["Exclusiva para aquisição de bens imóveis", "Própria para aquisição de bens e serviços comuns, caracterizando-se pela disputa entre fornecedores", "Destinada apenas a serviços de engenharia de alto valor", "Vedada para autarquias e fundações públicas"],
+        correctAnswer: 1,
+        explanation: "O pregão é a modalidade própria para aquisição de bens e serviços comuns, caracterizando-se pela disputa entre fornecedores por meio de lances."
+    },
+    {
+        id: 526,
+        theme: 'concurso1',
+        question: "São fases da licitação, conforme o art. 20 da Lei nº 14.133/2021:",
+        options: ["Fase interna e fase externa", "Fase preliminar e fase recursal", "Fase de habilitação e fase de julgamento", "Fase competitiva e fase expropriatória"],
+        correctAnswer: 0,
+        explanation: "O art. 20 da Lei nº 14.133/2021 divide a licitação em fase interna (preparatória) e fase externa (procedimento licitatório propriamente dito)."
+    },
+    {
+        id: 527,
+        theme: 'concurso1',
+        question: "A Lei nº 14.133/2021 não se aplica a:",
+        options: ["Autarquias e fundações públicas", "Empresas públicas e sociedades de economia mista", "Contratos de parceria público-privada (PPP), regidos pela Lei nº 11.079/2004", "Consórcios públicos e federações"],
+        correctAnswer: 2,
+        explanation: "Os contratos de parceria público-privada (PPP) são regidos pela Lei nº 11.079/2004, não pela Lei nº 14.133/2021."
+    },
+    {
+        id: 528,
+        theme: 'concurso1',
+        question: "A sanção de impedimento de licitar e de contratar com órgãos e entidades da administração pública, prevista no art. 165 da Lei nº 14.133/2021, pode ser aplicada por até:",
+        options: ["1 ano", "2 anos", "3 anos", "5 anos"],
+        correctAnswer: 2,
+        explanation: "A sanção de impedimento de licitar e contratar pode ser aplicada por até 3 anos, conforme o art. 165 da Lei nº 14.133/2021."
+    },
+    {
+        id: 529,
+        theme: 'concurso1',
+        question: "A inexecução total ou parcial do contrato, prevista no art. 186 da Lei nº 14.133/2021, pode ser aplicada por prazo de até:",
+        options: ["2 anos", "3 anos", "4 anos", "5 anos"],
+        correctAnswer: 3,
+        explanation: "A sanção de declaração de inidoneidade para licitar ou contratar, em razão de inexecução total ou parcial do contrato, pode ser aplicada por até 5 anos."
+    },
+    {
+        id: 530,
+        theme: 'concurso1',
+        question: "A modalidade leilão destina-se a alienação de:",
+        options: ["Bens móveis inservíveis para a administração ou legalmente apreendidos e penhorados", "Bens imóveis da administração pública federal", "Serviços de engenharia de grande vulto", "Ações de empresas estatais"],
+        correctAnswer: 0,
+        explanation: "O leilão destina-se à alienação de bens móveis inservíveis para a administração ou legalmente apreendidos e penhorados."
+    },
+    {
+        id: 531,
+        theme: 'concurso1',
+        question: "Não integra a lista de princípios do art. 2º da Lei nº 9.784/1999:",
+        options: ["Legalidade", "Motivação", "Eficiência", "Publicidade"],
+        correctAnswer: 1,
+        explanation: "A motivação não está expressamente listada no art. 2º da Lei nº 9.784/1999, embora seja um princípio implícito do processo administrativo."
+    },
+    {
+        id: 532,
+        theme: 'concurso1',
+        question: "O dever de fundamentar as decisões administrativas não se aplica:",
+        options: ["Às decisões denegatórias de pedidos do administrado", "Aos atos em que a lei dispense fundamentação e aos expedientes administrativos internos (art. 50)", "Às decisões definitivas do processo", "Às decisões de mérito sobre recursos administrativos"],
+        correctAnswer: 1,
+        explanation: "O art. 50 da Lei nº 9.784/1999 dispensa a fundamentação nos atos em que a lei expressamente a dispense e nos expedientes administrativos internos."
+    },
+    {
+        id: 533,
+        theme: 'concurso1',
+        question: "A publicidade dos atos administrativos, nos termos do art. 56, não alcança:",
+        options: ["Os processos em tramitação", "Os dados pessoais e as informações sigilosas protegidos por lei", "Os atos normativos de caráter geral", "Os editais de licitação após sua publicação"],
+        correctAnswer: 1,
+        explanation: "O art. 56 da Lei nº 9.784/1999 ressalva da publicidade os dados pessoais e as informações sigilosas protegidos por lei."
+    },
+    {
+        id: 534,
+        theme: 'concurso1',
+        question: "O processo administrativo deve ser concluído em prazo:",
+        options: ["De 30 dias, improrrogáveis", "Razoável, conforme a natureza e a complexidade do procedimento (art. 54)", "De 60 dias, contados do requerimento", "De 90 dias, prorrogável por igual período"],
+        correctAnswer: 1,
+        explanation: "O art. 54 da Lei nº 9.784/1999 determina que o processo administrativo deve ser concluído em prazo razoável, conforme a natureza e a complexidade do procedimento."
+    },
+    {
+        id: 535,
+        theme: 'concurso1',
+        question: "Não se sujeita à Lei nº 9.784/1999 o processo administrativo sancionador relativo à:",
+        options: ["Apuração de irregularidades em licitação", "Cassação e suspensão de autorização para funcionamento de empresas de telecomunicações (art. 1º, §1º)", "Apuração de infração administrativa ambiental", "Apuração de dano ao erário"],
+        correctAnswer: 1,
+        explanation: "O art. 1º, §1º, da Lei nº 9.784/1999 exclui expressamente os processos de cassação e suspensão de autorização para funcionamento de empresas de telecomunicações."
+    },
+    {
+        id: 536,
+        theme: 'concurso1',
+        question: "Os atos administrativos válidos produzem seus efeitos independentemente de confirmação judicial, em razão do atributo da:",
+        options: ["Tipicidade", "Imperatividade", "Presunção de legitimidade (art. 39)", "Autoexecutoriedade"],
+        correctAnswer: 2,
+        explanation: "A presunção de legitimidade (art. 39 da Lei nº 9.784/1999) faz com que os atos administrativos válidos produzam efeitos independentemente de confirmação judicial."
+    },
+    {
+        id: 537,
+        theme: 'concurso1',
+        question: "O reexame necessário (art. 55) ocorre quando:",
+        options: ["A decisão recorrida for de autoridade hierarquicamente superior à do recorrente", "A decisão recorrida for de autoridade hierarquicamente inferior à do recorrente", "O recurso for interposto por interessado não parte", "A decisão for unânime no colegiado"],
+        correctAnswer: 1,
+        explanation: "O art. 55 da Lei nº 9.784/1999 prevê o reexame necessário quando a decisão recorrida for de autoridade hierarquicamente inferior à do recorrente."
+    },
+    {
+        id: 538,
+        theme: 'concurso1',
+        question: "Os princípios constitucionais da saúde (art. 196-200 da CF/88) são:",
+        options: ["Universalidade, equidade, integralidade e participação", "Legalidade, impessoalidade, moralidade e publicidade", "Descentralização, hierarquização e regionalização", "Seletividade, integralidade e equidade"],
+        correctAnswer: 0,
+        explanation: "Os princípios constitucionais da saúde são universalidade, equidade, integralidade e participação da comunidade."
+    },
+    {
+        id: 539,
+        theme: 'concurso1',
+        question: "As ações e serviços públicos de saúde são organizados, conforme o art. 198 da CF, em regime de:",
+        options: ["Centralização e comando múltiplo", "Regionalização e hierarquização, com comando único em cada esfera de governo", "Descentralização apenas no âmbito municipal", "Privatização e terceirização integral"],
+        correctAnswer: 1,
+        explanation: "O art. 198 da CF/88 estabelece que as ações e serviços públicos de saúde são organizados em regime de regionalização e hierarquização, com comando único em cada esfera de governo."
+    },
+    {
+        id: 540,
+        theme: 'concurso1',
+        question: "O Decreto nº 7.508/2011 entende por hierarquização:",
+        options: ["Integração das ações e serviços de saúde em uma região delimitada", "Articulação dos componentes de saúde em diferentes níveis de complexidade", "Divisão do território em regiões de planejamento", "Atendimento integral à população por um único estabelecimento"],
+        correctAnswer: 1,
+        explanation: "O Decreto nº 7.508/2011 define hierarquização como a articulação dos componentes de saúde em diferentes níveis de complexidade."
+    },
+    {
+        id: 541,
+        theme: 'concurso1',
+        question: "São consideradas portas de entrada do SUS, segundo o Decreto nº 7.508/2011, EXCETO:",
+        options: ["Unidade Básica de Saúde", "Serviços de atenção às urgências e emergências", "Atendimento domiciliar", "Consulta especializada em ambulatório terciário"],
+        correctAnswer: 3,
+        explanation: "A consulta especializada em ambulatório terciário não é porta de entrada do SUS; as portas de entrada são a atenção básica, as urgências e emergências e o atendimento domiciliar."
+    },
+    {
+        id: 542,
+        theme: 'concurso1',
+        question: "O encaminhamento do usuário de um ponto da rede de atenção para outro que disponha de serviços mais especializados denomina-se:",
+        options: ["Contrarreferência", "Referência", "Regulação assistencial", "Autorização prévia"],
+        correctAnswer: 1,
+        explanation: "A referência é o encaminhamento do usuário para um serviço mais especializado; a contrarreferência é o retorno ao serviço de origem."
+    },
+    {
+        id: 543,
+        theme: 'concurso1',
+        question: "Estados, DF e Municípios destinarão, anualmente, às ações e serviços públicos de saúde, no mínimo, o equivalente a:",
+        options: ["10% da receita resultante de impostos e transferências", "12% da receita de impostos próprios", "15% da receita resultante de impostos e das transferências recebidas da União (art. 9º da Lei 8.080/90)", "20% do orçamento da seguridade social"],
+        correctAnswer: 2,
+        explanation: "O art. 9º da Lei nº 8.080/90 exige que Estados, DF e Municípios destinem ao menos 15% da receita resultante de impostos e transferências às ações e serviços públicos de saúde."
+    },
+    {
+        id: 544,
+        theme: 'concurso1',
+        question: "A participação da comunidade nas decisões do SUS se efetiva principalmente por meio de:",
+        options: ["Audiências públicas anuais", "Conselhos e conferências de saúde (art. 2º da Lei 8.142/90)", "Consultas populares promovidas pelo ministério", "Assembleias de moradores de bairro"],
+        correctAnswer: 1,
+        explanation: "O art. 2º da Lei nº 8.142/90 estabelece que a participação da comunidade se efetiva por meio dos conselhos e conferências de saúde."
+    },
+    {
+        id: 545,
+        theme: 'concurso1',
+        question: "Os princípios expressos do art. 37 da CF são:",
+        options: ["Legalidade, impessoalidade, moralidade, publicidade e eficiência", "Supremacia, indisponibilidade, autotutela e continuidade", "Legalidade, motivação, razoabilidade e eficiência", "Probidade, economicidade e eficiência"],
+        correctAnswer: 0,
+        explanation: "O art. 37 da CF/88 elenca expressamente os princípios da legalidade, impessoalidade, moralidade, publicidade e eficiência."
+    },
+    {
+        id: 546,
+        theme: 'concurso1',
+        question: "O atributo que faculta à Administração executar diretamente suas decisões, sem auxílio do Judiciário, é a:",
+        options: ["Tipicidade", "Autoexecutoriedade", "Presunção de veracidade", "Imperatividade"],
+        correctAnswer: 1,
+        explanation: "A autoexecutoriedade permite que a Administração execute diretamente suas decisões sem necessidade de recorrer ao Judiciário."
+    },
+    {
+        id: 547,
+        theme: 'concurso1',
+        question: "Nos limites ao exercício do poder de polícia, os denominados limites de adequação são:",
+        options: ["Conveniência e oportunidade", "Razoabilidade e proporcionalidade", "Motivação e indenização", "Legalidade e supremacia"],
+        correctAnswer: 1,
+        explanation: "Os limites de adequação ao exercício do poder de polícia são a razoabilidade e a proporcionalidade."
+    },
+    {
+        id: 548,
+        theme: 'concurso1',
+        question: "Caracteriza-se como poder discricionário aquele em que o agente:",
+        options: ["Aplica automaticamente a norma, sem margem de escolha", "Decide conforme conveniência e oportunidade, dentro dos limites legais", "Age sob estrito juízo de conformidade", "Depende sempre de autorização judicial prévia"],
+        correctAnswer: 1,
+        explanation: "O poder discricionário permite ao agente decidir conforme conveniência e oportunidade, dentro dos limites legais."
+    },
+    {
+        id: 549,
+        theme: 'concurso1',
+        question: "A extinção de ato administrativo válido, por conveniência ou oportunidade, denomina-se:",
+        options: ["Anulação", "Revogação", "Caducidade", "Convalidação"],
+        correctAnswer: 1,
+        explanation: "A revogação é a extinção de ato administrativo válido por razões de conveniência e oportunidade."
+    },
+    {
+        id: 550,
+        theme: 'concurso1',
+        question: "O prazo decadencial para a revisão, por iniciativa da própria Administração, de seus atos administrativos é de (art. 54 do ADCT):",
+        options: ["2 anos", "3 anos", "5 anos", "10 anos"],
+        correctAnswer: 2,
+        explanation: "O art. 54 do ADCT estabelece o prazo decadencial de 5 anos para a Administração rever seus próprios atos."
+    },
+    {
+        id: 551,
+        theme: 'concurso1',
+        question: "A desapropriação (art. 37, XXI, CF) pressupõe indenização:",
+        options: ["Prévia, justa e em dinheiro, salvo exceções legais", "Posterior e em bens", "Prévia e em moeda estrangeira", "Por simples declaração de utilidade pública"],
+        correctAnswer: 0,
+        explanation: "A desapropriação pressupõe indenização prévia, justa e em dinheiro, salvo as exceções legais previstas na CF."
+    },
+    {
+        id: 552,
+        theme: 'concurso1',
+        question: "Assinale a frase com concordância verbal correta:",
+        options: ["Fizeram-se necessárias novas providências.", "Haveriam muitos candidatos na prova.", "Existe, no setor, funcionários eficientes.", "Devem haver solução para o problema."],
+        correctAnswer: 0,
+        explanation: "A frase 'Fizeram-se necessárias novas providências' está correta: o verbo concorda com o sujeito 'novas providências'."
+    },
+    {
+        id: 553,
+        theme: 'concurso1',
+        question: "A regência correta do verbo assistir é:",
+        options: ["Assistiu o filme na sala de cinema.", "Assistiu a reunião como espectador.", "Assistiu o diretor com atenção.", "Assistiu os documentos ao servidor."],
+        correctAnswer: 1,
+        explanation: "No sentido de 'ver, presenciar', o verbo assistir é transitivo indireto, exigindo a preposição 'a': assistiu à reunião."
+    },
+    {
+        id: 554,
+        theme: 'concurso1',
+        question: "Quanto ao uso da crase, está correta a frase:",
+        options: ["Refiro-me a aquela decisão judicial.", "Entregou o relatório a aquele chefe de seção.", "Chegou à capital às onze horas.", "Voltou a sua casa de manhã."],
+        correctAnswer: 2,
+        explanation: "A crase está correta em 'Chegou à capital às onze horas', pois há fusão da preposição 'a' com o artigo 'a' antes de 'capital' e antes de 'onze horas'."
+    },
+    {
+        id: 555,
+        theme: 'concurso1',
+        question: "'Um e outro candidato ________ a prova.' A forma correta do verbo é:",
+        options: ["realizaram", "realizou", "realizarão", "realizará"],
+        correctAnswer: 1,
+        explanation: "Com a expressão 'um e outro', o verbo pode ficar no singular ou no plural; a forma 'realizou' está correta."
+    },
+    {
+        id: 556,
+        theme: 'concurso1',
+        question: "Em 'Bastante ________ aprovados no concurso', o adjetivo deve flexionar-se para:",
+        options: ["Invariável, pois se antepõe ao substantivo", "Variável, pois se refere a substantivo contável", "Invariável, por ser advérbio", "Variável apenas no gênero"],
+        correctAnswer: 1,
+        explanation: "O adjetivo 'bastante' varia quando se refere a substantivo contável: 'bastantes aprovados'."
+    },
+    {
+        id: 557,
+        theme: 'concurso1',
+        question: "A regência do verbo preferir exige:",
+        options: ["Preferir algo do que outro", "Preferir algo a outro", "Preferir algo com outro", "Preferir algo sobre outro"],
+        correctAnswer: 1,
+        explanation: "O verbo preferir exige a preposição 'a': preferir algo a outro."
+    },
+    {
+        id: 558,
+        theme: 'concurso1',
+        question: "Assinale a frase em que a próclise é obrigatória:",
+        options: ["Deu-se a situação prevista.", "Nunca se cometeram tantos erros.", "Alguém se importou com o problema.", "Fazem-se os reparos necessários."],
+        correctAnswer: 1,
+        explanation: "A próclise é obrigatória com palavras de sentido negativo, como 'nunca': 'Nunca se cometeram tantos erros'."
+    },
+    {
+        id: 559,
+        theme: 'concurso1',
+        question: "No uso em 'o silêncio da sala era ensurdecedor', a palavra 'ensurdecedor' aparece empregada em sentido:",
+        options: ["Denotativo", "Conotativo", "Técnico", "Dialetal"],
+        correctAnswer: 1,
+        explanation: "A palavra 'ensurdecedor' é usada em sentido figurado, conotativo, pois o silêncio não produz som que ensurdece literalmente."
+    },
+    {
+        id: 560,
+        theme: 'concurso1',
+        question: "Em 'João parou de fumar', pode-se afirmar que o enunciado pressupõe que:",
+        options: ["João continuará fumando", "João fumava anteriormente", "João jamais fumou", "João está proibido de fumar"],
+        correctAnswer: 1,
+        explanation: "O enunciado pressupõe que João fumava anteriormente, pois só se pode parar de fumar se antes se fumava."
+    },
+    {
+        id: 561,
+        theme: 'concurso1',
+        question: "'Ele deu o presente ao amigo com muita alegria.' Essa frase ilustra fenômeno de:",
+        options: ["Polissemia", "Ambiguidade", "Sinonímia", "Hiperonímia"],
+        correctAnswer: 1,
+        explanation: "A frase é ambígua: não se sabe se a alegria é do 'ele' (quem deu) ou do 'amigo' (quem recebeu)."
+    },
+    {
+        id: 562,
+        theme: 'concurso1',
+        question: "É exemplo de polissemia o emprego da palavra manga em:",
+        options: ["'Manga da camisa' e 'manga do extintor'", "'Manga' (fruta) e 'manga' (peça de vestuário) como homônimos perfeitos", "'Manga' (fruta) e 'manga' (expressão de raiva)", "'Manga da camisa' e 'camisa' — relação hiponímica"],
+        correctAnswer: 0,
+        explanation: "A polissemia ocorre quando a mesma palavra tem múltiplos significados relacionados, como 'manga da camisa' e 'manga do extintor'."
+    },
+    {
+        id: 563,
+        theme: 'concurso1',
+        question: "'O Brasil acordou e caiu no samba durante a Copa.' A expressão 'acordou' apresenta:",
+        options: ["Sentido denotativo e literal", "Figura de linguagem, pois atribui ação humana ao país", "Ambiguidade prejudicial à compreensão", "Emprego técnico da palavra"],
+        correctAnswer: 1,
+        explanation: "Há prosopopeia (personificação): atribui-se ao país uma ação humana ('acordou'), configurando figura de linguagem."
+    },
+    {
+        id: 564,
+        theme: 'concurso1',
+        question: "Inferência, no processo de leitura, é:",
+        options: ["Informação repetida textualmente pelo autor", "Conclusão que o leitor obtém a partir dos dados explícitos do texto", "Opinião pessoal do leitor, sem lastro no texto", "Título dado pelo autor ao texto"],
+        correctAnswer: 1,
+        explanation: "A inferência é a conclusão que o leitor constrói a partir das informações explícitas no texto, estabelecendo relações não ditas literalmente."
+    },
+    {
+        id: 565,
+        theme: 'concurso1',
+        question: "Na matriz SWOT (FFOA), os fatores Oportunidades e Ameaças referem-se a:",
+        options: ["Ambiente interno da organização", "Ambiente externo da organização", "Recursos financeiros disponíveis", "Desempenho passado da empresa"],
+        correctAnswer: 1,
+        explanation: "Na matriz SWOT, Oportunidades e Ameaças são fatores do ambiente externo da organização."
+    },
+    {
+        id: 566,
+        theme: 'concurso1',
+        question: "O modelo das Cinco Forças Competitivas foi desenvolvido por:",
+        options: ["Peter Drucker", "Michael Porter", "Philip Kotler", "Igor Ansoff"],
+        correctAnswer: 1,
+        explanation: "As Cinco Forças Competitivas foram desenvolvidas por Michael Porter."
+    },
+    {
+        id: 567,
+        theme: 'concurso1',
+        question: "Não constitui estratégia genérica de Porter:",
+        options: ["Liderança em custos", "Diferenciação", "Foco (custo ou diferenciação)", "Integração horizontal"],
+        correctAnswer: 3,
+        explanation: "As estratégias genéricas de Porter são liderança em custos, diferenciação e foco; integração horizontal não é uma delas."
+    },
+    {
+        id: 568,
+        theme: 'concurso1',
+        question: "A análise PEST examina variáveis:",
+        options: ["Políticas, econômicas, sociais e tecnológicas", "Preço, espaço, serviço e tecnologia", "Pessoal, estrutura, sistema e tecnologia", "Políticas, ecológicas, sociais e tributárias"],
+        correctAnswer: 0,
+        explanation: "A análise PEST examina variáveis políticas, econômicas, sociais e tecnológicas do ambiente externo."
+    },
+    {
+        id: 569,
+        theme: 'concurso1',
+        question: "Na Matriz BCG, a vaca leiteira é a unidade que apresenta:",
+        options: ["Alta participação relativa de mercado e baixa taxa de crescimento", "Baixa participação e alta taxa de crescimento", "Alta participação e alta taxa de crescimento", "Baixa participação e baixa taxa de crescimento"],
+        correctAnswer: 0,
+        explanation: "Na Matriz BCG, a vaca leiteira tem alta participação de mercado e baixa taxa de crescimento, gerando caixa."
+    },
+    {
+        id: 570,
+        theme: 'concurso1',
+        question: "A sequência lógica do ciclo do planejamento estratégico é:",
+        options: ["Formulação → implementação → análise/diagnóstico → avaliação", "Análise/diagnóstico → formulação → implementação → avaliação e controle", "Implementação → formulação → análise → controle", "Avaliação → análise → implementação → formulação"],
+        correctAnswer: 1,
+        explanation: "O ciclo do planejamento estratégico segue a sequência: análise/diagnóstico, formulação, implementação e avaliação e controle."
+    },
+    {
+        id: 571,
+        theme: 'concurso1',
+        question: "A vantagem comparativa, conceito associado a David Ricardo, baseia-se:",
+        options: ["No custo absoluto menor de produção", "No menor custo de oportunidade relativo entre países", "Na diferenciação do produto", "No controle de concorrentes"],
+        correctAnswer: 1,
+        explanation: "A vantagem comparativa baseia-se no menor custo de oportunidade relativo entre países, conforme David Ricardo."
+    },
+    {
+        id: 572,
+        theme: 'concurso1',
+        question: "O ciclo PDCA (roda de Deming) corresponde a:",
+        options: ["Planejar – Fazer – Verificar – Agir", "Prevenir – Detectar – Corrigir – Avaliar", "Projetar – Desenvolver – Controlar – Auditar", "Planejar – Dirigir – Coordenar – Avaliar"],
+        correctAnswer: 0,
+        explanation: "O ciclo PDCA corresponde a Planejar (Plan), Fazer (Do), Verificar (Check) e Agir (Act)."
+    },
+    {
+        id: 573,
+        theme: 'concurso1',
+        question: "O diagrama de causa e efeito, também chamado de espinha de peixe, tem por finalidade:",
+        options: ["Identificar as causas potenciais de um problema, agrupadas por categorias", "Ordenar os dados em ordem de frequência", "Medir a variabilidade de um processo ao longo do tempo", "Verificar o cumprimento de especificações"],
+        correctAnswer: 0,
+        explanation: "O diagrama de causa e efeito (espinha de peixe) identifica as causas potenciais de um problema, agrupadas por categorias."
+    },
+    {
+        id: 574,
+        theme: 'concurso1',
+        question: "O diagrama de Pareto fundamenta-se no princípio de que:",
+        options: ["Todos os defeitos têm a mesma importância", "Poucos problemas são responsáveis pela maior parte dos efeitos (80/20)", "A qualidade deve inspecionar-se no final do processo", "A variância deve ser maximizada"],
+        correctAnswer: 1,
+        explanation: "O diagrama de Pareto baseia-se no princípio 80/20: poucos problemas são responsáveis pela maior parte dos efeitos."
+    },
+    {
+        id: 575,
+        theme: 'concurso1',
+        question: "Segundo Feigenbaum, os custos da qualidade classificam-se em:",
+        options: ["Diretos, indiretos e operacionais", "De prevenção, de avaliação, de falhas internas e de falhas externas", "Fixos, variáveis e semivariáveis", "Tangíveis, intangíveis e financeiros"],
+        correctAnswer: 1,
+        explanation: "Feigenbaum classifica os custos da qualidade em prevenção, avaliação, falhas internas e falhas externas."
+    },
+    {
+        id: 576,
+        theme: 'concurso1',
+        question: "Para Philip Crosby, 'qualidade é gratuidade' significa que:",
+        options: ["Os programas de qualidade não custam nada", "Os custos de não fazer corretamente sempre superam os custos de fazê-lo corretamente (zero defeito)", "A qualidade deve ser terceirizada", "A inspeção final elimina todos os custos"],
+        correctAnswer: 1,
+        explanation: "Para Crosby, 'qualidade é gratuidade' significa que os custos de não fazer corretamente superam os custos de fazê-lo corretamente, defendendo o zero defeito."
+    },
+    {
+        id: 577,
+        theme: 'concurso1',
+        question: "A Trilogia da Qualidade de Joseph Juran compreende:",
+        options: ["Planejamento, controle e melhoria", "Projetar, produzir e inspecionar", "Prevenir, avaliar e punir", "Planejar, organizar e dirigir"],
+        correctAnswer: 0,
+        explanation: "A Trilogia da Qualidade de Juran compreende planejamento, controle e melhoria da qualidade."
+    },
+    {
+        id: 578,
+        theme: 'concurso1',
+        question: "Segundo o PMBOK, são grupos de processos da gestão de projetos:",
+        options: ["Iniciação, planejamento, execução, monitoramento e controle e encerramento", "Concepção, operação e encerramento", "Estudo, aprovação, execução e avaliação", "Planejamento, orçamento, cronograma e controle"],
+        correctAnswer: 0,
+        explanation: "O PMBOK define cinco grupos de processos: iniciação, planejamento, execução, monitoramento e controle e encerramento."
+    },
+    {
+        id: 579,
+        theme: 'concurso1',
+        question: "A tripla restrição da gestão de projetos é formada por:",
+        options: ["Escopo, tempo e custo — com a qualidade no centro", "Qualidade, equipe e comunicação", "Risco, escopo e aquisições", "Prazo, orçamento e comunicação"],
+        correctAnswer: 0,
+        explanation: "A tripla restrição clássica é composta por escopo, tempo e custo, com a qualidade no centro."
+    },
+    {
+        id: 580,
+        theme: 'concurso1',
+        question: "O caminho crítico (CPM) é:",
+        options: ["A sequência de atividades com maior custo do projeto", "A sequência de atividades que determina a duração mínima do projeto, sem folga", "A atividade mais complexa tecnicamente", "O conjunto de atividades terceirizadas"],
+        correctAnswer: 1,
+        explanation: "O caminho crítico é a sequência de atividades que determina a duração mínima do projeto, sem folga."
+    },
+    {
+        id: 581,
+        theme: 'concurso1',
+        question: "Na análise de valor agregado, o CPI (Índice de Desempenho de Custos) é calculado por:",
+        options: ["PV / AC", "EV / AC", "EV / PV", "AC / EV"],
+        correctAnswer: 1,
+        explanation: "O CPI é calculado pela razão EV/AC (Valor Agregado dividido pelo Custo Real)."
+    },
+    {
+        id: 582,
+        theme: 'concurso1',
+        question: "No framework Scrum, o responsável por gerenciar o backlog do produto e maximizar o valor do trabalho é:",
+        options: ["Scrum Master", "Product Owner", "Gerente de projeto", "Sponsor"],
+        correctAnswer: 1,
+        explanation: "No Scrum, o Product Owner é o responsável por gerenciar o backlog do produto e maximizar o valor do trabalho."
+    },
+    {
+        id: 583,
+        theme: 'concurso1',
+        question: "O Kanban caracteriza-se por:",
+        options: ["Sistema puxado, com limites de trabalho em andamento (WIP)", "Sprints fixos de duas semanas", "Planejamento detalhado de longo prazo", "Hierarquia rígida de papéis"],
+        correctAnswer: 0,
+        explanation: "O Kanban é um sistema puxado, com limites de trabalho em andamento (WIP)."
+    },
+    {
+        id: 584,
+        theme: 'concurso1',
+        question: "A análise qualitativa de riscos consiste em:",
+        options: ["Avaliar probabilidade e impacto dos riscos, usualmente em matriz", "Quantificar perdas em valores monetários", "Transferir todos os riscos a terceiros", "Eliminar todos os riscos do projeto"],
+        correctAnswer: 0,
+        explanation: "A análise qualitativa de riscos avalia probabilidade e impacto, usualmente por meio de matriz de riscos."
+    },
+    {
+        id: 585,
+        theme: 'concurso1',
+        question: "Na curva ABC, os itens classe A correspondem, aproximadamente, a:",
+        options: ["20% dos itens e 80% do valor consumido", "80% dos itens e 20% do valor consumido", "50% dos itens e 50% do valor consumido", "10% dos itens e 10% do valor consumido"],
+        correctAnswer: 0,
+        explanation: "Na curva ABC, os itens classe A representam cerca de 20% dos itens e 80% do valor consumido."
+    },
+    {
+        id: 586,
+        theme: 'concurso1',
+        question: "O lote econômico de compra (LEC) é a quantidade que:",
+        options: ["Maximiza o estoque máximo da empresa", "Minimiza o custo total anual de pedido e de manutenção de estoque", "Iguala estoque de segurança a zero", "Corresponde à demanda de um ano"],
+        correctAnswer: 1,
+        explanation: "O LEC é a quantidade que minimiza o custo total anual de pedido e de manutenção de estoque."
+    },
+    {
+        id: 587,
+        theme: 'concurso1',
+        question: "O ponto de pedido é calculado por:",
+        options: ["Consumo diário × prazo de reposição + estoque de segurança", "Lote econômico ÷ prazo de reposição", "Estoque máximo – estoque mínimo", "Demanda anual ÷ giro de estoque"],
+        correctAnswer: 0,
+        explanation: "O ponto de pedido é calculado por: consumo diário × prazo de reposição + estoque de segurança."
+    },
+    {
+        id: 588,
+        theme: 'concurso1',
+        question: "O giro de estoque é obtido por meio do quociente entre:",
+        options: ["Estoque médio e consumo anual", "Consumo anual e estoque médio", "Consumo diário e lote de compra", "Estoque de segurança e lead time"],
+        correctAnswer: 1,
+        explanation: "O giro de estoque é o quociente entre o consumo anual e o estoque médio."
+    },
+    {
+        id: 589,
+        theme: 'concurso1',
+        question: "Não se classifica como custo de manter estoques:",
+        options: ["Custo de capital imobilizado", "Custo de armazenagem e seguros", "Custo de obsolescência", "Custo de transporte do fornecedor ao almoxarifado"],
+        correctAnswer: 3,
+        explanation: "O custo de transporte do fornecedor ao almoxarifado é custo de pedido/aquisição, não de manutenção de estoque."
+    },
+    {
+        id: 590,
+        theme: 'concurso1',
+        question: "A classificação VED (vital, essencial, desejável) categoriza os materiais segundo:",
+        options: ["Valor unitário de aquisição", "Criticidade para a operação da organização", "Giro de consumo anual", "Localização física no almoxarifado"],
+        correctAnswer: 1,
+        explanation: "A classificação VED categoriza os materiais segundo a criticidade para a operação da organização."
+    },
+    {
+        id: 591,
+        theme: 'concurso1',
+        question: "A filosofia Just in Time preconiza:",
+        options: ["Manutenção de estoques elevados contra falhas", "Produção/compra na quantidade certa, na hora certa, reduzindo estoques e desperdícios", "Antecipação de compras por previsões anuais", "Aprovação em dois níveis hierárquicos"],
+        correctAnswer: 1,
+        explanation: "O Just in Time preconiza produzir/comprar na quantidade certa, na hora certa, reduzindo estoques e desperdícios."
+    },
+    {
+        id: 592,
+        theme: 'concurso1',
+        question: "A gestão da cadeia de suprimentos (SCM) integra os fluxos de:",
+        options: ["Bens, informações e financeiro", "Produtos e pessoas", "Capital e serviços jurídicos", "Insumos e mão de obra"],
+        correctAnswer: 0,
+        explanation: "A SCM integra os fluxos de bens, informações e financeiro ao longo da cadeia de suprimentos."
+    },
+    {
+        id: 593,
+        theme: 'concurso1',
+        question: "A logística reversa refere-se:",
+        options: ["À devolução de cargas recusadas no recebimento", "Ao fluxo de retorno de produtos pós-consumo para reutilização, reciclagem ou destinação adequada (Lei 12.305/2010)", "Ao transporte de materiais entre filiais", "Ao estoque de segurança mínimo"],
+        correctAnswer: 1,
+        explanation: "A logística reversa é o fluxo de retorno de produtos pós-consumo para reutilização, reciclagem ou destinação adequada, conforme a Lei nº 12.305/2010."
+    },
+    {
+        id: 594,
+        theme: 'concurso1',
+        question: "Para o transporte de grandes volumes em longas distâncias com baixo custo, o modo mais adequado é:",
+        options: ["Rodoviário", "Ferroviário", "Aéreo", "Dutoviário"],
+        correctAnswer: 1,
+        explanation: "O modo ferroviário é o mais adequado para grandes volumes em longas distâncias com baixo custo."
+    },
+    {
+        id: 595,
+        theme: 'concurso1',
+        question: "A operação de cross-docking consiste em:",
+        options: ["Armazenagem prolongada para formação de lotes", "Receber mercadorias e redistribuí-las imediatamente, sem estocagem prolongada", "Transporte porta a porta com veículos exclusivos", "Inspeção de qualidade na doca"],
+        correctAnswer: 1,
+        explanation: "O cross-docking consiste em receber mercadorias e redistribuí-las imediatamente, sem estocagem prolongada."
+    },
+    {
+        id: 596,
+        theme: 'concurso1',
+        question: "No Incoterm FOB (Free On Board), o risco da mercadoria transfere-se para o comprador:",
+        options: ["No momento do pagamento", "Quando a mercadoria é embarcada a bordo do navio", "Na chegada ao porto de destino", "No desembaraço aduaneiro de origem"],
+        correctAnswer: 1,
+        explanation: "No FOB, o risco transfere-se ao comprador quando a mercadoria é embarcada a bordo do navio no porto de origem."
+    },
+    {
+        id: 597,
+        theme: 'concurso1',
+        question: "O DRP (planejamento de necessidades de distribuição) tem como principal objetivo:",
+        options: ["Dimensionar a força de vendas", "Determinar níveis de estoque e reposição em cada ponto da rede de distribuição", "Selecionar transportadoras", "Negociar com fornecedores"],
+        correctAnswer: 1,
+        explanation: "O DRP tem como objetivo determinar níveis de estoque e reposição em cada ponto da rede de distribuição."
+    },
+    {
+        id: 598,
+        theme: 'concurso1',
+        question: "Documento de arquivo é aquele que:",
+        options: ["Está em produção, no cotidiano do órgão", "Foi produzido/acumulado e preservado por ser considerado útil, no contexto de atividade documental", "Possui apenas valor decorativo", "Foi eliminado após o uso imediato"],
+        correctAnswer: 1,
+        explanation: "Documento de arquivo é aquele produzido/acumulado e preservado por ser útil, no contexto de sua atividade documental."
+    },
+    {
+        id: 599,
+        theme: 'concurso1',
+        question: "As fases do ciclo vital do documento são:",
+        options: ["Produção, tramitação e eliminação", "Corrente, intermediária e permanente", "Interna, externa e de recolhimento", "Ativa, passiva e sigilosa"],
+        correctAnswer: 1,
+        explanation: "O ciclo vital do documento compreende as fases corrente, intermediária e permanente."
+    },
+    {
+        id: 600,
+        theme: 'concurso1',
+        question: "A tabela de temporalidade é o instrumento que estabelece:",
+        options: ["A localização física dos documentos", "Prazos de guarda e destinação final dos documentos produzidos", "Os assuntos das pastas funcionais", "O nível de sigilo de cada série"],
+        correctAnswer: 1,
+        explanation: "A tabela de temporalidade estabelece prazos de guarda e destinação final dos documentos."
+    },
+    {
+        id: 601,
+        theme: 'concurso1',
+        question: "A destinação final dos documentos compreende:",
+        options: ["Recolhimento ao arquivo corrente", "Guarda permanente ou eliminação (baixa)", "Microfilmagem obrigatória", "Publicação no diário oficial"],
+        correctAnswer: 1,
+        explanation: "A destinação final dos documentos compreende a guarda permanente ou a eliminação (baixa)."
+    },
+    {
+        id: 602,
+        theme: 'concurso1',
+        question: "O princípio da proveniência (respeito aos fundos) determina:",
+        options: ["Organizar os documentos por ordem alfabética de autores", "Manter os documentos vinculados ao órgão/produtor, preservando seu contexto de origem", "Separar os documentos por suporte material", "Recolher ao arquivo nacional todo documento antigo"],
+        correctAnswer: 1,
+        explanation: "O princípio da proveniência determina manter os documentos vinculados ao órgão produtor, preservando seu contexto de origem."
+    },
+    {
+        id: 603,
+        theme: 'concurso1',
+        question: "Arquivo permanente é aquele que:",
+        options: ["Guarda documentos de uso corrente", "Custodia documentos de guarda permanente, de valor histórico", "Elimina documentos no prazo de 5 anos", "Tramita processos administrativos"],
+        correctAnswer: 1,
+        explanation: "O arquivo permanente custodia documentos de guarda permanente, com valor histórico."
+    },
+    {
+        id: 604,
+        theme: 'concurso1',
+        question: "Na classificação arquivística, a codificação dos documentos tem por finalidade:",
+        options: ["Cifrar informações sigilosas", "Atribuir códigos que organizam e recuperam a informação na estrutura de classificação", "Numerar as folhas de cada processo", "Padronizar o papel utilizado"],
+        correctAnswer: 1,
+        explanation: "A codificação atribui códigos que organizam e permitem recuperar a informação na estrutura de classificação."
+    },
+    {
+        id: 605,
+        theme: 'concurso1',
+        question: "A departamentalização funcional agrupa atividades segundo:",
+        options: ["Produtos fabricados", "Especialidades ou funções (RH, finanças, marketing)", "Regiões geográficas", "Projetos temporários"],
+        correctAnswer: 1,
+        explanation: "A departamentalização funcional agrupa atividades por especialidades ou funções, como RH, finanças e marketing."
+    },
+    {
+        id: 606,
+        theme: 'concurso1',
+        question: "Na estrutura matricial, o principal dilema gerencial é:",
+        options: ["Excesso de especialização", "A dupla subordinação do empregado a gestores funcional e de projeto", "A ausência de hierarquia", "A centralização absoluta"],
+        correctAnswer: 1,
+        explanation: "Na estrutura matricial, o principal dilema é a dupla subordinação do empregado a gestores funcional e de projeto."
+    },
+    {
+        id: 607,
+        theme: 'concurso1',
+        question: "Para Max Weber, a burocracia caracteriza-se por, EXCETO:",
+        options: ["Divisão do trabalho baseada na especialização técnica", "Hierarquia de autoridade", "Impessoalidade nas relações", "Propriedade privada dos cargos"],
+        correctAnswer: 3,
+        explanation: "Para Weber, a burocracia não se caracteriza pela propriedade privada dos cargos, mas pela impessoalidade e pelo mérito."
+    },
+    {
+        id: 608,
+        theme: 'concurso1',
+        question: "Segundo Burns e Stalker, a estrutura orgânica é mais adequada a ambientes:",
+        options: ["Estáveis e previsíveis", "Dinâmicos e incertos", "Altamente regulados", "Com produção em massa padronizada"],
+        correctAnswer: 1,
+        explanation: "Burns e Stalker indicam que a estrutura orgânica é mais adequada a ambientes dinâmicos e incertos."
+    },
+    {
+        id: 609,
+        theme: 'concurso1',
+        question: "A principal distinção entre delegação e descentralização é que a descentralização:",
+        options: ["É ato pontual e revogável", "Ocorre por norma, de forma institucional e permanente", "Depende de autorização judicial", "Aplica-se apenas a matérias financeiras"],
+        correctAnswer: 1,
+        explanation: "A descentralização ocorre por norma, de forma institucional e permanente, enquanto a delegação é ato pontual e revogável."
+    },
+    {
+        id: 610,
+        theme: 'concurso1',
+        question: "O organograma formal não representa:",
+        options: ["Unidades organizacionais", "Linhas de autoridade", "Relações informais e fluxos de comunicação extraoficiais", "Níveis hierárquicos"],
+        correctAnswer: 2,
+        explanation: "O organograma formal não representa relações informais nem fluxos de comunicação extraoficiais."
+    },
+    {
+        id: 611,
+        theme: 'concurso1',
+        question: "Auditoria é o exame metodologicamente estruturado de atos, gestão, demonstrações e registros, realizado com objetivo de:",
+        options: ["Punir responsáveis por irregularidades", "Emitir parecer sobre sua conformidade e confiabilidade", "Substituir o controle interno da entidade", "Executar o orçamento da organização"],
+        correctAnswer: 1,
+        explanation: "A auditoria tem por objetivo emitir parecer sobre a conformidade e confiabilidade dos atos, gestão, demonstrações e registros."
+    },
+    {
+        id: 612,
+        theme: 'concurso1',
+        question: "A auditoria interna difere da externa porque a interna:",
+        options: ["Atua em substituição ao controle interno", "Avalia e dá suporte à gestão, sem emitir parecer para terceiros externos", "Só pode ser realizada por auditores federais", "Não utiliza procedimentos técnicos"],
+        correctAnswer: 1,
+        explanation: "A auditoria interna avalia e dá suporte à gestão, sem emitir parecer para terceiros externos."
+    },
+    {
+        id: 613,
+        theme: 'concurso1',
+        question: "A auditoria que verifica o cumprimento de leis, regulamentos e normas internas é a auditoria:",
+        options: ["Operacional", "De conformidade", "Financeira", "De sistemas"],
+        correctAnswer: 1,
+        explanation: "A auditoria de conformidade verifica o cumprimento de leis, regulamentos e normas internas."
+    },
+    {
+        id: 614,
+        theme: 'concurso1',
+        question: "Sobre as evidências de auditoria, correto afirmar:",
+        options: ["A suficiência relaciona-se à quantidade e a adequação à qualidade (relevância e confiabilidade)", "A suficiência relaciona-se à qualidade e a adequação à quantidade", "Ambas dispensam documentação", "Evidências orais são sempre inaceitáveis"],
+        correctAnswer: 0,
+        explanation: "A suficiência relaciona-se à quantidade de evidências, e a adequação, à qualidade (relevância e confiabilidade)."
+    },
+    {
+        id: 615,
+        theme: 'concurso1',
+        question: "O risco de amostragem é:",
+        options: ["A possibilidade de a conclusão do auditor divergir se a população fosse examinada por inteiro", "O risco de a amostra ser furtada", "A probabilidade de fraude no universo auditado", "O erro decorrente de equívoco de cálculo"],
+        correctAnswer: 0,
+        explanation: "O risco de amostragem é a possibilidade de a conclusão do auditor divergir caso a população fosse examinada por inteiro."
+    },
+    {
+        id: 616,
+        theme: 'concurso1',
+        question: "O parecer de auditoria que afirma que as demonstrações apresentam adequadamente, em todos os aspectos relevantes, a posição patrimonial e financeira é o parecer:",
+        options: ["Com ressalva", "Sem ressalva", "Adverso", "De abstenção de opinião"],
+        correctAnswer: 1,
+        explanation: "O parecer sem ressalva afirma que as demonstrações apresentam adequadamente, em todos os aspectos relevantes, a posição patrimonial e financeira."
+    },
+    {
+        id: 617,
+        theme: 'concurso1',
+        question: "Segundo as normas de auditoria (NBC T 11), a primeira etapa do trabalho de auditoria independente é:",
+        options: ["Elaboração do relatório final", "Planejamento, iniciado pela análise preliminar", "Testes de conformidade", "Emissão do parecer"],
+        correctAnswer: 1,
+        explanation: "A primeira etapa da auditoria independente é o planejamento, iniciado pela análise preliminar."
+    },
+    {
+        id: 618,
+        theme: 'concurso1',
+        question: "O Manual de Redação da Presidência da República foi instituído pelo:",
+        options: ["Decreto nº 5.707/2006", "Decreto nº 2.761/1998", "Lei nº 8.112/1990", "Decreto nº 9.094/2017"],
+        correctAnswer: 1,
+        explanation: "O Manual de Redação da Presidência da República foi instituído pelo Decreto nº 2.761/1998."
+    },
+    {
+        id: 619,
+        theme: 'concurso1',
+        question: "Segundo o Manual, o gerúndio não deve ser empregado para expressar ideia de futuro. Está correta a forma:",
+        options: ["Estamos analisando o pedido na próxima semana.", "Analisaremos o pedido na próxima semana.", "Estamos analisando o pedido semana que vem.", "Iremos analisando o pedido na próxima semana."],
+        correctAnswer: 1,
+        explanation: "A forma correta para expressar ideia de futuro é 'Analisaremos o pedido na próxima semana', sem gerúndio."
+    },
+    {
+        id: 620,
+        theme: 'concurso1',
+        question: "As comunicações oficiais dirigidas às autoridades com tratamento de Vossa Excelência devem ser redigidas na:",
+        options: ["Primeira pessoa do singular", "Terceira pessoa", "Segunda pessoa do singular", "Primeira pessoa do plural"],
+        correctAnswer: 1,
+        explanation: "As comunicações oficiais dirigidas a autoridades com tratamento de Vossa Excelência devem ser redigidas na terceira pessoa."
+    },
+    {
+        id: 621,
+        theme: 'concurso1',
+        question: "No vocativo dirigido ao Presidente da República, a forma correta é:",
+        options: ["Senhor Presidente da República", "Vossa Excelência Senhor Presidente", "Excelentíssimo Senhor Presidente", "Ilustríssimo Senhor Presidente"],
+        correctAnswer: 2,
+        explanation: "O vocativo correto para o Presidente da República é 'Excelentíssimo Senhor Presidente'."
+    },
+    {
+        id: 622,
+        theme: 'concurso1',
+        question: "Os fechos 'Atenciosamente' e 'Respeitosamente' distinguem-se assim:",
+        options: ["Atenciosamente para Ministros; Respeitosamente para autoridades de hierarquia inferior", "Atenciosamente para autoridades de hierarquia inferior (inclusive Ministros); Respeitosamente para o Presidente da República", "Respeitosamente para inferiores; Atenciosamente para o Presidente", "Os fechos são intercambiáveis, sem distinção hierárquica"],
+        correctAnswer: 1,
+        explanation: "'Atenciosamente' é usado para autoridades de hierarquia inferior (inclusive Ministros), e 'Respeitosamente' para o Presidente da República."
+    },
+    {
+        id: 623,
+        theme: 'concurso1',
+        question: "Não integra a lista de características da redação oficial:",
+        options: ["Clareza", "Concisão", "Subjetividade", "Impessoalidade"],
+        correctAnswer: 2,
+        explanation: "A subjetividade não integra as características da redação oficial, que prima pela impessoalidade, clareza e concisão."
     }
-
-
-
 
 
     
